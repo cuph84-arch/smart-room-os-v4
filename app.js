@@ -61,7 +61,11 @@ function mapFirebaseState(state) {
   recording: state.cctv?.recording ?? '--',
   lastMotion: state.cctv?.last_motion ?? '--'
 },
-
+energy: {
+  today: state.energy?.today_kwh ?? 0,
+  week: state.energy?.week_kwh ?? 0,
+  month: state.energy?.month_kwh ?? 0
+},
     lastAutomation: {
       scene: state.last_automation?.scene ?? 'Belum ada scene',
       timestamp: state.last_automation?.timestamp ?? '--'
