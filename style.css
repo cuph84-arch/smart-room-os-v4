@@ -292,3 +292,34 @@ body{
     font-size:13px;
   }
 }
+
+.energy-stats{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-top:16px;
+}
+
+.energy-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:14px 16px;
+
+  background:rgba(255,255,255,.08);
+
+  border-radius:16px;
+
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.energy-item span{
+  opacity:.8;
+  font-size:14px;
+}
+
+.energy-item strong{
+  font-size:18px;
+  font-weight:700;
+}
