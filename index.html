@@ -1,1 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Smart Room OS V4</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+
+  <meta name="theme-color" content="#8fd6ff" />
+</head>
+
+<body>
+  <main class="app">
+
+    <header class="header">
+      <h1>Welcome Home</h1>
+
+      <nav class="top-tabs">
+        <button class="active">Home</button>
+        <button>Kamar</button>
+        <button>Ruang tamu</button>
+        <button>Teras</button>
+        <button>Garasi</button>
+      </nav>
+    </header>
+
+    <section class="glass-panel">
+
+      <section class="grid-2">
+        <article class="card">
+          <div class="card-title">
+            <img src="icons/humidity.svg" alt="" />
+            <span>Suhu kamar</span>
+          </div>
+
+          <p>Temp. : <b id="roomTemp">--°C</b></p>
+          <p>Humidity : <b id="roomHumidity">--%</b></p>
+        </article>
+
+        <article class="card">
+          <div class="card-title">
+            <img src="icons/power.svg" alt="" />
+            <span>Power</span>
+          </div>
+
+          <p>Current : <b id="plugPower">--W</b></p>
+          <p>Volt : <b id="plugVolt">--V</b></p>
+        </article>
+      </section>
+
+      <section class="grid-2">
+        <article class="card ac-card">
+          <div class="card-head">
+            <h2>AC Kamar</h2>
+            <span id="acPowerBadge" class="badge off">OFF</span>
+          </div>
+
+          <div class="big-temp" id="acTemp">--°C</div>
+
+          <p>AC status : <b id="acStatus">--</b></p>
+          <p>Mode : <b id="acMode">--</b></p>
+          <p>Fan : <b id="acFan">--</b></p>
+        </article>
+
+        <article class="card lamp-card">
+          <div class="card-head">
+            <h2>Lampu kamar</h2>
+            <span id="lampPowerBadge" class="badge off">OFF</span>
+          </div>
+
+          <img class="lamp-icon" src="icons/lamp.svg" alt="" />
+
+          <p>Status : <b id="lampStatus">--</b></p>
+          <p>Brightness : <b id="lampBrightness">--%</b></p>
+          <p>Mode : <b id="lampMode">--</b></p>
+
+          <div class="bar">
+            <span id="lampBar"></span>
+          </div>
+        </article>
+      </section>
+
+      <section class="wide-card media-card">
+        <div class="media-box">
+          <div class="card-head">
+            <h2>TV Kamar</h2>
+            <span id="tvPowerBadge" class="badge off">OFF</span>
+          </div>
+
+          <img src="icons/smart_hub.svg" alt="" />
+          <p id="tvStatus">Standby</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="media-box">
+          <div class="card-head">
+            <h2>Nest</h2>
+            <span id="nestPowerBadge" class="badge off">OFF</span>
+          </div>
+
+          <img src="icons/smart_hub.svg" alt="" />
+          <p id="nestStatus">Idle</p>
+          <small>Volume <span id="nestVolume">--</span>%</small>
+        </div>
+      </section>
+
+      <section class="wide-card cctv-card">
+        <div class="card-title">
+          <img src="icons/camera.svg" alt="" />
+          <span>CCTV Kamar</span>
+        </div>
+
+        <p>Status : <b id="cctvOnline">--</b></p>
+        <p>Motion : <b id="cctvMotion">--</b></p>
+        <p>Recording : <b id="cctvRecording">--</b></p>
+      </section>
+
+      <section class="wide-card chart-card">
+        <h2>Pemakaian kWh bulan ini</h2>
+        <div class="fake-chart">
+          <svg viewBox="0 0 300 120" preserveAspectRatio="none">
+            <polyline points="10,85 70,60 120,50 170,80 220,75 290,45" />
+          </svg>
+        </div>
+      </section>
+
+      <section class="wide-card scene-card">
+        <h2>Scene terakhir :</h2>
+
+        <div class="scene-row">
+          <span id="sceneTime">--:--</span>
+          <strong id="sceneName">Belum ada scene</strong>
+        </div>
+
+        <small id="sceneDate">--</small>
+      </section>
+
+    </section>
+
+    <nav class="bottom-nav">
+      <button class="active">🏠 Home</button>
+      <button>☼ Automation</button>
+      <button>⌁ Devices</button>
+      <button>⚙ Setting</button>
+    </nav>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
