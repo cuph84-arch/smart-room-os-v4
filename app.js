@@ -56,10 +56,11 @@ function mapFirebaseState(state) {
     },
 
     cctv: {
-      online: state.cctv?.online ?? '--',
-      motion: state.cctv?.motion ?? '--',
-      recording: state.cctv?.recording ?? '--'
-    },
+  online: state.cctv?.online ?? '--',
+  motion: state.cctv?.motion ?? '--',
+  recording: state.cctv?.recording ?? '--',
+  lastMotion: state.cctv?.last_motion ?? '--'
+},
 
     lastAutomation: {
       scene: state.last_automation?.scene ?? 'Belum ada scene',
@@ -96,6 +97,7 @@ function renderDashboard(data) {
   setText('cctvOnline', data.cctv.online);
   setText('cctvMotion', data.cctv.motion);
   setText('cctvRecording', data.cctv.recording);
+  setText('cctvLastMotion', data.cctv.lastMotion);
 
   setText('sceneName', data.lastAutomation.scene);
   setText('sceneDate', data.lastAutomation.timestamp);
