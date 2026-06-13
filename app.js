@@ -45,9 +45,9 @@ function mapFirebaseState(state) {
     },
 
     tv: {
-      power: state.tv?.power ?? '--',
-      status: state.tv?.screen ?? state.tv?.status ?? 'Standby'
-    },
+  power: state.tv?.power ?? '--',
+  status: getTvDisplayStatus(state.tv)
+},
 
     nest: {
       online: state.nest?.online ?? false,
@@ -123,4 +123,24 @@ function setBadge(id, active) {
 function isOn(value) {
   return String(value).toUpperCase().includes('ON') ||
          String(value).toUpperCase() === 'TRUE';
+}
+
+function getTvDisplayStatus(tv) {
+  if (!tv) return 'Standby';
+
+  const power = String(tv.power || '').toUpperCase();
+  const screen = String(tv.screen || '').trim();
+  const status = String(tv.status || '').toUpperCase();
+
+  if (power !== 'ON') return 'Standby';
+
+  if (
+    screen === '' ||
+    screen.toLowerCase() === 'no app'
+  ) {
+    if (status === 'PLAYING') return 'Screen Saver';
+    return 'Home Screen';
+  }
+
+  return screen;
 }
