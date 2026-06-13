@@ -1,143 +1,126 @@
-console.log('Smart Room OS V4 Loaded');
+console.log('Smart Room OS V4 Firebase Loaded');
 
-const dummyData = {
+const FIREBASE_STATE_URL =
+  'https://smart-room-os-v3-default-rtdb.asia-southeast1.firebasedatabase.app/state.json';
 
-  climate: {
-    temp: 27,
-    humidity: 74
-  },
+loadFirebaseState();
+setInterval(loadFirebaseState, 5000);
 
-  smartplug: {
-    power: 355,
-    voltage: 223
-  },
+async function loadFirebaseState() {
+  try {
+    const res = await fetch(FIREBASE_STATE_URL + '?t=' + Date.now());
+    const state = await res.json();
 
-  ac: {
-    power: 'ON',
-    temp: 27,
-    mode: 'COOL',
-    fan: 'AUTO'
-  },
+    const data = mapFirebaseState(state || {});
+    renderDashboard(data);
 
-  lamp: {
-    power: 'ON',
-    brightness: 70,
-    mode: 'WHITE'
-  },
-
-  tv: {
-    power: 'ON',
-    status: 'YouTube'
-  },
-
-  nest: {
-    online: true,
-    status: 'IDLE',
-    volume: 30
-  },
-
-  cctv: {
-    online: 'ONLINE',
-    motion: 'NO MOTION',
-    recording: 'ON'
-  },
-
-  lastAutomation: {
-    scene: 'Movie Mode',
-    timestamp: '13 Jun 2026 16:38'
+  } catch (err) {
+    console.error('Firebase load error:', err);
   }
+}
 
-};
+function mapFirebaseState(state) {
+  return {
+    climate: {
+      temp: state.climate?.temperature ?? '--',
+      humidity: state.climate?.humidity ?? '--'
+    },
 
-renderDashboard(dummyData);
+    smartplug: {
+      power: state.smartplug?.power ?? '--',
+      voltage: state.smartplug?.voltage ?? '--'
+    },
 
-function renderDashboard(data){
+    ac: {
+      power: state.ac?.power ?? state.smartplug?.ac_status ?? '--',
+      temp: state.ac?.temperature ?? '--',
+      mode: state.ac?.mode ?? '--',
+      fan: state.ac?.fan ?? '--'
+    },
 
-  document.getElementById('roomTemp').textContent =
-    data.climate.temp + '°C';
+    lamp: {
+      power: state.lamp?.power ?? '--',
+      brightness: state.lamp?.brightness ?? 0,
+      mode: state.lamp?.mode ?? '--'
+    },
 
-  document.getElementById('roomHumidity').textContent =
-    data.climate.humidity + '%';
+    tv: {
+      power: state.tv?.power ?? '--',
+      status: state.tv?.screen ?? state.tv?.status ?? 'Standby'
+    },
 
-  document.getElementById('plugPower').textContent =
-    data.smartplug.power + 'W';
+    nest: {
+      online: state.nest?.online ?? false,
+      status: state.nest?.status ?? 'IDLE',
+      volume: state.nest?.volume ?? '--'
+    },
 
-  document.getElementById('plugVolt').textContent =
-    data.smartplug.voltage + 'V';
+    cctv: {
+      online: state.cctv?.online ?? '--',
+      motion: state.cctv?.motion ?? '--',
+      recording: state.cctv?.recording ?? '--'
+    },
 
-  document.getElementById('acTemp').textContent =
-    data.ac.temp + '°C';
+    lastAutomation: {
+      scene: state.last_automation?.scene ?? 'Belum ada scene',
+      timestamp: state.last_automation?.timestamp ?? '--'
+    }
+  };
+}
 
-  document.getElementById('acStatus').textContent =
-    data.ac.power;
+function renderDashboard(data) {
 
-  document.getElementById('acMode').textContent =
-    data.ac.mode;
+  setText('roomTemp', data.climate.temp + '°C');
+  setText('roomHumidity', data.climate.humidity + '%');
 
-  document.getElementById('acFan').textContent =
-    data.ac.fan;
+  setText('plugPower', data.smartplug.power + 'W');
+  setText('plugVolt', data.smartplug.voltage + 'V');
 
-  document.getElementById('lampStatus').textContent =
-    data.lamp.power;
+  setText('acTemp', data.ac.temp + '°C');
+  setText('acStatus', data.ac.power);
+  setText('acMode', data.ac.mode);
+  setText('acFan', data.ac.fan);
 
-  document.getElementById('lampBrightness').textContent =
-    data.lamp.brightness + '%';
+  setText('lampStatus', data.lamp.power);
+  setText('lampBrightness', data.lamp.brightness + '%');
+  setText('lampMode', data.lamp.mode);
 
-  document.getElementById('lampMode').textContent =
-    data.lamp.mode;
+  const lampBar = document.getElementById('lampBar');
+  if (lampBar) lampBar.style.width = data.lamp.brightness + '%';
 
-  document.getElementById('lampBar').style.width =
-    data.lamp.brightness + '%';
+  setText('tvStatus', data.tv.status);
 
-  document.getElementById('tvStatus').textContent =
-    data.tv.status;
+  setText('nestStatus', data.nest.status);
+  setText('nestVolume', data.nest.volume);
 
-  document.getElementById('nestStatus').textContent =
-    data.nest.status;
+  setText('cctvOnline', data.cctv.online);
+  setText('cctvMotion', data.cctv.motion);
+  setText('cctvRecording', data.cctv.recording);
 
-  document.getElementById('nestVolume').textContent =
-    data.nest.volume;
+  setText('sceneName', data.lastAutomation.scene);
+  setText('sceneDate', data.lastAutomation.timestamp);
+  setText('sceneTime', '🕒');
 
-  document.getElementById('cctvOnline').textContent =
-    data.cctv.online;
+  setBadge('acPowerBadge', isOn(data.ac.power));
+  setBadge('lampPowerBadge', isOn(data.lamp.power));
+  setBadge('tvPowerBadge', isOn(data.tv.power));
+  setBadge('nestPowerBadge', data.nest.online);
+}
 
-  document.getElementById('cctvMotion').textContent =
-    data.cctv.motion;
+function setText(id, value) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = value;
+}
 
-  document.getElementById('cctvRecording').textContent =
-    data.cctv.recording;
+function setBadge(id, active) {
+  const el = document.getElementById(id);
+  if (!el) return;
 
-  document.getElementById('sceneName').textContent =
-    data.lastAutomation.scene;
+  el.className = active ? 'badge on' : 'badge off';
+  el.textContent = active ? 'ON' : 'OFF';
+}
 
-  document.getElementById('sceneDate').textContent =
-    data.lastAutomation.timestamp;
-
-  document.getElementById('sceneTime').textContent =
-    '🕒';
-
-  if(data.ac.power === 'ON'){
-    document
-      .getElementById('acPowerBadge')
-      .className = 'badge on';
-  }
-
-  if(data.lamp.power === 'ON'){
-    document
-      .getElementById('lampPowerBadge')
-      .className = 'badge on';
-  }
-
-  if(data.tv.power === 'ON'){
-    document
-      .getElementById('tvPowerBadge')
-      .className = 'badge on';
-  }
-
-  if(data.nest.online){
-    document
-      .getElementById('nestPowerBadge')
-      .className = 'badge on';
-  }
-
+function isOn(value) {
+  return String(value).toUpperCase().includes('ON') ||
+         String(value).toUpperCase() === 'TRUE';
 }
