@@ -122,6 +122,32 @@ function renderDashboard(data) {
   setText('cctvMotion', data.cctv.motion);
   setText('cctvRecording', data.cctv.recording);
   setText('cctvLastMotion', data.cctv.lastMotion);
+  setText(
+  'summaryAC',
+  data.ac.power
+);
+
+setText(
+  'summaryLamp',
+  data.lamp.power
+);
+
+setText(
+  'summaryTV',
+  data.tv.power
+);
+
+setText(
+  'summaryCCTV',
+  data.cctv.online
+);
+
+setText(
+  'summaryEnergy',
+  formatKwh(data.energy.today) +
+  ' · ' +
+  formatRupiah(data.energy.todayCost)
+);
 
   setText('energyToday', formatKwh(data.energy.today));
   setText('energyWeek', formatKwh(data.energy.week));
