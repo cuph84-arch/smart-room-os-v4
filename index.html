@@ -2,320 +2,244 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#020617" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Smart Room OS V4</title>
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
-          },
-          boxShadow: {
-            glass: '0 20px 60px rgba(0,0,0,0.35)'
-          }
-        }
-      }
-    }
-  </script>
+  <meta name="theme-color" content="#8fd6ff" />
 </head>
 
-<body class="min-h-screen bg-slate-950 text-white font-sans overflow-x-hidden">
+<body>
+  <main class="app">
 
-  <!-- Background Aura -->
-  <div class="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_15%_10%,rgba(255,60,120,0.38),transparent_32%),radial-gradient(circle_at_70%_20%,rgba(34,197,94,0.35),transparent_34%),radial-gradient(circle_at_85%_70%,rgba(124,58,237,0.42),transparent_35%),linear-gradient(135deg,#020617,#07111f,#0f172a)]"></div>
-  <div class="fixed inset-0 -z-10 backdrop-blur-[2px]"></div>
+    <header class="header">
+      <h1>Welcome Home</h1>
 
-  <main class="mx-auto max-w-[430px] min-h-screen px-5 pt-6 pb-28">
-
-    <!-- Header -->
-    <header class="mb-5 flex items-start justify-between">
-      <div>
-        <p class="text-sm text-white/70">00:45</p>
-        <h1 class="mt-4 text-4xl font-extrabold tracking-tight">
-          Welcome Home <span>👋</span>
-        </h1>
-        <p id="currentDateTime" class="mt-1 text-sm text-white/70">
-          15 Juni 2026 • 00:45
-        </p>
-      </div>
-
-      <button class="mt-10 h-12 w-12 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md shadow-xl">
-        🔔
-      </button>
+      <nav class="top-tabs">
+        <button class="active">Home</button>
+        <button>Kamar</button>
+        <button>Ruang tamu</button>
+        <button>Teras</button>
+        <button>Garasi</button>
+      </nav>
     </header>
 
-    <!-- Room Tabs -->
-    <nav class="mb-5 flex gap-3 overflow-x-auto pb-1 text-sm font-semibold">
-      <button class="shrink-0 rounded-2xl bg-gradient-to-r from-amber-300 to-emerald-400 px-5 py-3 text-white shadow-xl">⌂ Home</button>
-      <button class="shrink-0 rounded-2xl bg-white/10 px-5 py-3 text-white/80 backdrop-blur-md">▣ Kamar</button>
-      <button class="shrink-0 rounded-2xl bg-white/10 px-5 py-3 text-white/80 backdrop-blur-md">▱ Ruang tamu</button>
-      <button class="shrink-0 rounded-2xl bg-white/10 px-5 py-3 text-white/80 backdrop-blur-md">▢ Teras</button>
+    <section class="glass-panel">
+
+      <section class="wide-card summary-card">
+        <h2>Smart Room Summary</h2>
+
+        <div class="summary-grid">
+          <div>
+            <span>AC</span>
+            <strong id="summaryAC">--</strong>
+          </div>
+
+          <div>
+            <span>Lampu</span>
+            <strong id="summaryLamp">--</strong>
+          </div>
+
+          <div>
+            <span>TV</span>
+            <strong id="summaryTV">--</strong>
+          </div>
+
+          <div>
+            <span>CCTV</span>
+            <strong id="summaryCCTV">--</strong>
+          </div>
+        </div>
+
+        <div class="summary-energy">
+          <span>Hari ini</span>
+          <strong id="summaryEnergy">-- kWh · Rp 0</strong>
+        </div>
+      </section>
+
+      <section class="grid-2">
+
+        <article class="card">
+          <div class="card-title">
+            <img src="icons/humidity.svg" alt="" />
+            <span>Suhu kamar</span>
+          </div>
+
+          <p>Temp. : <b id="roomTemp">--°C</b></p>
+          <p>Humidity : <b id="roomHumidity">--%</b></p>
+        </article>
+
+        <article class="card">
+          <div class="card-title">
+            <img src="icons/power.svg" alt="" />
+            <span>Power</span>
+          </div>
+
+          <p>Current : <b id="plugPower">--W</b></p>
+          <p>Volt : <b id="plugVolt">--V</b></p>
+        </article>
+
+      </section>
+
+      <section class="grid-2">
+
+        <article class="card control-card">
+          <div class="card-head">
+            <h2>AC Kamar</h2>
+            <button id="acToggleBtn" class="badge on">ON</button>
+          </div>
+
+          <div class="big-temp">
+            <span id="acTemp">--°C</span>
+          </div>
+
+          <p>AC status : <b id="acStatus">--</b></p>
+          <p>Mode : <b id="acMode">--</b></p>
+          <p>Fan : <b id="acFan">--</b></p>
+
+          <div class="ac-slider">
+            <div id="acSliderFill" class="ac-slider-fill"></div>
+          </div>
+
+          <div class="control-row">
+            <button id="acMinusBtn" class="control-btn">−</button>
+            <button id="acPlusBtn" class="control-btn">+</button>
+          </div>
+        </article>
+
+        <article class="card control-card">
+          <div class="card-head">
+            <h2>Lampu kamar</h2>
+            <button id="lampToggleBtn" class="badge off">OFF</button>
+          </div>
+
+          <img class="device-icon" src="icons/lamp.svg" alt="" />
+
+          <p>Status : <b id="lampStatus">--</b></p>
+          <p>Brightness : <b id="lampBrightness">--%</b></p>
+          <p>Mode : <b id="lampMode">--</b></p>
+
+          <div class="lamp-bar">
+            <div id="lampBar"></div>
+          </div>
+
+          <input
+            id="lampBrightnessSlider"
+            class="brightness-slider"
+            type="range"
+            min="0"
+            max="100"
+            value="1"
+          />
+        </article>
+
+      </section>
+
+      <section class="wide-card entertainment-card">
+        <h2>Entertainment</h2>
+
+        <div class="entertainment-grid">
+          <div>
+            <div class="card-head">
+              <h3>TV Kamar</h3>
+              <span id="tvPowerBadge" class="badge on">ON</span>
+            </div>
+
+            <img src="icons/smart_hub.svg" alt="" />
+            <p id="tvStatus">--</p>
+          </div>
+
+          <div>
+            <div class="card-head">
+              <h3>Nest</h3>
+              <span id="nestPowerBadge" class="badge on">ON</span>
+            </div>
+
+            <img src="icons/smart_hub.svg" alt="" />
+            <p id="nestStatus">--</p>
+            <small>Volume <span id="nestVolume">--</span>%</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="wide-card cctv-card">
+        <div class="card-title">
+          <img src="icons/camera.svg" alt="" />
+          <span>CCTV Kamar</span>
+        </div>
+
+        <p>Status : <b id="cctvOnline">--</b></p>
+        <p>Motion : <b id="cctvMotion">--</b></p>
+        <p>Recording : <b id="cctvRecording">--</b></p>
+        <p>Last Motion : <b id="cctvLastMotion">--</b></p>
+      </section>
+
+      <section class="wide-card chart-card">
+        <h2>Pemakaian & Biaya AC</h2>
+
+        <div class="energy-stats">
+
+          <div class="energy-item">
+            <span>Hari ini</span>
+            <strong id="energyToday">-- kWh</strong>
+            <small id="energyTodayCost">Rp 0</small>
+          </div>
+
+          <div class="energy-item">
+            <span>Minggu ini</span>
+            <strong id="energyWeek">-- kWh</strong>
+            <small id="energyWeekCost">Rp 0</small>
+          </div>
+
+          <div class="energy-item">
+            <span>Bulan ini</span>
+            <strong id="energyMonth">-- kWh</strong>
+            <small id="energyMonthCost">Rp 0</small>
+          </div>
+
+          <div class="energy-item">
+            <span>Runtime bulan ini</span>
+            <strong id="energyRuntimeMonth">--</strong>
+          </div>
+
+          <div class="energy-tariff">
+            <small id="energyTariff">
+              Est. Rp605/kWh · B1 900VA
+            </small>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="wide-card scene-card">
+        <h2>Scene terakhir :</h2>
+
+        <div class="scene-row">
+          <span id="sceneTime">🕘</span>
+          <strong id="sceneName">Belum ada scene</strong>
+        </div>
+
+        <small id="sceneDate">--</small>
+
+        <button id="rerunSceneBtn" class="scene-action">
+          Jalankan Lagi
+        </button>
+      </section>
+
+    </section>
+
+    <nav class="bottom-nav">
+      <button class="active">🏠 Home</button>
+      <button>☼ Automation</button>
+      <button>⌁ Devices</button>
+      <button>⚙ Setting</button>
     </nav>
-
-    <!-- Smart Room Summary -->
-    <section class="mb-4 rounded-3xl border border-white/20 bg-white/10 p-5 shadow-glass backdrop-blur-xl">
-      <h2 class="mb-4 text-lg font-bold">Smart Room Summary</h2>
-
-      <div class="grid grid-cols-4 gap-3">
-        <div class="rounded-2xl bg-white/10 p-3">
-          <p class="text-xl">❄️</p>
-          <p class="mt-1 text-xs text-white/70">AC</p>
-          <p id="summaryAcStatus" class="text-sm font-bold text-emerald-300">ON</p>
-        </div>
-
-        <div class="rounded-2xl bg-white/10 p-3">
-          <p class="text-xl">💡</p>
-          <p class="mt-1 text-xs text-white/70">Lampu</p>
-          <p id="summaryLampStatus" class="text-sm font-bold">OFF</p>
-        </div>
-
-        <div class="rounded-2xl bg-white/10 p-3">
-          <p class="text-xl">🖥️</p>
-          <p class="mt-1 text-xs text-white/70">TV</p>
-          <p id="summaryTvStatus" class="text-sm font-bold text-emerald-300">ON</p>
-        </div>
-
-        <div class="rounded-2xl bg-white/10 p-3">
-          <p class="text-xl">📹</p>
-          <p class="mt-1 text-xs text-white/70">CCTV</p>
-          <p id="summaryCctvStatus" class="text-sm font-bold text-emerald-300">ONLINE</p>
-        </div>
-      </div>
-
-      <div class="mt-4 flex items-center justify-between rounded-2xl bg-white/10 px-4 py-3">
-        <p class="text-sm font-semibold">⚡ Konsumsi hari ini</p>
-        <p class="font-bold">
-          <span id="summaryKwhToday" class="text-emerald-300">0.01 kWh</span>
-          <span> • </span>
-          <span id="summaryCostToday">Rp 5</span>
-        </p>
-      </div>
-    </section>
-
-    <!-- Hero Cards -->
-    <section class="mb-4 grid grid-cols-2 gap-3">
-
-      <!-- AC Card -->
-      <article class="rounded-3xl border border-white/20 bg-white/10 p-4 shadow-glass backdrop-blur-xl">
-        <div class="mb-4 flex items-center justify-between">
-          <h2 class="font-bold">❄️ AC Kamar</h2>
-          <span id="acStatus" class="rounded-xl bg-emerald-400 px-3 py-1 text-xs font-bold text-white">ON</span>
-        </div>
-
-        <div class="flex items-center justify-between">
-          <p class="text-5xl font-extrabold">
-            <span id="acTemp">28</span>°C
-          </p>
-
-          <div class="flex gap-2">
-            <button id="acMinusBtn" class="h-10 w-10 rounded-full bg-white/15 text-xl font-bold">−</button>
-            <button id="acPlusBtn" class="h-10 w-10 rounded-full bg-white/15 text-xl font-bold">+</button>
-          </div>
-        </div>
-
-        <p class="mt-3 text-sm text-white/80">Mode : <b id="acMode">COOL</b></p>
-        <p class="text-sm text-white/80">Fan : <b id="acFan">AUTO</b></p>
-
-        <input id="acSlider" type="range" min="16" max="30" value="28"
-          class="mt-5 w-full accent-emerald-400" />
-
-        <div class="mt-1 flex justify-between text-xs text-white/60">
-          <span>16°C</span>
-          <span>30°C</span>
-        </div>
-      </article>
-
-      <!-- Lamp Card -->
-      <article class="rounded-3xl border border-white/20 bg-purple-500/20 p-4 shadow-glass backdrop-blur-xl">
-        <div class="mb-4 flex items-center justify-between">
-          <h2 class="font-bold">💡 Lampu Kamar</h2>
-          <span id="lampStatus" class="rounded-xl bg-white/15 px-3 py-1 text-xs font-bold">OFF</span>
-        </div>
-
-        <p class="text-5xl font-extrabold">
-          <span id="lampBrightness">1</span><span class="text-2xl">%</span>
-        </p>
-
-        <p class="mt-8 text-sm text-white/80">
-          Mode : <b id="lampMode">White</b>
-        </p>
-
-        <input id="lampSlider" type="range" min="0" max="100" value="1"
-          class="mt-5 w-full accent-violet-300" />
-
-        <div class="mt-1 flex justify-between text-xs text-white/60">
-          <span>0%</span>
-          <span>100%</span>
-        </div>
-      </article>
-    </section>
-
-    <!-- Entertainment -->
-    <section class="mb-4 rounded-3xl border border-white/20 bg-white/10 p-5 shadow-glass backdrop-blur-xl">
-      <h2 class="mb-4 text-lg font-bold">Entertainment</h2>
-
-      <div class="grid grid-cols-2 gap-4">
-        <div class="border-r border-white/15 pr-4">
-          <div class="flex items-center justify-between">
-            <h3 class="font-bold">🖥️ TV Kamar</h3>
-            <span id="tvStatus" class="rounded-xl bg-emerald-400 px-3 py-1 text-xs font-bold">ON</span>
-          </div>
-          <p id="tvScreen" class="mt-5 text-sm font-semibold text-white/80">🌙 Screen Saver</p>
-        </div>
-
-        <div>
-          <div class="flex items-center justify-between">
-            <h3 class="font-bold">🔊 Nest</h3>
-            <span id="nestStatus" class="rounded-xl bg-emerald-400 px-3 py-1 text-xs font-bold">ON</span>
-          </div>
-
-          <p class="mt-4 text-sm text-white/70">
-            Status : <b>IDLE</b>
-          </p>
-          <p class="text-sm text-white/70">
-            Volume : <b id="nestVolume">45%</b>
-          </p>
-
-          <input id="nestVolumeSlider" type="range" min="0" max="100" value="45"
-            class="mt-2 w-full accent-blue-300" />
-        </div>
-      </div>
-    </section>
-
-    <!-- Climate & Power -->
-    <section class="mb-4 rounded-3xl border border-white/20 bg-blue-500/15 p-5 shadow-glass backdrop-blur-xl">
-      <h2 class="mb-4 text-lg font-bold">Climate & Power</h2>
-
-      <div class="grid grid-cols-4 divide-x divide-white/15 text-center">
-        <div>
-          <p class="text-2xl">🌡️</p>
-          <p id="roomTemp" class="mt-2 text-lg font-extrabold">27.8°C</p>
-          <p class="text-xs text-white/60">Suhu</p>
-        </div>
-
-        <div>
-          <p class="text-2xl">💧</p>
-          <p id="roomHumidity" class="mt-2 text-lg font-extrabold">66%</p>
-          <p class="text-xs text-white/60">Humidity</p>
-        </div>
-
-        <div>
-          <p class="text-2xl">⚡</p>
-          <p id="powerWatt" class="mt-2 text-lg font-extrabold">15.4W</p>
-          <p class="text-xs text-white/60">Power</p>
-        </div>
-
-        <div>
-          <p class="text-2xl">🔌</p>
-          <p id="powerVoltage" class="mt-2 text-lg font-extrabold">218V</p>
-          <p class="text-xs text-white/60">Voltage</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CCTV + Energy -->
-    <section class="mb-4 grid grid-cols-2 gap-3">
-
-      <!-- CCTV -->
-      <article class="rounded-3xl border border-white/20 bg-cyan-500/15 p-4 shadow-glass backdrop-blur-xl">
-        <div class="mb-4 flex items-center justify-between">
-          <h2 class="font-bold">📹 CCTV Kamar</h2>
-          <span id="cctvStatus" class="rounded-xl bg-emerald-400 px-3 py-1 text-xs font-bold">ONLINE</span>
-        </div>
-
-        <p class="text-sm text-white/80">
-          🏃 Motion : <b id="cctvMotion">ON</b>
-        </p>
-
-        <p class="mt-4 text-sm text-white/70">🕒 Last Motion</p>
-        <p id="cctvLastMotion" class="text-xl font-extrabold">00:22:35</p>
-        <p id="cctvLastUpdate" class="text-xs text-white/60">15 Jun 2026 • 00:22:35</p>
-      </article>
-
-      <!-- Energy -->
-      <article class="rounded-3xl border border-white/20 bg-white/10 p-4 shadow-glass backdrop-blur-xl">
-        <h2 class="mb-4 font-bold">📊 Energy Usage</h2>
-
-        <div class="space-y-3 text-sm">
-          <div class="flex justify-between">
-            <span class="text-white/70">Hari ini</span>
-            <b id="energyTodayKwh">0.01 kWh</b>
-            <span id="energyTodayCost">Rp 5</span>
-          </div>
-
-          <div class="flex justify-between">
-            <span class="text-white/70">Minggu ini</span>
-            <b id="energyWeekKwh">10.10 kWh</b>
-            <span id="energyWeekCost">Rp 6.111</span>
-          </div>
-
-          <div class="flex justify-between">
-            <span class="text-white/70">Bulan ini</span>
-            <b id="energyMonthKwh">20.30 kWh</b>
-            <span id="energyMonthCost">Rp 12.279</span>
-          </div>
-        </div>
-
-        <div class="mt-4 rounded-2xl bg-white/10 px-3 py-3 text-sm">
-          <span class="text-emerald-300">Total Biaya Bulan Ini</span>
-          <b id="energyMonthTotalCost" class="float-right text-emerald-300">Rp 12.279</b>
-        </div>
-      </article>
-    </section>
-
-    <!-- Last Scene -->
-    <section class="mb-4 flex items-center justify-between rounded-3xl border border-white/20 bg-purple-500/20 p-5 shadow-glass backdrop-blur-xl">
-      <div class="flex gap-4">
-        <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-2xl">
-          🎬
-        </div>
-
-        <div>
-          <p class="text-sm text-white/70">Scene Terakhir</p>
-          <h2 id="lastSceneName" class="text-2xl font-extrabold">Movie Mode</h2>
-          <p id="lastSceneTime" class="text-sm text-white/60">15 Jun 2026 • 00:20</p>
-        </div>
-      </div>
-
-      <button id="runLastSceneBtn" class="rounded-2xl bg-purple-500/70 px-4 py-3 text-sm font-bold shadow-xl">
-        ▶ Jalankan Lagi
-      </button>
-    </section>
 
   </main>
 
-  <!-- Bottom Navigation -->
-  <nav class="fixed bottom-4 left-1/2 z-50 flex w-[calc(100%-40px)] max-w-[390px] -translate-x-1/2 items-center justify-between rounded-3xl border border-white/20 bg-white/10 px-6 py-4 shadow-glass backdrop-blur-xl">
-    <button class="text-center text-emerald-300">
-      <div class="text-2xl">🏠</div>
-      <div class="text-xs">Home</div>
-    </button>
-
-    <button class="text-center text-white/70">
-      <div class="text-2xl">⚙️</div>
-      <div class="text-xs">Automation</div>
-    </button>
-
-    <button class="-mt-10 flex h-16 w-16 items-center justify-center rounded-full bg-blue-600 text-4xl shadow-xl">
-      +
-    </button>
-
-    <button class="text-center text-white/70">
-      <div class="text-2xl">▦</div>
-      <div class="text-xs">Devices</div>
-    </button>
-
-    <button class="text-center text-white/70">
-      <div class="text-2xl">⚙️</div>
-      <div class="text-xs">Settings</div>
-    </button>
-  </nav>
-
+  <script src="app.js"></script>
 </body>
 </html>
