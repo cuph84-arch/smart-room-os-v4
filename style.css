@@ -82,7 +82,7 @@ body{
 }
 
 .card{
-  min-height:180px;
+  min-height:150px;
 }
 
 .card-title{
@@ -124,9 +124,8 @@ body{
 }
 
 .big-temp{
-  font-size:52px;
+  font-size:46px;
   font-weight:700;
-  margin-bottom:18px;
 }
 
 .lamp-icon{
