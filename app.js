@@ -62,9 +62,16 @@ function mapFirebaseState(state) {
   lastMotion: state.cctv?.last_motion ?? '--'
 },
 energy: {
-  today: state.energy?.today_kwh ?? 0,
-  week: state.energy?.week_kwh ?? 0,
-  month: state.energy?.month_kwh ?? 0
+  today: state.smartplug?.today_kwh ?? 0,
+  week: state.smartplug?.week_kwh ?? 0,
+  month: state.smartplug?.month_kwh ?? 0,
+  todayCost: state.smartplug?.today_cost ?? 0,
+  weekCost: state.smartplug?.week_cost ?? 0,
+  monthCost: state.smartplug?.month_cost ?? 0,
+  tariffText: state.smartplug?.tariff_text ?? 'Est. Rp605/kWh · B1 900VA',
+  todayRuntime: state.smartplug?.today_runtime_text ?? '0j 0m',
+  weekRuntime: state.smartplug?.week_runtime_text ?? '0j 0m',
+  monthRuntime: state.smartplug?.month_runtime_text ?? '0j 0m'
 },
     lastAutomation: {
       scene: state.last_automation?.scene ?? 'Belum ada scene',
@@ -102,6 +109,14 @@ function renderDashboard(data) {
   setText('cctvMotion', data.cctv.motion);
   setText('cctvRecording', data.cctv.recording);
   setText('cctvLastMotion', data.cctv.lastMotion);
+
+  setText('energyToday', formatKwh(data.energy.today));
+setText('energyWeek', formatKwh(data.energy.week));
+setText('energyMonth', formatKwh(data.energy.month));
+
+  function formatKwh(value) {
+  return Number(value || 0).toFixed(2) + ' kWh';
+}
 
   setText('sceneName', data.lastAutomation.scene);
   setText('sceneDate', data.lastAutomation.timestamp);
