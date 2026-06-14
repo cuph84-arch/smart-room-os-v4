@@ -114,7 +114,7 @@ if(acSlider){
     Number(data.ac.temp || 24);
 
   const percent =
-    ((temp - 16) / 14) * 100;
+((temp - 16) / 14) * 100 + 10;
 
   acSlider.style.width =
     Math.max(
@@ -127,10 +127,23 @@ if(acSlider){
   setText('lampBrightness', data.lamp.brightness + '%');
   setText('lampMode', data.lamp.mode);
 
-  const lampBar = document.getElementById('lampBar');
-  if (lampBar) {
-    lampBar.style.width = data.lamp.brightness + '%';
+  const lampBar =
+document.getElementById('lampBar');
+
+if (lampBar) {
+
+  if (data.lamp.power === 'OFF') {
+
+    lampBar.style.width = '0%';
+
+  } else {
+
+    lampBar.style.width =
+      data.lamp.brightness + '%';
+
   }
+
+}
 
   setText('tvStatus', data.tv.status);
 
