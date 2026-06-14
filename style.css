@@ -463,3 +463,17 @@ body{
 
   transition:.3s;
 }
+
+.control-card{
+  min-height:190px;
+}
+
+.control-card .card-head{
+  margin-bottom:8px;
+}
+
+.control-card .big-temp{
+  font-size:48px;
+  line-height:1;
+  margin-bottom:14px;
+}
