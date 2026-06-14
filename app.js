@@ -113,9 +113,33 @@ function renderDashboard(data) {
   setText('energyToday', formatKwh(data.energy.today));
 setText('energyWeek', formatKwh(data.energy.week));
 setText('energyMonth', formatKwh(data.energy.month));
+  setText(
+  'energyTodayCost',
+  formatRupiah(data.energy.todayCost)
+);
+
+setText(
+  'energyWeekCost',
+  formatRupiah(data.energy.weekCost)
+);
+
+setText(
+  'energyMonthCost',
+  formatRupiah(data.energy.monthCost)
+);
+
+setText(
+  'energyTariff',
+  data.energy.tariffText
+);
 
   function formatKwh(value) {
   return Number(value || 0).toFixed(2) + ' kWh';
+}
+  function formatRupiah(value) {
+  return 'Rp ' +
+    Number(value || 0)
+      .toLocaleString('id-ID');
 }
 
   setText('sceneName', data.lastAutomation.scene);
