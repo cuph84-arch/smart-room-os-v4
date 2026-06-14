@@ -45,9 +45,9 @@ function mapFirebaseState(state) {
     },
 
     tv: {
-  power: state.tv?.power ?? '--',
-  status: getTvDisplayStatus(state.tv)
-},
+      power: state.tv?.power ?? '--',
+      status: getTvDisplayStatus(state.tv)
+    },
 
     nest: {
       online: state.nest?.online ?? false,
@@ -56,23 +56,35 @@ function mapFirebaseState(state) {
     },
 
     cctv: {
-  online: state.cctv?.online ?? '--',
-  motion: state.cctv?.motion ?? '--',
-  recording: state.cctv?.recording ?? '--',
-  lastMotion: state.cctv?.last_motion ?? '--'
-},
-energy: {
-  today: state.smartplug?.today_kwh ?? 0,
-  week: state.smartplug?.week_kwh ?? 0,
-  month: state.smartplug?.month_kwh ?? 0,
-  todayCost: state.smartplug?.today_cost ?? 0,
-  weekCost: state.smartplug?.week_cost ?? 0,
-  monthCost: state.smartplug?.month_cost ?? 0,
-  tariffText: state.smartplug?.tariff_text ?? 'Est. Rp605/kWh · B1 900VA',
-  todayRuntime: state.smartplug?.today_runtime_text ?? '0j 0m',
-  weekRuntime: state.smartplug?.week_runtime_text ?? '0j 0m',
-  monthRuntime: state.smartplug?.month_runtime_text ?? '0j 0m'
-},
+      online: state.cctv?.online ?? '--',
+      motion: state.cctv?.motion ?? '--',
+      recording: state.cctv?.recording ?? '--',
+      lastMotion: state.cctv?.last_motion ?? '--'
+    },
+
+    energy: {
+      today: state.smartplug?.today_kwh ?? 0,
+      week: state.smartplug?.week_kwh ?? 0,
+      month: state.smartplug?.month_kwh ?? 0,
+
+      todayCost: state.smartplug?.today_cost ?? 0,
+      weekCost: state.smartplug?.week_cost ?? 0,
+      monthCost: state.smartplug?.month_cost ?? 0,
+
+      tariffText:
+        state.smartplug?.tariff_text ??
+        'Est. Rp605/kWh · B1 900VA',
+
+      todayRuntime:
+        state.smartplug?.today_runtime_text ?? '0j 0m',
+
+      weekRuntime:
+        state.smartplug?.week_runtime_text ?? '0j 0m',
+
+      monthRuntime:
+        state.smartplug?.month_runtime_text ?? '0j 0m'
+    },
+
     lastAutomation: {
       scene: state.last_automation?.scene ?? 'Belum ada scene',
       timestamp: state.last_automation?.timestamp ?? '--'
@@ -81,7 +93,6 @@ energy: {
 }
 
 function renderDashboard(data) {
-
   setText('roomTemp', data.climate.temp + '°C');
   setText('roomHumidity', data.climate.humidity + '%');
 
@@ -98,7 +109,9 @@ function renderDashboard(data) {
   setText('lampMode', data.lamp.mode);
 
   const lampBar = document.getElementById('lampBar');
-  if (lampBar) lampBar.style.width = data.lamp.brightness + '%';
+  if (lampBar) {
+    lampBar.style.width = data.lamp.brightness + '%';
+  }
 
   setText('tvStatus', data.tv.status);
 
@@ -111,40 +124,19 @@ function renderDashboard(data) {
   setText('cctvLastMotion', data.cctv.lastMotion);
 
   setText('energyToday', formatKwh(data.energy.today));
-setText('energyWeek', formatKwh(data.energy.week));
-setText('energyMonth', formatKwh(data.energy.month));
-  setText(
-  'energyTodayCost',
-  formatRupiah(data.energy.todayCost)
-);
+  setText('energyWeek', formatKwh(data.energy.week));
+  setText('energyMonth', formatKwh(data.energy.month));
 
-setText(
-  'energyWeekCost',
-  formatRupiah(data.energy.weekCost)
-);
+  setText('energyTodayCost', formatRupiah(data.energy.todayCost));
+  setText('energyWeekCost', formatRupiah(data.energy.weekCost));
+  setText('energyMonthCost', formatRupiah(data.energy.monthCost));
 
-setText(
-  'energyMonthCost',
-  formatRupiah(data.energy.monthCost)
-);
-
-setText(
-  'energyTariff',
-  data.energy.tariffText
-);
-
-  function formatKwh(value) {
-  return Number(value || 0).toFixed(2) + ' kWh';
-}
-  function formatRupiah(value) {
-  return 'Rp ' +
-    Number(value || 0)
-      .toLocaleString('id-ID');
-}
+  setText('energyRuntimeMonth', data.energy.monthRuntime);
+  setText('energyTariff', data.energy.tariffText);
 
   setText('sceneName', data.lastAutomation.scene);
   setText('sceneDate', data.lastAutomation.timestamp);
-  setText('sceneTime', '🕒');
+  setText('sceneTime', '🕘');
 
   setBadge('acPowerBadge', isOn(data.ac.power));
   setBadge('lampPowerBadge', isOn(data.lamp.power));
@@ -167,7 +159,15 @@ function setBadge(id, active) {
 
 function isOn(value) {
   return String(value).toUpperCase().includes('ON') ||
-         String(value).toUpperCase() === 'TRUE';
+    String(value).toUpperCase() === 'TRUE';
+}
+
+function formatKwh(value) {
+  return Number(value || 0).toFixed(2) + ' kWh';
+}
+
+function formatRupiah(value) {
+  return 'Rp ' + Number(value || 0).toLocaleString('id-ID');
 }
 
 function getTvDisplayStatus(tv) {
