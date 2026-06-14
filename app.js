@@ -103,6 +103,25 @@ function renderDashboard(data) {
   setText('acStatus', data.ac.power);
   setText('acMode', data.ac.mode);
   setText('acFan', data.ac.fan);
+  const acSlider =
+  document.getElementById(
+    'acSliderFill'
+  );
+
+if(acSlider){
+
+  const temp =
+    Number(data.ac.temp || 24);
+
+  const percent =
+    ((temp - 16) / 14) * 100;
+
+  acSlider.style.width =
+    Math.max(
+      0,
+      Math.min(100, percent)
+    ) + '%';
+}
 
   setText('lampStatus', data.lamp.power);
   setText('lampBrightness', data.lamp.brightness + '%');
