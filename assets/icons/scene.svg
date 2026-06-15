@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="128" height="128">
+  <circle cx="32" cy="32" r="26" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.9"/>
+  <!-- Ikon Sparks / Modus Adegan -->
+  <path d="M36,20 C36,25 38,27 43,27 C38,27 36,29 36,34 C36,29 34,27 29,27 C34,27 36,25 36,20 Z" fill="#ffffff"/>
+  <path d="M23,28 C23,31 24,32 27,32 C24,32 23,33 23,36 C23,33 22,32 19,32 C22,32 23,31 23,28 Z" fill="#ffffff"/>
+  <path d="M26,40 C26,42 27,43 29,43 C27,43 26,44 26,46 C26,44 25,43 23,43 C25,43 26,42 26,40 Z" fill="#ffffff"/>
+</svg>
