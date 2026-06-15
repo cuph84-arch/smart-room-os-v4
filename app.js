@@ -155,8 +155,8 @@ function mapFirebaseState(state) {
 ========================= */
 
 function renderDashboard(data) {
-  setText('headerDate', 'Last Updated: ' + getLatestUpdatedTime(data));
-  setText('roomTemp', formatValue(data.climate.temp, '°C'));
+  setText('headerDate', 'Last Updated: ' + getLatestDeviceUpdatedTime(data));
+   setText('roomTemp', formatValue(data.climate.temp, '°C'));
   setText('roomHumidity', formatValue(data.climate.humidity, '%'));
 
   setText('plugPower', formatValue(data.smartplug.power, 'W'));
@@ -409,37 +409,37 @@ function formatRupiah(value) {
   return 'Rp ' + Number(value || 0).toLocaleString('id-ID');
 }
 
-function getLatestUpdatedTime(data) {
-  const timestamps = [];
+function getLatestDeviceUpdatedTime(data) {
+  const devices = [
+    data?.ac,
+    data?.cctv,
+    data?.climate,
+    data?.lamp,
+    data?.nest,
+    data?.smartplug,
+    data?.speaker,
+    data?.tv
+  ];
 
-  function scan(obj) {
-    if (!obj || typeof obj !== 'object') return;
+  const dates = devices
+    .map(device => {
+      if (!device) return null;
 
-    Object.keys(obj).forEach(key => {
-      const value = obj[key];
+      return parseDeviceDate(
+        device.updated_at ||
+        device.updatedAt ||
+        device.timestamp ||
+        device.last_update ||
+        device.lastUpdate
+      );
+    })
+    .filter(Boolean);
 
-      if (
-        key === 'updated_at' ||
-        key === 'updatedAt' ||
-        key === 'timestamp' ||
-        key === 'lastUpdate' ||
-        key === 'last_updated'
-      ) {
-        const date = parseFirebaseDate(value);
-        if (date) timestamps.push(date);
-      }
+  if (!dates.length) return '--';
 
-      if (value && typeof value === 'object') {
-        scan(value);
-      }
-    });
-  }
-
-  scan(data);
-
-  const latest = timestamps.length
-    ? new Date(Math.max(...timestamps.map(date => date.getTime())))
-    : new Date();
+  const latest = new Date(
+    Math.max(...dates.map(date => date.getTime()))
+  );
 
   return latest.toLocaleTimeString('id-ID', {
     hour: '2-digit',
@@ -447,6 +447,36 @@ function getLatestUpdatedTime(data) {
     second: '2-digit',
     hour12: false
   });
+}
+
+function parseDeviceDate(value) {
+  if (!value) return null;
+
+  if (typeof value === 'number') {
+    const date = new Date(value);
+    return isNaN(date.getTime()) ? null : date;
+  }
+
+  if (typeof value === 'string') {
+    const cleaned = value.trim();
+
+    const normal = new Date(cleaned);
+    if (!isNaN(normal.getTime())) return normal;
+
+    const match = cleaned.match(/(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2}):(\d{2})/);
+    if (match) {
+      return new Date(
+        Number(match[1]),
+        Number(match[2]) - 1,
+        Number(match[3]),
+        Number(match[4]),
+        Number(match[5]),
+        Number(match[6])
+      );
+    }
+  }
+
+  return null;
 }
 
 function parseFirebaseDate(value) {
