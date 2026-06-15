@@ -10,8 +10,6 @@ const FIREBASE_STATE_URL =
 const CONTROL_URL =
   'https://script.google.com/macros/s/AKfycbwYUMIjajxgFPJzbx2Nz9UXBB-LdjkGcyenMnk3hWVTRqtuz9C1P3k9Zra-3P-mvCf1/exec';
 
-
-
 /* =========================
    INIT
 ========================= */
@@ -31,11 +29,8 @@ async function loadFirebaseState() {
     const res = await fetch(FIREBASE_STATE_URL + '?t=' + Date.now());
     const state = await res.json();
 
-const state = await res.json();
-
-
-const data = mapFirebaseState(state || {});
-renderDashboard(data);
+    const data = mapFirebaseState(state || {});
+    renderDashboard(data);
   } catch (err) {
     console.error('Firebase load error:', err);
     showToast('Gagal memuat data');
@@ -160,7 +155,11 @@ function mapFirebaseState(state) {
 ========================= */
 
 function renderDashboard(data) {
-  setText('headerDate', 'Last Updated: --');
+  setText(
+  'headerDate',
+  'Last Updated: ' +
+  (data.cctv?.updated_at || '--')
+);
    setText('roomTemp', formatValue(data.climate.temp, '°C'));
   setText('roomHumidity', formatValue(data.climate.humidity, '%'));
 
@@ -426,7 +425,6 @@ function getLatestDeviceUpdatedTime(data) {
     data?.tv
   ];
 
- 
   const dates = devices
     .map(device => {
       if (!device) return null;
