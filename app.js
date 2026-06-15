@@ -95,46 +95,47 @@ function mapFirebaseState(state) {
     },
 
     energy: {
-      today:
-        energy.today_kwh ??
-        smartplug.today_kwh ??
-        0,
+  today:
+    smartplug.today_kwh ??
+    energy.today_kwh ??
+    0,
 
-      week:
-        energy.week_kwh ??
-        smartplug.week_kwh ??
-        0,
+  week:
+    smartplug.week_kwh ??
+    energy.week_kwh ??
+    0,
 
-      month:
-        energy.month_kwh ??
-        smartplug.month_kwh ??
-        0,
+  month:
+    smartplug.month_kwh ??
+    energy.month_kwh ??
+    0,
 
-      todayCost:
-        energy.today_cost ??
-        smartplug.today_cost ??
-        0,
+  todayCost:
+    smartplug.today_cost ??
+    energy.today_cost ??
+    0,
 
-      weekCost:
-        energy.week_cost ??
-        smartplug.week_cost ??
-        0,
+  weekCost:
+    smartplug.week_cost ??
+    energy.week_cost ??
+    0,
 
-      monthCost:
-        energy.month_cost ??
-        smartplug.month_cost ??
-        0,
+  monthCost:
+    smartplug.month_cost ??
+    energy.month_cost ??
+    0,
 
-      monthRuntime:
-        energy.month_runtime_text ??
-        smartplug.month_runtime_text ??
-        '0j 0m',
+  monthRuntime:
+    smartplug.month_runtime_text ??
+    energy.month_runtime_text ??
+    '0j 0m',
 
-      tariffText:
-        energy.tariff_text ??
-        smartplug.tariff_text ??
-        'Est. Rp605/kWh · B1 900VA'
-    },
+  tariffText:
+    smartplug.tariff_text ??
+    energy.tariff_text ??
+    'Est. Rp605/kWh · B1 900VA'
+},
+    
 
     lastAutomation: {
       scene:
