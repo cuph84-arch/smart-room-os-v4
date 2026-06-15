@@ -7,18 +7,17 @@ console.log('Smart Room OS V4 Firebase Loaded');
 const FIREBASE_STATE_URL =
   'https://smart-room-os-v3-default-rtdb.asia-southeast1.firebasedatabase.app/state.json';
 
-// GANTI URL INI dengan URL Web App Apps Script kamu
 const CONTROL_URL =
-'https://script.google.com/macros/s/AKfycbwYUMIjajxgFPJzbx2Nz9UXBB-LdjkGcyenMnk3hWVTRqtuz9C1P3k9Zra-3P-mvCf1/exec';
+  'https://script.google.com/macros/s/AKfycbwYUMIjajxgFPJzbx2Nz9UXBB-LdjkGcyenMnk3hWVTRqtuz9C1P3k9Zra-3P-mvCf1/exec';
+
 /* =========================
    INIT
 ========================= */
 
-loadFirebaseState();
-setInterval(loadFirebaseState, 5000);
-
 document.addEventListener('DOMContentLoaded', () => {
   bindControls();
+  loadFirebaseState();
+  setInterval(loadFirebaseState, 5000);
 });
 
 /* =========================
@@ -32,9 +31,9 @@ async function loadFirebaseState() {
 
     const data = mapFirebaseState(state || {});
     renderDashboard(data);
-
   } catch (err) {
     console.error('Firebase load error:', err);
+    showToast('Gagal memuat data');
   }
 }
 
@@ -43,6 +42,15 @@ async function loadFirebaseState() {
 ========================= */
 
 function mapFirebaseState(state) {
+  const smartplug = state.smartplug || {};
+  const ac = state.ac || {};
+  const lamp = state.lamp || {};
+  const tv = state.tv || {};
+  const nest = state.nest || {};
+  const cctv = state.cctv || {};
+  const energy = state.energy || {};
+  const lastAutomation = state.last_automation || {};
+
   return {
     climate: {
       temp: state.climate?.temperature ?? '--',
@@ -50,67 +58,93 @@ function mapFirebaseState(state) {
     },
 
     smartplug: {
-      power: state.smartplug?.power ?? '--',
-      voltage: state.smartplug?.voltage ?? '--'
+      power: smartplug.watt ?? smartplug.power ?? '--',
+      voltage: smartplug.voltage ?? smartplug.volt ?? '--'
     },
 
     ac: {
-      power: state.ac?.power ?? state.smartplug?.ac_status ?? '--',
-      temp: state.ac?.temperature ?? '--',
-      mode: state.ac?.mode ?? '--',
-      fan: state.ac?.fan ?? '--'
+      power: ac.power ?? smartplug.ac_status ?? '--',
+      temp: ac.temp ?? ac.temperature ?? '--',
+      mode: ac.mode ?? '--',
+      fan: ac.fan ?? '--'
     },
 
     lamp: {
-      power: state.lamp?.power ?? '--',
-      brightness: state.lamp?.brightness ?? 0,
-      mode: state.lamp?.mode ?? '--'
+      power: lamp.power ?? '--',
+      brightness: lamp.brightness ?? 0,
+      mode: lamp.mode ?? '--'
     },
 
     tv: {
-      power: state.tv?.power ?? '--',
-      status: getTvDisplayStatus(state.tv)
+      power: tv.power ?? '--',
+      app: tv.app ?? tv.screen ?? '',
+      status: getTvDisplayStatus(tv)
     },
 
     nest: {
-      online: state.nest?.online ?? false,
-      status: state.nest?.status ?? 'IDLE',
-      volume: state.nest?.volume ?? '--'
+      online: nest.online ?? false,
+      status: nest.status ?? 'IDLE',
+      volume: nest.volume ?? '--'
     },
 
     cctv: {
-      online: state.cctv?.online ?? '--',
-      motion: state.cctv?.motion ?? '--',
-      recording: state.cctv?.recording ?? '--',
-      lastMotion: state.cctv?.last_motion ?? '--'
+      online: cctv.online ?? '--',
+      motion: cctv.motion ?? '--',
+      recording: cctv.recording ?? '--',
+      lastMotion: cctv.last_motion ?? '--'
     },
 
     energy: {
-      today: state.smartplug?.today_kwh ?? 0,
-      week: state.smartplug?.week_kwh ?? 0,
-      month: state.smartplug?.month_kwh ?? 0,
+      today:
+        energy.today_kwh ??
+        smartplug.today_kwh ??
+        0,
 
-      todayCost: state.smartplug?.today_cost ?? 0,
-      weekCost: state.smartplug?.week_cost ?? 0,
-      monthCost: state.smartplug?.month_cost ?? 0,
+      week:
+        energy.week_kwh ??
+        smartplug.week_kwh ??
+        0,
 
-      todayRuntime:
-        state.smartplug?.today_runtime_text ?? '0j 0m',
+      month:
+        energy.month_kwh ??
+        smartplug.month_kwh ??
+        0,
 
-      weekRuntime:
-        state.smartplug?.week_runtime_text ?? '0j 0m',
+      todayCost:
+        energy.today_cost ??
+        smartplug.today_cost ??
+        0,
+
+      weekCost:
+        energy.week_cost ??
+        smartplug.week_cost ??
+        0,
+
+      monthCost:
+        energy.month_cost ??
+        smartplug.month_cost ??
+        0,
 
       monthRuntime:
-        state.smartplug?.month_runtime_text ?? '0j 0m',
+        energy.month_runtime_text ??
+        smartplug.month_runtime_text ??
+        '0j 0m',
 
       tariffText:
-        state.smartplug?.tariff_text ??
+        energy.tariff_text ??
+        smartplug.tariff_text ??
         'Est. Rp605/kWh · B1 900VA'
     },
 
     lastAutomation: {
-      scene: state.last_automation?.scene ?? 'Belum ada scene',
-      timestamp: state.last_automation?.timestamp ?? '--'
+      scene:
+        lastAutomation.scene ??
+        'Belum ada scene',
+
+      timestamp:
+        lastAutomation.timestamp ??
+        lastAutomation.updated_at ??
+        '--'
     }
   };
 }
@@ -120,13 +154,13 @@ function mapFirebaseState(state) {
 ========================= */
 
 function renderDashboard(data) {
-  setText('roomTemp', data.climate.temp + '°C');
-  setText('roomHumidity', data.climate.humidity + '%');
+  setText('roomTemp', formatValue(data.climate.temp, '°C'));
+  setText('roomHumidity', formatValue(data.climate.humidity, '%'));
 
-  setText('plugPower', data.smartplug.power + 'W');
-  setText('plugVolt', data.smartplug.voltage + 'V');
+  setText('plugPower', formatValue(data.smartplug.power, 'W'));
+  setText('plugVolt', formatValue(data.smartplug.voltage, 'V'));
 
-  setText('acTemp', data.ac.temp + '°C');
+  setText('acTemp', formatValue(data.ac.temp, '°C'));
   setText('acStatus', data.ac.power);
   setText('acMode', data.ac.mode);
   setText('acFan', data.ac.fan);
@@ -134,7 +168,7 @@ function renderDashboard(data) {
   renderACSlider(data.ac.temp);
 
   setText('lampStatus', data.lamp.power);
-  setText('lampBrightness', data.lamp.brightness + '%');
+  setText('lampBrightness', formatValue(data.lamp.brightness, '%'));
   setText('lampMode', data.lamp.mode);
 
   renderLampSlider(data.lamp.power, data.lamp.brightness);
@@ -156,9 +190,7 @@ function renderDashboard(data) {
 
   setText(
     'summaryEnergy',
-    formatKwh(data.energy.today) +
-    ' · ' +
-    formatRupiah(data.energy.todayCost)
+    formatKwh(data.energy.today) + ' · ' + formatRupiah(data.energy.todayCost)
   );
 
   setText('energyToday', formatKwh(data.energy.today));
@@ -179,7 +211,7 @@ function renderDashboard(data) {
   setBadge('acToggleBtn', isOn(data.ac.power));
   setBadge('lampToggleBtn', isOn(data.lamp.power));
   setBadge('tvPowerBadge', isOn(data.tv.power));
-  setBadge('nestPowerBadge', data.nest.online);
+  setBadge('nestPowerBadge', data.nest.online === true || isOn(data.nest.online));
 }
 
 /* =========================
@@ -187,38 +219,26 @@ function renderDashboard(data) {
 ========================= */
 
 function renderACSlider(tempValue) {
-  const acSlider =
-    document.getElementById('acSliderFill');
-
+  const acSlider = document.getElementById('acSliderFill');
   if (!acSlider) return;
 
   const temp = Number(tempValue || 24);
-
-  const percent =
-    ((temp - 16) / 14) * 100 + 10;
+  const percent = ((temp - 16) / 14) * 100;
 
   acSlider.style.width =
-    Math.max(0, Math.min(100, percent)) + '%';
+    Math.max(8, Math.min(100, percent)) + '%';
 }
 
 function renderLampSlider(power, brightness) {
-  const lampBar =
-    document.getElementById('lampBar');
-
-  const lampInput =
-    document.getElementById('lampBrightnessSlider');
-
+  const lampBar = document.getElementById('lampBar');
+  const lampInput = document.getElementById('lampBrightnessSlider');
   const value = Number(brightness || 0);
 
   if (lampBar) {
-    if (String(power).toUpperCase() === 'OFF') {
-      lampBar.style.width = '0%';
-    } else {
-      lampBar.style.width = value + '%';
-    }
+    lampBar.style.width = isOn(power) ? value + '%' : '0%';
   }
 
-  if (lampInput) {
+  if (lampInput && document.activeElement !== lampInput) {
     lampInput.value = value;
   }
 }
@@ -228,30 +248,19 @@ function renderLampSlider(power, brightness) {
 ========================= */
 
 function bindControls() {
-  const acToggleBtn =
-    document.getElementById('acToggleBtn');
-
-  const acPlusBtn =
-    document.getElementById('acPlusBtn');
-
-  const acMinusBtn =
-    document.getElementById('acMinusBtn');
-
-  const lampToggleBtn =
-    document.getElementById('lampToggleBtn');
-
-  const lampSlider =
-    document.getElementById('lampBrightnessSlider');
-
-  const rerunSceneBtn =
-    document.getElementById('rerunSceneBtn');
+  const acToggleBtn = document.getElementById('acToggleBtn');
+  const acPlusBtn = document.getElementById('acPlusBtn');
+  const acMinusBtn = document.getElementById('acMinusBtn');
+  const lampToggleBtn = document.getElementById('lampToggleBtn');
+  const lampSlider = document.getElementById('lampBrightnessSlider');
+  const rerunSceneBtn = document.getElementById('rerunSceneBtn');
 
   if (acToggleBtn) {
     acToggleBtn.addEventListener('click', () => {
-      const isActive =
+      const active =
         acToggleBtn.textContent.trim().toUpperCase() === 'ON';
 
-      sendControl(isActive ? 'ac_off' : 'ac_on');
+      sendControl(active ? 'ac_off' : 'ac_on');
     });
   }
 
@@ -269,19 +278,24 @@ function bindControls() {
 
   if (lampToggleBtn) {
     lampToggleBtn.addEventListener('click', () => {
-      const isActive =
+      const active =
         lampToggleBtn.textContent.trim().toUpperCase() === 'ON';
 
-      sendControl(isActive ? 'lamp_off' : 'lamp_on');
+      sendControl(active ? 'lamp_off' : 'lamp_on');
     });
   }
 
   if (lampSlider) {
+    lampSlider.addEventListener('input', () => {
+      const lampBar = document.getElementById('lampBar');
+      const lampBrightness = document.getElementById('lampBrightness');
+
+      if (lampBar) lampBar.style.width = lampSlider.value + '%';
+      if (lampBrightness) lampBrightness.textContent = lampSlider.value + '%';
+    });
+
     lampSlider.addEventListener('change', () => {
-      sendControl(
-        'lamp_brightness',
-        lampSlider.value
-      );
+      sendControl('lamp_brightness', lampSlider.value);
     });
   }
 
@@ -294,6 +308,8 @@ function bindControls() {
 
       if (action) {
         sendControl(action);
+      } else {
+        showToast('Scene belum tersedia');
       }
     });
   }
@@ -324,7 +340,6 @@ async function sendControl(action, value = '') {
     showToast('Perintah terkirim');
 
     setTimeout(loadFirebaseState, 1200);
-
   } catch (err) {
     console.error('Control error:', err);
     showToast('Gagal kirim perintah');
@@ -336,14 +351,14 @@ async function sendControl(action, value = '') {
 ========================= */
 
 function sceneToAction(sceneName) {
-  const scene =
-    String(sceneName || '').toLowerCase();
+  const scene = String(sceneName || '').toLowerCase();
 
   if (scene.includes('movie')) return 'scene_movie';
   if (scene.includes('gaming')) return 'scene_gaming';
   if (scene.includes('sleep')) return 'scene_sleep';
   if (scene.includes('away')) return 'scene_away';
   if (scene.includes('siapkan')) return 'scene_siapan_kamar';
+  if (scene.includes('kamar')) return 'scene_siapan_kamar';
 
   return '';
 }
@@ -366,8 +381,22 @@ function setBadge(id, active) {
 }
 
 function isOn(value) {
-  return String(value).toUpperCase().includes('ON') ||
-    String(value).toUpperCase() === 'TRUE';
+  const text = String(value || '').toUpperCase();
+
+  return (
+    text.includes('ON') ||
+    text === 'TRUE' ||
+    text === 'ONLINE' ||
+    text === '1'
+  );
+}
+
+function formatValue(value, suffix) {
+  if (value === '--' || value === null || value === undefined || value === '') {
+    return '--';
+  }
+
+  return value + suffix;
 }
 
 function formatKwh(value) {
@@ -375,45 +404,45 @@ function formatKwh(value) {
 }
 
 function formatRupiah(value) {
-  return 'Rp ' +
-    Number(value || 0).toLocaleString('id-ID');
+  return 'Rp ' + Number(value || 0).toLocaleString('id-ID');
 }
 
 function getTvDisplayStatus(tv) {
   if (!tv) return 'Standby';
 
-  const power =
-    String(tv.power || '').toUpperCase();
-
-  const screen =
-    String(tv.screen || '').trim();
-
-  const status =
-    String(tv.status || '').toUpperCase();
+  const power = String(tv.power || '').toUpperCase();
+  const app = String(tv.app || tv.screen || '').trim();
+  const status = String(tv.status || tv.media_state || '').toUpperCase();
+  const title = String(tv.title || '').trim();
 
   if (power !== 'ON') return 'Standby';
 
+  if (title) return title;
+
   if (
-    screen === '' ||
-    screen.toLowerCase() === 'no app'
+    app === '' ||
+    app.toLowerCase() === 'no app'
   ) {
     if (status === 'PLAYING') return 'Screen Saver';
     return 'Home Screen';
   }
 
-  return screen;
+  if (status && status !== '--') {
+    return app + ' · ' + status;
+  }
+
+  return app;
 }
 
 function showToast(message) {
-  let toast =
-    document.getElementById('smartToast');
+  let toast = document.getElementById('smartToast');
 
   if (!toast) {
     toast = document.createElement('div');
     toast.id = 'smartToast';
     toast.style.position = 'fixed';
     toast.style.left = '50%';
-    toast.style.bottom = '90px';
+    toast.style.bottom = '92px';
     toast.style.transform = 'translateX(-50%)';
     toast.style.padding = '12px 18px';
     toast.style.borderRadius = '999px';
@@ -422,16 +451,19 @@ function showToast(message) {
     toast.style.fontSize = '14px';
     toast.style.zIndex = '9999';
     toast.style.backdropFilter = 'blur(18px)';
+    toast.style.webkitBackdropFilter = 'blur(18px)';
+    toast.style.transition = 'opacity .25s ease, transform .25s ease';
     document.body.appendChild(toast);
   }
 
   toast.textContent = message;
   toast.style.opacity = '1';
+  toast.style.transform = 'translateX(-50%) translateY(0)';
 
   clearTimeout(window.smartToastTimer);
 
-  window.smartToastTimer =
-    setTimeout(() => {
-      toast.style.opacity = '0';
-    }, 1800);
+  window.smartToastTimer = setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateX(-50%) translateY(8px)';
+  }, 1800);
 }
