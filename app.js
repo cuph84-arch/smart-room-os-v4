@@ -155,6 +155,7 @@ function mapFirebaseState(state) {
 ========================= */
 
 function renderDashboard(data) {
+  setText('headerDate', 'Last Updated: ' + getLatestUpdatedTime(data));
   setText('roomTemp', formatValue(data.climate.temp, '°C'));
   setText('roomHumidity', formatValue(data.climate.humidity, '%'));
 
@@ -406,6 +407,41 @@ function formatKwh(value) {
 
 function formatRupiah(value) {
   return 'Rp ' + Number(value || 0).toLocaleString('id-ID');
+}
+
+function getLatestUpdatedTime(data) {
+  const candidates = [
+    data?.smartplug?.updated_at,
+    data?.smartplug?.updatedAt,
+    data?.ac?.updated_at,
+    data?.ac?.updatedAt,
+    data?.climate?.updated_at,
+    data?.climate?.updatedAt,
+    data?.lamp?.updated_at,
+    data?.lamp?.updatedAt,
+    data?.cctv?.updated_at,
+    data?.cctv?.updatedAt,
+    data?.tv?.updated_at,
+    data?.tv?.updatedAt,
+    data?.nest?.updated_at,
+    data?.nest?.updatedAt
+  ];
+
+  const dates = candidates
+    .filter(Boolean)
+    .map(value => new Date(value))
+    .filter(date => !isNaN(date.getTime()));
+
+  if (!dates.length) return '--';
+
+  const latest = new Date(Math.max(...dates.map(date => date.getTime())));
+
+  return latest.toLocaleTimeString('id-ID', {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
+  });
 }
 
 function getTvDisplayStatus(tv) {
