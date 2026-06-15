@@ -1056,3 +1056,137 @@ h1 {
     font-size: clamp(34px, 10vw, 44px);
   }
 }
+
+/* =========================================================
+   SMART ROOM OS V4 — FINAL UI POLISH PHASE 1C
+   Visual Hierarchy
+   Safe override: tidak ubah struktur layout
+========================================================= */
+
+/* AC sebagai hero utama */
+.ac-card,
+.card-ac {
+  padding: 18px 16px;
+  border-radius: 28px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06)),
+    rgba(12, 15, 22, 0.66);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.2),
+    0 22px 52px rgba(0,0,0,0.38);
+}
+
+.ac-card .main-value,
+.ac-card .value,
+.card-ac .main-value,
+.card-ac .value {
+  font-size: clamp(42px, 13vw, 58px);
+  line-height: 0.88;
+  font-weight: 900;
+}
+
+/* AC detail lebih kebaca */
+.ac-card .status-text,
+.ac-card .meta,
+.card-ac .status-text,
+.card-ac .meta {
+  font-size: 12.5px;
+  opacity: 0.82;
+}
+
+/* Energy turun sedikit dari AC */
+.energy-card {
+  transform: scale(0.985);
+  transform-origin: top center;
+}
+
+.energy-card .main-value,
+.energy-card .value,
+.energy-main-value {
+  font-size: clamp(30px, 8.8vw, 42px);
+}
+
+/* Device card dibuat konsisten */
+.device-card,
+.tv-card,
+.nest-card,
+.cctv-card,
+.lamp-card,
+.scene-card {
+  min-height: 112px;
+  display: flex;
+  align-items: center;
+}
+
+/* Isi device lebih padat */
+.device-card .card-body,
+.tv-card .card-body,
+.nest-card .card-body,
+.cctv-card .card-body,
+.lamp-card .card-body {
+  flex: 1;
+}
+
+/* Icon tidak dominan */
+.device-icon,
+.card-icon {
+  width: clamp(42px, 11vw, 52px);
+  height: clamp(42px, 11vw, 52px);
+  opacity: 0.92;
+}
+
+/* AC icon boleh sedikit lebih besar */
+.ac-card .device-icon,
+.ac-card .card-icon,
+.card-ac .device-icon,
+.card-ac .card-icon {
+  width: clamp(52px, 14vw, 66px);
+  height: clamp(52px, 14vw, 66px);
+}
+
+/* Label hierarchy */
+.card-title,
+.device-title {
+  opacity: 0.95;
+}
+
+.card-meta,
+.device-meta,
+.meta {
+  opacity: 0.68;
+}
+
+/* Value kecil di device card */
+.tv-card .value,
+.nest-card .value,
+.cctv-card .value,
+.lamp-card .value,
+.scene-card .value {
+  font-size: clamp(22px, 6.5vw, 30px);
+  line-height: 1;
+}
+
+/* Mobile tightening */
+@media (max-width: 430px) {
+  .ac-card,
+  .card-ac {
+    padding: 17px 15px;
+    border-radius: 26px;
+  }
+
+  .ac-card .main-value,
+  .ac-card .value,
+  .card-ac .main-value,
+  .card-ac .value {
+    font-size: clamp(44px, 14vw, 56px);
+  }
+
+  .device-card,
+  .tv-card,
+  .nest-card,
+  .cctv-card,
+  .lamp-card,
+  .scene-card {
+    min-height: 104px;
+  }
+}
