@@ -10,6 +10,8 @@ const FIREBASE_STATE_URL =
 const CONTROL_URL =
   'https://script.google.com/macros/s/AKfycbwYUMIjajxgFPJzbx2Nz9UXBB-LdjkGcyenMnk3hWVTRqtuz9C1P3k9Zra-3P-mvCf1/exec';
 
+let latestFirebaseUpdatedAt = null;
+
 /* =========================
    INIT
 ========================= */
@@ -29,8 +31,10 @@ async function loadFirebaseState() {
     const res = await fetch(FIREBASE_STATE_URL + '?t=' + Date.now());
     const state = await res.json();
 
-    const data = mapFirebaseState(state || {});
-    renderDashboard(data);
+latestFirebaseUpdatedAt = getLatestUpdatedAt(state || {});
+
+const data = mapFirebaseState(state || {});
+renderDashboard(data);
   } catch (err) {
     console.error('Firebase load error:', err);
     showToast('Gagal memuat data');
@@ -157,8 +161,7 @@ function mapFirebaseState(state) {
 function renderDashboard(data) {
   setText(
   'headerDate',
-  'Last Updated: ' +
-  (data.cctv?.updated_at || '--')
+  'Last Updated: ' + formatTimeOnly(latestFirebaseUpdatedAt)
 );
    setText('roomTemp', formatValue(data.climate.temp, '°C'));
   setText('roomHumidity', formatValue(data.climate.humidity, '%'));
@@ -425,6 +428,24 @@ function getLatestDeviceUpdatedTime(data) {
     data?.tv
   ];
 
+   function getLatestUpdatedAt(state) {
+  const devices = ['ac', 'cctv', 'climate', 'lamp', 'smartplug', 'nest', 'speaker', 'tv'];
+
+  const timestamps = devices
+    .map(name => state?.[name]?.updated_at)
+    .filter(Boolean)
+    .sort();
+
+  return timestamps.length ? timestamps[timestamps.length - 1] : null;
+}
+
+function formatTimeOnly(value) {
+  if (!value) return '--';
+
+  const match = String(value).match(/(\d{2}):(\d{2}):(\d{2})/);
+  return match ? `${match[1]}:${match[2]}:${match[3]}` : '--';
+}
+   
   const dates = devices
     .map(device => {
       if (!device) return null;
