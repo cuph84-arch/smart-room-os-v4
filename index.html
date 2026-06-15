@@ -16,39 +16,47 @@
   <main class="app">
 
     <header class="header">
-      <h1>Welcome Home</h1>
+      <div class="header-text">
+        <span class="eyebrow">Smart Room OS V4</span>
+        <h1>Welcome Home</h1>
+        <p>Kamar tidur siap dikontrol</p>
+      </div>
 
       <nav class="top-tabs">
         <button class="active">Home</button>
         <button>Kamar</button>
-        <button>Ruang tamu</button>
-        <button>Teras</button>
-        <button>Garasi</button>
+        <button>Scene</button>
+        <button>Energy</button>
       </nav>
     </header>
 
-    <section class="glass-panel">
+    <section class="dashboard">
 
       <section class="wide-card summary-card">
-        <h2>Smart Room Summary</h2>
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Overview</span>
+            <h2>Smart Room Summary</h2>
+          </div>
+        </div>
 
         <div class="summary-grid">
-          <div>
+          <div class="summary-item">
             <span>AC</span>
             <strong id="summaryAC">--</strong>
           </div>
 
-          <div>
+          <div class="summary-item">
             <span>Lampu</span>
             <strong id="summaryLamp">--</strong>
           </div>
 
-          <div>
+          <div class="summary-item">
             <span>TV</span>
             <strong id="summaryTV">--</strong>
           </div>
 
-          <div>
+          <div class="summary-item">
             <span>CCTV</span>
             <strong id="summaryCCTV">--</strong>
           </div>
@@ -60,45 +68,37 @@
         </div>
       </section>
 
-      <section class="grid-2">
+      <section class="hero-grid">
 
-        <article class="card">
-          <div class="card-title">
-            <img src="icons/humidity.svg" alt="" />
-            <span>Suhu kamar</span>
-          </div>
-
-          <p>Temp. : <b id="roomTemp">--°C</b></p>
-          <p>Humidity : <b id="roomHumidity">--%</b></p>
-        </article>
-
-        <article class="card">
-          <div class="card-title">
-            <img src="icons/power.svg" alt="" />
-            <span>Power</span>
-          </div>
-
-          <p>Current : <b id="plugPower">--W</b></p>
-          <p>Volt : <b id="plugVolt">--V</b></p>
-        </article>
-
-      </section>
-
-      <section class="grid-2">
-
-        <article class="card control-card">
+        <article class="card hero-card ac-card">
           <div class="card-head">
-            <h2>AC Kamar</h2>
+            <div class="title-group">
+              <img class="card-icon" src="icons/ac.svg" alt="" />
+              <div>
+                <span class="eyebrow">Hero Control</span>
+                <h2>AC Kamar</h2>
+              </div>
+            </div>
+
             <button id="acToggleBtn" class="badge on">ON</button>
           </div>
 
-          <div class="big-temp">
-            <span id="acTemp">--°C</span>
+          <div class="ac-display">
+            <strong id="acTemp">--°C</strong>
+            <span id="acStatus">--</span>
           </div>
 
-          <p>AC status : <b id="acStatus">--</b></p>
-          <p>Mode : <b id="acMode">--</b></p>
-          <p>Fan : <b id="acFan">--</b></p>
+          <div class="device-meta">
+            <div>
+              <span>Mode</span>
+              <strong id="acMode">--</strong>
+            </div>
+
+            <div>
+              <span>Fan</span>
+              <strong id="acFan">--</strong>
+            </div>
+          </div>
 
           <div class="ac-slider">
             <div id="acSliderFill" class="ac-slider-fill"></div>
@@ -110,17 +110,38 @@
           </div>
         </article>
 
-        <article class="card control-card">
+        <article class="card hero-card lamp-card">
           <div class="card-head">
-            <h2>Lampu kamar</h2>
+            <div class="title-group">
+              <img class="card-icon" src="icons/lamp.svg" alt="" />
+              <div>
+                <span class="eyebrow">Hero Control</span>
+                <h2>Lampu Kamar</h2>
+              </div>
+            </div>
+
             <button id="lampToggleBtn" class="badge off">OFF</button>
           </div>
 
-          <img class="device-icon" src="icons/lamp.svg" alt="" />
+          <div class="lamp-display">
+            <img class="device-icon" src="icons/lamp.svg" alt="" />
+            <div>
+              <span>Status</span>
+              <strong id="lampStatus">--</strong>
+            </div>
+          </div>
 
-          <p>Status : <b id="lampStatus">--</b></p>
-          <p>Brightness : <b id="lampBrightness">--%</b></p>
-          <p>Mode : <b id="lampMode">--</b></p>
+          <div class="device-meta">
+            <div>
+              <span>Brightness</span>
+              <strong id="lampBrightness">--%</strong>
+            </div>
+
+            <div>
+              <span>Mode</span>
+              <strong id="lampMode">--</strong>
+            </div>
+          </div>
 
           <div class="lamp-bar">
             <div id="lampBar"></div>
@@ -139,46 +160,126 @@
       </section>
 
       <section class="wide-card entertainment-card">
-        <h2>Entertainment</h2>
+        <div class="section-head">
+          <div class="title-group">
+            <img class="card-icon" src="icons/tv.svg" alt="" />
+            <div>
+              <span class="eyebrow">Media</span>
+              <h2>Entertainment</h2>
+            </div>
+          </div>
+        </div>
 
         <div class="entertainment-grid">
-          <div>
-            <div class="card-head">
-              <h3>TV Kamar</h3>
+
+          <div class="mini-device">
+            <div class="mini-device-head">
+              <div>
+                <h3>TV Kamar</h3>
+                <p id="tvStatus">--</p>
+              </div>
+
               <span id="tvPowerBadge" class="badge on">ON</span>
             </div>
 
-            <img src="icons/smart_hub.svg" alt="" />
-            <p id="tvStatus">--</p>
+            <img src="icons/tv.svg" alt="" />
           </div>
 
-          <div>
-            <div class="card-head">
-              <h3>Nest</h3>
+          <div class="mini-device">
+            <div class="mini-device-head">
+              <div>
+                <h3>Nest Mini</h3>
+                <p id="nestStatus">--</p>
+              </div>
+
               <span id="nestPowerBadge" class="badge on">ON</span>
             </div>
 
-            <img src="icons/smart_hub.svg" alt="" />
-            <p id="nestStatus">--</p>
+            <img src="icons/nest.svg" alt="" />
             <small>Volume <span id="nestVolume">--</span>%</small>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="wide-card climate-power-card">
+        <div class="section-head">
+          <div class="title-group">
+            <img class="card-icon" src="icons/climate.svg" alt="" />
+            <div>
+              <span class="eyebrow">Room Status</span>
+              <h2>Climate & Power</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="metric-grid">
+          <div class="metric-item">
+            <span>Temperature</span>
+            <strong id="roomTemp">--°C</strong>
+          </div>
+
+          <div class="metric-item">
+            <span>Humidity</span>
+            <strong id="roomHumidity">--%</strong>
+          </div>
+
+          <div class="metric-item">
+            <span>Watt</span>
+            <strong id="plugPower">--W</strong>
+          </div>
+
+          <div class="metric-item">
+            <span>Voltage</span>
+            <strong id="plugVolt">--V</strong>
           </div>
         </div>
       </section>
 
       <section class="wide-card cctv-card">
-        <div class="card-title">
-          <img src="icons/camera.svg" alt="" />
-          <span>CCTV Kamar</span>
+        <div class="section-head">
+          <div class="title-group">
+            <img class="card-icon" src="icons/cctv.svg" alt="" />
+            <div>
+              <span class="eyebrow">Security</span>
+              <h2>CCTV Kamar</h2>
+            </div>
+          </div>
         </div>
 
-        <p>Status : <b id="cctvOnline">--</b></p>
-        <p>Motion : <b id="cctvMotion">--</b></p>
-        <p>Recording : <b id="cctvRecording">--</b></p>
-        <p>Last Motion : <b id="cctvLastMotion">--</b></p>
+        <div class="metric-grid cctv-grid">
+          <div class="metric-item">
+            <span>Status</span>
+            <strong id="cctvOnline">--</strong>
+          </div>
+
+          <div class="metric-item">
+            <span>Motion</span>
+            <strong id="cctvMotion">--</strong>
+          </div>
+
+          <div class="metric-item">
+            <span>Recording</span>
+            <strong id="cctvRecording">--</strong>
+          </div>
+
+          <div class="metric-item">
+            <span>Last Motion</span>
+            <strong id="cctvLastMotion">--</strong>
+          </div>
+        </div>
       </section>
 
-      <section class="wide-card chart-card">
-        <h2>Pemakaian & Biaya AC</h2>
+      <section class="wide-card energy-card">
+        <div class="section-head">
+          <div class="title-group">
+            <img class="card-icon" src="icons/energy.svg" alt="" />
+            <div>
+              <span class="eyebrow">Usage</span>
+              <h2>Energy Usage</h2>
+            </div>
+          </div>
+        </div>
 
         <div class="energy-stats">
 
@@ -215,7 +316,15 @@
       </section>
 
       <section class="wide-card scene-card">
-        <h2>Scene terakhir :</h2>
+        <div class="section-head">
+          <div class="title-group">
+            <img class="card-icon" src="icons/scene.svg" alt="" />
+            <div>
+              <span class="eyebrow">Automation</span>
+              <h2>Last Scene</h2>
+            </div>
+          </div>
+        </div>
 
         <div class="scene-row">
           <span id="sceneTime">🕘</span>
@@ -232,10 +341,25 @@
     </section>
 
     <nav class="bottom-nav">
-      <button class="active">🏠 Home</button>
-      <button>☼ Automation</button>
-      <button>⌁ Devices</button>
-      <button>⚙ Setting</button>
+      <button class="active">
+        <span>🏠</span>
+        Home
+      </button>
+
+      <button>
+        <span>☼</span>
+        Automation
+      </button>
+
+      <button>
+        <span>⌁</span>
+        Devices
+      </button>
+
+      <button>
+        <span>⚙</span>
+        Setting
+      </button>
     </nav>
 
   </main>
