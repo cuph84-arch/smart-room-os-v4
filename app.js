@@ -410,31 +410,36 @@ function formatRupiah(value) {
 }
 
 function getLatestUpdatedTime(data) {
-  const candidates = [
-    data?.smartplug?.updated_at,
-    data?.smartplug?.updatedAt,
-    data?.ac?.updated_at,
-    data?.ac?.updatedAt,
-    data?.climate?.updated_at,
-    data?.climate?.updatedAt,
-    data?.lamp?.updated_at,
-    data?.lamp?.updatedAt,
-    data?.cctv?.updated_at,
-    data?.cctv?.updatedAt,
-    data?.tv?.updated_at,
-    data?.tv?.updatedAt,
-    data?.nest?.updated_at,
-    data?.nest?.updatedAt
-  ];
+  const timestamps = [];
 
-  const dates = candidates
-    .filter(Boolean)
-    .map(value => new Date(value))
-    .filter(date => !isNaN(date.getTime()));
+  function scan(obj) {
+    if (!obj || typeof obj !== 'object') return;
 
-  if (!dates.length) return '--';
+    Object.keys(obj).forEach(key => {
+      const value = obj[key];
 
-  const latest = new Date(Math.max(...dates.map(date => date.getTime())));
+      if (
+        key === 'updated_at' ||
+        key === 'updatedAt' ||
+        key === 'timestamp' ||
+        key === 'lastUpdate' ||
+        key === 'last_updated'
+      ) {
+        const date = parseFirebaseDate(value);
+        if (date) timestamps.push(date);
+      }
+
+      if (value && typeof value === 'object') {
+        scan(value);
+      }
+    });
+  }
+
+  scan(data);
+
+  const latest = timestamps.length
+    ? new Date(Math.max(...timestamps.map(date => date.getTime())))
+    : new Date();
 
   return latest.toLocaleTimeString('id-ID', {
     hour: '2-digit',
@@ -442,6 +447,35 @@ function getLatestUpdatedTime(data) {
     second: '2-digit',
     hour12: false
   });
+}
+
+function parseFirebaseDate(value) {
+  if (!value) return null;
+
+  if (value instanceof Date && !isNaN(value.getTime())) {
+    return value;
+  }
+
+  if (typeof value === 'number') {
+    const date = new Date(value);
+    return isNaN(date.getTime()) ? null : date;
+  }
+
+  if (typeof value === 'string') {
+    const cleaned = value.trim();
+
+    const normalDate = new Date(cleaned);
+    if (!isNaN(normalDate.getTime())) return normalDate;
+
+    const match = cleaned.match(/(\d{1,2}):(\d{2}):(\d{2})/);
+    if (match) {
+      const now = new Date();
+      now.setHours(Number(match[1]), Number(match[2]), Number(match[3]), 0);
+      return now;
+    }
+  }
+
+  return null;
 }
 
 function getTvDisplayStatus(tv) {
