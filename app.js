@@ -155,7 +155,11 @@ function mapFirebaseState(state) {
 ========================= */
 
 function renderDashboard(data) {
-  setText('headerDate', 'Last Updated: ' + getLatestDeviceUpdatedTime(data));
+  setText(
+  'headerDate',
+  'Last Updated: ' +
+  (data.cctv?.updated_at || '--')
+);
    setText('roomTemp', formatValue(data.climate.temp, '°C'));
   setText('roomHumidity', formatValue(data.climate.humidity, '%'));
 
