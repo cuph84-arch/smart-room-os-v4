@@ -1,17 +1,25 @@
 {
-  "name": "Smart Room OS",
+  "name": "Smart Room OS V4",
   "short_name": "SmartRoom",
-  "description": "Smart Room OS V4",
+  "description": "Smart Room OS V4 - Clean Glassmorphism Smart Home Dashboard",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#101418",
-  "theme_color": "#101418",
   "orientation": "portrait",
+  "background_color": "#07111f",
+  "theme_color": "#07111f",
   "icons": [
     {
-      "src": "icons/home.svg",
+      "src": "https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/home.svg",
       "sizes": "192x192",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/home.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
   ]
 }
