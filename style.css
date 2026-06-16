@@ -1307,3 +1307,587 @@ h1 {
     min-height: 300px;
   }
 }
+
+/* =========================================================
+   SMART ROOM OS V4 — FINAL TARGET POLISH
+   Paste di PALING BAWAH style.css
+========================================================= */
+
+:root {
+  --sr-bg-dark: rgba(8, 14, 28, 0.18);
+  --sr-bg-card: rgba(255, 255, 255, 0.135);
+  --sr-bg-card-strong: rgba(255, 255, 255, 0.18);
+  --sr-border: rgba(255, 255, 255, 0.24);
+  --sr-border-soft: rgba(255, 255, 255, 0.14);
+  --sr-text: #ffffff;
+  --sr-muted: rgba(255, 255, 255, 0.62);
+  --sr-muted-2: rgba(255, 255, 255, 0.46);
+  --sr-green: #35f08a;
+  --sr-purple: #8d5cff;
+  --sr-blue: #35b8ff;
+  --sr-radius-xl: 26px;
+  --sr-radius-lg: 22px;
+  --sr-radius-md: 16px;
+}
+
+/* Deep dark neon ambiance */
+body {
+  color: var(--sr-text);
+  background:
+    linear-gradient(rgba(2, 8, 20, 0.58), rgba(2, 8, 20, 0.72)),
+    url("./smartroom-bg.png") center / cover fixed no-repeat;
+}
+
+/* Utility glass card */
+.glass-card,
+.card,
+.summary-card,
+.ac-card,
+.lamp-card,
+.entertainment-card,
+.climate-card,
+.cctv-card,
+.energy-card,
+.scene-card {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.18), rgba(255,255,255,0.07)),
+    rgba(10, 18, 36, 0.18);
+  backdrop-filter: blur(26px) saturate(155%);
+  -webkit-backdrop-filter: blur(26px) saturate(155%);
+  border: 1px solid var(--sr-border);
+  border-radius: var(--sr-radius-xl);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.22),
+    inset 0 -1px 0 rgba(255,255,255,0.06),
+    0 18px 44px rgba(0,0,0,0.28);
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Typography premium */
+h1,
+.hero-title,
+.app-title {
+  color: #fff;
+  font-weight: 850;
+  letter-spacing: -0.055em;
+  text-shadow: 0 3px 20px rgba(0,0,0,0.28);
+}
+
+.card-title,
+.device-title,
+.section-title {
+  color: #fff;
+  font-weight: 750;
+  letter-spacing: -0.025em;
+}
+
+.label,
+.meta,
+.card-meta,
+.device-meta,
+.status-label,
+small {
+  color: var(--sr-muted);
+  font-weight: 500;
+}
+
+.value,
+.main-value,
+.device-value,
+.temp-value,
+.power-value {
+  color: #fff;
+  font-weight: 850;
+  letter-spacing: -0.06em;
+}
+
+/* Top summary */
+.summary-card {
+  padding: 18px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.summary-item {
+  min-height: 74px;
+  padding: 12px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.105);
+  border: 1px solid rgba(255,255,255,0.11);
+}
+
+.summary-item .status-on,
+.status-on,
+.on {
+  color: var(--sr-green);
+  font-weight: 800;
+}
+
+.summary-energy-row {
+  margin-top: 14px;
+  padding: 13px 16px;
+  border-radius: 17px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* AC + Lamp two-card target sizing */
+.room-control-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* AC card */
+.ac-card {
+  min-height: 264px;
+  padding: 20px 22px;
+}
+
+.ac-head,
+.lamp-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.ac-title-wrap,
+.lamp-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ac-status,
+.lamp-status,
+.status-pill {
+  min-width: 48px;
+  height: 30px;
+  padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(53,240,138,0.95), rgba(33,205,116,0.88));
+  color: #062414;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.status-pill.off,
+.lamp-status.off {
+  background: rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.82);
+}
+
+.ac-main-row {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 12px;
+}
+
+.ac-temp {
+  font-size: clamp(54px, 15vw, 72px);
+  line-height: 0.82;
+  font-weight: 850;
+  letter-spacing: -0.075em;
+  color: #fff;
+}
+
+.ac-mode-line {
+  margin-top: 8px;
+  font-size: 17px;
+  line-height: 1.35;
+  color: var(--sr-muted);
+}
+
+.ac-mode-line strong {
+  color: #fff;
+  font-weight: 850;
+}
+
+.ac-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.ac-btn {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+  font-size: 26px;
+  font-weight: 700;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.18),
+    0 8px 18px rgba(0,0,0,0.18);
+}
+
+.ac-slider-wrap,
+.lamp-slider-wrap {
+  margin-top: 18px;
+}
+
+.range-labels {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  color: var(--sr-muted);
+  font-size: 13px;
+}
+
+.sr-slider,
+input[type="range"] {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  appearance: none;
+  -webkit-appearance: none;
+  background: linear-gradient(90deg, var(--sr-blue), var(--sr-green));
+  outline: none;
+}
+
+.sr-slider::-webkit-slider-thumb,
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: #fff;
+  border: 0;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+}
+
+/* Lamp card */
+.lamp-card {
+  min-height: 264px;
+  padding: 20px 22px;
+}
+
+.lamp-main-row {
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 14px;
+}
+
+.lamp-value {
+  font-size: clamp(52px, 14vw, 68px);
+  line-height: 0.86;
+  font-weight: 850;
+  letter-spacing: -0.075em;
+  color: #fff;
+}
+
+.lamp-value small {
+  font-size: 42%;
+  color: #fff;
+  letter-spacing: -0.04em;
+}
+
+.lamp-mode {
+  margin-top: 16px;
+  color: var(--sr-muted);
+  font-size: 17px;
+}
+
+.lamp-mode strong {
+  color: #fff;
+  font-weight: 800;
+}
+
+.lamp-icon-btn {
+  width: 68px;
+  height: 68px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(141,92,255,0.28);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 32px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+.lamp-slider-wrap .sr-slider,
+.lamp-slider-wrap input[type="range"] {
+  background: linear-gradient(90deg, rgba(255,255,255,0.22), rgba(141,92,255,0.58));
+}
+
+/* Climate & Power target */
+.climate-card {
+  padding: 20px 22px;
+}
+
+.climate-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.climate-item {
+  min-height: 94px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 8px 10px;
+  position: relative;
+}
+
+.climate-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 18%;
+  width: 1px;
+  height: 64%;
+  background: rgba(255,255,255,0.22);
+}
+
+.climate-icon {
+  font-size: 26px;
+  line-height: 1;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 0 12px rgba(80,200,255,0.34));
+}
+
+.climate-icon.temp { color: #ff7bd5; }
+.climate-icon.humidity { color: #54d7ff; }
+.climate-icon.power { color: #ff9f43; }
+.climate-icon.voltage { color: #6ee7ff; }
+
+.climate-value {
+  color: #fff;
+  font-size: clamp(20px, 5.7vw, 27px);
+  font-weight: 850;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.climate-label {
+  margin-top: 8px;
+  color: var(--sr-muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Energy compact seperti target */
+.energy-card {
+  padding: 18px 20px;
+}
+
+.energy-list,
+.energy-grid,
+.energy-stats {
+  display: grid;
+  gap: 8px;
+}
+
+.energy-item,
+.energy-stat {
+  min-height: 42px;
+  padding: 9px 12px;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.105);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.energy-item span,
+.energy-stat span {
+  color: var(--sr-muted);
+  font-size: 13px;
+}
+
+.energy-item strong,
+.energy-stat strong {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 850;
+}
+
+/* CCTV compact */
+.cctv-card {
+  padding: 20px 22px;
+  min-height: 226px;
+}
+
+.cctv-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.cctv-row {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 10px;
+  align-items: center;
+  color: var(--sr-muted);
+  font-size: 15px;
+}
+
+.cctv-row strong {
+  color: #fff;
+  font-weight: 800;
+}
+
+.cctv-last-time {
+  font-size: 27px;
+  line-height: 1;
+  color: #fff;
+  font-weight: 850;
+  letter-spacing: -0.04em;
+}
+
+/* Last scene compact */
+.scene-card {
+  padding: 20px 22px;
+  min-height: 112px;
+}
+
+.scene-row {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: 16px;
+  align-items: center;
+}
+
+.scene-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,0.13);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.scene-title {
+  font-size: 25px;
+  line-height: 1;
+  color: #fff;
+  font-weight: 850;
+  letter-spacing: -0.035em;
+}
+
+.scene-time {
+  margin-top: 6px;
+  color: var(--sr-muted);
+  font-size: 15px;
+}
+
+.scene-btn {
+  height: 48px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #9d5cff, #7038dd);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 850;
+  box-shadow: 0 10px 26px rgba(112,56,221,0.34);
+}
+
+/* Mobile portrait precision */
+@media (max-width: 430px) {
+  body {
+    background:
+      linear-gradient(rgba(2, 8, 20, 0.52), rgba(2, 8, 20, 0.74)),
+      url("./smartroom-bg.png") center / cover fixed no-repeat;
+  }
+
+  .summary-card,
+  .ac-card,
+  .lamp-card,
+  .entertainment-card,
+  .climate-card,
+  .cctv-card,
+  .energy-card,
+  .scene-card {
+    border-radius: 24px;
+  }
+
+  .room-control-grid {
+    gap: 10px;
+  }
+
+  .ac-card,
+  .lamp-card {
+    min-height: 258px;
+    padding: 18px 20px;
+  }
+
+  .ac-temp {
+    font-size: clamp(52px, 15vw, 64px);
+  }
+
+  .lamp-value {
+    font-size: clamp(50px, 14vw, 62px);
+  }
+
+  .ac-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .lamp-icon-btn {
+    width: 62px;
+    height: 62px;
+  }
+
+  .climate-card {
+    padding: 18px 18px;
+  }
+
+  .climate-item {
+    min-height: 86px;
+    padding: 6px;
+  }
+
+  .climate-value {
+    font-size: 20px;
+  }
+
+  .climate-label {
+    font-size: 12px;
+  }
+
+  .energy-item,
+  .energy-stat {
+    min-height: 40px;
+    padding: 8px 11px;
+  }
+
+  .cctv-card {
+    min-height: 218px;
+  }
+
+  .scene-row {
+    grid-template-columns: 54px 1fr;
+  }
+
+  .scene-btn {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-top: 10px;
+  }
+}
