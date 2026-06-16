@@ -1949,3 +1949,133 @@ body::before {
 .cctv-card .info-box {
   min-height: 64px;
 }
+
+/* =====================================================
+   PHASE 1E-A
+   Header Compression
+===================================================== */
+
+.hero,
+.header,
+.top-header {
+  padding-top: 10px !important;
+  padding-bottom: 8px !important;
+  margin-bottom: 10px !important;
+}
+
+.hero-title,
+.app-title,
+h1 {
+  font-size: clamp(34px, 8vw, 42px) !important;
+  line-height: 0.95;
+  margin-bottom: 4px !important;
+}
+
+.hero-subtitle,
+.subtitle {
+  font-size: 13px !important;
+  opacity: .75;
+}
+
+.last-update {
+  margin-top: 6px !important;
+  padding: 6px 14px !important;
+  min-height: 32px !important;
+  font-size: 12px !important;
+}
+
+/* menu room */
+.room-tabs,
+.room-selector,
+.segment-control {
+  margin-top: 10px !important;
+}
+
+/* =====================================================
+   PHASE 1E-B
+   Summary Compression
+===================================================== */
+
+.summary-card {
+  padding: 14px !important;
+}
+
+.summary-card h3,
+.summary-title {
+  margin-bottom: 12px !important;
+}
+
+.summary-grid {
+  gap: 8px !important;
+}
+
+.summary-item {
+  min-height: 66px !important;
+  padding: 10px !important;
+  border-radius: 16px !important;
+}
+
+.summary-energy-row {
+  margin-top: 10px !important;
+  padding: 10px 14px !important;
+}
+
+/* =====================================================
+   PHASE 1E-C
+   Climate Compression
+===================================================== */
+
+.climate-card {
+  padding: 16px !important;
+}
+
+.climate-card .card-title {
+  margin-bottom: 10px !important;
+}
+
+.climate-grid {
+  gap: 6px !important;
+}
+
+.climate-item {
+  min-height: 76px !important;
+}
+
+.climate-value {
+  font-size: 18px !important;
+}
+
+.climate-label {
+  font-size: 11px !important;
+  opacity: .7;
+}
+
+
+/* =====================================================
+   PHASE 1E-D
+   CCTV Compression
+===================================================== */
+
+.cctv-card {
+  padding: 14px !important;
+}
+
+.cctv-card .info-box,
+.cctv-card .status-box {
+  min-height: 54px !important;
+  padding: 10px !important;
+  margin-bottom: 8px !important;
+}
+
+.cctv-card .last-motion {
+  min-height: 60px !important;
+}
+
+.cctv-card .label {
+  font-size: 11px !important;
+}
+
+.cctv-card .value {
+  font-size: 15px !important;
+}
+
