@@ -926,3 +926,64 @@ h3 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+.emoji-icon,
+.emoji-card,
+.emoji-device,
+.metric-emoji,
+.mini-emoji {
+  display: inline-grid;
+  place-items: center;
+  line-height: 1;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.28));
+}
+
+.emoji-icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 7px;
+  font-size: 21px;
+}
+
+.emoji-card {
+  width: 24px;
+  height: 24px;
+  font-size: 21px;
+}
+
+.emoji-device {
+  width: 58px;
+  height: 58px;
+  font-size: 46px;
+}
+
+.metric-emoji {
+  margin: 0 auto 7px;
+  font-size: 22px;
+}
+
+.mini-emoji {
+  width: 42px;
+  height: 42px;
+  margin-top: 13px;
+  font-size: 34px;
+}
+
+.green { color: #38f28f; }
+.yellow { color: #ffd75a; }
+.blue { color: #43bfff; }
+.cyan { color: #57e7ff; }
+.orange { color: #ffbd4a; }
+.pink { color: #ff7bd5; }
+.purple { color: #9b6cff; }
+
+.notification-btn {
+  font-size: 22px;
+}
+
+.bottom-nav button,
+.nav-bar button {
+  line-height: 1.2;
+  font-family: inherit;
+}
