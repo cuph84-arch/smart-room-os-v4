@@ -1891,3 +1891,61 @@ input[type="range"]::-webkit-slider-thumb {
     margin-top: 10px;
   }
 }
+
+/* =====================================================
+   PHASE 1D-A
+   Glass Color Restoration
+===================================================== */
+
+.card,
+.glass-card,
+.summary-card,
+.ac-card,
+.lamp-card,
+.entertainment-card,
+.climate-card,
+.cctv-card,
+.energy-card,
+.scene-card {
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(25,40,80,0.18),
+      rgba(90,40,120,0.14)
+    );
+
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  border: 1px solid rgba(255,255,255,0.12);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 12px 30px rgba(0,0,0,0.22);
+}
+
+/* sedikit munculkan aurora background */
+body::before {
+  opacity: .72;
+}
+
+/* =====================================================
+   PHASE 1D-B
+   CCTV Recovery
+===================================================== */
+
+.cctv-card {
+  min-height: auto !important;
+  padding: 18px !important;
+}
+
+.cctv-card .card-body,
+.cctv-card .content {
+  overflow: visible;
+}
+
+.cctv-card .status-box,
+.cctv-card .info-box {
+  min-height: 64px;
+}
