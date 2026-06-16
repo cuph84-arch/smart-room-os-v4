@@ -942,3 +942,168 @@ h3 {
     min-height: auto;
   }
 }
+
+/* =====================================================
+   SMART ROOM OS V4 — CCTV + ENERGY COMPACT REDESIGN
+   Target: mockup design style
+===================================================== */
+
+.cctv-card,
+.energy-card {
+  min-height: 260px;
+  padding: 18px;
+}
+
+.compact-head {
+  align-items: flex-start;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  color: #00e676;
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(0, 230, 118, 0.10);
+  border: 1px solid rgba(0, 230, 118, 0.16);
+}
+
+.security-layout {
+  display: grid;
+  grid-template-columns: 1fr 86px;
+  gap: 14px;
+  align-items: end;
+  margin-top: 18px;
+}
+
+.security-info {
+  display: grid;
+  gap: 10px;
+}
+
+.security-line {
+  display: grid;
+  gap: 3px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.security-line strong {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.security-line strong[id="cctvMotion"],
+.security-line strong[id="cctvRecording"] {
+  color: #00e676;
+}
+
+.last-motion-line strong {
+  font-size: 13px;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.security-visual {
+  width: 86px;
+  height: 86px;
+  display: grid;
+  place-items: center;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.security-visual span {
+  font-size: 42px;
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.28));
+}
+
+.energy-compact {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.energy-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 28px;
+}
+
+.energy-row span {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.energy-row strong {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.energy-total-box {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  padding: 13px 14px;
+  border-radius: 16px;
+  background: rgba(0, 230, 118, 0.10);
+  border: 1px solid rgba(0, 230, 118, 0.14);
+}
+
+.energy-total-box span {
+  color: #00e676;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.energy-total-box strong {
+  color: #00e676;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.energy-tariff-compact {
+  display: block;
+  margin-top: 2px;
+  color: rgba(255, 255, 255, 0.46);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.hidden-energy-cost {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 374px) {
+  .security-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .security-visual {
+    width: 100%;
+    height: 70px;
+  }
+}
