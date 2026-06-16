@@ -18,367 +18,339 @@
   <main class="app phone-container">
 
     <header class="header">
-      <div class="header-top">
-        <div class="header-text">
-          <span class="header-kicker">Smart Room OS V4</span>
-          <h1>Welcome Home <span class="wave">👋</span></h1>
-          <div id="headerDate" class="last-update-chip">Last Updated: --</div>
-        </div>
+  <div class="header-top">
+    <div class="header-text">
+      <span class="header-kicker">Smart Room OS V4</span>
+      <h1>Welcome Home <span class="wave">👋</span></h1>
+      <div id="headerDate" class="last-update-chip">Last Updated: --</div>
+    </div>
 
-        <button class="notification-btn" aria-label="Notification">
-          <img src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/notification.svg" alt="" />
-        </button>
+    <button class="notification-btn" aria-label="Notification">🔔</button>
+  </div>
+
+  <nav class="top-tabs">
+    <button class="active">🟢 Home</button>
+    <button>🛏️ Kamar</button>
+    <button>📺 Ruang Tamu</button>
+    <button>🌳 Teras</button>
+    <button>🚗 Garasi</button>
+  </nav>
+</header>
+
+<section class="wide-card summary-card">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">Overview</span>
+      <h2>Smart Room Summary</h2>
+    </div>
+  </div>
+
+  <div class="summary-grid">
+    <div class="summary-item">
+      <span class="emoji-icon green">❄️</span>
+      <span>AC</span>
+      <strong id="summaryAC">--</strong>
+    </div>
+
+    <div class="summary-item">
+      <span class="emoji-icon yellow">💡</span>
+      <span>Lampu</span>
+      <strong id="summaryLamp">--</strong>
+    </div>
+
+    <div class="summary-item">
+      <span class="emoji-icon blue">📺</span>
+      <span>TV</span>
+      <strong id="summaryTV">--</strong>
+    </div>
+
+    <div class="summary-item">
+      <span class="emoji-icon cyan">📹</span>
+      <span>CCTV</span>
+      <strong id="summaryCCTV">--</strong>
+    </div>
+  </div>
+
+  <div class="summary-energy">
+    <span>⚡ Konsumsi hari ini</span>
+    <strong id="summaryEnergy">-- kWh · Rp 0</strong>
+  </div>
+</section>
+
+<section class="hero-grid">
+  <article class="card hero-card ac-card">
+    <div class="card-head">
+      <div class="title-group">
+        <span class="card-icon emoji-card green">❄️</span>
+        <div>
+          <span class="eyebrow">Hero Control</span>
+          <h2>AC Kamar</h2>
+        </div>
       </div>
 
-      <nav class="top-tabs">
-        <button class="active">Home</button>
-        <button>Kamar</button>
-        <button>Scene</button>
-        <button>Energy</button>
-      </nav>
-    </header>
+      <button id="acToggleBtn" class="badge on">ON</button>
+    </div>
 
-    <section class="dashboard">
+    <div class="ac-display">
+      <strong id="acTemp">--°C</strong>
+      <span id="acStatus">--</span>
+    </div>
 
-      <section class="wide-card summary-card">
-        <div class="section-head">
-          <div>
-            <span class="eyebrow">Overview</span>
-            <h2>Smart Room Summary</h2>
-          </div>
+    <div class="device-meta">
+      <div>
+        <span>Mode</span>
+        <strong id="acMode">--</strong>
+      </div>
+
+      <div>
+        <span>Fan</span>
+        <strong id="acFan">--</strong>
+      </div>
+    </div>
+
+    <div class="ac-slider">
+      <div id="acSliderFill" class="ac-slider-fill"></div>
+    </div>
+
+    <div class="control-row">
+      <button id="acMinusBtn" class="control-btn">−</button>
+      <button id="acPlusBtn" class="control-btn">+</button>
+    </div>
+  </article>
+
+  <article class="card hero-card lamp-card">
+    <div class="card-head">
+      <div class="title-group">
+        <span class="card-icon emoji-card yellow">💡</span>
+        <div>
+          <span class="eyebrow">Hero Control</span>
+          <h2>Lampu Kamar</h2>
+        </div>
+      </div>
+
+      <button id="lampToggleBtn" class="badge off">OFF</button>
+    </div>
+
+    <div class="lamp-display">
+      <div>
+        <strong id="lampStatus">--</strong>
+        <span>Status</span>
+      </div>
+
+      <span class="device-icon emoji-device yellow">🔆</span>
+    </div>
+
+    <div class="device-meta">
+      <div>
+        <span>Brightness</span>
+        <strong id="lampBrightness">--%</strong>
+      </div>
+
+      <div>
+        <span>Mode</span>
+        <strong id="lampMode">--</strong>
+      </div>
+    </div>
+
+    <div class="lamp-bar">
+      <div id="lampBar"></div>
+    </div>
+
+    <input
+      id="lampBrightnessSlider"
+      class="brightness-slider"
+      type="range"
+      min="0"
+      max="100"
+      value="1"
+    />
+  </article>
+</section>
+
+<section class="wide-card entertainment-card">
+  <div class="section-head">
+    <div class="title-group">
+      <span class="card-icon emoji-card blue">📺</span>
+      <div>
+        <span class="eyebrow">Media</span>
+        <h2>Entertainment</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="entertainment-grid">
+    <div class="mini-device tv-card">
+      <div class="mini-device-head">
+        <div>
+          <h3>TV Kamar</h3>
+          <p id="tvStatus">--</p>
         </div>
 
-        <div class="summary-grid">
-          <div class="summary-item">
-            <img src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/ac.svg" alt="" />
-            <span>AC</span>
-            <strong id="summaryAC">--</strong>
-          </div>
+        <span id="tvPowerBadge" class="badge on">ON</span>
+      </div>
 
-          <div class="summary-item">
-            <img src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/lamp.svg" alt="" />
-            <span>Lampu</span>
-            <strong id="summaryLamp">--</strong>
-          </div>
+      <span class="mini-emoji blue">📺</span>
+    </div>
 
-          <div class="summary-item">
-            <img src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/tv.svg" alt="" />
-            <span>TV</span>
-            <strong id="summaryTV">--</strong>
-          </div>
-
-          <div class="summary-item">
-            <img src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/cctv.svg" alt="" />
-            <span>CCTV</span>
-            <strong id="summaryCCTV">--</strong>
-          </div>
+    <div class="mini-device nest-card">
+      <div class="mini-device-head">
+        <div>
+          <h3>Nest Mini</h3>
+          <p id="nestStatus">--</p>
         </div>
 
-        <div class="summary-energy">
-          <span>⚡ Konsumsi hari ini</span>
-          <strong id="summaryEnergy">-- kWh · Rp 0</strong>
+        <span id="nestPowerBadge" class="badge on">ON</span>
+      </div>
+
+      <span class="mini-emoji green">🔊</span>
+      <small>Volume <span id="nestVolume">--</span>%</small>
+    </div>
+  </div>
+</section>
+
+<section class="wide-card climate-power-card">
+  <div class="section-head">
+    <div class="title-group">
+      <span class="card-icon emoji-card cyan">🌡️</span>
+      <div>
+        <span class="eyebrow">Room Status</span>
+        <h2>Climate & Power</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="metric-grid">
+    <div class="metric-item">
+      <span class="metric-emoji pink">🌡️</span>
+      <span>Temperature</span>
+      <strong id="roomTemp">--°C</strong>
+    </div>
+
+    <div class="metric-item">
+      <span class="metric-emoji cyan">💧</span>
+      <span>Humidity</span>
+      <strong id="roomHumidity">--%</strong>
+    </div>
+
+    <div class="metric-item">
+      <span class="metric-emoji orange">⚡</span>
+      <span>Watt</span>
+      <strong id="plugPower">--W</strong>
+    </div>
+
+    <div class="metric-item">
+      <span class="metric-emoji blue">🔌</span>
+      <span>Voltage</span>
+      <strong id="plugVolt">--V</strong>
+    </div>
+  </div>
+</section>
+
+<section class="split-grid">
+  <section class="wide-card cctv-card">
+    <div class="section-head">
+      <div class="title-group">
+        <span class="card-icon emoji-card cyan">📹</span>
+        <div>
+          <span class="eyebrow">Security</span>
+          <h2>CCTV Kamar</h2>
         </div>
-      </section>
+      </div>
+    </div>
 
-      <section class="hero-grid">
+    <div class="metric-grid cctv-grid">
+      <div class="metric-item">
+        <span>Status</span>
+        <strong id="cctvOnline">--</strong>
+      </div>
 
-        <article class="card hero-card ac-card">
-          <div class="card-head">
-            <div class="title-group">
-              <img class="card-icon" src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/ac.svg" alt="" />
-              <div>
-                <span class="eyebrow">Hero Control</span>
-                <h2>AC Kamar</h2>
-              </div>
-            </div>
+      <div class="metric-item">
+        <span>Motion</span>
+        <strong id="cctvMotion">--</strong>
+      </div>
 
-            <button id="acToggleBtn" class="badge on">ON</button>
-          </div>
+      <div class="metric-item">
+        <span>Recording</span>
+        <strong id="cctvRecording">--</strong>
+      </div>
 
-          <div class="ac-display">
-            <strong id="acTemp">--°C</strong>
-            <span id="acStatus">--</span>
-          </div>
+      <div class="metric-item">
+        <span>Last Motion</span>
+        <strong id="cctvLastMotion">--</strong>
+      </div>
+    </div>
+  </section>
 
-          <div class="device-meta">
-            <div>
-              <span>Mode</span>
-              <strong id="acMode">--</strong>
-            </div>
-
-            <div>
-              <span>Fan</span>
-              <strong id="acFan">--</strong>
-            </div>
-          </div>
-
-          <div class="ac-slider">
-            <div id="acSliderFill" class="ac-slider-fill"></div>
-          </div>
-
-          <div class="control-row">
-            <button id="acMinusBtn" class="control-btn">−</button>
-            <button id="acPlusBtn" class="control-btn">+</button>
-          </div>
-        </article>
-
-        <article class="card hero-card lamp-card">
-          <div class="card-head">
-            <div class="title-group">
-              <img class="card-icon" src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/lamp.svg" alt="" />
-              <div>
-                <span class="eyebrow">Hero Control</span>
-                <h2>Lampu Kamar</h2>
-              </div>
-            </div>
-
-            <button id="lampToggleBtn" class="badge off">OFF</button>
-          </div>
-
-          <div class="lamp-display">
-            <div>
-              <strong id="lampStatus">--</strong>
-              <span>Status</span>
-            </div>
-
-            <img class="device-icon" src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/lamp.svg" alt="" />
-          </div>
-
-          <div class="device-meta">
-            <div>
-              <span>Brightness</span>
-              <strong id="lampBrightness">--%</strong>
-            </div>
-
-            <div>
-              <span>Mode</span>
-              <strong id="lampMode">--</strong>
-            </div>
-          </div>
-
-          <div class="lamp-bar">
-            <div id="lampBar"></div>
-          </div>
-
-          <input
-            id="lampBrightnessSlider"
-            class="brightness-slider"
-            type="range"
-            min="0"
-            max="100"
-            value="1"
-          />
-        </article>
-
-      </section>
-
-      <section class="wide-card entertainment-card">
-        <div class="section-head">
-          <div class="title-group">
-            <img class="card-icon" src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/tv.svg" alt="" />
-            <div>
-              <span class="eyebrow">Media</span>
-              <h2>Entertainment</h2>
-            </div>
-          </div>
+  <section class="wide-card energy-card">
+    <div class="section-head">
+      <div class="title-group">
+        <span class="card-icon emoji-card orange">⚡</span>
+        <div>
+          <span class="eyebrow">Usage</span>
+          <h2>Energy Usage</h2>
         </div>
+      </div>
+    </div>
 
-        <div class="entertainment-grid">
+    <div class="energy-stats">
+      <div class="energy-item">
+        <span>Hari ini</span>
+        <strong id="energyToday">-- kWh</strong>
+        <small id="energyTodayCost">Rp 0</small>
+      </div>
 
-          <div class="mini-device tv-card">
-            <div class="mini-device-head">
-              <div>
-                <h3>TV Kamar</h3>
-                <p id="tvStatus">--</p>
-              </div>
+      <div class="energy-item">
+        <span>Minggu ini</span>
+        <strong id="energyWeek">-- kWh</strong>
+        <small id="energyWeekCost">Rp 0</small>
+      </div>
 
-              <span id="tvPowerBadge" class="badge on">ON</span>
-            </div>
+      <div class="energy-item">
+        <span>Bulan ini</span>
+        <strong id="energyMonth">-- kWh</strong>
+        <small id="energyMonthCost">Rp 0</small>
+      </div>
 
-            <img src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/tv.svg" alt="" />
-          </div>
+      <div class="energy-item">
+        <span>Runtime bulan ini</span>
+        <strong id="energyRuntimeMonth">--</strong>
+      </div>
 
-          <div class="mini-device nest-card">
-            <div class="mini-device-head">
-              <div>
-                <h3>Nest Mini</h3>
-                <p id="nestStatus">--</p>
-              </div>
+      <div class="energy-tariff">
+        <small id="energyTariff">Est. Rp605/kWh · B1 900VA</small>
+      </div>
+    </div>
+  </section>
+</section>
 
-              <span id="nestPowerBadge" class="badge on">ON</span>
-            </div>
+<section class="wide-card scene-card">
+  <div class="section-head">
+    <div class="title-group">
+      <span class="card-icon emoji-card purple">✨</span>
+      <div>
+        <span class="eyebrow">Automation</span>
+        <h2>Last Scene</h2>
+      </div>
+    </div>
+  </div>
 
-            <img src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/nest.svg" alt="" />
-            <small>Volume <span id="nestVolume">--</span>%</small>
-          </div>
+  <div class="scene-row">
+    <span id="sceneTime">🕘</span>
+    <strong id="sceneName">Belum ada scene</strong>
+  </div>
 
-        </div>
-      </section>
+  <small id="sceneDate">--</small>
 
-      <section class="wide-card climate-power-card">
-        <div class="section-head">
-          <div class="title-group">
-            <img class="card-icon" src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/climate.svg" alt="" />
-            <div>
-              <span class="eyebrow">Room Status</span>
-              <h2>Climate & Power</h2>
-            </div>
-          </div>
-        </div>
+  <button id="rerunSceneBtn" class="scene-action">
+    Jalankan Lagi
+  </button>
+</section>
 
-        <div class="metric-grid">
-          <div class="metric-item">
-            <span>Temperature</span>
-            <strong id="roomTemp">--°C</strong>
-          </div>
-
-          <div class="metric-item">
-            <span>Humidity</span>
-            <strong id="roomHumidity">--%</strong>
-          </div>
-
-          <div class="metric-item">
-            <span>Watt</span>
-            <strong id="plugPower">--W</strong>
-          </div>
-
-          <div class="metric-item">
-            <span>Voltage</span>
-            <strong id="plugVolt">--V</strong>
-          </div>
-        </div>
-      </section>
-
-      <section class="split-grid">
-
-        <section class="wide-card cctv-card">
-          <div class="section-head">
-            <div class="title-group">
-              <img class="card-icon" src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/cctv.svg" alt="" />
-              <div>
-                <span class="eyebrow">Security</span>
-                <h2>CCTV Kamar</h2>
-              </div>
-            </div>
-          </div>
-
-          <div class="metric-grid cctv-grid">
-            <div class="metric-item">
-              <span>Status</span>
-              <strong id="cctvOnline">--</strong>
-            </div>
-
-            <div class="metric-item">
-              <span>Motion</span>
-              <strong id="cctvMotion">--</strong>
-            </div>
-
-            <div class="metric-item">
-              <span>Recording</span>
-              <strong id="cctvRecording">--</strong>
-            </div>
-
-            <div class="metric-item">
-              <span>Last Motion</span>
-              <strong id="cctvLastMotion">--</strong>
-            </div>
-          </div>
-        </section>
-
-        <section class="wide-card energy-card">
-          <div class="section-head">
-            <div class="title-group">
-              <img class="card-icon" src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/energy.svg" alt="" />
-              <div>
-                <span class="eyebrow">Usage</span>
-                <h2>Energy Usage</h2>
-              </div>
-            </div>
-          </div>
-
-          <div class="energy-stats">
-
-            <div class="energy-item">
-              <span>Hari ini</span>
-              <strong id="energyToday">-- kWh</strong>
-              <small id="energyTodayCost">Rp 0</small>
-            </div>
-
-            <div class="energy-item">
-              <span>Minggu ini</span>
-              <strong id="energyWeek">-- kWh</strong>
-              <small id="energyWeekCost">Rp 0</small>
-            </div>
-
-            <div class="energy-item">
-              <span>Bulan ini</span>
-              <strong id="energyMonth">-- kWh</strong>
-              <small id="energyMonthCost">Rp 0</small>
-            </div>
-
-            <div class="energy-item">
-              <span>Runtime bulan ini</span>
-              <strong id="energyRuntimeMonth">--</strong>
-            </div>
-
-            <div class="energy-tariff">
-              <small id="energyTariff">Est. Rp605/kWh · B1 900VA</small>
-            </div>
-
-          </div>
-        </section>
-
-      </section>
-
-      <section class="wide-card scene-card">
-        <div class="section-head">
-          <div class="title-group">
-            <img class="card-icon" src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/scene.svg" alt="" />
-            <div>
-              <span class="eyebrow">Automation</span>
-              <h2>Last Scene</h2>
-            </div>
-          </div>
-        </div>
-
-        <div class="scene-row">
-          <span id="sceneTime">🕘</span>
-          <strong id="sceneName">Belum ada scene</strong>
-        </div>
-
-        <small id="sceneDate">--</small>
-
-        <button id="rerunSceneBtn" class="scene-action">
-          Jalankan Lagi
-        </button>
-      </section>
-
-    </section>
-
-    <nav class="bottom-nav nav-bar">
-      <button class="active">
-        <img src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/home.svg" alt="" />
-        Home
-      </button>
-
-      <button>
-        <img src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/automation.svg" alt="" />
-        Automation
-      </button>
-
-      <button>
-        <img src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/device.svg" alt="" />
-        Devices
-      </button>
-
-      <button>
-        <img src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/settings.svg" alt="" />
-        Setting
-      </button>
-    </nav>
-
-  </main>
-
-  <script src="app.js"></script>
+<nav class="bottom-nav nav-bar">
+  <button class="active">🟢<br />Home</button>
+  <button>✨<br />Automation</button>
+  <button>📱<br />Devices</button>
+  <button>⚙️<br />Setting</button>
+</nav>
 </body>
 </html>
