@@ -3,25 +3,27 @@
 
   --text-main: rgba(255, 255, 255, 0.96);
   --text-soft: rgba(255, 255, 255, 0.72);
-  --text-muted: rgba(255, 255, 255, 0.48);
+  --text-muted: rgba(255, 255, 255, 0.50);
 
-  --glass: rgba(255, 255, 255, 0.105);
-  --glass-strong: rgba(255, 255, 255, 0.16);
-  --glass-border: rgba(255, 255, 255, 0.20);
-
-  --green: #38f28f;
-  --blue: #43bfff;
+  --green: #35f08a;
+  --blue: #37c8ff;
   --purple: #9b6cff;
-  --orange: #ffbd4a;
-  --red: #ff5f6d;
+  --orange: #ffb84a;
+  --yellow: #ffd84d;
+  --pink: #ff77c8;
+  --cyan: #57e7ff;
+
+  --glass: rgba(255, 255, 255, 0.10);
+  --glass-soft: rgba(255, 255, 255, 0.075);
+  --glass-strong: rgba(255, 255, 255, 0.145);
+  --glass-border: rgba(255, 255, 255, 0.16);
 
   --radius-xl: 28px;
   --radius-lg: 22px;
   --radius-md: 16px;
 
-  --blur: blur(30px) saturate(165%);
-  --shadow-card: 0 18px 48px rgba(0, 0, 0, 0.30);
-  --shadow-soft: 0 10px 28px rgba(0, 0, 0, 0.20);
+  --blur: blur(28px) saturate(165%);
+  --shadow-card: 0 18px 46px rgba(0, 0, 0, 0.30);
 }
 
 * {
@@ -33,17 +35,17 @@ html {
   min-height: 100%;
   scroll-behavior: smooth;
   background:
-    radial-gradient(circle at 15% 8%, rgba(155, 108, 255, 0.42), transparent 32%),
-    radial-gradient(circle at 88% 0%, rgba(67, 191, 255, 0.34), transparent 34%),
-    radial-gradient(circle at 8% 92%, rgba(56, 242, 143, 0.24), transparent 36%),
-    linear-gradient(160deg, #050712 0%, #07111f 45%, #03050d 100%);
+    radial-gradient(circle at 16% 4%, rgba(190, 36, 130, 0.46), transparent 34%),
+    radial-gradient(circle at 88% 0%, rgba(34, 210, 130, 0.34), transparent 34%),
+    radial-gradient(circle at 50% 70%, rgba(72, 90, 255, 0.22), transparent 42%),
+    linear-gradient(160deg, #050713 0%, #07101f 52%, #03040b 100%);
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  color: var(--text-main);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+  color: var(--text-main);
   background: transparent;
   overscroll-behavior-y: none;
 }
@@ -70,55 +72,52 @@ p {
   margin: 0;
 }
 
-.phone-container {
+.phone-container,
+.app {
   position: relative;
   isolation: isolate;
   width: 100%;
   max-width: 430px;
   min-height: 100vh;
   margin: 0 auto;
-  padding: 18px 14px 118px;
+  padding: 22px 14px 132px;
   overflow-x: hidden;
   background:
-    linear-gradient(180deg, rgba(4, 9, 22, 0.28), rgba(4, 9, 22, 0.80)),
-    radial-gradient(circle at 20% 0%, rgba(155, 108, 255, 0.34), transparent 34%),
-    radial-gradient(circle at 95% 12%, rgba(67, 191, 255, 0.26), transparent 38%),
-    radial-gradient(circle at 8% 86%, rgba(56, 242, 143, 0.20), transparent 42%),
+    linear-gradient(180deg, rgba(4, 8, 20, 0.18), rgba(4, 8, 20, 0.74)),
+    radial-gradient(circle at 14% 8%, rgba(210, 32, 130, 0.38), transparent 34%),
+    radial-gradient(circle at 92% 8%, rgba(26, 220, 120, 0.32), transparent 36%),
+    radial-gradient(circle at 56% 66%, rgba(55, 140, 255, 0.20), transparent 42%),
     var(--bg-image),
-    linear-gradient(160deg, #050712 0%, #07111f 48%, #03050d 100%);
+    linear-gradient(160deg, #050713 0%, #07101f 52%, #03040b 100%);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
-.phone-container::before {
+.phone-container::before,
+.app::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -2;
   pointer-events: none;
   background:
-    radial-gradient(circle at 50% -8%, rgba(255, 255, 255, 0.14), transparent 36%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.07), transparent 44%);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.07), transparent 42%),
+    radial-gradient(circle at 50% -10%, rgba(255, 255, 255, 0.12), transparent 34%);
 }
 
-.phone-container::after {
+.phone-container::after,
+.app::after {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(2, 5, 14, 0.18), rgba(2, 5, 14, 0.42)),
-    rgba(0, 0, 0, 0.08);
-}
-
-.app {
-  width: 100%;
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .header {
-  padding: 4px 2px 12px;
+  padding: 2px 2px 12px;
 }
 
 .header-top {
@@ -126,7 +125,7 @@ p {
   align-items: flex-start;
   justify-content: space-between;
   gap: 14px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .header-text {
@@ -144,7 +143,7 @@ p {
 }
 
 .header h1 {
-  font-size: clamp(30px, 8.3vw, 38px);
+  font-size: clamp(31px, 8.3vw, 38px);
   line-height: 0.98;
   font-weight: 900;
   letter-spacing: -0.065em;
@@ -162,15 +161,14 @@ p {
   align-items: center;
   width: fit-content;
   max-width: 100%;
-  margin-top: 9px;
-  padding: 7px 11px;
+  margin-top: 10px;
+  padding: 7px 12px;
   border-radius: 999px;
   color: rgba(255, 255, 255, 0.78);
   font-size: 11px;
   font-weight: 800;
-  letter-spacing: -0.01em;
   background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   backdrop-filter: var(--blur);
   -webkit-backdrop-filter: var(--blur);
 }
@@ -181,26 +179,22 @@ p {
   flex: 0 0 auto;
   display: grid;
   place-items: center;
-  border-radius: 17px;
+  border-radius: 18px;
+  color: #fff;
+  font-size: 22px;
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.07));
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-soft);
+    linear-gradient(145deg, rgba(53, 240, 138, 0.25), rgba(255, 255, 255, 0.08));
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: var(--shadow-card);
   backdrop-filter: var(--blur);
   -webkit-backdrop-filter: var(--blur);
 }
 
-.notification-btn img {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
-}
-
 .top-tabs {
   display: flex;
-  gap: 9px;
+  gap: 10px;
   overflow-x: auto;
-  padding-bottom: 2px;
+  padding: 0 0 4px;
   scrollbar-width: none;
 }
 
@@ -210,43 +204,44 @@ p {
 
 .top-tabs button {
   flex: 0 0 auto;
-  padding: 10px 15px;
+  min-height: 42px;
+  padding: 0 17px;
   border-radius: 999px;
   color: var(--text-soft);
   font-size: 12px;
   font-weight: 850;
   background: rgba(255, 255, 255, 0.105);
   border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
   backdrop-filter: var(--blur);
   -webkit-backdrop-filter: var(--blur);
 }
 
 .top-tabs button.active {
   color: #062016;
-  background: linear-gradient(135deg, rgba(255, 210, 92, 0.96), rgba(56, 242, 143, 0.96));
+  background: linear-gradient(135deg, rgba(255, 218, 80, 0.96), rgba(53, 240, 138, 0.96));
   border-color: rgba(255, 255, 255, 0.34);
 }
 
 .dashboard {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .card,
 .wide-card {
   position: relative;
   overflow: hidden;
-  padding: 15px;
+  padding: 16px;
   border-radius: var(--radius-xl);
   color: var(--text-main);
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.17), rgba(255, 255, 255, 0.065)),
-    rgba(7, 14, 30, 0.24);
+    linear-gradient(145deg, rgba(255, 255, 255, 0.155), rgba(255, 255, 255, 0.060)),
+    rgba(8, 16, 34, 0.24);
   border: 1px solid var(--glass-border);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
     inset 0 -1px 0 rgba(255, 255, 255, 0.05),
     var(--shadow-card);
   backdrop-filter: var(--blur);
@@ -260,8 +255,8 @@ p {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.13), transparent 44%),
-    radial-gradient(circle at top right, rgba(255, 255, 255, 0.11), transparent 38%);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.11), transparent 45%),
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.10), transparent 38%);
 }
 
 .card > *,
@@ -291,7 +286,7 @@ p {
   color: var(--text-muted);
   font-size: 9px;
   font-weight: 900;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
 }
 
@@ -311,73 +306,28 @@ h3 {
   letter-spacing: -0.03em;
 }
 
-.card-icon {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-  flex: 0 0 auto;
-  opacity: 0.96;
-}
-
-.device-icon {
-  width: 54px;
-  height: 54px;
-  object-fit: contain;
-  opacity: 0.95;
-  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.18));
-}
-
-.badge {
-  min-width: 43px;
-  padding: 7px 10px;
-  border-radius: 999px;
-  color: var(--text-main);
-  font-size: 10px;
-  font-weight: 950;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.19);
-}
-
-.badge.on {
-  color: #052415;
-  background: linear-gradient(135deg, rgba(56, 242, 143, 0.98), rgba(31, 205, 112, 0.90));
-  box-shadow: 0 0 24px rgba(56, 242, 143, 0.22);
-}
-
-.badge.off {
-  color: rgba(255, 255, 255, 0.78);
-  background: rgba(255, 255, 255, 0.12);
-}
-
 .summary-card {
-  padding: 16px;
+  padding: 16px 16px 15px;
+  min-height: 174px;
 }
 
 .summary-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 9px;
+  gap: 10px;
   margin-top: 14px;
 }
 
 .summary-item {
-  min-height: 72px;
-  padding: 10px 8px;
+  min-height: 76px;
+  padding: 11px 8px;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.105);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.095);
+  border: 1px solid rgba(255, 255, 255, 0.115);
 }
 
-.summary-item img {
-  width: 22px;
-  height: 22px;
-  margin-bottom: 7px;
-  object-fit: contain;
-}
-
-.summary-item span,
-.metric-item span,
+.summary-item span:not(.emoji-icon),
+.metric-item span:not(.metric-emoji),
 .energy-item span,
 .device-meta span,
 .lamp-display span {
@@ -400,15 +350,15 @@ h3 {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  margin-top: 10px;
-  padding: 11px 13px;
+  margin-top: 12px;
+  padding: 12px 14px;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.115);
+  background: rgba(255, 255, 255, 0.105);
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .summary-energy span {
-  color: var(--text-soft);
+  color: var(--orange);
   font-size: 12px;
   font-weight: 850;
 }
@@ -423,25 +373,26 @@ h3 {
 .hero-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  gap: 14px;
 }
 
 .hero-card {
-  min-height: 268px;
+  min-height: 266px;
+  padding: 17px 15px 16px;
 }
 
 .ac-card {
   background:
-    radial-gradient(circle at top right, rgba(67, 191, 255, 0.27), transparent 44%),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.065)),
-    rgba(7, 14, 30, 0.24);
+    radial-gradient(circle at top right, rgba(55, 200, 255, 0.24), transparent 46%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.058)),
+    rgba(8, 16, 34, 0.24);
 }
 
 .lamp-card {
   background:
-    radial-gradient(circle at top right, rgba(155, 108, 255, 0.38), transparent 46%),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.17), rgba(255, 255, 255, 0.065)),
-    rgba(7, 14, 30, 0.24);
+    radial-gradient(circle at top right, rgba(155, 108, 255, 0.34), transparent 48%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.058)),
+    rgba(8, 16, 34, 0.24);
 }
 
 .ac-display {
@@ -471,7 +422,7 @@ h3 {
 .device-meta {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
+  gap: 9px;
 }
 
 .device-meta div,
@@ -479,8 +430,8 @@ h3 {
 .energy-item {
   padding: 10px;
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.10);
-  border: 1px solid rgba(255, 255, 255, 0.115);
+  background: rgba(255, 255, 255, 0.092);
+  border: 1px solid rgba(255, 255, 255, 0.11);
 }
 
 .device-meta strong,
@@ -497,7 +448,7 @@ h3 {
 .lamp-bar {
   width: 100%;
   height: 8px;
-  margin: 13px 0;
+  margin: 14px 0;
   overflow: hidden;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.14);
@@ -508,40 +459,32 @@ h3 {
   height: 100%;
   border-radius: inherit;
   background: linear-gradient(90deg, var(--blue), var(--green));
-  box-shadow: 0 0 18px rgba(67, 191, 255, 0.36);
+  box-shadow: 0 0 18px rgba(55, 200, 255, 0.36);
 }
 
 .lamp-bar div {
   width: 1%;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, var(--orange), #fff084);
-  box-shadow: 0 0 18px rgba(255, 189, 74, 0.32);
+  background: linear-gradient(90deg, var(--yellow), var(--purple));
+  box-shadow: 0 0 18px rgba(255, 216, 77, 0.28);
 }
 
 .control-row {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 9px;
+  gap: 10px;
 }
 
 .control-btn {
-  height: 42px;
-  border-radius: 17px;
+  height: 44px;
+  border-radius: 18px;
   color: var(--text-main);
   font-size: 22px;
   font-weight: 850;
   background: rgba(255, 255, 255, 0.14);
   border: 1px solid rgba(255, 255, 255, 0.16);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
-}
-
-.control-btn:active,
-.scene-action:active,
-.bottom-nav button:active,
-.nav-bar button:active,
-.notification-btn:active {
-  transform: scale(0.96);
 }
 
 .lamp-display {
@@ -554,7 +497,7 @@ h3 {
 .lamp-display strong {
   display: block;
   color: #fff;
-  font-size: clamp(32px, 10vw, 48px);
+  font-size: clamp(36px, 10vw, 50px);
   line-height: 0.92;
   font-weight: 950;
   letter-spacing: -0.08em;
@@ -603,36 +546,36 @@ h3 {
 }
 
 .entertainment-card {
-  padding-bottom: 15px;
+  min-height: 154px;
+  padding: 17px 16px 16px;
 }
 
 .entertainment-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+  gap: 11px;
   margin-top: 14px;
 }
 
 .mini-device {
-  min-height: 118px;
+  min-height: 96px;
   padding: 12px;
   border-radius: 20px;
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.06));
-  border: 1px solid rgba(255, 255, 255, 0.13);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10);
+    linear-gradient(145deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.052));
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .tv-card {
   background:
-    radial-gradient(circle at top right, rgba(67, 191, 255, 0.22), transparent 50%),
-    rgba(255, 255, 255, 0.09);
+    radial-gradient(circle at top right, rgba(55, 200, 255, 0.18), transparent 50%),
+    rgba(255, 255, 255, 0.075);
 }
 
 .nest-card {
   background:
-    radial-gradient(circle at top right, rgba(56, 242, 143, 0.18), transparent 50%),
-    rgba(255, 255, 255, 0.09);
+    radial-gradient(circle at top right, rgba(53, 240, 138, 0.16), transparent 50%),
+    rgba(255, 255, 255, 0.075);
 }
 
 .mini-device-head {
@@ -650,20 +593,21 @@ h3 {
   font-weight: 650;
 }
 
-.mini-device img {
-  width: 38px;
-  height: 38px;
-  margin-top: 13px;
-  object-fit: contain;
-  opacity: 0.94;
-}
-
 .mini-device small {
   display: block;
-  margin-top: 8px;
+  margin-top: 7px;
   color: var(--text-muted);
   font-size: 11px;
   font-weight: 800;
+}
+
+.climate-power-card {
+  min-height: 142px;
+  padding: 17px 16px 16px;
+  background:
+    radial-gradient(circle at top right, rgba(53, 240, 138, 0.17), transparent 48%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.055)),
+    rgba(8, 16, 34, 0.24);
 }
 
 .metric-grid {
@@ -673,15 +617,9 @@ h3 {
   margin-top: 14px;
 }
 
-.climate-power-card {
-  background:
-    radial-gradient(circle at top right, rgba(56, 242, 143, 0.18), transparent 46%),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.065)),
-    rgba(7, 14, 30, 0.24);
-}
-
 .climate-power-card .metric-grid {
   grid-template-columns: repeat(4, 1fr);
+  gap: 9px;
 }
 
 .climate-power-card .metric-item {
@@ -707,44 +645,53 @@ h3 {
 .split-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  gap: 14px;
 }
 
 .split-grid .wide-card {
-  padding: 14px;
+  padding: 15px;
 }
 
 .cctv-card {
+  min-height: 332px;
   background:
-    radial-gradient(circle at top right, rgba(56, 242, 143, 0.20), transparent 48%),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.065)),
-    rgba(7, 14, 30, 0.24);
+    radial-gradient(circle at top right, rgba(53, 240, 138, 0.17), transparent 50%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.055)),
+    rgba(8, 16, 34, 0.24);
 }
 
 .energy-card {
+  min-height: 332px;
   background:
-    radial-gradient(circle at top right, rgba(67, 191, 255, 0.24), transparent 46%),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.065)),
-    rgba(7, 14, 30, 0.24);
+    radial-gradient(circle at top right, rgba(55, 200, 255, 0.22), transparent 50%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.055)),
+    rgba(8, 16, 34, 0.24);
 }
 
 .cctv-grid {
   grid-template-columns: 1fr;
-  gap: 8px;
+  gap: 9px;
+}
+
+.cctv-grid .metric-item {
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .energy-stats {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 8px;
+  gap: 9px;
   margin-top: 14px;
 }
 
 .energy-item {
-  min-height: auto;
+  min-height: 52px;
   display: grid;
   grid-template-columns: 1fr;
-  padding: 9px 10px;
+  padding: 10px 11px;
 }
 
 .energy-item small {
@@ -758,8 +705,8 @@ h3 {
 .energy-tariff {
   padding: 10px;
   border-radius: var(--radius-md);
-  background: rgba(56, 242, 143, 0.13);
-  border: 1px solid rgba(56, 242, 143, 0.18);
+  background: rgba(53, 240, 138, 0.13);
+  border: 1px solid rgba(53, 240, 138, 0.18);
 }
 
 .energy-tariff small {
@@ -769,11 +716,12 @@ h3 {
 }
 
 .scene-card {
-  min-height: 130px;
+  min-height: 158px;
+  padding: 17px 16px 16px;
   background:
-    radial-gradient(circle at top right, rgba(155, 108, 255, 0.34), transparent 48%),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.17), rgba(255, 255, 255, 0.065)),
-    rgba(7, 14, 30, 0.24);
+    radial-gradient(circle at top right, rgba(155, 108, 255, 0.32), transparent 50%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.058)),
+    rgba(8, 16, 34, 0.24);
 }
 
 .scene-row {
@@ -783,8 +731,8 @@ h3 {
   margin-top: 13px;
   padding: 13px;
   border-radius: 19px;
-  background: rgba(255, 255, 255, 0.11);
-  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: rgba(255, 255, 255, 0.105);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .scene-row span {
@@ -812,9 +760,32 @@ h3 {
   border-radius: 18px;
   color: var(--text-main);
   font-weight: 950;
-  background: linear-gradient(135deg, rgba(155, 108, 255, 0.86), rgba(117, 58, 226, 0.86));
+  background: linear-gradient(135deg, rgba(155, 108, 255, 0.90), rgba(117, 58, 226, 0.90));
   border: 1px solid rgba(255, 255, 255, 0.16);
   box-shadow: 0 12px 28px rgba(108, 60, 220, 0.24);
+}
+
+.badge {
+  min-width: 43px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  color: var(--text-main);
+  font-size: 10px;
+  font-weight: 950;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.19);
+}
+
+.badge.on {
+  color: #052415;
+  background: linear-gradient(135deg, rgba(53, 240, 138, 0.98), rgba(31, 205, 112, 0.90));
+  box-shadow: 0 0 24px rgba(53, 240, 138, 0.22);
+}
+
+.badge.off {
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .bottom-nav,
@@ -830,7 +801,7 @@ h3 {
   padding: 8px;
   border-radius: 28px;
   transform: translateX(-50%);
-  background: rgba(8, 14, 28, 0.58);
+  background: rgba(8, 14, 28, 0.62);
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.16),
@@ -847,84 +818,14 @@ h3 {
   background: transparent;
   font-size: 10px;
   font-weight: 850;
-}
-
-.bottom-nav button img,
-.nav-bar button img {
-  width: 21px;
-  height: 21px;
-  margin: 0 auto 4px;
-  object-fit: contain;
-  opacity: 0.72;
+  line-height: 1.2;
 }
 
 .bottom-nav button.active,
 .nav-bar button.active {
   color: var(--green);
-  background: rgba(56, 242, 143, 0.12);
-  box-shadow: 0 0 26px rgba(56, 242, 143, 0.12);
-}
-
-.bottom-nav button.active img,
-.nav-bar button.active img {
-  opacity: 1;
-  filter: drop-shadow(0 0 10px rgba(56, 242, 143, 0.52));
-}
-
-@media (max-width: 374px) {
-  .phone-container {
-    padding-inline: 10px;
-  }
-
-  .header h1 {
-    font-size: 29px;
-  }
-
-  .summary-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .hero-grid,
-  .split-grid {
-    gap: 10px;
-  }
-
-  .card,
-  .wide-card {
-    padding: 13px;
-  }
-
-  .hero-card {
-    min-height: 262px;
-  }
-
-  .climate-power-card .metric-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .device-meta {
-    grid-template-columns: 1fr;
-  }
-
-  .device-meta div {
-    padding: 9px;
-  }
-}
-
-@media (max-width: 340px) {
-  .hero-grid,
-  .split-grid,
-  .entertainment-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-card {
-    min-height: 230px;
-  }
-
-  .device-meta {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  background: rgba(53, 240, 138, 0.12);
+  box-shadow: 0 0 26px rgba(53, 240, 138, 0.12);
 }
 
 .emoji-icon,
@@ -936,7 +837,7 @@ h3 {
   place-items: center;
   line-height: 1;
   font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
-  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.28));
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.28));
 }
 
 .emoji-icon {
@@ -966,24 +867,80 @@ h3 {
 .mini-emoji {
   width: 42px;
   height: 42px;
-  margin-top: 13px;
-  font-size: 34px;
+  margin-top: 12px;
+  font-size: 32px;
 }
 
-.green { color: #38f28f; }
-.yellow { color: #ffd75a; }
-.blue { color: #43bfff; }
-.cyan { color: #57e7ff; }
-.orange { color: #ffbd4a; }
-.pink { color: #ff7bd5; }
-.purple { color: #9b6cff; }
+.green { color: var(--green); }
+.yellow { color: var(--yellow); }
+.blue { color: var(--blue); }
+.cyan { color: var(--cyan); }
+.orange { color: var(--orange); }
+.pink { color: var(--pink); }
+.purple { color: var(--purple); }
 
-.notification-btn {
-  font-size: 22px;
+.control-btn:active,
+.scene-action:active,
+.bottom-nav button:active,
+.nav-bar button:active,
+.notification-btn:active {
+  transform: scale(0.96);
 }
 
-.bottom-nav button,
-.nav-bar button {
-  line-height: 1.2;
-  font-family: inherit;
+@media (max-width: 374px) {
+  .phone-container,
+  .app {
+    padding-inline: 10px;
+  }
+
+  .header h1 {
+    font-size: 29px;
+  }
+
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-grid,
+  .split-grid {
+    gap: 11px;
+  }
+
+  .card,
+  .wide-card {
+    padding: 14px;
+  }
+
+  .hero-card {
+    min-height: 258px;
+  }
+
+  .climate-power-card .metric-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .device-meta {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 340px) {
+  .hero-grid,
+  .split-grid,
+  .entertainment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card {
+    min-height: 230px;
+  }
+
+  .device-meta {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cctv-card,
+  .energy-card {
+    min-height: auto;
+  }
 }
