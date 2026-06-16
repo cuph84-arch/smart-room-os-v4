@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
   <title>Smart Room OS V4</title>
 
@@ -10,20 +10,23 @@
   <link rel="manifest" href="manifest.json" />
 
   <meta name="theme-color" content="#07111f" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 </head>
 
 <body>
-  <main class="app">
+  <main class="app phone-container">
 
     <header class="header">
       <div class="header-top">
         <div class="header-text">
+          <span class="header-kicker">Smart Room OS V4</span>
           <h1>Welcome Home <span class="wave">👋</span></h1>
-          <div id="headerDate" class="last-update-chip">   Last Updated: -- </div>
+          <div id="headerDate" class="last-update-chip">Last Updated: --</div>
         </div>
 
         <button class="notification-btn" aria-label="Notification">
-          🔔
+          <img src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/notification.svg" alt="" />
         </button>
       </div>
 
@@ -47,25 +50,25 @@
 
         <div class="summary-grid">
           <div class="summary-item">
-            <img src="assets/icons/ac.svg" alt="" />
+            <img src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/ac.svg" alt="" />
             <span>AC</span>
             <strong id="summaryAC">--</strong>
           </div>
 
           <div class="summary-item">
-            <img src="assets/icons/lamp.svg" alt="" />
+            <img src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/lamp.svg" alt="" />
             <span>Lampu</span>
             <strong id="summaryLamp">--</strong>
           </div>
 
           <div class="summary-item">
-            <img src="assets/icons/tv.svg" alt="" />
+            <img src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/tv.svg" alt="" />
             <span>TV</span>
             <strong id="summaryTV">--</strong>
           </div>
 
           <div class="summary-item">
-            <img src="assets/icons/cctv.svg" alt="" />
+            <img src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/cctv.svg" alt="" />
             <span>CCTV</span>
             <strong id="summaryCCTV">--</strong>
           </div>
@@ -82,7 +85,7 @@
         <article class="card hero-card ac-card">
           <div class="card-head">
             <div class="title-group">
-              <img class="card-icon" src="assets/icons/ac.svg" alt="" />
+              <img class="card-icon" src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/ac.svg" alt="" />
               <div>
                 <span class="eyebrow">Hero Control</span>
                 <h2>AC Kamar</h2>
@@ -122,7 +125,7 @@
         <article class="card hero-card lamp-card">
           <div class="card-head">
             <div class="title-group">
-              <img class="card-icon" src="assets/icons/lamp.svg" alt="" />
+              <img class="card-icon" src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/lamp.svg" alt="" />
               <div>
                 <span class="eyebrow">Hero Control</span>
                 <h2>Lampu Kamar</h2>
@@ -138,7 +141,7 @@
               <span>Status</span>
             </div>
 
-            <img class="device-icon" src="assets/icons/lamp.svg" alt="" />
+            <img class="device-icon" src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/lamp.svg" alt="" />
           </div>
 
           <div class="device-meta">
@@ -172,7 +175,7 @@
       <section class="wide-card entertainment-card">
         <div class="section-head">
           <div class="title-group">
-            <img class="card-icon" src="assets/icons/tv.svg" alt="" />
+            <img class="card-icon" src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/tv.svg" alt="" />
             <div>
               <span class="eyebrow">Media</span>
               <h2>Entertainment</h2>
@@ -182,7 +185,7 @@
 
         <div class="entertainment-grid">
 
-          <div class="mini-device">
+          <div class="mini-device tv-card">
             <div class="mini-device-head">
               <div>
                 <h3>TV Kamar</h3>
@@ -192,10 +195,10 @@
               <span id="tvPowerBadge" class="badge on">ON</span>
             </div>
 
-            <img src="assets/icons/tv.svg" alt="" />
+            <img src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/tv.svg" alt="" />
           </div>
 
-          <div class="mini-device">
+          <div class="mini-device nest-card">
             <div class="mini-device-head">
               <div>
                 <h3>Nest Mini</h3>
@@ -205,7 +208,7 @@
               <span id="nestPowerBadge" class="badge on">ON</span>
             </div>
 
-            <img src="assets/icons/nest.svg" alt="" />
+            <img src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/nest.svg" alt="" />
             <small>Volume <span id="nestVolume">--</span>%</small>
           </div>
 
@@ -215,7 +218,7 @@
       <section class="wide-card climate-power-card">
         <div class="section-head">
           <div class="title-group">
-            <img class="card-icon" src="assets/icons/climate.svg" alt="" />
+            <img class="card-icon" src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/climate.svg" alt="" />
             <div>
               <span class="eyebrow">Room Status</span>
               <h2>Climate & Power</h2>
@@ -251,7 +254,7 @@
         <section class="wide-card cctv-card">
           <div class="section-head">
             <div class="title-group">
-              <img class="card-icon" src="assets/icons/cctv.svg" alt="" />
+              <img class="card-icon" src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/cctv.svg" alt="" />
               <div>
                 <span class="eyebrow">Security</span>
                 <h2>CCTV Kamar</h2>
@@ -285,7 +288,7 @@
         <section class="wide-card energy-card">
           <div class="section-head">
             <div class="title-group">
-              <img class="card-icon" src="assets/icons/energy.svg" alt="" />
+              <img class="card-icon" src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/energy.svg" alt="" />
               <div>
                 <span class="eyebrow">Usage</span>
                 <h2>Energy Usage</h2>
@@ -319,9 +322,7 @@
             </div>
 
             <div class="energy-tariff">
-              <small id="energyTariff">
-                Est. Rp605/kWh · B1 900VA
-              </small>
+              <small id="energyTariff">Est. Rp605/kWh · B1 900VA</small>
             </div>
 
           </div>
@@ -332,7 +333,7 @@
       <section class="wide-card scene-card">
         <div class="section-head">
           <div class="title-group">
-            <img class="card-icon" src="assets/icons/scene.svg" alt="" />
+            <img class="card-icon" src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/scene.svg" alt="" />
             <div>
               <span class="eyebrow">Automation</span>
               <h2>Last Scene</h2>
@@ -354,24 +355,24 @@
 
     </section>
 
-    <nav class="bottom-nav">
+    <nav class="bottom-nav nav-bar">
       <button class="active">
-        <img src="assets/icons/device.svg" alt="" />
+        <img src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/home.svg" alt="" />
         Home
       </button>
 
       <button>
-        <img src="assets/icons/automation.svg" alt="" />
+        <img src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/automation.svg" alt="" />
         Automation
       </button>
 
       <button>
-        <img src="assets/icons/device.svg" alt="" />
+        <img src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/device.svg" alt="" />
         Devices
       </button>
 
       <button>
-        <img src="assets/icons/settings.svg" alt="" />
+        <img src="https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/icons/settings.svg" alt="" />
         Setting
       </button>
     </nav>
