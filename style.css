@@ -2079,3 +2079,40 @@ h1 {
   font-size: 15px !important;
 }
 
+/* =====================================================
+   PHASE 1E-FIX
+   Remove white page / overscroll background
+===================================================== */
+
+html,
+body {
+  min-height: 100%;
+  background-color: #050812 !important;
+  overscroll-behavior-y: none;
+}
+
+html {
+  background:
+    linear-gradient(rgba(2, 8, 20, 0.62), rgba(2, 8, 20, 0.78)),
+    url("./smartroom-bg.png") center / cover fixed no-repeat !important;
+}
+
+body {
+  background:
+    linear-gradient(rgba(2, 8, 20, 0.62), rgba(2, 8, 20, 0.78)),
+    url("./smartroom-bg.png") center / cover fixed no-repeat !important;
+}
+
+/* Pastikan wrapper utama juga tidak putih */
+#root,
+.app,
+.app-shell,
+.dashboard,
+main {
+  background: transparent !important;
+}
+
+/* Tambahkan ruang bawah agar navbar tidak nutup Energy/Scene */
+body {
+  padding-bottom: 110px !important;
+}
