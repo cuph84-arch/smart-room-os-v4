@@ -2163,3 +2163,579 @@ h3,
 .center-action:active {
   transform: translateY(-10px) scale(.96) !important;
 }
+/* =====================================================
+   SMART ROOM OS V4 — PHASE 3F
+   GLOBAL COMPACT TOTAL + STRICT BASELINE ALIGNMENT
+===================================================== */
+
+/* ---------- GLOBAL OUTER SPACING ---------- */
+.phone-container,
+.app {
+  padding: 22px 24px 82px !important;
+}
+
+.dashboard {
+  gap: 7px !important;
+}
+
+.card,
+.wide-card,
+.summary-card,
+.hero-card,
+.entertainment-card,
+.climate-power-card,
+.cctv-card,
+.energy-card,
+.scene-card {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  padding-left: 13px !important;
+  padding-right: 13px !important;
+  margin: 0 !important;
+  border-radius: 20px !important;
+}
+
+/* ---------- HEADER + TABS COMPACT ---------- */
+.header {
+  padding-bottom: 8px !important;
+}
+
+.header-top {
+  margin-bottom: 11px !important;
+}
+
+.header h1 {
+  font-size: clamp(25px, 6vw, 30px) !important;
+  line-height: 1 !important;
+}
+
+.header-date,
+#lastUpdated {
+  margin-top: 3px !important;
+  font-size: 10px !important;
+}
+
+.notification-btn {
+  width: 42px !important;
+  height: 42px !important;
+  font-size: 20px !important;
+}
+
+.top-tabs {
+  gap: 7px !important;
+  padding-bottom: 0 !important;
+}
+
+.top-tabs button {
+  min-height: 34px !important;
+  padding: 0 15px !important;
+  font-size: 10.5px !important;
+}
+
+/* ---------- ALL SECTION HEADERS ---------- */
+.section-head,
+.card-head,
+.compact-head,
+.mini-device-head {
+  min-height: 24px !important;
+  margin: 0 !important;
+}
+
+h2,
+.card h2,
+.wide-card h2,
+.section-head h2,
+.card-head h2,
+.hero-card h2 {
+  font-size: 12.5px !important;
+  line-height: 1.12 !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+}
+
+h3,
+.card h3,
+.wide-card h3,
+.mini-device h3,
+.compact-head h3 {
+  font-size: 11.5px !important;
+  line-height: 1.12 !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+}
+
+.title-group {
+  gap: 5px !important;
+}
+
+.emoji-card {
+  width: 17px !important;
+  height: 17px !important;
+  font-size: 15px !important;
+}
+
+/* ---------- SUMMARY TOTAL COMPACT ---------- */
+.summary-card {
+  padding: 11px 13px !important;
+}
+
+.summary-grid {
+  gap: 7px !important;
+  margin-top: 9px !important;
+}
+
+.summary-item {
+  min-height: 61px !important;
+  padding: 6px 5px !important;
+  border-radius: 15px !important;
+}
+
+.summary-item .emoji-icon {
+  width: 19px !important;
+  height: 19px !important;
+  font-size: 17px !important;
+}
+
+.summary-item span:not(.emoji-icon) {
+  margin-top: 2px !important;
+  font-size: 8.5px !important;
+  line-height: 1.05 !important;
+}
+
+.summary-item strong {
+  margin-top: 2px !important;
+  font-size: 8.5px !important;
+  line-height: 1 !important;
+}
+
+.summary-energy {
+  margin-top: 7px !important;
+  padding-top: 7px !important;
+  min-height: 20px !important;
+}
+
+.summary-energy span,
+.summary-energy strong {
+  font-size: 9.5px !important;
+  line-height: 1.1 !important;
+}
+
+/* ---------- HERO STRICT ALIGNMENT ---------- */
+.hero-grid {
+  gap: 7px !important;
+  align-items: stretch !important;
+  grid-auto-rows: 1fr !important;
+}
+
+.hero-card {
+  min-height: 214px !important;
+  height: 214px !important;
+  display: grid !important;
+  grid-template-rows: 26px 68px 38px auto !important;
+  align-items: start !important;
+}
+
+.hero-card .card-head {
+  height: 26px !important;
+  min-height: 26px !important;
+  align-items: start !important;
+}
+
+.hero-card .title-group {
+  align-items: start !important;
+}
+
+.badge,
+.status-pill {
+  min-width: 36px !important;
+  min-height: 20px !important;
+  padding: 3px 7px !important;
+  font-size: 8px !important;
+}
+
+/* angka AC dan Lampu satu baseline */
+.ac-display,
+.lamp-display {
+  height: 68px !important;
+  min-height: 68px !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: baseline !important;
+  justify-content: flex-start !important;
+}
+
+.lamp-display {
+  justify-content: space-between !important;
+}
+
+.ac-display strong,
+.lamp-display strong {
+  font-size: 39px !important;
+  line-height: .9 !important;
+  font-weight: 800 !important;
+  letter-spacing: -2px !important;
+}
+
+.ac-display span,
+.lamp-display span {
+  margin-top: 6px !important;
+  font-size: 8.5px !important;
+  line-height: 1.1 !important;
+}
+
+.device-meta.clean-meta {
+  margin: 0 !important;
+  gap: 0 !important;
+}
+
+.device-meta.clean-meta div {
+  min-height: 15px !important;
+}
+
+.device-meta.clean-meta span,
+.device-meta.clean-meta strong,
+.lamp-display b {
+  font-size: 8.5px !important;
+  line-height: 1.15 !important;
+}
+
+.slider-control-wrap,
+.lamp-control-wrap {
+  align-self: end !important;
+  margin-top: 0 !important;
+}
+
+.slider-buttons {
+  margin-bottom: 6px !important;
+}
+
+.control-btn {
+  width: 31px !important;
+  height: 31px !important;
+  font-size: 16px !important;
+}
+
+.ac-slider,
+.lamp-bar {
+  height: 5px !important;
+}
+
+.brightness-slider {
+  height: 22px !important;
+}
+
+.brightness-slider::-webkit-slider-runnable-track {
+  height: 5px !important;
+}
+
+.brightness-slider::-webkit-slider-thumb {
+  width: 16px !important;
+  height: 16px !important;
+  margin-top: -5.5px !important;
+}
+
+.slider-labels {
+  margin-top: 3px !important;
+  font-size: 7.5px !important;
+}
+
+/* ---------- ENTERTAINMENT STRICT ALIGNMENT ---------- */
+.entertainment-card {
+  padding: 11px 13px !important;
+}
+
+.entertainment-grid {
+  gap: 7px !important;
+  margin-top: 8px !important;
+  align-items: stretch !important;
+  grid-auto-rows: 1fr !important;
+}
+
+.mini-device {
+  min-height: 78px !important;
+  height: 78px !important;
+  padding: 9px 10px !important;
+  border-radius: 15px !important;
+  display: grid !important;
+  grid-template-rows: 22px 1fr 14px !important;
+}
+
+.mini-device-head {
+  height: 22px !important;
+  min-height: 22px !important;
+  align-items: start !important;
+}
+
+.mini-device h3 {
+  font-size: 10.5px !important;
+  line-height: 1.1 !important;
+}
+
+.mini-device p,
+.mini-device small {
+  font-size: 8.5px !important;
+  line-height: 1.15 !important;
+}
+
+.tv-card .mini-emoji {
+  margin-top: 3px !important;
+}
+
+.mini-emoji {
+  width: 28px !important;
+  height: 28px !important;
+  font-size: 22px !important;
+}
+
+.nest-info {
+  margin-top: 4px !important;
+}
+
+.nest-volume-bar {
+  height: 5px !important;
+  margin-top: 4px !important;
+}
+
+/* ---------- CLIMATE POWER SUPER COMPACT ---------- */
+.climate-power-card {
+  padding: 10px 13px !important;
+}
+
+.metric-grid {
+  margin-top: 6px !important;
+}
+
+.metric-item {
+  min-height: 46px !important;
+  padding: 0 5px !important;
+  justify-content: center !important;
+}
+
+.metric-emoji {
+  font-size: 13px !important;
+  margin-bottom: 1px !important;
+}
+
+.metric-item strong {
+  margin: 1px 0 !important;
+  font-size: 12.5px !important;
+  line-height: 1 !important;
+}
+
+.metric-item span:last-child {
+  font-size: 7.5px !important;
+  line-height: 1 !important;
+}
+
+/* ---------- CCTV + ENERGY STRICT HEIGHT ---------- */
+.split-grid {
+  gap: 7px !important;
+  align-items: stretch !important;
+  grid-auto-rows: 1fr !important;
+}
+
+.cctv-card,
+.energy-card {
+  min-height: 148px !important;
+  height: 148px !important;
+  padding: 10px 13px !important;
+}
+
+.compact-head {
+  height: 26px !important;
+  min-height: 26px !important;
+}
+
+.security-layout {
+  grid-template-columns: 1fr 50px !important;
+  gap: 6px !important;
+  margin-top: 5px !important;
+  align-items: end !important;
+}
+
+.security-info {
+  gap: 4px !important;
+}
+
+.security-line {
+  font-size: 8.3px !important;
+  line-height: 1.05 !important;
+}
+
+.security-line strong {
+  font-size: 9.5px !important;
+  line-height: 1.1 !important;
+}
+
+.security-visual {
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 14px !important;
+}
+
+.security-visual span {
+  font-size: 22px !important;
+}
+
+.energy-compact {
+  gap: 4px !important;
+  margin-top: 5px !important;
+}
+
+.energy-row {
+  min-height: 17px !important;
+  gap: 6px !important;
+}
+
+.energy-row span,
+.energy-row strong {
+  font-size: 9px !important;
+  line-height: 1.05 !important;
+}
+
+.energy-total-box {
+  margin-top: 2px !important;
+  padding: 7px 8px !important;
+  border-radius: 12px !important;
+}
+
+.energy-total-box span,
+.energy-total-box strong {
+  font-size: 9px !important;
+  line-height: 1.05 !important;
+}
+
+.energy-tariff-compact {
+  margin-top: 1px !important;
+  font-size: 7px !important;
+  line-height: 1 !important;
+}
+
+/* ---------- SCENE BOTTOM TIGHT ---------- */
+.scene-card {
+  min-height: 54px !important;
+  height: 54px !important;
+  padding: 9px 13px !important;
+}
+
+.scene-card .section-head {
+  height: 36px !important;
+  min-height: 36px !important;
+  align-items: center !important;
+}
+
+.scene-row {
+  margin-top: 0 !important;
+  gap: 6px !important;
+}
+
+.scene-row span {
+  font-size: 11px !important;
+}
+
+.scene-card h2 {
+  font-size: 8.5px !important;
+}
+
+.scene-row strong,
+.scene-name,
+.last-scene-name {
+  font-size: 12px !important;
+  line-height: 1.05 !important;
+}
+
+.scene-row small,
+.scene-time,
+.last-scene-time {
+  font-size: 7.8px !important;
+  line-height: 1.05 !important;
+}
+
+.scene-action {
+  height: 26px !important;
+  min-width: 94px !important;
+  padding: 0 10px !important;
+  font-size: 8px !important;
+}
+
+/* ---------- BOTTOM NAV TIGHT ---------- */
+.bottom-nav,
+.nav-bar {
+  height: 56px !important;
+  min-height: 56px !important;
+  bottom: max(8px, env(safe-area-inset-bottom)) !important;
+  padding: 6px 8px !important;
+}
+
+.bottom-nav button:not(.center-action),
+.nav-bar button:not(.center-action) {
+  height: 42px !important;
+  min-height: 42px !important;
+  font-size: 16px !important;
+  gap: 2px !important;
+}
+
+.bottom-nav button:not(.center-action) span,
+.nav-bar button:not(.center-action) span {
+  font-size: 8px !important;
+}
+
+.center-action {
+  width: 42px !important;
+  height: 42px !important;
+  min-height: 42px !important;
+  transform: translateY(-7px) !important;
+  font-size: 20px !important;
+}
+
+.center-action:active {
+  transform: translateY(-7px) scale(.96) !important;
+}
+
+/* ---------- KILL RANDOM EXTRA SPACE ---------- */
+.card > *:last-child,
+.wide-card > *:last-child,
+.summary-card > *:last-child,
+.hero-card > *:last-child,
+.entertainment-card > *:last-child,
+.climate-power-card > *:last-child,
+.cctv-card > *:last-child,
+.energy-card > *:last-child,
+.scene-card > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* ---------- SMALL SCREEN SAFETY ---------- */
+@media (max-width: 390px) {
+  .phone-container,
+  .app {
+    padding-inline: 18px !important;
+    padding-bottom: 78px !important;
+  }
+
+  .dashboard {
+    gap: 6px !important;
+  }
+
+  .hero-grid,
+  .split-grid,
+  .entertainment-grid {
+    gap: 6px !important;
+  }
+
+  .hero-card {
+    min-height: 208px !important;
+    height: 208px !important;
+  }
+
+  .ac-display strong,
+  .lamp-display strong {
+    font-size: 36px !important;
+  }
+
+  .cctv-card,
+  .energy-card {
+    min-height: 142px !important;
+    height: 142px !important;
+  }
+}
