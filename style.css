@@ -2025,3 +2025,97 @@ h3,
     font-size: 22px !important;
   }
 }
+
+/* =====================================================
+   FIX PHASE 3C — DEVICE TITLE UNIFORM + NAVBAR BALANCE
+===================================================== */
+
+/* 1. Samakan semua judul device seperti Nest Mini */
+.hero-card .title-group h2,
+.ac-card .title-group h2,
+.lamp-card .title-group h2,
+.mini-device-head h3,
+.tv-card h3,
+.nest-card h3,
+.cctv-card .compact-head h3,
+.energy-card .compact-head h3 {
+  font-size: 12.5px !important;
+  line-height: 1.18 !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.25px !important;
+  color: rgba(255,255,255,.86) !important;
+}
+
+/* Icon kecil di samping judul device */
+.hero-card .emoji-card,
+.ac-card .emoji-card,
+.lamp-card .emoji-card,
+.mini-device-head .emoji-card,
+.compact-head .emoji-card {
+  width: 19px !important;
+  height: 19px !important;
+  font-size: 17px !important;
+}
+
+/* Section title tetap lebih besar */
+.summary-card > .section-head h2,
+.entertainment-card > .section-head h2,
+.climate-power-card > .section-head h2 {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: rgba(255,255,255,.88) !important;
+}
+
+/* 2. Navbar icon diperbesar, tombol plus dikecilkan */
+.bottom-nav,
+.nav-bar {
+  grid-template-columns: 1fr 1fr 58px 1fr 1fr !important;
+  min-height: 70px !important;
+  padding: 8px 10px !important;
+}
+
+/* Untuk emoji/icon navbar yang berupa text node */
+.bottom-nav button:not(.center-action),
+.nav-bar button:not(.center-action) {
+  min-height: 52px !important;
+  font-size: 22px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+}
+
+/* Label navbar tetap kecil */
+.bottom-nav button:not(.center-action) span,
+.nav-bar button:not(.center-action) span {
+  font-size: 9px !important;
+  font-weight: 600 !important;
+  line-height: 1.1 !important;
+}
+
+/* Kalau icon navbar pakai class */
+.nav-icon,
+.bottom-nav .nav-icon,
+.nav-bar .nav-icon {
+  font-size: 22px !important;
+  width: 24px !important;
+  height: 24px !important;
+  display: grid !important;
+  place-items: center !important;
+}
+
+/* Tombol plus dibuat lebih proporsional */
+.center-action {
+  width: 54px !important;
+  height: 54px !important;
+  min-height: 54px !important;
+  transform: translateY(-13px) !important;
+  font-size: 28px !important;
+  font-weight: 400 !important;
+  border-width: 3px !important;
+}
+
+.center-action:active {
+  transform: translateY(-13px) scale(.96) !important;
+}
