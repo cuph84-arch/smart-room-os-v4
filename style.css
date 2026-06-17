@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 :root {
   --asset-base: "https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/";
   --bg-image: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/bg/smartroom-bg.png");
@@ -1680,4 +1681,347 @@ input[type="range"]::-webkit-slider-thumb {
   font-weight: 400 !important;
   color: rgba(255,255,255,.55) !important;
   letter-spacing: .1px !important;
+}
+
+/* =====================================================
+   SMART ROOM OS V4 — PHASE 3B
+   Slim Typography + Balanced Bottom Navbar
+===================================================== */
+
+:root {
+  --font-main: "Google Sans", "Plus Jakarta Sans", Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --text-main: rgba(255,255,255,.96);
+  --text-title-soft: rgba(255,255,255,.85);
+  --text-soft: rgba(255,255,255,.58);
+  --text-muted: rgba(255,255,255,.42);
+  --text-faint: rgba(255,255,255,.28);
+}
+
+body,
+button,
+input {
+  font-family: var(--font-main) !important;
+  font-feature-settings: "kern";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+/* ---------- HEADER ---------- */
+
+.header h1 {
+  font-size: clamp(27px, 6.5vw, 32px) !important;
+  font-weight: 700 !important;
+  line-height: 1.04 !important;
+  letter-spacing: -1.35px !important;
+  color: var(--text-main) !important;
+}
+
+.header-date,
+#lastUpdated {
+  margin-top: 5px !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  line-height: 1.25 !important;
+  color: rgba(255,255,255,.55) !important;
+  letter-spacing: -.15px !important;
+}
+
+/* ---------- CARD HEADER TYPOGRAPHY ---------- */
+
+h2,
+.card h2,
+.wide-card h2,
+.section-head h2,
+.card-head h2,
+.hero-card h2 {
+  font-size: 15px !important;
+  line-height: 1.14 !important;
+  font-weight: 600 !important;
+  letter-spacing: -.45px !important;
+  color: var(--text-title-soft) !important;
+}
+
+h3,
+.card h3,
+.wide-card h3,
+.mini-device h3,
+.compact-head h3 {
+  font-size: 12.5px !important;
+  line-height: 1.16 !important;
+  font-weight: 600 !important;
+  letter-spacing: -.25px !important;
+  color: var(--text-title-soft) !important;
+}
+
+.title-group {
+  gap: 7px !important;
+}
+
+.emoji-card {
+  width: 21px !important;
+  height: 21px !important;
+  font-size: 19px !important;
+}
+
+/* ---------- AC & LAMP MAIN VALUE ---------- */
+
+.ac-display strong,
+.lamp-display strong {
+  font-size: clamp(38px, 10vw, 46px) !important;
+  line-height: .94 !important;
+  font-weight: 800 !important;
+  letter-spacing: -2.2px !important;
+  color: #fff !important;
+}
+
+.ac-display span {
+  margin-top: 8px !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  color: var(--green) !important;
+}
+
+/* ---------- META / SUB CONTENT ---------- */
+
+.device-meta.clean-meta span,
+.lamp-display span,
+.mini-device p,
+.mini-device small,
+.metric-item span,
+.security-line,
+.energy-row span,
+.scene-row small {
+  font-size: 10px !important;
+  font-weight: 400 !important;
+  line-height: 1.38 !important;
+  color: var(--text-muted) !important;
+}
+
+.device-meta.clean-meta strong,
+.lamp-display b {
+  font-size: 10.5px !important;
+  font-weight: 600 !important;
+  color: rgba(255,255,255,.64) !important;
+  text-transform: uppercase !important;
+}
+
+.device-meta.clean-meta {
+  gap: 3px !important;
+  margin-bottom: 18px !important;
+}
+
+/* ---------- SUMMARY CARD ---------- */
+
+.summary-card h2 {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: var(--text-title-soft) !important;
+}
+
+.summary-item span:not(.emoji-icon) {
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  color: rgba(255,255,255,.48) !important;
+}
+
+.summary-item strong {
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: .2px !important;
+  text-transform: uppercase !important;
+}
+
+.summary-energy span {
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  color: rgba(255,183,77,.78) !important;
+}
+
+.summary-energy strong {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: rgba(255,255,255,.92) !important;
+}
+
+/* ---------- CLIMATE & POWER ---------- */
+
+.metric-item strong {
+  font-size: 15.5px !important;
+  font-weight: 750 !important;
+  letter-spacing: -.45px !important;
+  color: #fff !important;
+}
+
+.metric-item span:last-child {
+  font-size: 8.5px !important;
+  font-weight: 400 !important;
+  color: var(--text-muted) !important;
+}
+
+.metric-emoji {
+  font-size: 19px !important;
+}
+
+/* ---------- CCTV & ENERGY ---------- */
+
+.security-line strong,
+.energy-row strong {
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  color: rgba(255,255,255,.92) !important;
+}
+
+.energy-total-box span,
+.energy-total-box strong {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+}
+
+.energy-tariff-compact {
+  font-size: 8.5px !important;
+  font-weight: 400 !important;
+  color: var(--text-faint) !important;
+}
+
+/* ---------- SCENE CARD ---------- */
+
+.scene-row small {
+  font-style: italic !important;
+}
+
+.scene-card h2 {
+  font-size: 10px !important;
+  font-weight: 400 !important;
+  color: var(--text-muted) !important;
+}
+
+.scene-row strong,
+.scene-name,
+.last-scene-name {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+}
+
+.scene-action {
+  height: 32px !important;
+  min-width: 112px !important;
+  padding: 0 14px !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+}
+
+/* ---------- BOTTOM NAVBAR TARGET BALANCE ---------- */
+
+.bottom-nav,
+.nav-bar {
+  width: min(390px, calc(100% - 38px)) !important;
+  min-height: 72px !important;
+  padding: 9px 10px !important;
+  border-radius: 24px !important;
+  grid-template-columns: 1fr 1fr 66px 1fr 1fr !important;
+  align-items: center !important;
+}
+
+.bottom-nav button,
+.nav-bar button {
+  min-height: 54px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  border-radius: 18px !important;
+  font-size: 9.5px !important;
+  font-weight: 500 !important;
+  line-height: 1.1 !important;
+  color: rgba(255,255,255,.44) !important;
+}
+
+/* icon emoji di navbar */
+.bottom-nav button span:first-child,
+.nav-bar button span:first-child,
+.bottom-nav button .nav-icon,
+.nav-bar button .nav-icon {
+  font-size: 23px !important;
+  line-height: 1 !important;
+  width: 24px !important;
+  height: 24px !important;
+  display: grid !important;
+  place-items: center !important;
+  margin-bottom: 2px !important;
+}
+
+/* teks navbar */
+.bottom-nav button span:last-child,
+.nav-bar button span:last-child,
+.bottom-nav button .nav-label,
+.nav-bar button .nav-label {
+  font-size: 9px !important;
+  font-weight: 600 !important;
+  line-height: 1.1 !important;
+  color: inherit !important;
+}
+
+.bottom-nav button.active,
+.nav-bar button.active {
+  color: var(--green) !important;
+}
+
+.center-action {
+  width: 62px !important;
+  height: 62px !important;
+  min-height: 62px !important;
+  transform: translateY(-17px) !important;
+  font-size: 32px !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  display: grid !important;
+  place-items: center !important;
+  padding: 0 !important;
+}
+
+.center-action:active {
+  transform: translateY(-17px) scale(.96) !important;
+}
+
+/* supaya tombol kiri-kanan tidak ketutup visual plus */
+.bottom-nav button:nth-child(2),
+.nav-bar button:nth-child(2) {
+  padding-right: 10px !important;
+}
+
+.bottom-nav button:nth-child(4),
+.nav-bar button:nth-child(4) {
+  padding-left: 10px !important;
+}
+
+/* ---------- SMALL SCREEN ---------- */
+
+@media (max-width: 390px) {
+  .header h1 {
+    font-size: 29px !important;
+  }
+
+  h2,
+  .card h2,
+  .wide-card h2,
+  .section-head h2,
+  .card-head h2,
+  .hero-card h2 {
+    font-size: 14.5px !important;
+  }
+
+  .bottom-nav,
+  .nav-bar {
+    width: min(376px, calc(100% - 28px)) !important;
+  }
+
+  .bottom-nav button span:first-child,
+  .nav-bar button span:first-child,
+  .bottom-nav button .nav-icon,
+  .nav-bar button .nav-icon {
+    font-size: 22px !important;
+  }
 }
