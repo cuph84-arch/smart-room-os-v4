@@ -1673,3 +1673,11 @@ input[type="range"]::-webkit-slider-thumb {
     font-size: 14px !important;
   }
 }
+
+#lastUpdated {
+  margin-top: 5px !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  color: rgba(255,255,255,.55) !important;
+  letter-spacing: .1px !important;
+}
