@@ -572,3 +572,28 @@ function showToast(message) {
     toast.style.transform = 'translateX(-50%) translateY(8px)';
   }, 1800);
 }
+
+function updateHeaderDateTime() {
+  const el = document.getElementById('lastUpdated');
+  if (!el) return;
+
+  const now = new Date();
+
+  const bulan = [
+    'Januari', 'Februari', 'Maret', 'April',
+    'Mei', 'Juni', 'Juli', 'Agustus',
+    'September', 'Oktober', 'November', 'Desember'
+  ];
+
+  const tanggal = now.getDate();
+  const namaBulan = bulan[now.getMonth()];
+  const tahun = now.getFullYear();
+
+  const jam = String(now.getHours()).padStart(2, '0');
+  const menit = String(now.getMinutes()).padStart(2, '0');
+
+  el.textContent = `${tanggal} ${namaBulan} ${tahun} • ${jam}:${menit}`;
+}
+
+updateHeaderDateTime();
+setInterval(updateHeaderDateTime, 60000);
