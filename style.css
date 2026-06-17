@@ -2119,3 +2119,47 @@ h3,
 .center-action:active {
   transform: translateY(-13px) scale(.96) !important;
 }
+
+/* =====================================================
+   FIX PHASE 3D — NAVBAR OVERSIZE RESET
+===================================================== */
+
+.bottom-nav,
+.nav-bar {
+  width: min(390px, calc(100% - 40px)) !important;
+  min-height: 64px !important;
+  height: 64px !important;
+  padding: 7px 9px !important;
+  grid-template-columns: 1fr 1fr 54px 1fr 1fr !important;
+  border-radius: 22px !important;
+}
+
+.bottom-nav button:not(.center-action),
+.nav-bar button:not(.center-action) {
+  min-height: 46px !important;
+  height: 46px !important;
+  padding: 0 !important;
+  gap: 3px !important;
+  font-size: 18px !important;
+  line-height: 1 !important;
+}
+
+.bottom-nav button:not(.center-action) span,
+.nav-bar button:not(.center-action) span {
+  font-size: 9px !important;
+  line-height: 1.05 !important;
+  font-weight: 600 !important;
+}
+
+.center-action {
+  width: 48px !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  transform: translateY(-10px) !important;
+  font-size: 24px !important;
+  border-width: 3px !important;
+}
+
+.center-action:active {
+  transform: translateY(-10px) scale(.96) !important;
+}
