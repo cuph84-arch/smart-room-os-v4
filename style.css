@@ -1778,3 +1778,112 @@ article.target-device-card > * {
 .target-device-grid .lamp-bar {
   height: 2.5px !important;
 }
+
+/* =======================================================
+   HERO CARD FINAL POLISH
+   Point 1, 2, 4, 5
+   ======================================================= */
+
+/* 1 & 2 — Format text case AC/Lampu */
+.ac-card .target-sub-info,
+.ac-card .target-sub-info span,
+.ac-card .target-sub-info b,
+.lamp-card .target-sub-info,
+.lamp-card .target-sub-info span,
+.lamp-card .target-sub-info b {
+  text-transform: capitalize !important;
+}
+
+/* 4 — Samakan baseline optik value AC dan Lampu */
+.ac-card .target-main-value,
+.lamp-card .target-main-value {
+  align-items: center !important;
+  justify-content: center !important;
+  transform: translateY(-2px) !important;
+}
+
+.ac-card .target-main-value strong,
+.lamp-card .target-main-value strong,
+#acTemp,
+#lampBrightness {
+  line-height: 0.96 !important;
+  font-weight: 800 !important;
+}
+
+/* 5 — Toggle lebih jelas seperti target plan */
+.ac-card .target-toggle,
+.lamp-card .target-toggle,
+.ac-card .badge,
+.lamp-card .badge {
+  width: 48px !important;
+  min-width: 48px !important;
+  height: 26px !important;
+  min-height: 26px !important;
+
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+  border: 1px solid rgba(255, 255, 255, 0.24) !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.14),
+    0 6px 14px rgba(0,0,0,.12) !important;
+
+  backdrop-filter: blur(14px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
+
+  font-size: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Toggle inner visual dot */
+.ac-card .target-toggle::before,
+.lamp-card .target-toggle::before,
+.ac-card .badge::before,
+.lamp-card .badge::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ff4040;
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,.18),
+    0 4px 10px rgba(0,0,0,.18);
+  transform: translateX(-10px);
+}
+
+/* ON state dot geser kanan */
+.ac-card .target-toggle.on::before,
+.lamp-card .target-toggle.on::before,
+.ac-card .badge.on::before,
+.lamp-card .badge.on::before {
+  transform: translateX(10px);
+  background: #00e676;
+}
+
+/* 4 — rapikan sub-info agar center seperti target */
+.ac-card .target-sub-info,
+.lamp-card .target-sub-info {
+  align-items: center !important;
+  justify-items: center !important;
+  text-align: center !important;
+  line-height: 1.2 !important;
+  font-weight: 400 !important;
+}
+
+/* AC tetap hanya Mode dan Fan */
+.ac-card .target-sub-info small,
+.ac-card .target-sub-info #acStatus {
+  display: none !important;
+}
+
+/* Lampu tetap tampil status realtime dari database */
+.lamp-card .target-sub-info #lampStatus,
+.lamp-card .target-sub-info .logic-hidden {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  display: inline !important;
+}
