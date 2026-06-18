@@ -1385,3 +1385,110 @@ article.target-device-card > * {
   overflow: visible !important;
   pointer-events: none !important;
 }
+
+/* QUICK FIX — Lamp slider visual match AC slider */
+
+.target-device-grid .target-range-wrap {
+  position: relative !important;
+  width: 100% !important;
+  height: 20px !important;
+  overflow: visible !important;
+}
+
+.target-device-grid .lamp-bar {
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+
+  width: 100% !important;
+  height: 4px !important;
+  border-radius: 999px !important;
+  overflow: visible !important;
+
+  background: linear-gradient(
+    90deg,
+    #ff4040 0%,
+    #ff4040 var(--lamp-pos, 50%),
+    rgba(64,196,255,.7) var(--lamp-pos, 50%),
+    rgba(64,196,255,.7) 100%
+  ) !important;
+
+  pointer-events: none !important;
+}
+
+.target-device-grid #lampBar,
+.target-device-grid .lamp-bar div {
+  position: absolute !important;
+  top: 50% !important;
+  left: var(--lamp-pos, 50%) !important;
+  transform: translate(-50%, -50%) !important;
+
+  width: 12px !important;
+  height: 12px !important;
+  min-width: 12px !important;
+  min-height: 12px !important;
+  max-width: 12px !important;
+  max-height: 12px !important;
+
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 50% !important;
+  background: #ff4040 !important;
+  box-shadow: 0 0 0 2px rgba(255,255,255,.12) !important;
+
+  pointer-events: none !important;
+}
+
+/* Matikan total visual input range asli */
+.target-device-grid #lampBrightnessSlider,
+.target-device-grid .brightness-slider {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 5 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  opacity: 0 !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  background: transparent !important;
+}
+
+/* Chrome / Android */
+.target-device-grid #lampBrightnessSlider::-webkit-slider-runnable-track,
+.target-device-grid .brightness-slider::-webkit-slider-runnable-track {
+  opacity: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+.target-device-grid #lampBrightnessSlider::-webkit-slider-thumb,
+.target-device-grid .brightness-slider::-webkit-slider-thumb {
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  -webkit-appearance: none !important;
+}
+
+/* Firefox fallback */
+.target-device-grid #lampBrightnessSlider::-moz-range-track,
+.target-device-grid .brightness-slider::-moz-range-track {
+  opacity: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+.target-device-grid #lampBrightnessSlider::-moz-range-thumb,
+.target-device-grid .brightness-slider::-moz-range-thumb {
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
