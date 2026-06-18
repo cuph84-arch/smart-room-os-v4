@@ -1661,20 +1661,26 @@ h3,
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-/* TARGET AC + LAMP CARD ONLY */
+/* =====================================================
+   SMART ROOM OS V4 — TARGET AC + LAMP RATIO SYSTEM
+   Rasio dasar desain: 360 × 360
+===================================================== */
 
 .target-device-grid {
   display: grid !important;
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 14px !important;
+  gap: clamp(8px, 3.8vw, 14px) !important;
   align-items: stretch !important;
 }
 
+/* CARD 1:1 RESPONSIVE */
 .target-device-card {
   width: 100% !important;
   max-width: 360px !important;
-  height: 360px !important;
-  padding: 20px !important;
+  aspect-ratio: 1 / 1 !important;
+  height: auto !important;
+
+  padding: 5.55% !important; /* 20 / 360 */
   box-sizing: border-box !important;
 
   display: flex !important;
@@ -1684,7 +1690,7 @@ h3,
   font-family: "Poppins", sans-serif !important;
   color: #fff !important;
 
-  border-radius: 24px !important;
+  border-radius: clamp(18px, 6.67%, 24px) !important;
   background: rgba(255,255,255,.10) !important;
   border: 1px solid rgba(255,255,255,.25) !important;
   box-shadow: 0 8px 32px rgba(0,0,0,.10) !important;
@@ -1692,35 +1698,45 @@ h3,
   -webkit-backdrop-filter: blur(16px) !important;
 }
 
+/* ROW 1 — ICON + TOGGLE */
 .target-card-top {
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
+  min-height: 10% !important;
 }
 
 .target-card-top .emoji-card {
-  width: 24px !important;
-  height: 24px !important;
-  font-size: 24px !important;
+  width: 6.67% !important;      /* 24 / 360 */
+  min-width: 18px !important;
+  max-width: 24px !important;
+  aspect-ratio: 1 / 1 !important;
+
+  height: auto !important;
+  font-size: clamp(18px, 6.67cqw, 24px) !important;
 }
 
+/* TOGGLE CAPSULE */
 .target-toggle {
-  min-width: 58px !important;
-  height: 28px !important;
-  padding: 0 12px !important;
+  min-width: clamp(42px, 16.1cqw, 58px) !important;
+  height: clamp(22px, 7.8cqw, 28px) !important;
+  padding: 0 clamp(8px, 3.3cqw, 12px) !important;
+
   border-radius: 999px !important;
-  font-size: 11px !important;
+  font-size: clamp(8px, 3.05cqw, 11px) !important;
   font-weight: 600 !important;
 }
 
+/* ROW 2 — TITLE */
 .target-card-title {
   text-align: center !important;
-  font-size: 16px !important;
+  font-size: clamp(11px, 4.44cqw, 16px) !important; /* 16 / 360 */
   font-weight: 500 !important;
   line-height: 1.2 !important;
   color: #fff !important;
 }
 
+/* ROW 3 — MAIN VALUE */
 .target-main-value {
   flex: 1 !important;
   display: grid !important;
@@ -1729,19 +1745,23 @@ h3,
 }
 
 .target-main-value strong {
-  font-size: 56px !important;
+  font-size: clamp(34px, 15.55cqw, 56px) !important; /* 56 / 360 */
   font-weight: 800 !important;
   line-height: 1 !important;
-  letter-spacing: -2px !important;
+  letter-spacing: clamp(-2px, -0.55cqw, -1px) !important;
   color: #fff !important;
 }
 
+/* ROW 4 — SUB INFO */
 .target-sub-info {
   display: flex !important;
   justify-content: space-between !important;
-  gap: 10px !important;
-  margin-bottom: 24px !important;
-  font-size: 14px !important;
+  align-items: center !important;
+  gap: clamp(6px, 2.8cqw, 10px) !important;
+
+  margin-bottom: 6.67% !important; /* 24 / 360 */
+
+  font-size: clamp(9px, 3.88cqw, 14px) !important;
   font-weight: 400 !important;
   color: rgba(255,255,255,.86) !important;
 }
@@ -1754,24 +1774,33 @@ h3,
   height: auto !important;
   opacity: 1 !important;
   overflow: visible !important;
-  font-size: 14px !important;
+
+  font-size: clamp(9px, 3.88cqw, 14px) !important;
   font-weight: 400 !important;
+  line-height: 1.15 !important;
   color: #fff !important;
+  white-space: nowrap !important;
 }
 
+/* ROW 5 — SLIDER */
 .target-slider-row {
   display: flex !important;
   align-items: center !important;
-  gap: 12px !important;
+  gap: 3.33% !important; /* 12 / 360 */
   width: 100% !important;
 }
 
 .target-slider-row .control-btn {
-  width: 42px !important;
-  height: 42px !important;
-  flex: 0 0 42px !important;
+  width: clamp(30px, 11.67cqw, 42px) !important;  /* 42 / 360 */
+  height: clamp(30px, 11.67cqw, 42px) !important;
+  flex: 0 0 clamp(30px, 11.67cqw, 42px) !important;
+
   border-radius: 50% !important;
-  font-size: 22px !important;
+  font-size: clamp(16px, 6.1cqw, 22px) !important;
+  font-weight: 700 !important;
+
+  display: grid !important;
+  place-items: center !important;
 }
 
 .target-fake-slider,
@@ -1780,13 +1809,79 @@ h3,
   position: relative !important;
 }
 
-.target-fake-slider,
-.brightness-slider {
-  width: 100% !important;
+/* AC FAKE SLIDER */
+.target-fake-slider {
+  height: clamp(4px, 1.67cqw, 6px) !important;
+  border-radius: 999px !important;
+}
+
+.target-fake-slider .ac-slider-fill {
+  height: 100% !important;
+}
+
+/* LAMP RANGE */
+.target-range-wrap {
+  height: clamp(22px, 7.8cqw, 28px) !important;
+  display: flex !important;
+  align-items: center !important;
 }
 
 .target-device-card .lamp-bar {
   top: 50% !important;
   transform: translateY(-50%) !important;
+  height: clamp(4px, 1.67cqw, 6px) !important;
+}
+
+.target-device-card .brightness-slider {
+  width: 100% !important;
+  height: clamp(22px, 7.8cqw, 28px) !important;
+}
+
+/* Thumb slider ikut rasio */
+.target-device-card .brightness-slider::-webkit-slider-thumb {
+  width: clamp(14px, 5.3cqw, 19px) !important;
+  height: clamp(14px, 5.3cqw, 19px) !important;
+}
+
+.target-device-card .brightness-slider::-moz-range-thumb {
+  width: clamp(14px, 5.3cqw, 19px) !important;
+  height: clamp(14px, 5.3cqw, 19px) !important;
+}
+
+/* Fallback kalau browser belum stabil dengan cqw */
+@supports not (font-size: 1cqw) {
+  .target-main-value strong {
+    font-size: clamp(34px, 12vw, 56px) !important;
+  }
+
+  .target-card-title {
+    font-size: clamp(11px, 3.6vw, 16px) !important;
+  }
+
+  .target-sub-info,
+  .target-sub-info span,
+  .target-sub-info b,
+  .target-sub-info small {
+    font-size: clamp(9px, 3.2vw, 14px) !important;
+  }
+
+  .target-toggle {
+    font-size: clamp(8px, 2.6vw, 11px) !important;
+  }
+}
+
+/* Safety untuk HP sangat kecil */
+@media (max-width: 390px) {
+  .target-device-grid {
+    gap: 8px !important;
+  }
+
+  .target-device-card {
+    padding: 5.2% !important;
+  }
+
+  .target-sub-info {
+    margin-bottom: 5.5% !important;
+  }
 }
 
