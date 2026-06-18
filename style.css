@@ -1680,3 +1680,101 @@ article.target-device-card > * {
 /* =======================================================
    END HERO CONTROL QUICK FIX V4
    ======================================================= */
+/* =======================================================
+   HERO FINAL MICRO FIX
+   AC thumb, AC text case, Lamp status visible
+======================================================= */
+
+/* AC thumb harus sama persis dengan Lamp thumb */
+.ac-card #acSliderFill,
+.ac-card #acSliderFill.ac-slider-fill {
+  width: 8px !important;
+  height: 8px !important;
+  min-width: 8px !important;
+  min-height: 8px !important;
+  max-width: 8px !important;
+  max-height: 8px !important;
+
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 50% !important;
+
+  background: #ff4040 !important;
+  background-image: none !important;
+  box-shadow: none !important;
+
+  position: absolute !important;
+  top: 50% !important;
+  left: var(--ac-pos, 45%) !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+/* Samakan juga Lamp thumb sebagai pembanding */
+.lamp-card #lampBar,
+.lamp-card .lamp-bar div {
+  width: 8px !important;
+  height: 8px !important;
+  min-width: 8px !important;
+  min-height: 8px !important;
+  max-width: 8px !important;
+  max-height: 8px !important;
+
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 50% !important;
+
+  background: #ff4040 !important;
+  box-shadow: none !important;
+}
+
+/* AC mode/fan tampil Cool Auto, bukan COOL AUTO */
+.ac-card .target-sub-info,
+.ac-card .target-sub-info span,
+.ac-card .target-sub-info b {
+  text-transform: capitalize !important;
+}
+
+/* Lamp status On harus muncul lagi walau sebelumnya logic-hidden */
+.lamp-card .target-sub-info #lampStatus,
+.lamp-card .target-sub-info .logic-hidden {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+
+  display: inline !important;
+  text-transform: capitalize !important;
+}
+
+/* Lamp sub-info balancing */
+.lamp-card .target-sub-info {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  align-items: center !important;
+  justify-items: center !important;
+  gap: 10px !important;
+
+  text-align: center !important;
+  font-size: clamp(10px, 6cqw, 11px) !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  color: rgba(255,255,255,.78) !important;
+}
+
+/* Lamp value case: On, white */
+.lamp-card .target-sub-info span,
+.lamp-card .target-sub-info b,
+.lamp-card .target-sub-info small {
+  text-transform: none !important;
+}
+
+.lamp-card #lampStatus {
+  text-transform: capitalize !important;
+}
+
+/* Track tetap tipis premium */
+.target-device-grid .target-fake-slider,
+.target-device-grid .ac-slider,
+.target-device-grid .lamp-bar {
+  height: 2.5px !important;
+}
