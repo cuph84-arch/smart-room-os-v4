@@ -423,8 +423,6 @@ section.hero-grid.target-device-grid {
 
 .hero-card,
 .target-device-card,
-container-type: inline-size;
-container-name: hero-card;
 article.card.hero-card.ac-card.target-device-card,
 article.card.hero-card.lamp-card.target-device-card,
 section.hero-grid.target-device-grid > article.card.hero-card.ac-card.target-device-card,
@@ -436,12 +434,18 @@ section.hero-grid.target-device-grid > article.card.hero-card.lamp-card.target-d
   min-height: 0;
   max-height: none;
   box-sizing: border-box;
-  padding: clamp(12px, 3.2vw, 16px);
+
+  container-type: inline-size;
+  container-name: hero-card;
+
+  padding: 12px;
   overflow: hidden;
+
   display: grid;
-  grid-template-rows: auto auto 1fr auto auto;
+  grid-template-rows: 24px 20px minmax(42px, 1fr) 18px 24px;
   row-gap: 4px;
   align-items: center;
+
   border-radius: clamp(22px, 6.5vw, 32px);
 }
 
@@ -538,17 +542,12 @@ article.target-device-card > * {
 #acTemp,
 #lampBrightness,
 .ac-display strong,
-.lamp-display strong{
-
-  color:#fff;
-
-  font-size:clamp(34px,21cqw,42px);
-
-  font-weight:800;
-
-  line-height:1;
-
-  letter-spacing:-0.05em;
+.lamp-display strong {
+  color: #fff;
+  font-size: clamp(34px, 20cqw, 42px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
 }
 
 .target-sub-info{
