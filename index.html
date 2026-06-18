@@ -77,101 +77,75 @@
         </div>
       </section>
 
-      <section class="hero-grid">
-        <article class="card hero-card ac-card">
-          <div class="card-head">
-            <div class="title-group">
-              <span class="card-icon emoji-card green">❄️</span>
-              <div>
-                <h2>AC Kamar</h2>
-              </div>
-            </div>
+      <section class="hero-grid target-device-grid">
+  <article class="card hero-card ac-card target-device-card">
+    <div class="target-card-top">
+      <span class="card-icon emoji-card green">❄️</span>
+      <button id="acToggleBtn" class="badge on target-toggle">ON</button>
+    </div>
 
-            <button id="acToggleBtn" class="badge on">ON</button>
-          </div>
+    <h2 class="target-card-title">AC Kamar</h2>
 
-          <div class="ac-display">
-            <strong id="acTemp">--°C</strong>
-            <span id="acStatus">--</span>
-          </div>
+    <div class="target-main-value">
+      <strong id="acTemp">--°C</strong>
+    </div>
 
-          <div class="device-meta clean-meta">
-            <div>
-              <span>Mode :</span>
-              <strong id="acMode">--</strong>
-            </div>
+    <div class="target-sub-info">
+      <span>Mode : <b id="acMode">--</b></span>
+      <span>Fan : <b id="acFan">--</b></span>
+      <small id="acStatus">--</small>
+    </div>
 
-            <div>
-              <span>Fan :</span>
-              <strong id="acFan">--</strong>
-            </div>
-          </div>
+    <div class="target-slider-row">
+      <button id="acMinusBtn" class="control-btn">−</button>
 
-          <div class="slider-control-wrap ac-control-wrap">
-            <div class="control-row slider-buttons">
-              <button id="acMinusBtn" class="control-btn">−</button>
-              <button id="acPlusBtn" class="control-btn">+</button>
-            </div>
+      <div class="ac-slider target-fake-slider">
+        <div id="acSliderFill" class="ac-slider-fill"></div>
+      </div>
 
-            <div class="ac-slider">
-              <div id="acSliderFill" class="ac-slider-fill"></div>
-            </div>
+      <button id="acPlusBtn" class="control-btn">+</button>
+    </div>
+  </article>
 
-            <div class="slider-labels">
-              <span>16°C</span>
-              <span>30°C</span>
-            </div>
-          </div>
-        </article>
+  <article class="card hero-card lamp-card target-device-card">
+    <div class="target-card-top">
+      <span class="card-icon emoji-card yellow">💡</span>
+      <button id="lampToggleBtn" class="badge off target-toggle">OFF</button>
+    </div>
 
-        <article class="card hero-card lamp-card">
-          <div class="card-head">
-            <div class="title-group">
-              <span class="card-icon emoji-card yellow">💡</span>
-              <div>
-                <h2>Lampu Kamar</h2>
-              </div>
-            </div>
+    <h2 class="target-card-title">Lampu Kamar</h2>
 
-            <button id="lampToggleBtn" class="badge off">OFF</button>
-          </div>
+    <div class="target-main-value">
+      <strong id="lampBrightness">--%</strong>
+    </div>
 
-          <div class="lamp-display">
-            <div>
-              <strong id="lampBrightness">--%</strong>
-              <span>Mode : <b id="lampMode">--</b></span>
-              <small id="lampStatus" class="logic-hidden">--</small>
-            </div>
+    <div class="target-sub-info">
+      <span>💡 : <b id="lampStatus" class="logic-hidden">--</b></span>
+      <span>Mode : <b id="lampMode">--</b></span>
+    </div>
 
-            <span class="device-icon emoji-device yellow">🔆</span>
-          </div>
+    <div class="target-slider-row">
+      <button class="control-btn lamp-minus-btn" type="button">−</button>
 
-          <div class="slider-control-wrap lamp-control-wrap">
-            <div class="control-row slider-buttons">
-              <button class="control-btn lamp-minus-btn" type="button">−</button>
-              <button class="control-btn lamp-plus-btn" type="button">+</button>
-            </div>
+      <div class="target-range-wrap">
+        <div class="lamp-bar">
+          <div id="lampBar"></div>
+        </div>
 
-            <div class="lamp-bar">
-              <div id="lampBar"></div>
-            </div>
+        <input
+          id="lampBrightnessSlider"
+          class="brightness-slider"
+          type="range"
+          min="0"
+          max="100"
+          value="1"
+        />
+      </div>
 
-            <input
-              id="lampBrightnessSlider"
-              class="brightness-slider"
-              type="range"
-              min="0"
-              max="100"
-              value="1"
-            />
-
-            <div class="slider-labels">
-              <span>0%</span>
-              <span>100%</span>
-            </div>
-          </div>
-        </article>
-      </section>
+      <button class="control-btn lamp-plus-btn" type="button">+</button>
+    </div>
+  </article>
+</section>
 
       <section class="wide-card entertainment-card">
         <div class="section-head">
