@@ -77,7 +77,75 @@
         </div>
       </section>
 
-      
+      <section class="hero-grid target-device-grid">
+  <article class="card hero-card ac-card target-device-card">
+    <div class="target-card-top">
+      <span class="card-icon emoji-card green">❄️</span>
+      <button id="acToggleBtn" class="badge on target-toggle">ON</button>
+    </div>
+
+    <h2 class="target-card-title">AC Kamar</h2>
+
+    <div class="target-main-value">
+      <strong id="acTemp">--°C</strong>
+    </div>
+
+    <div class="target-sub-info">
+      <span>Mode : <b id="acMode">--</b></span>
+      <span>Fan : <b id="acFan">--</b></span>
+      <small id="acStatus">--</small>
+    </div>
+
+    <div class="target-slider-row">
+      <button id="acMinusBtn" class="control-btn">−</button>
+
+      <div class="ac-slider target-fake-slider">
+        <div id="acSliderFill" class="ac-slider-fill"></div>
+      </div>
+
+      <button id="acPlusBtn" class="control-btn">+</button>
+    </div>
+  </article>
+
+  <article class="card hero-card lamp-card target-device-card">
+    <div class="target-card-top">
+      <span class="card-icon emoji-card yellow">💡</span>
+      <button id="lampToggleBtn" class="badge off target-toggle">OFF</button>
+    </div>
+
+    <h2 class="target-card-title">Lampu Kamar</h2>
+
+    <div class="target-main-value">
+      <strong id="lampBrightness">--%</strong>
+    </div>
+
+    <div class="target-sub-info">
+      <span>💡 : <b id="lampStatus" class="logic-hidden">--</b></span>
+      <span>Mode : <b id="lampMode">--</b></span>
+    </div>
+
+    <div class="target-slider-row">
+      <button class="control-btn lamp-minus-btn" type="button">−</button>
+
+      <div class="target-range-wrap">
+        <div class="lamp-bar">
+          <div id="lampBar"></div>
+        </div>
+
+        <input
+          id="lampBrightnessSlider"
+          class="brightness-slider"
+          type="range"
+          min="0"
+          max="100"
+          value="1"
+        />
+      </div>
+
+      <button class="control-btn lamp-plus-btn" type="button">+</button>
+    </div>
+  </article>
+</section>
 
       <section class="wide-card entertainment-card">
         <div class="section-head">
