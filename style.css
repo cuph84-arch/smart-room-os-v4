@@ -21,7 +21,7 @@
   --orange: #ffb74d;
   --yellow: #ffe066;
   --pink: #ff80ab;
-  --red: #ff5f6d;
+  --red: #ff4040;
 
   --radius-card: 22px;
   --radius-inner: 17px;
@@ -215,7 +215,7 @@ p {
   border-color: rgba(255, 255, 255, 0.18);
 }
 
-/* GLOBAL LAYOUT */
+/* GLOBAL */
 
 .dashboard {
   display: flex;
@@ -314,8 +314,6 @@ h3 {
   background: rgba(255, 255, 255, 0.055);
 }
 
-/* STANDARD SECTION SPACING */
-
 .summary-card,
 section.hero-grid,
 .hero-grid,
@@ -409,7 +407,7 @@ section.hero-grid,
   text-align: right;
 }
 
-/* HERO GRID AC + LAMPU */
+/* HERO AC + LAMPU CLEAN CROSS-BROWSER */
 
 .hero-grid,
 .target-device-grid,
@@ -434,18 +432,12 @@ section.hero-grid.target-device-grid > article.card.hero-card.lamp-card.target-d
   min-height: 0;
   max-height: none;
   box-sizing: border-box;
-
-  container-type: inline-size;
-  container-name: hero-card;
-
   padding: 12px;
   overflow: hidden;
-
   display: grid;
   grid-template-rows: 24px 20px minmax(42px, 1fr) 18px 24px;
-  row-gap: 4px;
+  row-gap: 3px;
   align-items: center;
-
   border-radius: clamp(22px, 6.5vw, 32px);
 }
 
@@ -480,7 +472,7 @@ article.target-device-card > * {
 .target-card-top {
   grid-row: 1;
   width: 100%;
-  min-height: 24px;
+  min-height: 22px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -489,41 +481,94 @@ article.target-device-card > * {
 
 .card-icon,
 .target-card-top .emoji-card,
-.hero-card .emoji-card{
-
-  font-size:clamp(18px,6cqw,22px);
-
-  line-height:1;
+.hero-card .emoji-card,
+.ac-card .card-icon,
+.lamp-card .card-icon {
+  width: clamp(18px, 5.2vw, 22px);
+  height: clamp(18px, 5.2vw, 22px);
+  display: inline-grid;
+  place-items: center;
+  font-size: clamp(18px, 5.2vw, 22px);
+  line-height: 1;
 }
 
 .target-toggle,
-.hero-card .badge{
+.ac-card .target-toggle,
+.lamp-card .target-toggle,
+.hero-card .badge,
+.ac-card .badge,
+.lamp-card .badge {
+  position: relative;
+  width: clamp(38px, 10.5vw, 44px);
+  min-width: clamp(38px, 10.5vw, 44px);
+  height: clamp(18px, 5.2vw, 22px);
+  min-height: clamp(18px, 5.2vw, 22px);
+  padding: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.45),
+    0 4px 10px rgba(0,0,0,.14);
+  font-size: 0;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+}
 
-  height:22px;
+.target-toggle::before,
+.hero-card .badge::before,
+.ac-card .target-toggle::before,
+.lamp-card .target-toggle::before,
+.ac-card .badge::before,
+.lamp-card .badge::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: clamp(14px, 4.2vw, 18px);
+  height: clamp(14px, 4.2vw, 18px);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  background: var(--red);
+  box-shadow:
+    0 1px 4px rgba(0,0,0,.22),
+    0 0 0 1px rgba(255,255,255,.42);
+  transition: left .2s ease, right .2s ease, background .2s ease;
+}
 
-  min-width:40px;
+.target-toggle.off::before,
+.hero-card .badge.off::before,
+.ac-card .target-toggle.off::before,
+.lamp-card .target-toggle.off::before,
+.ac-card .badge.off::before,
+.lamp-card .badge.off::before {
+  left: 2px;
+  right: auto;
+  background: var(--red);
+}
 
-  padding:0 8px;
-
-  font-size:0;
-
-  overflow:hidden;
+.target-toggle.on::before,
+.hero-card .badge.on::before,
+.ac-card .target-toggle.on::before,
+.lamp-card .target-toggle.on::before,
+.ac-card .badge.on::before,
+.lamp-card .badge.on::before {
+  right: 2px;
+  left: auto;
+  background: var(--green);
 }
 
 .target-card-title,
-.hero-card h2{
-  grid-row:2;
-  width:100%;
-  text-align:center;
-
-  font-size:clamp(13px,7.8cqw,15px);
-  line-height:1.15;
-  font-weight:700;
-
-  color:#fff;
-
-  margin-bottom:6px;
-  letter-spacing:-.01em;
+.hero-card h2 {
+  grid-row: 2;
+  width: 100%;
+  margin-bottom: 4px;
+  text-align: center;
+  font-size: clamp(13px, 3.7vw, 15px);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #fff;
 }
 
 .target-main-value {
@@ -531,11 +576,11 @@ article.target-device-card > * {
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: center;
   text-align: center;
   white-space: nowrap;
-  align-self: center;
+  transform: translateY(-1px);
 }
 
 .target-main-value strong,
@@ -543,32 +588,30 @@ article.target-device-card > * {
 #lampBrightness,
 .ac-display strong,
 .lamp-display strong {
+  display: block;
   color: #fff;
-  font-size: clamp(34px, 20cqw, 42px);
-  font-weight: 800;
+  font-size: clamp(34px, 10vw, 42px);
   line-height: 1;
-  letter-spacing: -0.05em;
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  text-align: center;
 }
 
-.target-sub-info{
-
-  grid-row:4;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  gap:14px;
-
-  font-size:clamp(10px,6cqw,11px);
-
-  font-weight:400;
-
-  line-height:1.2;
-
-  color:rgba(255,255,255,.78);
-
-  white-space:nowrap;
+.target-sub-info {
+  grid-row: 4;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  font-size: clamp(9px, 2.7vw, 11px);
+  line-height: 1.2;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .target-sub-info span,
@@ -578,6 +621,32 @@ article.target-device-card > * {
   line-height: inherit;
   font-weight: inherit;
   color: inherit;
+}
+
+.ac-card .target-sub-info,
+.ac-card .target-sub-info span,
+.ac-card .target-sub-info b,
+.lamp-card .target-sub-info,
+.lamp-card .target-sub-info span,
+.lamp-card .target-sub-info b {
+  text-transform: capitalize;
+}
+
+.ac-card .target-sub-info small,
+.ac-card .target-sub-info #acStatus {
+  display: none;
+}
+
+.lamp-card .target-sub-info #lampStatus,
+.lamp-card .target-sub-info .logic-hidden {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  opacity: 1;
+  pointer-events: auto;
+  display: inline;
+  text-transform: capitalize;
 }
 
 .target-slider-row {
@@ -615,13 +684,13 @@ article.target-device-card > * {
 .ac-slider {
   position: relative;
   width: 100%;
-  height: 4px;
+  height: 2.5px;
   border-radius: 999px;
   overflow: visible;
   background: linear-gradient(
     90deg,
-    #ff4040 0%,
-    #ff4040 var(--ac-pos, 45%),
+    var(--red) 0%,
+    var(--red) var(--ac-pos, 45%),
     rgba(64, 196, 255, 0.7) var(--ac-pos, 45%),
     rgba(64, 196, 255, 0.7) 100%
   );
@@ -631,6 +700,7 @@ article.target-device-card > * {
   position: relative;
   width: 100%;
   height: 20px;
+  overflow: visible;
 }
 
 .lamp-bar {
@@ -640,13 +710,13 @@ article.target-device-card > * {
   top: 50%;
   transform: translateY(-50%);
   width: 100%;
-  height: 4px;
+  height: 2.5px;
   border-radius: 999px;
   overflow: visible;
   background: linear-gradient(
     90deg,
-    #ff4040 0%,
-    #ff4040 var(--lamp-pos, 50%),
+    var(--red) 0%,
+    var(--red) var(--lamp-pos, 50%),
     rgba(64, 196, 255, 0.7) var(--lamp-pos, 50%),
     rgba(64, 196, 255, 0.7) 100%
   );
@@ -654,39 +724,42 @@ article.target-device-card > * {
 }
 
 #acSliderFill,
-.ac-slider-fill {
-  position: absolute;
-  top: 50%;
-  left: var(--ac-pos, 45%);
-  transform: translate(-50%, -50%);
-  width: 12px;
-  height: 12px;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  background: #ff4040;
-  box-shadow: 0 0 0 2px rgba(255,255,255,.12);
-}
-
+.ac-slider-fill,
 #lampBar,
 .lamp-bar div {
   position: absolute;
   top: 50%;
-  left: var(--lamp-pos, 50%);
-  transform: translate(-50%, -50%);
-  width: 12px;
-  height: 12px;
+  width: 8px;
+  height: 8px;
+  min-width: 8px;
+  min-height: 8px;
+  max-width: 8px;
+  max-height: 8px;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  background: #ff4040;
-  box-shadow: 0 0 0 2px rgba(255,255,255,.12);
+  background: var(--red);
+  background-image: none;
+  box-shadow: none;
   pointer-events: none;
+}
+
+#acSliderFill,
+.ac-slider-fill {
+  left: var(--ac-pos, 45%);
+  transform: translate(-50%, -50%);
+}
+
+#lampBar,
+.lamp-bar div {
+  left: var(--lamp-pos, 50%);
+  transform: translate(-50%, -50%);
 }
 
 #lampBrightnessSlider,
 .brightness-slider {
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 5;
   width: 100%;
   height: 100%;
   margin: 0;
@@ -694,6 +767,41 @@ article.target-device-card > * {
   appearance: none;
   -webkit-appearance: none;
   background: transparent;
+}
+
+#lampBrightnessSlider::-webkit-slider-runnable-track,
+.brightness-slider::-webkit-slider-runnable-track {
+  opacity: 0;
+  height: 0;
+  background: transparent;
+}
+
+#lampBrightnessSlider::-webkit-slider-thumb,
+.brightness-slider::-webkit-slider-thumb {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  -webkit-appearance: none;
+}
+
+#lampBrightnessSlider::-moz-range-track,
+.brightness-slider::-moz-range-track {
+  opacity: 0;
+  height: 0;
+  background: transparent;
+}
+
+#lampBrightnessSlider::-moz-range-thumb,
+.brightness-slider::-moz-range-thumb {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 .ac-display,
@@ -1291,8 +1399,8 @@ article.target-device-card > * {
   .target-card-title,
   .hero-card h2 {
     font-size: 12px;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.7);
+    font-weight: 700;
+    color: #fff;
   }
 
   .target-main-value strong,
@@ -1337,659 +1445,4 @@ article.target-device-card > * {
   .security-layout {
     grid-template-columns: 1fr 58px;
   }
-}
-
-
-/* =====================================================
-   FIX AC SLIDER THUMB — MATCH LAMP SLIDER
-===================================================== */
-
-.target-device-grid .target-fake-slider,
-.target-device-grid .ac-slider {
-  position: relative;
-  width: 100%;
-  height: 4px;
-  border-radius: 999px;
-  overflow: visible;
-  background: linear-gradient(
-    90deg,
-    #ff4040 0%,
-    #ff4040 var(--ac-pos, 45%),
-    rgba(64, 196, 255, 0.7) var(--ac-pos, 45%),
-    rgba(64, 196, 255, 0.7) 100%
-  );
-}
-
-/* Kunci #acSliderFill sebagai thumb kecil, bukan progress bar */
-.target-device-grid #acSliderFill.ac-slider-fill,
-.target-device-grid #acSliderFill {
-  position: absolute !important;
-  top: 50% !important;
-  left: var(--ac-pos, 45%) !important;
-  transform: translate(-50%, -50%) !important;
-
-  width: 12px !important;
-  height: 12px !important;
-  min-width: 12px !important;
-  min-height: 12px !important;
-  max-width: 12px !important;
-  max-height: 12px !important;
-
-  aspect-ratio: 1 / 1 !important;
-  border-radius: 50% !important;
-
-  background: #ff4040 !important;
-  background-image: none !important;
-  box-shadow: 0 0 0 2px rgba(255,255,255,.12) !important;
-
-  overflow: visible !important;
-  pointer-events: none !important;
-}
-
-/* QUICK FIX — Lamp slider visual match AC slider */
-
-.target-device-grid .target-range-wrap {
-  position: relative !important;
-  width: 100% !important;
-  height: 20px !important;
-  overflow: visible !important;
-}
-
-.target-device-grid .lamp-bar {
-  position: absolute !important;
-  left: 0 !important;
-  right: 0 !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-
-  width: 100% !important;
-  height: 4px !important;
-  border-radius: 999px !important;
-  overflow: visible !important;
-
-  background: linear-gradient(
-    90deg,
-    #ff4040 0%,
-    #ff4040 var(--lamp-pos, 50%),
-    rgba(64,196,255,.7) var(--lamp-pos, 50%),
-    rgba(64,196,255,.7) 100%
-  ) !important;
-
-  pointer-events: none !important;
-}
-
-.target-device-grid #lampBar,
-.target-device-grid .lamp-bar div {
-  position: absolute !important;
-  top: 50% !important;
-  left: var(--lamp-pos, 50%) !important;
-  transform: translate(-50%, -50%) !important;
-
-  width: 12px !important;
-  height: 12px !important;
-  min-width: 12px !important;
-  min-height: 12px !important;
-  max-width: 12px !important;
-  max-height: 12px !important;
-
-  aspect-ratio: 1 / 1 !important;
-  border-radius: 50% !important;
-  background: #ff4040 !important;
-  box-shadow: 0 0 0 2px rgba(255,255,255,.12) !important;
-
-  pointer-events: none !important;
-}
-
-/* Matikan total visual input range asli */
-.target-device-grid #lampBrightnessSlider,
-.target-device-grid .brightness-slider {
-  position: absolute !important;
-  inset: 0 !important;
-  z-index: 5 !important;
-
-  width: 100% !important;
-  height: 100% !important;
-
-  opacity: 0 !important;
-  appearance: none !important;
-  -webkit-appearance: none !important;
-  background: transparent !important;
-}
-
-/* Chrome / Android */
-.target-device-grid #lampBrightnessSlider::-webkit-slider-runnable-track,
-.target-device-grid .brightness-slider::-webkit-slider-runnable-track {
-  opacity: 0 !important;
-  height: 0 !important;
-  background: transparent !important;
-}
-
-.target-device-grid #lampBrightnessSlider::-webkit-slider-thumb,
-.target-device-grid .brightness-slider::-webkit-slider-thumb {
-  opacity: 0 !important;
-  width: 0 !important;
-  height: 0 !important;
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  -webkit-appearance: none !important;
-}
-
-/* Firefox fallback */
-.target-device-grid #lampBrightnessSlider::-moz-range-track,
-.target-device-grid .brightness-slider::-moz-range-track {
-  opacity: 0 !important;
-  height: 0 !important;
-  background: transparent !important;
-}
-
-.target-device-grid #lampBrightnessSlider::-moz-range-thumb,
-.target-device-grid .brightness-slider::-moz-range-thumb {
-  opacity: 0 !important;
-  width: 0 !important;
-  height: 0 !important;
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-}
-
-/* =======================================================
-   HERO CONTROL QUICK FIX V4
-   AC + LAMPU PREMIUM ALIGNMENT
-   ======================================================= */
-
-/* ---------- TOGGLE ---------- */
-
-.target-toggle,
-.hero-card .badge{
-  height:20px !important;
-  min-height:20px !important;
-
-  min-width:38px !important;
-  width:38px !important;
-
-  padding:0 !important;
-
-  font-size:0 !important;
-
-  overflow:hidden !important;
-}
-
-/* ---------- TITLE ---------- */
-
-.target-card-title,
-.hero-card h2{
-
-  font-size:clamp(13px,7.8cqw,15px) !important;
-
-  font-weight:700 !important;
-
-  line-height:1.15 !important;
-
-  text-align:center !important;
-
-  color:#fff !important;
-}
-
-/* ---------- MAIN VALUE ---------- */
-
-.target-main-value strong,
-#acTemp,
-#lampBrightness,
-.ac-display strong,
-.lamp-display strong{
-
-  font-size:clamp(34px,21cqw,42px) !important;
-
-  font-weight:800 !important;
-
-  line-height:.92 !important;
-
-  letter-spacing:-0.05em !important;
-
-  text-align:center !important;
-}
-
-/* ---------- AC INFO ---------- */
-
-.ac-card .target-sub-info{
-
-  display:grid !important;
-
-  grid-template-columns:1fr 1fr !important;
-
-  justify-items:center !important;
-
-  align-items:center !important;
-
-  gap:10px !important;
-
-  text-align:center !important;
-
-  font-size:clamp(10px,6cqw,11px) !important;
-
-  font-weight:400 !important;
-
-  line-height:1.2 !important;
-
-  color:rgba(255,255,255,.78) !important;
-}
-
-/* sembunyikan status ON pada AC */
-
-.ac-card .target-sub-info small,
-.ac-card .target-sub-info #acStatus{
-  display:none !important;
-}
-
-/* ---------- LAMP INFO ---------- */
-
-.lamp-card .target-sub-info{
-
-  display:grid !important;
-
-  grid-template-columns:1fr 1fr !important;
-
-  justify-items:center !important;
-
-  align-items:center !important;
-
-  gap:10px !important;
-
-  text-align:center !important;
-
-  font-size:clamp(10px,6cqw,11px) !important;
-
-  font-weight:400 !important;
-
-  line-height:1.2 !important;
-
-  color:rgba(255,255,255,.78) !important;
-}
-
-/* ---------- SLIDER TRACK ---------- */
-
-.target-device-grid .target-fake-slider,
-.target-device-grid .ac-slider,
-.target-device-grid .lamp-bar{
-
-  height:2.5px !important;
-
-  border-radius:999px !important;
-
-  overflow:visible !important;
-}
-
-/* ---------- SLIDER THUMB ---------- */
-
-.target-device-grid #acSliderFill,
-.target-device-grid #lampBar,
-.target-device-grid .ac-slider-fill,
-.target-device-grid .lamp-bar div{
-
-  width:8px !important;
-  height:8px !important;
-
-  min-width:8px !important;
-  min-height:8px !important;
-
-  max-width:8px !important;
-  max-height:8px !important;
-
-  border-radius:50% !important;
-
-  background:#ff4040 !important;
-
-  box-shadow:none !important;
-}
-
-/* ---------- ICON ALIGNMENT ---------- */
-
-.card-icon,
-.target-card-top .emoji-card,
-.hero-card .emoji-card{
-
-  font-size:clamp(18px,6cqw,22px) !important;
-
-  line-height:1 !important;
-}
-
-/* ---------- VISUAL BALANCE ---------- */
-
-.hero-card,
-.target-device-card,
-.ac-card,
-.lamp-card{
-
-  row-gap:3px !important;
-}
-
-/* ---------- CENTER VALUE AREA ---------- */
-
-.target-main-value{
-
-  display:flex !important;
-
-  align-items:center !important;
-
-  justify-content:center !important;
-
-  text-align:center !important;
-}
-
-/* =======================================================
-   END HERO CONTROL QUICK FIX V4
-   ======================================================= */
-/* =======================================================
-   HERO FINAL MICRO FIX
-   AC thumb, AC text case, Lamp status visible
-======================================================= */
-
-/* AC thumb harus sama persis dengan Lamp thumb */
-.ac-card #acSliderFill,
-.ac-card #acSliderFill.ac-slider-fill {
-  width: 8px !important;
-  height: 8px !important;
-  min-width: 8px !important;
-  min-height: 8px !important;
-  max-width: 8px !important;
-  max-height: 8px !important;
-
-  aspect-ratio: 1 / 1 !important;
-  border-radius: 50% !important;
-
-  background: #ff4040 !important;
-  background-image: none !important;
-  box-shadow: none !important;
-
-  position: absolute !important;
-  top: 50% !important;
-  left: var(--ac-pos, 45%) !important;
-  transform: translate(-50%, -50%) !important;
-}
-
-/* Samakan juga Lamp thumb sebagai pembanding */
-.lamp-card #lampBar,
-.lamp-card .lamp-bar div {
-  width: 8px !important;
-  height: 8px !important;
-  min-width: 8px !important;
-  min-height: 8px !important;
-  max-width: 8px !important;
-  max-height: 8px !important;
-
-  aspect-ratio: 1 / 1 !important;
-  border-radius: 50% !important;
-
-  background: #ff4040 !important;
-  box-shadow: none !important;
-}
-
-/* AC mode/fan tampil Cool Auto, bukan COOL AUTO */
-.ac-card .target-sub-info,
-.ac-card .target-sub-info span,
-.ac-card .target-sub-info b {
-  text-transform: capitalize !important;
-}
-
-/* Lamp status On harus muncul lagi walau sebelumnya logic-hidden */
-.lamp-card .target-sub-info #lampStatus,
-.lamp-card .target-sub-info .logic-hidden {
-  position: static !important;
-  width: auto !important;
-  height: auto !important;
-  overflow: visible !important;
-  opacity: 1 !important;
-  pointer-events: auto !important;
-
-  display: inline !important;
-  text-transform: capitalize !important;
-}
-
-/* Lamp sub-info balancing */
-.lamp-card .target-sub-info {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
-  align-items: center !important;
-  justify-items: center !important;
-  gap: 10px !important;
-
-  text-align: center !important;
-  font-size: clamp(10px, 6cqw, 11px) !important;
-  font-weight: 400 !important;
-  line-height: 1.2 !important;
-  color: rgba(255,255,255,.78) !important;
-}
-
-/* Lamp value case: On, white */
-.lamp-card .target-sub-info span,
-.lamp-card .target-sub-info b,
-.lamp-card .target-sub-info small {
-  text-transform: none !important;
-}
-
-.lamp-card #lampStatus {
-  text-transform: capitalize !important;
-}
-
-/* Track tetap tipis premium */
-.target-device-grid .target-fake-slider,
-.target-device-grid .ac-slider,
-.target-device-grid .lamp-bar {
-  height: 2.5px !important;
-}
-
-/* =======================================================
-   HERO CARD FINAL POLISH
-   Point 1, 2, 4, 5
-   ======================================================= */
-
-/* 1 & 2 — Format text case AC/Lampu */
-.ac-card .target-sub-info,
-.ac-card .target-sub-info span,
-.ac-card .target-sub-info b,
-.lamp-card .target-sub-info,
-.lamp-card .target-sub-info span,
-.lamp-card .target-sub-info b {
-  text-transform: capitalize !important;
-}
-
-/* 4 — Samakan baseline optik value AC dan Lampu */
-.ac-card .target-main-value,
-.lamp-card .target-main-value {
-  align-items: center !important;
-  justify-content: center !important;
-  transform: translateY(-2px) !important;
-}
-
-.ac-card .target-main-value strong,
-.lamp-card .target-main-value strong,
-#acTemp,
-#lampBrightness {
-  line-height: 0.96 !important;
-  font-weight: 800 !important;
-}
-
-/* 5 — Toggle lebih jelas seperti target plan */
-.ac-card .target-toggle,
-.lamp-card .target-toggle,
-.ac-card .badge,
-.lamp-card .badge {
-  width: 48px !important;
-  min-width: 48px !important;
-  height: 26px !important;
-  min-height: 26px !important;
-
-  border-radius: 999px !important;
-  background: rgba(255, 255, 255, 0.14) !important;
-  border: 1px solid rgba(255, 255, 255, 0.24) !important;
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.14),
-    0 6px 14px rgba(0,0,0,.12) !important;
-
-  backdrop-filter: blur(14px) saturate(140%) !important;
-  -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
-
-  font-size: 0 !important;
-  overflow: hidden !important;
-}
-
-/* Toggle inner visual dot */
-.ac-card .target-toggle::before,
-.lamp-card .target-toggle::before,
-.ac-card .badge::before,
-.lamp-card .badge::before {
-  content: "";
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #ff4040;
-  box-shadow:
-    0 0 0 2px rgba(255,255,255,.18),
-    0 4px 10px rgba(0,0,0,.18);
-  transform: translateX(-10px);
-}
-
-/* ON state dot geser kanan */
-.ac-card .target-toggle.on::before,
-.lamp-card .target-toggle.on::before,
-.ac-card .badge.on::before,
-.lamp-card .badge.on::before {
-  transform: translateX(10px);
-  background: #00e676;
-}
-
-/* 4 — rapikan sub-info agar center seperti target */
-.ac-card .target-sub-info,
-.lamp-card .target-sub-info {
-  align-items: center !important;
-  justify-items: center !important;
-  text-align: center !important;
-  line-height: 1.2 !important;
-  font-weight: 400 !important;
-}
-
-/* AC tetap hanya Mode dan Fan */
-.ac-card .target-sub-info small,
-.ac-card .target-sub-info #acStatus {
-  display: none !important;
-}
-
-/* Lampu tetap tampil status realtime dari database */
-.lamp-card .target-sub-info #lampStatus,
-.lamp-card .target-sub-info .logic-hidden {
-  position: static !important;
-  width: auto !important;
-  height: auto !important;
-  overflow: visible !important;
-  opacity: 1 !important;
-  pointer-events: auto !important;
-  display: inline !important;
-}
-
-/* =======================================================
-   HERO FINAL FIX — TOGGLE BALANCE + VALUE REGULAR
-======================================================= */
-
-/* Emoji dan toggle wajib satu tinggi visual */
-.ac-card .card-icon,
-.lamp-card .card-icon,
-.ac-card .target-card-top .emoji-card,
-.lamp-card .target-card-top .emoji-card,
-.ac-card.hero-card .emoji-card,
-.lamp-card.hero-card .emoji-card {
-  font-size: clamp(18px, 6cqw, 22px) !important;
-  width: clamp(18px, 6cqw, 22px) !important;
-  height: clamp(18px, 6cqw, 22px) !important;
-  line-height: 1 !important;
-  display: inline-grid !important;
-  place-items: center !important;
-}
-
-/* Toggle setara tinggi emoji */
-.ac-card .target-toggle,
-.lamp-card .target-toggle,
-.ac-card .badge,
-.lamp-card .badge {
-  position: relative !important;
-
-  width: clamp(38px, 12cqw, 44px) !important;
-  min-width: clamp(38px, 12cqw, 44px) !important;
-
-  height: clamp(18px, 6cqw, 22px) !important;
-  min-height: clamp(18px, 6cqw, 22px) !important;
-
-  padding: 0 !important;
-  border-radius: 999px !important;
-
-  background: rgba(255, 255, 255, 0.88) !important;
-  border: 1px solid rgba(255, 255, 255, 0.55) !important;
-
-  box-shadow:
-    inset 0 1px 1px rgba(255,255,255,.45),
-    0 4px 10px rgba(0,0,0,.14) !important;
-
-  font-size: 0 !important;
-  overflow: hidden !important;
-
-  display: inline-flex !important;
-  align-items: center !important;
-}
-
-/* Thumb toggle default */
-.ac-card .target-toggle::before,
-.lamp-card .target-toggle::before,
-.ac-card .badge::before,
-.lamp-card .badge::before {
-  content: "" !important;
-  position: absolute !important;
-
-  width: calc(clamp(18px, 6cqw, 22px) - 4px) !important;
-  height: calc(clamp(18px, 6cqw, 22px) - 4px) !important;
-
-  border-radius: 50% !important;
-  top: 50% !important;
-
-  transform: translateY(-50%) !important;
-
-  background: #ff4040 !important;
-  box-shadow:
-    0 1px 4px rgba(0,0,0,.22),
-    0 0 0 1px rgba(255,255,255,.42) !important;
-
-  transition: left .2s ease, right .2s ease, background .2s ease !important;
-}
-
-/* OFF = merah kiri */
-.ac-card .target-toggle.off::before,
-.lamp-card .target-toggle.off::before,
-.ac-card .badge.off::before,
-.lamp-card .badge.off::before {
-  left: 2px !important;
-  right: auto !important;
-  background: #ff4040 !important;
-}
-
-/* ON = hijau kanan */
-.ac-card .target-toggle.on::before,
-.lamp-card .target-toggle.on::before,
-.ac-card .badge.on::before,
-.lamp-card .badge.on::before {
-  right: 2px !important;
-  left: auto !important;
-  background: #00e676 !important;
-}
-
-/* Angka utama dari bold menjadi regular/clean */
-.ac-card .target-main-value strong,
-.lamp-card .target-main-value strong,
-#acTemp,
-#lampBrightness,
-.ac-display strong,
-.lamp-display strong {
-  font-weight: 500 !important;
-  letter-spacing: -0.055em !important;
-  line-height: 1 !important;
-  color: #fff !important;
 }
