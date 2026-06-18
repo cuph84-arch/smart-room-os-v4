@@ -2639,3 +2639,227 @@ h3,
     font-size: clamp(34px, 11vw, 46px) !important;
   }
 }
+
+/* =========================================================
+   AUDIT FIX — FORCE HERO AC + LAMPU CARD RESPONSIVE
+   Paste at very bottom of style.css
+========================================================= */
+
+/* 1. Paksa wrapper AC + Lampu jadi 2 kolom responsif */
+.target-device-grid,
+.hero-grid,
+.device-grid,
+.device-control-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: clamp(12px, 3.2vw, 16px) !important;
+  width: 100% !important;
+  margin: 14px 0 0 !important;
+}
+
+/* 2. Paksa card AC + Lampu jadi kotak rasio 1:1 */
+.target-device-card,
+.hero-card,
+.device-card,
+.control-card,
+.ac-card,
+.lamp-card {
+  width: 100% !important;
+  height: auto !important;
+  min-height: unset !important;
+  max-height: none !important;
+  aspect-ratio: 1 / 1 !important;
+
+  padding: clamp(16px, 4vw, 20px) !important;
+  border-radius: clamp(26px, 7vw, 34px) !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+
+  background: rgba(255, 255, 255, 0.075) !important;
+  border: 1px solid rgba(255, 255, 255, 0.11) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.14),
+    0 20px 45px rgba(0,0,0,.28) !important;
+
+  backdrop-filter: blur(22px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(150%) !important;
+
+  overflow: hidden !important;
+}
+
+/* 3. Top area lebih rapi */
+.target-card-top,
+.hero-card-header,
+.device-card-header,
+.card-device-header {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+  margin: 0 !important;
+}
+
+/* 4. Judul AC / Lampu */
+.target-device-card h3,
+.hero-card h3,
+.device-card h3,
+.control-card h3,
+.ac-card h3,
+.lamp-card h3 {
+  font-size: clamp(14px, 3.4vw, 16px) !important;
+  line-height: 1.1 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.03em !important;
+  margin: 0 !important;
+  color: rgba(255,255,255,.96) !important;
+}
+
+/* 5. Nilai utama: 16°C dan 1% */
+.target-main-value,
+.hero-main-value,
+.device-main-value,
+.ac-temp-value,
+.lamp-brightness-value,
+#acTemp,
+#lampBrightness {
+  font-size: clamp(44px, 12.5vw, 62px) !important;
+  line-height: .86 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.075em !important;
+  margin: 4px 0 0 !important;
+  color: rgba(255,255,255,.98) !important;
+}
+
+/* 6. Info kecil bawah angka */
+.target-sub-info,
+.hero-sub-info,
+.device-sub-info,
+.ac-info,
+.lamp-info {
+  font-size: clamp(10px, 2.6vw, 12px) !important;
+  line-height: 1.25 !important;
+  font-weight: 500 !important;
+  color: rgba(255,255,255,.66) !important;
+  margin: 2px 0 0 !important;
+}
+
+/* 7. Slider row bawah */
+.target-slider-row,
+.hero-slider-row,
+.device-slider-row,
+.ac-control-row,
+.lamp-control-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: 100% !important;
+  margin-top: 8px !important;
+}
+
+/* 8. Tombol minus plus */
+.target-slider-row button,
+.hero-slider-row button,
+.device-slider-row button,
+.ac-control-row button,
+.lamp-control-row button,
+#acMinusBtn,
+#acPlusBtn {
+  width: clamp(32px, 8.8vw, 40px) !important;
+  height: clamp(32px, 8.8vw, 40px) !important;
+  min-width: clamp(32px, 8.8vw, 40px) !important;
+  min-height: clamp(32px, 8.8vw, 40px) !important;
+
+  border-radius: 999px !important;
+  padding: 0 !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  font-size: 18px !important;
+  font-weight: 700 !important;
+
+  color: rgba(255,255,255,.9) !important;
+  background: rgba(255,255,255,.12) !important;
+  border: 1px solid rgba(255,255,255,.13) !important;
+}
+
+/* 9. Slider lampu */
+#lampBrightnessSlider {
+  flex: 1 1 auto !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 6px !important;
+  accent-color: rgba(255,255,255,.95) !important;
+}
+
+/* 10. Bar AC */
+#acSliderFill,
+.target-slider-row .bar,
+.target-slider-row .slider,
+.hero-slider-row .bar,
+.hero-slider-row .slider {
+  height: 6px !important;
+  border-radius: 999px !important;
+}
+
+/* 11. Status badge ON/OFF */
+#acStatus,
+#lampStatus,
+.target-device-card .status,
+.hero-card .status,
+.device-card .status {
+  font-size: 9px !important;
+  line-height: 1 !important;
+  padding: 7px 15px !important;
+  border-radius: 999px !important;
+  min-width: 54px !important;
+  text-align: center !important;
+}
+
+/* 12. Icon jangan terlalu dominan */
+.target-device-card img,
+.hero-card img,
+.device-card img,
+.control-card img,
+.ac-card img,
+.lamp-card img,
+.target-device-card .icon,
+.hero-card .icon,
+.device-card .icon {
+  width: clamp(24px, 7vw, 34px) !important;
+  height: clamp(24px, 7vw, 34px) !important;
+  object-fit: contain !important;
+}
+
+/* 13. HP sempit */
+@media (max-width: 360px) {
+  .target-device-grid,
+  .hero-grid,
+  .device-grid,
+  .device-control-grid {
+    gap: 10px !important;
+  }
+
+  .target-device-card,
+  .hero-card,
+  .device-card,
+  .control-card,
+  .ac-card,
+  .lamp-card {
+    padding: 14px !important;
+    border-radius: 26px !important;
+  }
+
+  .target-main-value,
+  .hero-main-value,
+  .device-main-value,
+  .ac-temp-value,
+  .lamp-brightness-value,
+  #acTemp,
+  #lampBrightness {
+    font-size: clamp(38px, 12vw, 52px) !important;
+  }
+}
