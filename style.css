@@ -1658,3 +1658,135 @@ h3,
     min-height: 142px !important;
   }
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* TARGET AC + LAMP CARD ONLY */
+
+.target-device-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+  align-items: stretch !important;
+}
+
+.target-device-card {
+  width: 100% !important;
+  max-width: 360px !important;
+  height: 360px !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+
+  font-family: "Poppins", sans-serif !important;
+  color: #fff !important;
+
+  border-radius: 24px !important;
+  background: rgba(255,255,255,.10) !important;
+  border: 1px solid rgba(255,255,255,.25) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,.10) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+.target-card-top {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.target-card-top .emoji-card {
+  width: 24px !important;
+  height: 24px !important;
+  font-size: 24px !important;
+}
+
+.target-toggle {
+  min-width: 58px !important;
+  height: 28px !important;
+  padding: 0 12px !important;
+  border-radius: 999px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+}
+
+.target-card-title {
+  text-align: center !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  color: #fff !important;
+}
+
+.target-main-value {
+  flex: 1 !important;
+  display: grid !important;
+  place-items: center !important;
+  text-align: center !important;
+}
+
+.target-main-value strong {
+  font-size: 56px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  letter-spacing: -2px !important;
+  color: #fff !important;
+}
+
+.target-sub-info {
+  display: flex !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+  margin-bottom: 24px !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: rgba(255,255,255,.86) !important;
+}
+
+.target-sub-info span,
+.target-sub-info b,
+.target-sub-info small {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: #fff !important;
+}
+
+.target-slider-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  width: 100% !important;
+}
+
+.target-slider-row .control-btn {
+  width: 42px !important;
+  height: 42px !important;
+  flex: 0 0 42px !important;
+  border-radius: 50% !important;
+  font-size: 22px !important;
+}
+
+.target-fake-slider,
+.target-range-wrap {
+  flex: 1 !important;
+  position: relative !important;
+}
+
+.target-fake-slider,
+.brightness-slider {
+  width: 100% !important;
+}
+
+.target-device-card .lamp-bar {
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
