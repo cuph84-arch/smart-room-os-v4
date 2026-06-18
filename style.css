@@ -2463,3 +2463,179 @@ h3,
     font-size: clamp(40px, 12vw, 48px) !important;
   }
 }
+
+/* =========================================================
+   PHASE 3 — HERO GRID RESPONSIVE PATCH
+   Scope: AC Card + Lampu Card only
+   Safe: HTML & app.js binding untouched
+========================================================= */
+
+/* Hero grid container */
+.target-device-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: clamp(12px, 3.4vw, 18px) !important;
+  width: 100% !important;
+  align-items: stretch !important;
+}
+
+/* Main AC / Lamp card */
+.target-device-card {
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  min-height: unset !important;
+  height: auto !important;
+
+  padding: clamp(14px, 4vw, 20px) !important;
+  border-radius: clamp(24px, 7vw, 34px) !important;
+
+  background: rgba(255, 255, 255, 0.055) !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.10),
+    0 18px 45px rgba(0, 0, 0, 0.28) !important;
+
+  backdrop-filter: blur(22px) saturate(145%) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(145%) !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  overflow: hidden !important;
+}
+
+/* Soft inner glow */
+.target-device-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 25% 15%, rgba(255,255,255,0.16), transparent 34%),
+    radial-gradient(circle at 85% 90%, rgba(255,255,255,0.06), transparent 40%);
+  opacity: 0.75;
+}
+
+/* Top row: icon/title/status */
+.target-card-top {
+  position: relative !important;
+  z-index: 1 !important;
+
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+}
+
+.target-card-top h3,
+.target-card-top .device-title,
+.target-device-card h3 {
+  font-size: clamp(13px, 3.4vw, 16px) !important;
+  line-height: 1.15 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  color: rgba(255,255,255,0.96) !important;
+  margin: 0 !important;
+}
+
+.target-card-top p,
+.target-card-top span,
+.target-sub-info {
+  font-size: clamp(10px, 2.7vw, 12px) !important;
+  line-height: 1.25 !important;
+  color: rgba(255,255,255,0.58) !important;
+}
+
+/* Main value: AC temp / lamp brightness */
+.target-main-value {
+  position: relative !important;
+  z-index: 1 !important;
+
+  font-size: clamp(38px, 12vw, 58px) !important;
+  line-height: 0.9 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.07em !important;
+  color: rgba(255,255,255,0.98) !important;
+
+  margin: auto 0 4px !important;
+  text-align: left !important;
+}
+
+/* Optional sub info under value */
+.target-sub-info {
+  position: relative !important;
+  z-index: 1 !important;
+  margin-top: 2px !important;
+  font-weight: 500 !important;
+}
+
+/* Slider row */
+.target-slider-row {
+  position: relative !important;
+  z-index: 1 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  gap: clamp(8px, 2.6vw, 12px) !important;
+  width: 100% !important;
+  margin-top: clamp(10px, 3vw, 14px) !important;
+}
+
+/* Plus minus buttons inside hero card */
+.target-slider-row button,
+.target-device-card .round-btn,
+.target-device-card .control-btn {
+  flex: 0 0 auto !important;
+  width: clamp(30px, 8.5vw, 38px) !important;
+  height: clamp(30px, 8.5vw, 38px) !important;
+  border-radius: 999px !important;
+
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  background: rgba(255,255,255,0.08) !important;
+  color: rgba(255,255,255,0.92) !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  font-size: clamp(16px, 4.5vw, 20px) !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  padding: 0 !important;
+}
+
+/* Slider / bar fallback */
+.target-slider-row input[type="range"] {
+  flex: 1 1 auto !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  accent-color: rgba(255,255,255,0.9) !important;
+}
+
+.target-slider-row .slider,
+.target-slider-row .bar,
+.target-device-card .slider-track {
+  flex: 1 1 auto !important;
+  height: 6px !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,0.14) !important;
+  overflow: hidden !important;
+}
+
+/* Responsive safety for very narrow phones */
+@media (max-width: 340px) {
+  .target-device-grid {
+    gap: 10px !important;
+  }
+
+  .target-device-card {
+    padding: 13px !important;
+    border-radius: 24px !important;
+  }
+
+  .target-main-value {
+    font-size: clamp(34px, 11vw, 46px) !important;
+  }
+}
