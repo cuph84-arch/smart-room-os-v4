@@ -612,59 +612,41 @@ article.target-device-card > * {
   color: rgba(255, 255, 255, 0.96);
 }
 
-/* SLIDER AC - Jalur Garis */
-.ac-slider.target-fake-slider {
-  height: 4px !important;
-  border-radius: 999px !important;
-  display: block !important;
-  width: 100% !important;
-  background: linear-gradient(
+.target-fake-slider,
+.ac-slider,
+.lamp-bar{
+
+  height:4px;
+
+  border-radius:999px;
+
+  background:
+  linear-gradient(
     90deg,
     #ff4040 0%,
-    #ff4040 var(--ac-pos, 50%),
-    rgba(64,196,255,.3) var(--ac-pos, 50%),
-    rgba(64,196,255,.3) 100%
-  ) !important;
+    #ff4040 var(--slider-pos,50%),
+    rgba(64,196,255,.7) var(--slider-pos,50%),
+    rgba(64,196,255,.7) 100%
+  );
 }
 
-/* SLIDER LAMPU - Jalur Garis */
-.lamp-bar {
-  height: 4px !important;
-  border-radius: 999px !important;
-  display: block !important;
-  width: 100% !important;
-  background: linear-gradient(
-    90deg,
-    #ff4040 0%,
-    #ff4040 var(--lamp-pos, 50%),
-    rgba(64,196,255,.3) var(--lamp-pos, 50%),
-    rgba(64,196,255,.3) 100%
-  ) !important;
-}
-
-/* BULATAN PENUNJUK (THUMB) */
 #acSliderFill,
-#lampBar {
-  width: 12px !important;
-  height: 12px !important;
-  aspect-ratio: 1 / 1 !important;
-  border-radius: 50% !important;
-  background: #ff4040 !important;
-  box-shadow: 0 0 0 2px rgba(255,255,255,.3) !important;
-  
-  /* Geser secara horizontal menggunakan margin agar tidak merusak posisi baris */
-  display: block !important;
-  transform: translateY(-4px) !important; /* Menyeimbangkan posisi vertikal di tengah garis */
-}
+#lampBar,
+.ac-slider-fill,
+.lamp-bar div{
 
-/* Kunci pergeseran kiri-kanan thumb berdasarkan variabel bawaan */
-#acSliderFill {
-  margin-left: var(--ac-pos, 50%) !important;
-}
-#lampBar {
-  margin-left: var(--lamp-pos, 50%) !important;
-}
+  width:12px;
+  height:12px;
 
+  aspect-ratio:1/1;
+
+  border-radius:50%;
+
+  background:#ff4040;
+
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,.12);
+}
 
 #lampBrightnessSlider,
 .brightness-slider {
