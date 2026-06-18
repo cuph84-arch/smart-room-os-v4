@@ -25,6 +25,8 @@
 
   --radius-card: 22px;
   --radius-inner: 17px;
+  --section-gap: clamp(12px, 3.5vw, 16px);
+
   --blur-card: blur(22px);
   --shadow-card:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
@@ -119,6 +121,8 @@ p {
   background: rgba(0, 0, 0, 0.10);
 }
 
+/* HEADER */
+
 .header {
   padding: 0 0 12px;
 }
@@ -175,6 +179,8 @@ p {
   -webkit-backdrop-filter: var(--blur-card);
 }
 
+/* ROOM TABS */
+
 .top-tabs {
   display: flex;
   gap: 8px;
@@ -208,6 +214,8 @@ p {
   background: linear-gradient(135deg, rgba(255, 224, 102, 0.92), rgba(0, 230, 118, 0.92));
   border-color: rgba(255, 255, 255, 0.18);
 }
+
+/* GLOBAL LAYOUT */
 
 .dashboard {
   display: flex;
@@ -306,6 +314,24 @@ h3 {
   background: rgba(255, 255, 255, 0.055);
 }
 
+/* STANDARD SECTION SPACING */
+
+.summary-card,
+section.hero-grid,
+.hero-grid,
+.target-device-grid,
+.entertainment-grid,
+.climate-grid,
+.cctv-grid,
+.energy-grid,
+.metric-grid,
+.split-grid {
+  margin-top: var(--section-gap);
+  margin-bottom: 0;
+}
+
+/* SUMMARY */
+
 .summary-card {
   padding: 16px 18px;
 }
@@ -392,7 +418,6 @@ section.hero-grid.target-device-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(10px, 3vw, 14px);
   width: 100%;
-  margin: 12px 0;
   align-items: stretch;
 }
 
@@ -413,7 +438,7 @@ section.hero-grid.target-device-grid > article.card.hero-card.lamp-card.target-d
   overflow: hidden;
   display: grid;
   grid-template-rows: auto auto 1fr auto auto;
-  row-gap: clamp(4px, 1.3vw, 7px);
+  row-gap: 4px;
   align-items: center;
   border-radius: clamp(22px, 6.5vw, 32px);
 }
@@ -449,7 +474,7 @@ article.target-device-card > * {
 .target-card-top {
   grid-row: 1;
   width: 100%;
-  min-height: clamp(22px, 6vw, 28px);
+  min-height: 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -459,21 +484,21 @@ article.target-device-card > * {
 .card-icon,
 .target-card-top .emoji-card,
 .hero-card .emoji-card {
-  font-size: clamp(20px, 5.6vw, 28px);
+  font-size: clamp(19px, 5.4vw, 26px);
   line-height: 1;
 }
 
 .target-toggle,
 .hero-card .badge {
-  min-width: clamp(42px, 12vw, 54px);
-  height: clamp(22px, 5.8vw, 28px);
+  min-width: 42px;
+  height: 24px;
   padding: 0 9px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  font-size: clamp(8px, 2.4vw, 10px);
-  font-weight: 800;
+  font-size: 8.5px;
+  font-weight: 700;
   line-height: 1;
 }
 
@@ -481,12 +506,13 @@ article.target-device-card > * {
 .hero-card h2 {
   grid-row: 2;
   width: 100%;
+  margin-bottom: 4px;
   text-align: center;
-  font-size: clamp(12px, 3.5vw, 15px);
-  line-height: 1.05;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  color: rgba(255, 255, 255, 0.96);
+  font-size: 12px;
+  line-height: 1.15;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .target-main-value {
@@ -507,11 +533,11 @@ article.target-device-card > * {
 .ac-display strong,
 .lamp-display strong {
   display: block;
-  color: rgba(255, 255, 255, 0.98);
-  font-size: clamp(34px, 11.5vw, 50px);
-  line-height: 0.86;
+  color: #fff;
+  font-size: clamp(34px, 10vw, 42px);
+  line-height: 1;
   font-weight: 900;
-  letter-spacing: -0.08em;
+  letter-spacing: -0.06em;
 }
 
 .target-sub-info {
@@ -524,10 +550,10 @@ article.target-device-card > * {
   overflow: hidden;
   white-space: nowrap;
   text-align: center;
-  font-size: clamp(8px, 2.45vw, 10px);
-  line-height: 1.1;
+  font-size: clamp(8px, 2.35vw, 10px);
+  line-height: 1.15;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.76);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .target-sub-info span,
@@ -542,28 +568,31 @@ article.target-device-card > * {
 .target-slider-row {
   grid-row: 5;
   width: 100%;
-  min-height: clamp(20px, 5.5vw, 26px);
+  min-height: 24px;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: 24px minmax(0, 1fr) 24px;
   align-items: center;
-  gap: clamp(7px, 2.4vw, 11px);
+  gap: 8px;
 }
 
 .target-slider-row .control-btn,
 #acMinusBtn,
 #acPlusBtn {
-  width: auto;
-  height: auto;
-  min-width: 0;
-  min-height: 0;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
   padding: 0;
   border: 0;
   border-radius: 0;
   background: transparent;
   box-shadow: none;
-  font-size: clamp(20px, 6.2vw, 28px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
   line-height: 1;
-  font-weight: 900;
+  font-weight: 500;
   color: rgba(255, 255, 255, 0.96);
 }
 
@@ -571,7 +600,7 @@ article.target-device-card > * {
 .ac-slider {
   position: relative;
   width: 100%;
-  height: clamp(4px, 1.2vw, 5px);
+  height: 4px;
   border-radius: 999px;
   overflow: visible;
   background: rgba(255, 255, 255, 0.16);
@@ -583,16 +612,17 @@ article.target-device-card > * {
   top: 50%;
   left: var(--ac-pos, 45%);
   transform: translate(-50%, -50%);
-  width: clamp(12px, 3.5vw, 16px);
-  height: clamp(12px, 3.5vw, 16px);
-  border-radius: 999px;
+  width: 14px;
+  height: 14px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
   background: #fff;
 }
 
 .target-range-wrap {
   position: relative;
   width: 100%;
-  height: clamp(16px, 4.8vw, 22px);
+  height: 20px;
 }
 
 .lamp-bar {
@@ -602,7 +632,7 @@ article.target-device-card > * {
   top: 50%;
   transform: translateY(-50%);
   width: 100%;
-  height: clamp(4px, 1.2vw, 5px);
+  height: 4px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.16);
   pointer-events: none;
@@ -614,9 +644,10 @@ article.target-device-card > * {
   top: 50%;
   left: var(--lamp-pos, 50%);
   transform: translate(-50%, -50%);
-  width: clamp(12px, 3.5vw, 16px);
-  height: clamp(12px, 3.5vw, 16px);
-  border-radius: 999px;
+  width: 14px;
+  height: 14px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
   background: #fff;
   pointer-events: none;
 }
@@ -694,7 +725,6 @@ article.target-device-card > * {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
-  margin-top: 12px;
 }
 
 .mini-device {
@@ -788,7 +818,6 @@ article.target-device-card > * {
 .metric-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  margin-top: 10px;
 }
 
 .metric-item {
@@ -1185,14 +1214,6 @@ article.target-device-card > * {
     padding: 12px;
   }
 
-  .target-main-value strong,
-  #acTemp,
-  #lampBrightness,
-  .ac-display strong,
-  .lamp-display strong {
-    font-size: clamp(32px, 10.8vw, 46px);
-  }
-
   .security-layout {
     grid-template-columns: 1fr 58px;
   }
@@ -1239,7 +1260,9 @@ article.target-device-card > * {
 
   .target-card-title,
   .hero-card h2 {
-    font-size: clamp(11px, 3.4vw, 13px);
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
   }
 
   .target-main-value strong,
@@ -1247,7 +1270,8 @@ article.target-device-card > * {
   #lampBrightness,
   .ac-display strong,
   .lamp-display strong {
-    font-size: clamp(30px, 10.5vw, 42px);
+    font-size: clamp(32px, 9.5vw, 40px);
+    line-height: 1;
   }
 
   .target-sub-info {
