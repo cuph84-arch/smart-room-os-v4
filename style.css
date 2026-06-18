@@ -614,38 +614,60 @@ article.target-device-card > * {
 
 .target-fake-slider,
 .ac-slider,
-.lamp-bar{
-
-  height:4px;
-
-  border-radius:999px;
-
+.lamp-bar {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  border-radius: 999px;
+  overflow: visible;
   background:
-  linear-gradient(
-    90deg,
-    #ff4040 0%,
-    #ff4040 var(--slider-pos,50%),
-    rgba(64,196,255,.7) var(--slider-pos,50%),
-    rgba(64,196,255,.7) 100%
-  );
+    linear-gradient(
+      90deg,
+      #ff4040 0%,
+      #ff4040 var(--slider-pos, 45%),
+      rgba(64, 196, 255, 0.7) var(--slider-pos, 45%),
+      rgba(64, 196, 255, 0.7) 100%
+    );
 }
 
 #acSliderFill,
-#lampBar,
 .ac-slider-fill,
-.lamp-bar div{
+#lampBar,
+.lamp-bar div {
+  position: absolute;
+  top: 50%;
+  left: var(--thumb-pos, 45%);
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: #ff4040;
+  box-shadow: 0 0 0 2px rgba(255,255,255,.12);
+  pointer-events: none;
+}
 
-  width:12px;
-  height:12px;
+.target-range-wrap {
+  position: relative;
+  width: 100%;
+  height: 20px;
+}
 
-  aspect-ratio:1/1;
+.lamp-bar {
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
-  border-radius:50%;
+#lampBar,
+.lamp-bar div {
+  left: var(--lamp-pos, 50%);
+}
 
-  background:#ff4040;
-
-  box-shadow:
-    0 0 0 2px rgba(255,255,255,.12);
+#acSliderFill,
+.ac-slider-fill {
+  left: var(--ac-pos, 45%);
 }
 
 #lampBrightnessSlider,
