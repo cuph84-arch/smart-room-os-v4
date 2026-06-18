@@ -2241,118 +2241,111 @@ h3,
 
 /* =========================================================
    SMART ROOM OS V4
-   PHASE 3 — FINAL HERO AC + LAMPU TARGET VIEW
+   PHASE 3 — FINAL HERO AC + LAMPU 1:1 FIX
    Scope only:
    - section.hero-grid.target-device-grid
    - article.card.hero-card.ac-card.target-device-card
    - article.card.hero-card.lamp-card.target-device-card
 ========================================================= */
 
-/* WRAPPER 2 CARD */
 section.hero-grid.target-device-grid {
   display: grid !important;
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: clamp(14px, 4vw, 22px) !important;
+  gap: clamp(12px, 3.4vw, 18px) !important;
   width: 100% !important;
   margin: 16px 0 !important;
   align-items: stretch !important;
 }
 
-/* BASE CARD AC + LAMPU */
 article.card.hero-card.ac-card.target-device-card,
 article.card.hero-card.lamp-card.target-device-card {
   position: relative !important;
   width: 100% !important;
   aspect-ratio: 1 / 1 !important;
   height: auto !important;
-  min-height: unset !important;
+  min-height: 0 !important;
   max-height: none !important;
+  box-sizing: border-box !important;
 
   padding: 0 !important;
   overflow: hidden !important;
 
-  border-radius: clamp(28px, 7vw, 40px) !important;
+  border-radius: clamp(24px, 7vw, 34px) !important;
   border: 1px solid rgba(255, 255, 255, 0.10) !important;
-  background: rgba(255, 255, 255, 0.075) !important;
 
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.14),
-    0 20px 45px rgba(0,0,0,.28) !important;
+    0 18px 40px rgba(0,0,0,.25) !important;
 
   backdrop-filter: blur(22px) saturate(145%) !important;
   -webkit-backdrop-filter: blur(22px) saturate(145%) !important;
 }
 
-/* MATIKAN FLOW LAMA */
 article.card.hero-card.ac-card.target-device-card > *,
 article.card.hero-card.lamp-card.target-device-card > * {
   position: absolute !important;
   z-index: 2 !important;
   margin: 0 !important;
+  box-sizing: border-box !important;
 }
 
-/* TOP ROW: EMOJI LEFT + TOGGLE RIGHT */
+/* TOP: ICON + TOGGLE */
 article.card.hero-card.ac-card.target-device-card .target-card-top,
 article.card.hero-card.lamp-card.target-device-card .target-card-top {
-  top: 13% !important;
-  left: 11% !important;
-  right: 11% !important;
+  top: 10.5% !important;
+  left: 10% !important;
+  right: 10% !important;
 
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
 }
 
-/* EMOJI */
 article.card.hero-card.ac-card.target-device-card .card-icon,
 article.card.hero-card.lamp-card.target-device-card .card-icon {
-  font-size: clamp(22px, 6vw, 34px) !important;
+  font-size: clamp(20px, 6vw, 30px) !important;
   line-height: 1 !important;
-  width: auto !important;
-  height: auto !important;
 }
 
-/* TOGGLE ON/OFF */
+/* TOGGLE */
 article.card.hero-card.ac-card.target-device-card .target-toggle,
 article.card.hero-card.lamp-card.target-device-card .target-toggle {
-  min-width: clamp(58px, 15vw, 76px) !important;
-  height: clamp(30px, 7.6vw, 40px) !important;
+  min-width: clamp(48px, 13vw, 62px) !important;
+  height: clamp(24px, 6.4vw, 32px) !important;
+  padding: 0 11px !important;
 
-  padding: 0 14px !important;
   border-radius: 999px !important;
+  border: 1px solid rgba(255,255,255,.18) !important;
+  background: rgba(255,255,255,.10) !important;
 
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
 
-  font-size: clamp(10px, 2.8vw, 14px) !important;
+  font-size: clamp(9px, 2.5vw, 12px) !important;
   font-weight: 800 !important;
-  letter-spacing: .02em !important;
-
-  border: 2px solid rgba(255,255,255,.85) !important;
-  background: rgba(255,255,255,.92) !important;
-  color: #ff3434 !important;
+  line-height: 1 !important;
 }
 
-/* NAMA DEVICE */
+/* DEVICE NAME */
 article.card.hero-card.ac-card.target-device-card .target-card-title,
 article.card.hero-card.lamp-card.target-device-card .target-card-title {
   top: 27% !important;
-  left: 8% !important;
-  right: 8% !important;
+  left: 6% !important;
+  right: 6% !important;
 
   text-align: center !important;
-  font-size: clamp(16px, 4.4vw, 26px) !important;
-  line-height: 1.1 !important;
-  font-weight: 800 !important;
-  letter-spacing: -0.04em !important;
-  color: rgba(255,255,255,.96) !important;
+  font-size: clamp(15px, 4.2vw, 22px) !important;
+  line-height: 1 !important;
+  font-weight: 850 !important;
+  letter-spacing: -0.055em !important;
+  color: rgba(255,255,255,.97) !important;
 }
 
-/* ANGKA UTAMA DEAD CENTER */
+/* MAIN VALUE */
 article.card.hero-card.ac-card.target-device-card .target-main-value,
 article.card.hero-card.lamp-card.target-device-card .target-main-value {
-  top: 50% !important;
+  top: 47% !important;
   left: 50% !important;
   transform: translate(-50%, -50%) !important;
 
@@ -2365,28 +2358,31 @@ article.card.hero-card.ac-card.target-device-card .target-main-value strong,
 article.card.hero-card.lamp-card.target-device-card .target-main-value strong,
 article.card.hero-card.ac-card.target-device-card #acTemp,
 article.card.hero-card.lamp-card.target-device-card #lampBrightness {
-  font-size: clamp(50px, 15vw, 86px) !important;
-  line-height: .86 !important;
-  font-weight: 900 !important;
-  letter-spacing: -0.075em !important;
+  font-size: clamp(46px, 13.8vw, 68px) !important;
+  line-height: .82 !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.085em !important;
   color: rgba(255,255,255,.98) !important;
 }
 
-/* MODE INFO DI TENGAH BAWAH */
+/* SUB INFO */
 article.card.hero-card.ac-card.target-device-card .target-sub-info,
 article.card.hero-card.lamp-card.target-device-card .target-sub-info {
-  top: 68% !important;
-  left: 9% !important;
-  right: 9% !important;
+  top: 65% !important;
+  left: 7% !important;
+  right: 7% !important;
 
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: clamp(16px, 5vw, 32px) !important;
+  gap: clamp(8px, 2.7vw, 16px) !important;
 
   text-align: center !important;
-  font-size: clamp(12px, 3.3vw, 20px) !important;
-  line-height: 1.2 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+
+  font-size: clamp(9px, 2.7vw, 13px) !important;
+  line-height: 1.15 !important;
   font-weight: 500 !important;
   color: rgba(255,255,255,.82) !important;
 }
@@ -2403,22 +2399,22 @@ article.card.hero-card.lamp-card.target-device-card .target-sub-info small {
   color: inherit !important;
 }
 
-/* SLIDER AREA BOTTOM CENTER */
+/* SLIDER ROW */
 article.card.hero-card.ac-card.target-device-card .target-slider-row,
 article.card.hero-card.lamp-card.target-device-card .target-slider-row {
-  left: 8% !important;
-  right: 8% !important;
-  bottom: 10.5% !important;
+  left: 9% !important;
+  right: 9% !important;
+  bottom: 11% !important;
 
-  height: clamp(24px, 7vw, 34px) !important;
+  height: clamp(20px, 5.5vw, 28px) !important;
 
   display: grid !important;
-  grid-template-columns: auto 1fr auto !important;
+  grid-template-columns: auto minmax(0, 1fr) auto !important;
   align-items: center !important;
-  gap: clamp(12px, 4vw, 22px) !important;
+  gap: clamp(8px, 3vw, 14px) !important;
 }
 
-/* BUTTON MINUS PLUS — TEKS POLOS */
+/* MINUS PLUS PLAIN TEXT */
 article.card.hero-card.ac-card.target-device-card .control-btn,
 article.card.hero-card.lamp-card.target-device-card .control-btn,
 article.card.hero-card.ac-card.target-device-card #acMinusBtn,
@@ -2429,65 +2425,46 @@ article.card.hero-card.ac-card.target-device-card #acPlusBtn {
   min-height: 0 !important;
 
   padding: 0 !important;
-  margin: 0 !important;
-
   border: 0 !important;
   border-radius: 0 !important;
   background: transparent !important;
   box-shadow: none !important;
 
-  font-size: clamp(28px, 8vw, 44px) !important;
+  font-size: clamp(22px, 6.5vw, 34px) !important;
   line-height: 1 !important;
   font-weight: 900 !important;
   color: rgba(255,255,255,.96) !important;
-
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
 }
 
-/* AC SLIDER TRACK */
-article.card.hero-card.ac-card.target-device-card .target-fake-slider,
-article.card.hero-card.ac-card.target-device-card .ac-slider {
+/* AC SLIDER */
+article.card.hero-card.ac-card.target-device-card .target-fake-slider {
   position: relative !important;
   width: 100% !important;
-  height: clamp(4px, 1.4vw, 7px) !important;
+  height: clamp(4px, 1.2vw, 6px) !important;
   border-radius: 999px !important;
-  background: linear-gradient(
-    90deg,
-    #ff3434 0%,
-    #ff3434 45%,
-    #22d3ee 45%,
-    #22d3ee 100%
-  ) !important;
+  background: linear-gradient(90deg, #ff3434 0%, #ff3434 45%, #22d3ee 45%, #22d3ee 100%) !important;
   overflow: visible !important;
 }
 
-/* AC SLIDER DOT */
 article.card.hero-card.ac-card.target-device-card #acSliderFill {
   position: absolute !important;
   top: 50% !important;
   left: var(--ac-pos, 45%) !important;
   transform: translate(-50%, -50%) !important;
 
-  width: clamp(12px, 3.8vw, 22px) !important;
-  height: clamp(12px, 3.8vw, 22px) !important;
+  width: clamp(12px, 3.4vw, 18px) !important;
+  height: clamp(12px, 3.4vw, 18px) !important;
   border-radius: 999px !important;
-
   background: #ff3434 !important;
-  box-shadow: 0 0 0 2px rgba(255,52,52,.18) !important;
 }
 
-/* LAMPU RANGE WRAP */
+/* LAMP SLIDER */
 article.card.hero-card.lamp-card.target-device-card .target-range-wrap {
   position: relative !important;
   width: 100% !important;
-  height: clamp(18px, 5vw, 26px) !important;
-  display: flex !important;
-  align-items: center !important;
+  height: clamp(16px, 4.8vw, 22px) !important;
 }
 
-/* LAMPU TRACK CUSTOM */
 article.card.hero-card.lamp-card.target-device-card .lamp-bar {
   position: absolute !important;
   left: 0 !important;
@@ -2495,15 +2472,9 @@ article.card.hero-card.lamp-card.target-device-card .lamp-bar {
   top: 50% !important;
   transform: translateY(-50%) !important;
 
-  height: clamp(4px, 1.4vw, 7px) !important;
+  height: clamp(4px, 1.2vw, 6px) !important;
   border-radius: 999px !important;
-  background: linear-gradient(
-    90deg,
-    #ff3434 0%,
-    #ff3434 50%,
-    #22d3ee 50%,
-    #22d3ee 100%
-  ) !important;
+  background: linear-gradient(90deg, #ff3434 0%, #ff3434 50%, #22d3ee 50%, #22d3ee 100%) !important;
   pointer-events: none !important;
 }
 
@@ -2513,26 +2484,22 @@ article.card.hero-card.lamp-card.target-device-card #lampBar {
   left: var(--lamp-pos, 50%) !important;
   transform: translate(-50%, -50%) !important;
 
-  width: clamp(12px, 3.8vw, 22px) !important;
-  height: clamp(12px, 3.8vw, 22px) !important;
+  width: clamp(12px, 3.4vw, 18px) !important;
+  height: clamp(12px, 3.4vw, 18px) !important;
   border-radius: 999px !important;
-
   background: #ff3434 !important;
-  box-shadow: 0 0 0 2px rgba(255,52,52,.18) !important;
   pointer-events: none !important;
 }
 
-/* RANGE ASLI TETAP AKTIF UNTUK BINDING */
 article.card.hero-card.lamp-card.target-device-card #lampBrightnessSlider {
   position: absolute !important;
   inset: 0 !important;
   width: 100% !important;
   height: 100% !important;
   opacity: 0 !important;
-  cursor: pointer !important;
 }
 
-/* BACKGROUND TONE PER CARD */
+/* CARD TONE */
 article.card.hero-card.ac-card.target-device-card {
   background:
     radial-gradient(circle at 18% 12%, rgba(255,255,255,.12), transparent 26%),
@@ -2545,32 +2512,21 @@ article.card.hero-card.lamp-card.target-device-card {
     rgba(90, 45, 40, .42) !important;
 }
 
-/* MOBILE KECIL */
+/* EXTRA SAFE SMALL PHONE */
 @media (max-width: 360px) {
   section.hero-grid.target-device-grid {
-    gap: 12px !important;
-  }
-
-  article.card.hero-card.ac-card.target-device-card,
-  article.card.hero-card.lamp-card.target-device-card {
-    border-radius: 28px !important;
-  }
-
-  article.card.hero-card.ac-card.target-device-card .target-card-title,
-  article.card.hero-card.lamp-card.target-device-card .target-card-title {
-    font-size: clamp(14px, 4vw, 20px) !important;
+    gap: 10px !important;
   }
 
   article.card.hero-card.ac-card.target-device-card .target-main-value strong,
   article.card.hero-card.lamp-card.target-device-card .target-main-value strong,
   article.card.hero-card.ac-card.target-device-card #acTemp,
   article.card.hero-card.lamp-card.target-device-card #lampBrightness {
-    font-size: clamp(44px, 14vw, 68px) !important;
+    font-size: clamp(40px, 13vw, 58px) !important;
   }
 
-  article.card.hero-card.ac-card.target-device-card .target-sub-info,
-  article.card.hero-card.lamp-card.target-device-card .target-sub-info {
-    font-size: clamp(10px, 3vw, 15px) !important;
-    gap: 12px !important;
+  article.card.hero-card.ac-card.target-device-card .target-card-title,
+  article.card.hero-card.lamp-card.target-device-card .target-card-title {
+    font-size: clamp(13px, 3.8vw, 18px) !important;
   }
 }
