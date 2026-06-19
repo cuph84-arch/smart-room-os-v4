@@ -246,13 +246,12 @@ function renderLampSlider(power, brightness) {
   const lampInput = document.getElementById('lampBrightnessSlider');
   const value = Number(brightness || 0);
   const safeValue = clampNumber(value, 0, 100);
-  const visualValue = isOn(power) ? safeValue : 0;
 
   updateSliderVisual(
     '.lamp-card .lamp-bar',
     '#lampBar',
     '--lamp-pos',
-    visualValue
+    safeValue
   );
 
   if (lampInput && document.activeElement !== lampInput) {
@@ -270,11 +269,8 @@ function updateSliderVisual(trackSelector, thumbSelector, cssVarName, percent) {
 
   track.style.setProperty(cssVarName, safePercent + '%');
 
-  const trackWidth = track.getBoundingClientRect().width;
-  const x = (trackWidth * safePercent) / 100;
-
-  thumb.style.left = '0px';
-  thumb.style.transform = `translate3d(${x}px, -50%, 0) translateX(-50%)`;
+  thumb.style.left = safePercent + '%';
+  thumb.style.transform = 'translate3d(-50%, -50%, 0)';
 }
 
 /* =========================
