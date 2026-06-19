@@ -550,19 +550,19 @@ article.target-device-card > * {
 
   position: absolute !important;
   left: 50% !important;
-  top: 53% !important;
+  top: 54% !important;
 
-  width: 14px !important;
-  height: 14px !important;
+  width: 12px !important;
+  height: 12px !important;
 
-  border: 3px solid #fff !important;
+  border: 2px solid #fff !important;
   border-top-color: transparent !important;
   border-radius: 50% !important;
 
   background: transparent !important;
   box-shadow: none !important;
 
-  transform: translate(-50%, -50%) rotate(35deg) !important;
+  transform: translate(-50%, -50%) !important;
 }
 
 #acToggleBtn::after,
@@ -571,10 +571,10 @@ article.target-device-card > * {
 
   position: absolute !important;
   left: 50% !important;
-  top: 5px !important;
+  top: 6px !important;
 
-  width: 4px !important;
-  height: 10px !important;
+  width: 3px !important;
+  height: 8px !important;
 
   border-radius: 999px !important;
   background: #fff !important;
