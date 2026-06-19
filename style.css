@@ -544,43 +544,44 @@ article.target-device-card > * {
   background: var(--power-off) !important;
 }
 
+/* 1. LINGKARAN POWER (Lebih presisi dan seimbang) */
 #acToggleBtn::before,
 #lampToggleBtn::before {
   content: "" !important;
-
   position: absolute !important;
   left: 50% !important;
-  top: 54% !important;
-
-  width: 12px !important;
-  height: 12px !important;
-
-  border: 2px solid #fff !important;
+  top: 52% !important; /* Sengaja diturunkan 2% agar seimbang dengan tiang atas */
+  
+  width: 14px !important;  /* Diperbesar sedikit agar tidak terlalu sempit */
+  height: 14px !important;
+  
+  border: 2px solid #fff !important; /* Ketebalan garis utama: 2px */
   border-top-color: transparent !important;
   border-radius: 50% !important;
-
+  
   background: transparent !important;
   box-shadow: none !important;
-
+  
   transform: translate(-50%, -50%) !important;
 }
 
+/* 2. TIANG POWER VERTIKAL (Elegan dengan ujung membulat) */
 #acToggleBtn::after,
 #lampToggleBtn::after {
   content: "" !important;
-
   position: absolute !important;
   left: 50% !important;
-  top: 6px !important;
-
-  width: 3px !important;
-  height: 8px !important;
-
-  border-radius: 999px !important;
+  top: 20% !important; /* Menggunakan % agar adaptif terhadap ukuran tombol */
+  
+  width: 2px !important; /* WAJIB SAMA dengan ketebalan border lingkaran (2px) */
+  height: 7px !important;
+  
   background: #fff !important;
-
+  border-radius: 999px !important; /* Rahasia modernitas: Ujung membulat (Rounded caps) */
+  
   transform: translateX(-50%) !important;
 }
+
 
 .target-card-title,
 .hero-card h2 {
