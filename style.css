@@ -490,114 +490,138 @@ article.target-device-card > * {
   line-height: 1;
 }
 
-/* =======================================================
-   AC + LAMPU — FINAL SOLID POWER BUTTON
-   Posisi tetap, hanya ubah visual tombol
-======================================================= */
+:root{
+  --power-on:#2596be;
+  --power-off:#f44236;
+}
+
+/* =========================
+   POWER BUTTON SOLID
+========================= */
 
 #acToggleBtn,
-#lampToggleBtn {
-  grid-column: 3 !important;
-  justify-self: end !important;
-  align-self: center !important;
+#lampToggleBtn{
+  grid-column:3 !important;
+  justify-self:end !important;
+  align-self:start !important;
 
-  width: 22px !important;
-  min-width: 22px !important;
-  max-width: 22px !important;
+  width:28px !important;
+  height:28px !important;
+  min-width:28px !important;
+  min-height:28px !important;
 
-  height: 22px !important;
-  min-height: 22px !important;
-  max-height: 22px !important;
+  padding:0 !important;
+  margin:0 !important;
 
-  padding: 0 !important;
-  margin: 0 !important;
+  border:none !important;
+  border-radius:50% !important;
 
-  border: 0 !important;
-  border-radius: 50% !important;
+  position:relative !important;
+  overflow:visible !important;
 
-  position: relative !important;
-  display: grid !important;
-  place-items: center !important;
+  font-size:0 !important;
+  color:transparent !important;
 
-  font-size: 0 !important;
-  line-height: 0 !important;
-  color: #ffffff !important;
-
-  overflow: visible !important;
-  background: transparent !important;
-  box-shadow: none !important;
+  background:transparent !important;
+  box-shadow:none !important;
 }
+
+/* lingkaran warna */
 
 #acToggleBtn::before,
-#lampToggleBtn::before {
-  content: "" !important;
+#lampToggleBtn::before{
+  content:"" !important;
 
-  position: absolute !important;
-  inset: 0 !important;
+  position:absolute !important;
+  inset:0 !important;
 
-  width: 22px !important;
-  height: 22px !important;
+  border-radius:50% !important;
 
-  border-radius: 50% !important;
-  background: currentColor !important;
+  background:var(--power-on) !important;
 
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.28),
-    0 4px 10px rgba(0, 0, 0, 0.18) !important;
+    0 2px 8px rgba(0,0,0,.18),
+    inset 0 1px 1px rgba(255,255,255,.18) !important;
 }
+
+/* garis vertikal putih */
 
 #acToggleBtn::after,
-#lampToggleBtn::after {
-  content: "⏻" !important;
+#lampToggleBtn::after{
+  content:"" !important;
 
-  position: absolute !important;
-  inset: 0 !important;
+  position:absolute !important;
 
-  width: 22px !important;
-  height: 22px !important;
+  width:3px !important;
+  height:9px !important;
 
-  display: grid !important;
-  place-items: center !important;
+  left:50% !important;
+  top:5px !important;
 
-  color: #ffffff !important;
-  font-size: 14px !important;
-  line-height: 1 !important;
-  font-weight: 700 !important;
+  border-radius:999px !important;
 
-  font-family:
-    "Segoe UI Symbol",
-    "Apple Symbols",
-    "Noto Sans Symbols",
-    system-ui,
-    sans-serif !important;
+  background:#fff !important;
 
-  transform: translateY(-0.5px) !important;
+  transform:translateX(-50%) !important;
 }
 
-#acToggleBtn.on,
-#lampToggleBtn.on {
-  color: #2596be !important;
-}
+/* bentuk lingkaran power putih */
 
-#acToggleBtn.off,
-#lampToggleBtn.off {
-  color: #f44236 !important;
+#acToggleBtn span,
+#lampToggleBtn span{
+  display:none !important;
 }
 
 #acToggleBtn.on::before,
-#lampToggleBtn.on::before {
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.30),
-    0 0 12px rgba(37, 150, 190, 0.42),
-    0 4px 10px rgba(0, 0, 0, 0.18) !important;
+#lampToggleBtn.on::before{
+  background:var(--power-on) !important;
 }
 
 #acToggleBtn.off::before,
-#lampToggleBtn.off::before {
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.30),
-    0 0 12px rgba(244, 66, 54, 0.38),
-    0 4px 10px rgba(0, 0, 0, 0.18) !important;
+#lampToggleBtn.off::before{
+  background:var(--power-off) !important;
+}
+
+/* ring power */
+
+#acToggleBtn.on,
+#acToggleBtn.off,
+#lampToggleBtn.on,
+#lampToggleBtn.off{
+  filter:none !important;
+}
+
+#acToggleBtn.on::marker,
+#acToggleBtn.off::marker,
+#lampToggleBtn.on::marker,
+#lampToggleBtn.off::marker{
+  content:none;
+}
+
+/* gambar power putih */
+
+#acToggleBtn.on,
+#acToggleBtn.off,
+#lampToggleBtn.on,
+#lampToggleBtn.off{
+  background-image:
+    radial-gradient(circle at center,
+      transparent 0,
+      transparent 7px,
+      #fff 7px,
+      #fff 9px,
+      transparent 9px),
+    linear-gradient(#fff,#fff);
+
+  background-repeat:no-repeat !important;
+
+  background-size:
+    14px 14px,
+    3px 8px !important;
+
+  background-position:
+    center 11px,
+    center 5px !important;
 }
 
 .target-card-title,
