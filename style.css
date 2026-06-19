@@ -1664,3 +1664,58 @@ article.target-device-card > * {
   pointer-events: auto !important;
   display: inline !important;
 }
+
+/* =======================================================
+   HERO SUB INFO QUICK FIX
+   Safe area mengikuti batas tombol - dan +
+======================================================= */
+
+.ac-card .target-sub-info,
+.lamp-card .target-sub-info {
+  grid-row: 4 !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-inline: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  gap: 12px !important;
+
+  text-align: center !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+
+  font-size: clamp(8.5px, 2.45vw, 10px) !important;
+  line-height: 1.15 !important;
+  font-weight: 400 !important;
+
+  color: rgba(255,255,255,.78) !important;
+  text-transform: capitalize !important;
+}
+
+.ac-card .target-sub-info small,
+.ac-card .target-sub-info #acStatus {
+  display: none !important;
+}
+
+.lamp-card .target-sub-info #lampStatus,
+.lamp-card .target-sub-info .logic-hidden {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+  pointer-events: auto !important;
+  display: inline !important;
+}
+
+@media (max-width: 360px) {
+  .ac-card .target-sub-info,
+  .lamp-card .target-sub-info {
+    gap: 8px !important;
+    font-size: 8px !important;
+  }
+}
