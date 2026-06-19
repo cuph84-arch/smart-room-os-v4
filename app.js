@@ -319,9 +319,7 @@ function bindControls() {
 
   if (acToggleBtn) {
     acToggleBtn.addEventListener('click', () => {
-      const active =
-        acToggleBtn.textContent.trim().toUpperCase() === 'ON';
-
+      const active = acToggleBtn.classList.contains('on');
       sendControl(active ? 'ac_off' : 'ac_on');
     });
   }
@@ -340,9 +338,7 @@ function bindControls() {
 
   if (lampToggleBtn) {
     lampToggleBtn.addEventListener('click', () => {
-      const active =
-        lampToggleBtn.textContent.trim().toUpperCase() === 'ON';
-
+      const active = lampToggleBtn.classList.contains('on');
       sendControl(active ? 'lamp_off' : 'lamp_on');
     });
   }
@@ -454,7 +450,13 @@ function setBadge(id, active) {
     ? 'badge target-toggle ' + (active ? 'on' : 'off')
     : 'badge ' + (active ? 'on' : 'off');
 
-  el.textContent = active ? 'ON' : 'OFF';
+  if (isHeroToggle) {
+    el.textContent = '';
+    el.setAttribute('aria-pressed', active ? 'true' : 'false');
+    el.setAttribute('title', active ? 'ON' : 'OFF');
+  } else {
+    el.textContent = active ? 'ON' : 'OFF';
+  }
 }
 
 function isOn(value) {
@@ -673,4 +675,3 @@ function updateHeaderDateTime() {
 
   el.textContent = `${tanggal} ${namaBulan} ${tahun} • ${jam}:${menit}`;
 }
-
