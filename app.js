@@ -16,8 +16,11 @@ const CONTROL_URL =
 
 document.addEventListener('DOMContentLoaded', () => {
   bindControls();
+  updateHeaderDateTime();
   loadFirebaseState();
+
   setInterval(loadFirebaseState, 5000);
+  setInterval(updateHeaderDateTime, 60000);
 });
 
 /* =========================
@@ -95,47 +98,46 @@ function mapFirebaseState(state) {
     },
 
     energy: {
-  today:
-    smartplug.today_kwh ??
-    energy.today_kwh ??
-    0,
+      today:
+        smartplug.today_kwh ??
+        energy.today_kwh ??
+        0,
 
-  week:
-    smartplug.week_kwh ??
-    energy.week_kwh ??
-    0,
+      week:
+        smartplug.week_kwh ??
+        energy.week_kwh ??
+        0,
 
-  month:
-    smartplug.month_kwh ??
-    energy.month_kwh ??
-    0,
+      month:
+        smartplug.month_kwh ??
+        energy.month_kwh ??
+        0,
 
-  todayCost:
-    smartplug.today_cost ??
-    energy.today_cost ??
-    0,
+      todayCost:
+        smartplug.today_cost ??
+        energy.today_cost ??
+        0,
 
-  weekCost:
-    smartplug.week_cost ??
-    energy.week_cost ??
-    0,
+      weekCost:
+        smartplug.week_cost ??
+        energy.week_cost ??
+        0,
 
-  monthCost:
-    smartplug.month_cost ??
-    energy.month_cost ??
-    0,
+      monthCost:
+        smartplug.month_cost ??
+        energy.month_cost ??
+        0,
 
-  monthRuntime:
-    smartplug.month_runtime_text ??
-    energy.month_runtime_text ??
-    '0j 0m',
+      monthRuntime:
+        smartplug.month_runtime_text ??
+        energy.month_runtime_text ??
+        '0j 0m',
 
-  tariffText:
-    smartplug.tariff_text ??
-    energy.tariff_text ??
-    'Est. Rp605/kWh · B1 900VA'
-},
-    
+      tariffText:
+        smartplug.tariff_text ??
+        energy.tariff_text ??
+        'Est. Rp605/kWh · B1 900VA'
+    },
 
     lastAutomation: {
       scene:
@@ -156,11 +158,12 @@ function mapFirebaseState(state) {
 
 function renderDashboard(data) {
   setText(
-  'headerDate',
-  'Last Updated: ' +
-  (data.cctv?.updated_at || '--')
-);
-   setText('roomTemp', formatValue(data.climate.temp, '°C'));
+    'headerDate',
+    'Last Updated: ' +
+    (data.cctv?.updated_at || '--')
+  );
+
+  setText('roomTemp', formatValue(data.climate.temp, '°C'));
   setText('roomHumidity', formatValue(data.climate.humidity, '%'));
 
   setText('plugPower', formatValue(data.smartplug.power, 'W'));
@@ -172,12 +175,14 @@ function renderDashboard(data) {
   setText('acFan', data.ac.fan);
 
   renderACSlider(data.ac.temp);
+  applyDeviceControlState('.ac-card', data.ac.power);
 
   setText('lampStatus', data.lamp.power);
   setText('lampBrightness', formatValue(data.lamp.brightness, '%'));
   setText('lampMode', data.lamp.mode);
 
   renderLampSlider(data.lamp.power, data.lamp.brightness);
+  applyDeviceControlState('.lamp-card', data.lamp.power);
 
   setText('tvStatus', data.tv.status);
 
@@ -225,28 +230,83 @@ function renderDashboard(data) {
 ========================= */
 
 function renderACSlider(tempValue) {
-  const acSlider = document.getElementById('acSliderFill');
-  if (!acSlider) return;
-
   const temp = Number(tempValue || 24);
   const percent = ((temp - 16) / 14) * 100;
+  const safePercent = clampNumber(percent, 0, 100);
 
-  acSlider.style.width =
-    Math.max(8, Math.min(100, percent)) + '%';
+  updateSliderVisual(
+    '.ac-card .target-fake-slider',
+    '#acSliderFill',
+    '--ac-pos',
+    safePercent
+  );
 }
 
 function renderLampSlider(power, brightness) {
-  const lampBar = document.getElementById('lampBar');
   const lampInput = document.getElementById('lampBrightnessSlider');
   const value = Number(brightness || 0);
+  const safeValue = clampNumber(value, 0, 100);
+  const visualValue = isOn(power) ? safeValue : 0;
 
-  if (lampBar) {
-    lampBar.style.width = isOn(power) ? value + '%' : '0%';
-  }
+  updateSliderVisual(
+    '.lamp-card .lamp-bar',
+    '#lampBar',
+    '--lamp-pos',
+    visualValue
+  );
 
   if (lampInput && document.activeElement !== lampInput) {
-    lampInput.value = value;
+    lampInput.value = safeValue;
   }
+}
+
+function updateSliderVisual(trackSelector, thumbSelector, cssVarName, percent) {
+  const track = document.querySelector(trackSelector);
+  const thumb = document.querySelector(thumbSelector);
+
+  if (!track || !thumb) return;
+
+  const safePercent = clampNumber(percent, 0, 100);
+
+  track.style.setProperty(cssVarName, safePercent + '%');
+
+  const trackWidth = track.getBoundingClientRect().width;
+  const x = (trackWidth * safePercent) / 100;
+
+  thumb.style.left = '0px';
+  thumb.style.transform = `translate3d(${x}px, -50%, 0) translateX(-50%)`;
+}
+
+/* =========================
+   DEVICE STATE
+========================= */
+
+function normalizeDeviceState(value) {
+  return String(value || '')
+    .trim()
+    .toLowerCase();
+}
+
+function isDeviceOn(value) {
+  const state = normalizeDeviceState(value);
+
+  return (
+    state === 'on' ||
+    state === 'online' ||
+    state === 'true' ||
+    state === '1' ||
+    state.includes(' on')
+  );
+}
+
+function applyDeviceControlState(cardSelector, statusValue) {
+  const card = document.querySelector(cardSelector);
+  if (!card) return;
+
+  const active = isDeviceOn(statusValue);
+
+  card.classList.toggle('disabled', !active);
+  card.setAttribute('aria-disabled', String(!active));
 }
 
 /* =========================
@@ -293,11 +353,19 @@ function bindControls() {
 
   if (lampSlider) {
     lampSlider.addEventListener('input', () => {
-      const lampBar = document.getElementById('lampBar');
       const lampBrightness = document.getElementById('lampBrightness');
+      const value = clampNumber(Number(lampSlider.value || 0), 0, 100);
 
-      if (lampBar) lampBar.style.width = lampSlider.value + '%';
-      if (lampBrightness) lampBrightness.textContent = lampSlider.value + '%';
+      updateSliderVisual(
+        '.lamp-card .lamp-bar',
+        '#lampBar',
+        '--lamp-pos',
+        value
+      );
+
+      if (lampBrightness) {
+        lampBrightness.textContent = value + '%';
+      }
     });
 
     lampSlider.addEventListener('change', () => {
@@ -382,7 +450,14 @@ function setBadge(id, active) {
   const el = document.getElementById(id);
   if (!el) return;
 
-  el.className = active ? 'badge on' : 'badge off';
+  const isHeroToggle =
+    id === 'acToggleBtn' ||
+    id === 'lampToggleBtn';
+
+  el.className = isHeroToggle
+    ? 'badge target-toggle ' + (active ? 'on' : 'off')
+    : 'badge ' + (active ? 'on' : 'off');
+
   el.textContent = active ? 'ON' : 'OFF';
 }
 
@@ -395,6 +470,14 @@ function isOn(value) {
     text === 'ONLINE' ||
     text === '1'
   );
+}
+
+function clampNumber(value, min, max) {
+  const number = Number(value);
+
+  if (Number.isNaN(number)) return min;
+
+  return Math.max(min, Math.min(max, number));
 }
 
 function formatValue(value, suffix) {
@@ -593,37 +676,4 @@ function updateHeaderDateTime() {
   const menit = String(now.getMinutes()).padStart(2, '0');
 
   el.textContent = `${tanggal} ${namaBulan} ${tahun} • ${jam}:${menit}`;
-}
-
-updateHeaderDateTime();
-setInterval(updateHeaderDateTime, 60000);
-
-
-function normalizeDeviceState(value) {
-  return String(value || "")
-    .trim()
-    .toLowerCase();
-}
-
-function isDeviceOn(value) {
-  const state = normalizeDeviceState(value);
-  return state === "on" || state === "online" || state === "true" || state === "1";
-}
-
-function applyDeviceControlState(cardSelector, statusValue) {
-  const card = document.querySelector(cardSelector);
-  if (!card) return;
-
-  const active = isDeviceOn(statusValue);
-
-  card.classList.toggle("disabled", !active);
-  card.setAttribute("aria-disabled", String(!active));
-}
-
-function updateSliderThumbByTransform(thumbSelector, percent) {
-  const thumb = document.querySelector(thumbSelector);
-  if (!thumb) return;
-
-  const safePercent = Math.max(0, Math.min(100, Number(percent) || 0));
-  thumb.style.transform = `translate3d(calc(${safePercent}% - 50%), -50%, 0)`;
 }
