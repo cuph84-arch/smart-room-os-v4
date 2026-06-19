@@ -1518,40 +1518,12 @@ article.target-device-card > * {
 }
 
 /* =======================================================
-   HERO AC + LAMPU — FINAL SINGLE TOGGLE SYSTEM
+   AC + LAMPU — FINAL ID BASED POWER BUTTON
+   Aman dari bentrok .badge / .target-toggle / .hero-card
 ======================================================= */
 
-section.hero-grid.target-device-grid .ac-card .target-card-top,
-section.hero-grid.target-device-grid .lamp-card .target-card-top {
-  grid-row: 1 !important;
-  width: 100% !important;
-  height: 22px !important;
-  min-height: 22px !important;
-  display: grid !important;
-  grid-template-columns: 22px minmax(0, 1fr) 22px !important;
-  align-items: center !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  gap: 0 !important;
-}
-
-section.hero-grid.target-device-grid .ac-card .card-icon,
-section.hero-grid.target-device-grid .lamp-card .card-icon {
-  grid-column: 1 !important;
-  width: 22px !important;
-  height: 22px !important;
-  font-size: 22px !important;
-  line-height: 1 !important;
-  display: grid !important;
-  place-items: center !important;
-}
-
-section.hero-grid.target-device-grid .ac-card .target-toggle,
-section.hero-grid.target-device-grid .lamp-card .target-toggle {
-  grid-column: 3 !important;
-  justify-self: end !important;
-  align-self: center !important;
-
+#acToggleBtn,
+#lampToggleBtn {
   width: 22px !important;
   min-width: 22px !important;
   max-width: 22px !important;
@@ -1578,11 +1550,11 @@ section.hero-grid.target-device-grid .lamp-card .target-toggle {
   overflow: visible !important;
 }
 
-section.hero-grid.target-device-grid .ac-card .target-toggle::before,
-section.hero-grid.target-device-grid .lamp-card .target-toggle::before {
+#acToggleBtn::before,
+#lampToggleBtn::before {
   content: "" !important;
-  position: absolute !important;
 
+  position: absolute !important;
   width: 16px !important;
   height: 16px !important;
 
@@ -1596,11 +1568,11 @@ section.hero-grid.target-device-grid .lamp-card .target-toggle::before {
   transform: rotate(35deg) !important;
 }
 
-section.hero-grid.target-device-grid .ac-card .target-toggle::after,
-section.hero-grid.target-device-grid .lamp-card .target-toggle::after {
+#acToggleBtn::after,
+#lampToggleBtn::after {
   content: "" !important;
-  position: absolute !important;
 
+  position: absolute !important;
   top: 2px !important;
   left: 50% !important;
 
@@ -1613,52 +1585,34 @@ section.hero-grid.target-device-grid .lamp-card .target-toggle::after {
   transform: translateX(-50%) !important;
 }
 
-section.hero-grid.target-device-grid .ac-card .target-toggle.on,
-section.hero-grid.target-device-grid .lamp-card .target-toggle.on {
+#acToggleBtn.on,
+#lampToggleBtn.on {
   color: #2596be !important;
 }
 
-section.hero-grid.target-device-grid .ac-card .target-toggle.off,
-section.hero-grid.target-device-grid .lamp-card .target-toggle.off {
+#acToggleBtn.off,
+#lampToggleBtn.off {
   color: #f44236 !important;
 }
 
-section.hero-grid.target-device-grid .ac-card .target-sub-info,
-section.hero-grid.target-device-grid .lamp-card .target-sub-info {
-  grid-row: 4 !important;
-  width: 100% !important;
-  max-width: 100% !important;
-
-  display: flex !important;
+.target-card-top {
+  display: grid !important;
+  grid-template-columns: 22px minmax(0, 1fr) 22px !important;
   align-items: center !important;
-  justify-content: center !important;
-
-  gap: 10px !important;
-
-  text-align: center !important;
-  white-space: nowrap !important;
-  overflow: hidden !important;
-
-  font-size: clamp(9px, 2.6vw, 11px) !important;
-  line-height: 1.2 !important;
-  font-weight: 400 !important;
-  color: rgba(255,255,255,.78) !important;
-
-  text-transform: capitalize !important;
+  gap: 0 !important;
 }
 
-section.hero-grid.target-device-grid .ac-card .target-sub-info small,
-section.hero-grid.target-device-grid .ac-card .target-sub-info #acStatus {
-  display: none !important;
+.target-card-top .card-icon {
+  grid-column: 1 !important;
+  width: 22px !important;
+  height: 22px !important;
+  font-size: 22px !important;
+  line-height: 1 !important;
 }
 
-section.hero-grid.target-device-grid .lamp-card .target-sub-info #lampStatus,
-section.hero-grid.target-device-grid .lamp-card .target-sub-info .logic-hidden {
-  position: static !important;
-  width: auto !important;
-  height: auto !important;
-  opacity: 1 !important;
-  overflow: visible !important;
-  pointer-events: auto !important;
-  display: inline !important;
+#acToggleBtn,
+#lampToggleBtn {
+  grid-column: 3 !important;
+  justify-self: end !important;
+  align-self: center !important;
 }
