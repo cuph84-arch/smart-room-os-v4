@@ -1586,3 +1586,85 @@ article.target-device-card > * {
 .lamp-card .badge.off::before {
   color: #f44236 !important;
 }
+
+/* =======================================================
+   HERO TOGGLE POWER ICON — CROSS BROWSER CSS DRAWN
+======================================================= */
+
+.ac-card .target-toggle,
+.lamp-card .target-toggle,
+.ac-card .badge,
+.lamp-card .badge {
+  width: 32px !important;
+  min-width: 32px !important;
+  height: 32px !important;
+  min-height: 32px !important;
+
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+
+  background: transparent !important;
+  box-shadow: none !important;
+
+  font-size: 0 !important;
+  color: transparent !important;
+  overflow: visible !important;
+
+  position: relative !important;
+  display: inline-grid !important;
+  place-items: center !important;
+}
+
+/* Lingkaran power */
+.ac-card .target-toggle::before,
+.lamp-card .target-toggle::before,
+.ac-card .badge::before,
+.lamp-card .badge::before {
+  content: "" !important;
+
+  position: absolute !important;
+  width: 22px !important;
+  height: 22px !important;
+
+  border-radius: 50% !important;
+  border: 3px solid currentColor !important;
+  border-top-color: transparent !important;
+
+  background: transparent !important;
+  box-shadow: none !important;
+
+  transform: rotate(35deg) !important;
+}
+
+/* Garis power tengah */
+.ac-card .target-toggle::after,
+.lamp-card .target-toggle::after,
+.ac-card .badge::after,
+.lamp-card .badge::after {
+  content: "" !important;
+
+  position: absolute !important;
+  top: 5px !important;
+  width: 3px !important;
+  height: 13px !important;
+
+  border-radius: 999px !important;
+  background: currentColor !important;
+}
+
+/* ON */
+.ac-card .target-toggle.on,
+.lamp-card .target-toggle.on,
+.ac-card .badge.on,
+.lamp-card .badge.on {
+  color: #2596be !important;
+}
+
+/* OFF */
+.ac-card .target-toggle.off,
+.lamp-card .target-toggle.off,
+.ac-card .badge.off,
+.lamp-card .badge.off {
+  color: #f44236 !important;
+}
