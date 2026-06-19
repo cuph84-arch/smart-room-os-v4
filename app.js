@@ -597,3 +597,33 @@ function updateHeaderDateTime() {
 
 updateHeaderDateTime();
 setInterval(updateHeaderDateTime, 60000);
+
+
+function normalizeDeviceState(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase();
+}
+
+function isDeviceOn(value) {
+  const state = normalizeDeviceState(value);
+  return state === "on" || state === "online" || state === "true" || state === "1";
+}
+
+function applyDeviceControlState(cardSelector, statusValue) {
+  const card = document.querySelector(cardSelector);
+  if (!card) return;
+
+  const active = isDeviceOn(statusValue);
+
+  card.classList.toggle("disabled", !active);
+  card.setAttribute("aria-disabled", String(!active));
+}
+
+function updateSliderThumbByTransform(thumbSelector, percent) {
+  const thumb = document.querySelector(thumbSelector);
+  if (!thumb) return;
+
+  const safePercent = Math.max(0, Math.min(100, Number(percent) || 0));
+  thumb.style.transform = `translate3d(calc(${safePercent}% - 50%), -50%, 0)`;
+}
