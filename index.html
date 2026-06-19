@@ -18,23 +18,44 @@
   <main class="app phone-container">
 
     <header class="header">
-      <div class="header-top">
-        <div class="header-text">
-          <h1>Welcome Home <span class="wave">👋</span></h1>
-          <div id="lastUpdated">17 Juni 2026 • 12:34</div>
-        </div>
+  <div class="header-top">
+    <div class="header-text">
+      <h1>Welcome Home</h1>
+      <div id="lastUpdated">19 Juni 2026 • 20:42</div>
+    </div>
 
-        <button class="notification-btn" aria-label="Notification">🔔</button>
-      </div>
+    <button class="notification-btn" aria-label="Notification">
+      <span aria-hidden="true">🔔</span>
+    </button>
+  </div>
 
-      <nav class="top-tabs">
-        <button class="active">🟢 Home</button>
-        <button>🛏️ Kamar</button>
-        <button>📺 Ruang Tamu</button>
-        <button>🌳 Teras</button>
-        <button>🚗 Garasi</button>
-      </nav>
-    </header>
+  <nav class="top-tabs">
+    <button class="active" type="button">
+      <span class="tab-icon tab-home" aria-hidden="true"></span>
+      <span>Home</span>
+    </button>
+
+    <button type="button">
+      <span class="tab-icon tab-room" aria-hidden="true"></span>
+      <span>Kamar</span>
+    </button>
+
+    <button type="button">
+      <span class="tab-icon tab-living" aria-hidden="true"></span>
+      <span>Ruang Tamu</span>
+    </button>
+
+    <button type="button">
+      <span class="tab-icon tab-terrace" aria-hidden="true"></span>
+      <span>Teras</span>
+    </button>
+
+    <button type="button">
+      <span class="tab-icon tab-garage" aria-hidden="true"></span>
+      <span>Garasi</span>
+    </button>
+  </nav>
+</header>
 
     <section class="dashboard">
 
