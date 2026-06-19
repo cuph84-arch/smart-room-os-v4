@@ -496,132 +496,90 @@ article.target-device-card > * {
 }
 
 /* =========================
-   POWER BUTTON SOLID
+   POWER BUTTON FINAL CSS PURE
 ========================= */
 
-#acToggleBtn,
-#lampToggleBtn{
-  grid-column:3 !important;
-  justify-self:end !important;
-  align-self:start !important;
-
-  width:28px !important;
-  height:28px !important;
-  min-width:28px !important;
-  min-height:28px !important;
-
-  padding:0 !important;
-  margin:0 !important;
-
-  border:none !important;
-  border-radius:50% !important;
-
-  position:relative !important;
-  overflow:visible !important;
-
-  font-size:0 !important;
-  color:transparent !important;
-
-  background:transparent !important;
-  box-shadow:none !important;
+:root {
+  --power-on: #2596be;
+  --power-off: #f44236;
 }
 
-/* lingkaran warna */
+#acToggleBtn,
+#lampToggleBtn {
+  grid-column: 3 !important;
+  justify-self: end !important;
+  align-self: center !important;
+
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+
+  position: relative !important;
+  display: grid !important;
+  place-items: center !important;
+
+  font-size: 0 !important;
+  color: #fff !important;
+  overflow: visible !important;
+
+  background: var(--power-off) !important;
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.22),
+    0 4px 10px rgba(0,0,0,.18) !important;
+}
+
+#acToggleBtn.on,
+#lampToggleBtn.on {
+  background: var(--power-on) !important;
+}
+
+#acToggleBtn.off,
+#lampToggleBtn.off {
+  background: var(--power-off) !important;
+}
 
 #acToggleBtn::before,
-#lampToggleBtn::before{
-  content:"" !important;
+#lampToggleBtn::before {
+  content: "" !important;
 
-  position:absolute !important;
-  inset:0 !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 53% !important;
 
-  border-radius:50% !important;
+  width: 14px !important;
+  height: 14px !important;
 
-  background:var(--power-on) !important;
+  border: 3px solid #fff !important;
+  border-top-color: transparent !important;
+  border-radius: 50% !important;
 
-  box-shadow:
-    0 2px 8px rgba(0,0,0,.18),
-    inset 0 1px 1px rgba(255,255,255,.18) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+
+  transform: translate(-50%, -50%) rotate(35deg) !important;
 }
-
-/* garis vertikal putih */
 
 #acToggleBtn::after,
-#lampToggleBtn::after{
-  content:"" !important;
+#lampToggleBtn::after {
+  content: "" !important;
 
-  position:absolute !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 5px !important;
 
-  width:3px !important;
-  height:9px !important;
+  width: 4px !important;
+  height: 10px !important;
 
-  left:50% !important;
-  top:5px !important;
+  border-radius: 999px !important;
+  background: #fff !important;
 
-  border-radius:999px !important;
-
-  background:#fff !important;
-
-  transform:translateX(-50%) !important;
-}
-
-/* bentuk lingkaran power putih */
-
-#acToggleBtn span,
-#lampToggleBtn span{
-  display:none !important;
-}
-
-#acToggleBtn.on::before,
-#lampToggleBtn.on::before{
-  background:var(--power-on) !important;
-}
-
-#acToggleBtn.off::before,
-#lampToggleBtn.off::before{
-  background:var(--power-off) !important;
-}
-
-/* ring power */
-
-#acToggleBtn.on,
-#acToggleBtn.off,
-#lampToggleBtn.on,
-#lampToggleBtn.off{
-  filter:none !important;
-}
-
-#acToggleBtn.on::marker,
-#acToggleBtn.off::marker,
-#lampToggleBtn.on::marker,
-#lampToggleBtn.off::marker{
-  content:none;
-}
-
-/* gambar power putih */
-
-#acToggleBtn.on,
-#acToggleBtn.off,
-#lampToggleBtn.on,
-#lampToggleBtn.off{
-  background-image:
-    radial-gradient(circle at center,
-      transparent 0,
-      transparent 7px,
-      #fff 7px,
-      #fff 9px,
-      transparent 9px),
-    linear-gradient(#fff,#fff);
-
-  background-repeat:no-repeat !important;
-
-  background-size:
-    14px 14px,
-    3px 8px !important;
-
-  background-position:
-    center 11px,
-    center 5px !important;
+  transform: translateX(-50%) !important;
 }
 
 .target-card-title,
