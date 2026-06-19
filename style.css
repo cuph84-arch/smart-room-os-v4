@@ -1446,3 +1446,73 @@ article.target-device-card > * {
     grid-template-columns: 1fr 58px;
   }
 }
+
+/* =======================================================
+   DEVICE CONTROL STATE + MOBILE HIT TARGET
+======================================================= */
+
+/* Area kontrol yang dikunci saat device OFF */
+.ac-card .target-sub-info,
+.ac-card .target-slider-row,
+.lamp-card .target-sub-info,
+.lamp-card .target-slider-row {
+  transition:
+    opacity .22s ease,
+    filter .22s ease;
+}
+
+/* State OFF */
+.ac-card.disabled .target-sub-info,
+.ac-card.disabled .target-slider-row,
+.lamp-card.disabled .target-sub-info,
+.lamp-card.disabled .target-slider-row {
+  opacity: .35;
+  pointer-events: none;
+  filter: saturate(.75);
+}
+
+/* Thumb visual tetap kecil */
+#acSliderFill,
+#lampBar {
+  width: 12px !important;
+  height: 12px !important;
+  min-width: 12px !important;
+  min-height: 12px !important;
+  border-radius: 50% !important;
+  background: #ff4040 !important;
+  will-change: transform !important;
+  transform: translate3d(-50%, -50%, 0) !important;
+}
+
+/* Track slider wajib jadi anchor pseudo hit area */
+.target-fake-slider,
+.lamp-bar {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* Hit target transparan 48px untuk mobile */
+.target-fake-slider::after,
+.lamp-bar::after {
+  content: "";
+  position: absolute;
+  left: -12px;
+  right: -12px;
+  top: 50%;
+  height: 48px;
+  transform: translateY(-50%);
+  background: transparent;
+  pointer-events: auto;
+}
+
+/* Input asli lampu tetap menerima gesture */
+#lampBrightnessSlider {
+  touch-action: pan-x !important;
+}
+
+/* Smooth angka realtime */
+#acTemp,
+#lampBrightness {
+  will-change: contents, transform;
+  transform: translateZ(0);
+}
