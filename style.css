@@ -1773,3 +1773,171 @@ article.target-device-card > * {
 .lamp-card .badge.off {
   color: #f44236 !important;
 }
+
+/* =======================================================
+   HERO CARD ALIGNMENT FINAL
+   Button sejajar emoji + mode aktif center
+======================================================= */
+
+/* Top row: emoji kiri, power kanan, sejajar dengan area slider */
+section.hero-grid.target-device-grid .ac-card .target-card-top,
+section.hero-grid.target-device-grid .lamp-card .target-card-top {
+  grid-row: 1 !important;
+  width: 100% !important;
+  height: 22px !important;
+  min-height: 22px !important;
+
+  display: grid !important;
+  grid-template-columns: 22px 1fr 22px !important;
+  align-items: center !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Emoji kiri */
+section.hero-grid.target-device-grid .ac-card .card-icon,
+section.hero-grid.target-device-grid .lamp-card .card-icon,
+section.hero-grid.target-device-grid .ac-card .emoji-card,
+section.hero-grid.target-device-grid .lamp-card .emoji-card {
+  grid-column: 1 !important;
+
+  width: 22px !important;
+  height: 22px !important;
+  font-size: 22px !important;
+  line-height: 1 !important;
+
+  display: grid !important;
+  place-items: center !important;
+}
+
+/* Button power kanan: tinggi sama dengan emoji */
+section.hero-grid.target-device-grid .ac-card .target-toggle,
+section.hero-grid.target-device-grid .lamp-card .target-toggle,
+section.hero-grid.target-device-grid .ac-card .badge,
+section.hero-grid.target-device-grid .lamp-card .badge {
+  grid-column: 3 !important;
+  justify-self: end !important;
+
+  width: 22px !important;
+  min-width: 22px !important;
+  max-width: 22px !important;
+
+  height: 22px !important;
+  min-height: 22px !important;
+  max-height: 22px !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  border: 0 !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+  box-shadow: none !important;
+
+  position: relative !important;
+  display: grid !important;
+  place-items: center !important;
+
+  font-size: 0 !important;
+  color: transparent !important;
+  overflow: visible !important;
+}
+
+/* Icon power CSS drawn */
+section.hero-grid.target-device-grid .ac-card .target-toggle::before,
+section.hero-grid.target-device-grid .lamp-card .target-toggle::before,
+section.hero-grid.target-device-grid .ac-card .badge::before,
+section.hero-grid.target-device-grid .lamp-card .badge::before {
+  content: "" !important;
+
+  position: absolute !important;
+  width: 16px !important;
+  height: 16px !important;
+
+  border-radius: 50% !important;
+  border: 2px solid currentColor !important;
+  border-top-color: transparent !important;
+
+  background: transparent !important;
+  box-shadow: none !important;
+
+  transform: rotate(35deg) !important;
+}
+
+section.hero-grid.target-device-grid .ac-card .target-toggle::after,
+section.hero-grid.target-device-grid .lamp-card .target-toggle::after,
+section.hero-grid.target-device-grid .ac-card .badge::after,
+section.hero-grid.target-device-grid .lamp-card .badge::after {
+  content: "" !important;
+
+  position: absolute !important;
+  top: 2px !important;
+  left: 50% !important;
+
+  width: 2px !important;
+  height: 10px !important;
+
+  border-radius: 999px !important;
+  background: currentColor !important;
+
+  transform: translateX(-50%) !important;
+}
+
+section.hero-grid.target-device-grid .target-toggle.on,
+section.hero-grid.target-device-grid .badge.on {
+  color: #2596be !important;
+}
+
+section.hero-grid.target-device-grid .target-toggle.off,
+section.hero-grid.target-device-grid .badge.off {
+  color: #f44236 !important;
+}
+
+/* Mode aktif: satu baris center, bukan justify */
+section.hero-grid.target-device-grid .ac-card .target-sub-info,
+section.hero-grid.target-device-grid .lamp-card .target-sub-info {
+  grid-row: 4 !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  gap: 10px !important;
+
+  text-align: center !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+
+  font-size: clamp(9px, 2.6vw, 11px) !important;
+  line-height: 1.2 !important;
+  font-weight: 400 !important;
+  color: rgba(255,255,255,.78) !important;
+}
+
+/* AC hanya Mode + Fan */
+section.hero-grid.target-device-grid .ac-card .target-sub-info small,
+section.hero-grid.target-device-grid .ac-card .target-sub-info #acStatus {
+  display: none !important;
+}
+
+/* Lampu tetap status realtime + mode */
+section.hero-grid.target-device-grid .lamp-card .target-sub-info #lampStatus,
+section.hero-grid.target-device-grid .lamp-card .target-sub-info .logic-hidden {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+  pointer-events: auto !important;
+  display: inline !important;
+}
+
+/* Text case */
+section.hero-grid.target-device-grid .ac-card .target-sub-info,
+section.hero-grid.target-device-grid .lamp-card .target-sub-info {
+  text-transform: capitalize !important;
+}
