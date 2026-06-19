@@ -15,6 +15,8 @@
   --glass-border: rgba(255, 255, 255, 0.12);
 
   --green: #00e676;
+  --power-blue: #2596be;
+  --power-red: #f44236;
   --blue: #40c4ff;
   --cyan: #64f4ff;
   --purple: #b388ff;
@@ -121,8 +123,6 @@ p {
   background: rgba(0, 0, 0, 0.10);
 }
 
-/* HEADER */
-
 .header {
   padding: 0 0 12px;
 }
@@ -179,8 +179,6 @@ p {
   -webkit-backdrop-filter: var(--blur-card);
 }
 
-/* ROOM TABS */
-
 .top-tabs {
   display: flex;
   gap: 8px;
@@ -214,8 +212,6 @@ p {
   background: linear-gradient(135deg, rgba(255, 224, 102, 0.92), rgba(0, 230, 118, 0.92));
   border-color: rgba(255, 255, 255, 0.18);
 }
-
-/* GLOBAL */
 
 .dashboard {
   display: flex;
@@ -328,8 +324,6 @@ section.hero-grid,
   margin-bottom: 0;
 }
 
-/* SUMMARY */
-
 .summary-card {
   padding: 16px 18px;
 }
@@ -407,8 +401,6 @@ section.hero-grid,
   text-align: right;
 }
 
-/* HERO AC + LAMPU CLEAN CROSS-BROWSER */
-
 .hero-grid,
 .target-device-grid,
 section.hero-grid.target-device-grid {
@@ -472,11 +464,14 @@ article.target-device-card > * {
 .target-card-top {
   grid-row: 1;
   width: 100%;
-  min-height: 22px;
-  display: flex;
+  height: 24px;
+  min-height: 24px;
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) 24px;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+  gap: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .card-icon,
@@ -484,78 +479,84 @@ article.target-device-card > * {
 .hero-card .emoji-card,
 .ac-card .card-icon,
 .lamp-card .card-icon {
-  width: clamp(18px, 5.2vw, 22px);
-  height: clamp(18px, 5.2vw, 22px);
+  grid-column: 1;
+  justify-self: start;
+  align-self: center;
+  width: 22px;
+  height: 22px;
   display: inline-grid;
   place-items: center;
-  font-size: clamp(18px, 5.2vw, 22px);
+  font-size: 22px;
   line-height: 1;
 }
 
-.target-toggle,
-.ac-card .target-toggle,
-.lamp-card .target-toggle,
-.hero-card .badge,
-.ac-card .badge,
-.lamp-card .badge {
-  position: relative;
-  width: clamp(38px, 10.5vw, 44px);
-  min-width: clamp(38px, 10.5vw, 44px);
-  height: clamp(18px, 5.2vw, 22px);
-  min-height: clamp(18px, 5.2vw, 22px);
-  padding: 0;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  box-shadow:
-    inset 0 1px 1px rgba(255,255,255,.45),
-    0 4px 10px rgba(0,0,0,.14);
-  font-size: 0;
-  overflow: hidden;
-  display: inline-flex;
-  align-items: center;
+#acToggleBtn,
+#lampToggleBtn {
+  grid-column: 3;
+  justify-self: end;
+  align-self: center;
+
+  width: 22px !important;
+  min-width: 22px !important;
+  max-width: 22px !important;
+
+  height: 22px !important;
+  min-height: 22px !important;
+  max-height: 22px !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  border: 0 !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+  box-shadow: none !important;
+
+  position: relative !important;
+  display: grid !important;
+  place-items: center !important;
+
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+  overflow: visible !important;
 }
 
-.target-toggle::before,
-.hero-card .badge::before,
-.ac-card .target-toggle::before,
-.lamp-card .target-toggle::before,
-.ac-card .badge::before,
-.lamp-card .badge::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: clamp(14px, 4.2vw, 18px);
-  height: clamp(14px, 4.2vw, 18px);
-  border-radius: 50%;
-  transform: translateY(-50%);
-  background: var(--red);
-  box-shadow:
-    0 1px 4px rgba(0,0,0,.22),
-    0 0 0 1px rgba(255,255,255,.42);
-  transition: left .2s ease, right .2s ease, background .2s ease;
+#acToggleBtn::before,
+#lampToggleBtn::before {
+  content: "" !important;
+  position: absolute !important;
+  width: 16px !important;
+  height: 16px !important;
+  border-radius: 50% !important;
+  border: 2px solid currentColor !important;
+  border-top-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: rotate(35deg) !important;
 }
 
-.target-toggle.off::before,
-.hero-card .badge.off::before,
-.ac-card .target-toggle.off::before,
-.lamp-card .target-toggle.off::before,
-.ac-card .badge.off::before,
-.lamp-card .badge.off::before {
-  left: 2px;
-  right: auto;
-  background: var(--red);
+#acToggleBtn::after,
+#lampToggleBtn::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 2px !important;
+  left: 50% !important;
+  width: 2px !important;
+  height: 10px !important;
+  border-radius: 999px !important;
+  background: currentColor !important;
+  transform: translateX(-50%) !important;
 }
 
-.target-toggle.on::before,
-.hero-card .badge.on::before,
-.ac-card .target-toggle.on::before,
-.lamp-card .target-toggle.on::before,
-.ac-card .badge.on::before,
-.lamp-card .badge.on::before {
-  right: 2px;
-  left: auto;
-  background: var(--green);
+#acToggleBtn.on,
+#lampToggleBtn.on {
+  color: var(--power-blue) !important;
+}
+
+#acToggleBtn.off,
+#lampToggleBtn.off {
+  color: var(--power-red) !important;
 }
 
 .target-card-title,
@@ -600,18 +601,20 @@ article.target-device-card > * {
 .target-sub-info {
   grid-row: 4;
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-items: center;
+  max-width: 100%;
+  margin: 0;
+  display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  gap: clamp(8px, 2.6vw, 12px);
   overflow: hidden;
   white-space: nowrap;
   text-align: center;
-  font-size: clamp(9px, 2.7vw, 11px);
-  line-height: 1.2;
+  font-size: clamp(8px, 2.35vw, 10px);
+  line-height: 1.15;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.78);
+  text-transform: capitalize;
 }
 
 .target-sub-info span,
@@ -621,15 +624,6 @@ article.target-device-card > * {
   line-height: inherit;
   font-weight: inherit;
   color: inherit;
-}
-
-.ac-card .target-sub-info,
-.ac-card .target-sub-info span,
-.ac-card .target-sub-info b,
-.lamp-card .target-sub-info,
-.lamp-card .target-sub-info span,
-.lamp-card .target-sub-info b {
-  text-transform: capitalize;
 }
 
 .ac-card .target-sub-info small,
@@ -729,30 +723,31 @@ article.target-device-card > * {
 .lamp-bar div {
   position: absolute;
   top: 50%;
-  width: 8px;
-  height: 8px;
-  min-width: 8px;
-  min-height: 8px;
-  max-width: 8px;
-  max-height: 8px;
+  width: 12px;
+  height: 12px;
+  min-width: 12px;
+  min-height: 12px;
+  max-width: 12px;
+  max-height: 12px;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   background: var(--red);
   background-image: none;
   box-shadow: none;
   pointer-events: none;
+  will-change: transform;
 }
 
 #acSliderFill,
 .ac-slider-fill {
   left: var(--ac-pos, 45%);
-  transform: translate(-50%, -50%);
+  transform: translate3d(-50%, -50%, 0);
 }
 
 #lampBar,
 .lamp-bar div {
   left: var(--lamp-pos, 50%);
-  transform: translate(-50%, -50%);
+  transform: translate3d(-50%, -50%, 0);
 }
 
 #lampBrightnessSlider,
@@ -767,6 +762,7 @@ article.target-device-card > * {
   appearance: none;
   -webkit-appearance: none;
   background: transparent;
+  touch-action: pan-x;
 }
 
 #lampBrightnessSlider::-webkit-slider-runnable-track,
@@ -802,6 +798,48 @@ article.target-device-card > * {
   background: transparent;
   border: 0;
   box-shadow: none;
+}
+
+.target-fake-slider,
+.lamp-bar {
+  overflow: visible;
+}
+
+.target-fake-slider::after,
+.lamp-bar::after {
+  content: "";
+  position: absolute;
+  left: -12px;
+  right: -12px;
+  top: 50%;
+  height: 48px;
+  transform: translateY(-50%);
+  background: transparent;
+  pointer-events: auto;
+}
+
+.ac-card .target-sub-info,
+.ac-card .target-slider-row,
+.lamp-card .target-sub-info,
+.lamp-card .target-slider-row {
+  transition:
+    opacity .22s ease,
+    filter .22s ease;
+}
+
+.ac-card.disabled .target-sub-info,
+.ac-card.disabled .target-slider-row,
+.lamp-card.disabled .target-sub-info,
+.lamp-card.disabled .target-slider-row {
+  opacity: .35;
+  pointer-events: none;
+  filter: saturate(.75);
+}
+
+#acTemp,
+#lampBrightness {
+  will-change: contents, transform;
+  transform: translateZ(0);
 }
 
 .ac-display,
@@ -852,8 +890,6 @@ article.target-device-card > * {
   font-size: 7.5px;
   font-weight: 560;
 }
-
-/* ENTERTAINMENT */
 
 .entertainment-card {
   padding: 16px 18px;
@@ -944,8 +980,6 @@ article.target-device-card > * {
   background: linear-gradient(90deg, var(--blue), rgba(255, 255, 255, 0.62));
 }
 
-/* CLIMATE */
-
 .climate-power-card {
   padding: 15px 18px;
   background:
@@ -990,8 +1024,6 @@ article.target-device-card > * {
   font-weight: 400;
   color: var(--text-muted);
 }
-
-/* CCTV + ENERGY */
 
 .split-grid {
   display: grid;
@@ -1135,8 +1167,6 @@ article.target-device-card > * {
   font-weight: 400;
 }
 
-/* SCENE */
-
 .scene-card {
   min-height: 64px;
   padding: 12px 16px;
@@ -1188,8 +1218,6 @@ article.target-device-card > * {
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 12px 28px rgba(108, 60, 220, 0.20);
 }
-
-/* NAVBAR */
 
 .bottom-nav,
 .nav-bar {
@@ -1249,8 +1277,6 @@ article.target-device-card > * {
     0 0 0 1px rgba(255, 255, 255, 0.20);
 }
 
-/* EMOJI */
-
 .emoji-icon,
 .emoji-card,
 .emoji-device,
@@ -1292,8 +1318,6 @@ article.target-device-card > * {
   font-size: 27px;
 }
 
-/* UTILITIES */
-
 .green { color: var(--green); }
 .yellow { color: var(--yellow); }
 .blue { color: var(--blue); }
@@ -1323,8 +1347,6 @@ article.target-device-card > * {
 .center-action:active {
   transform: translateY(-8px) scale(0.96);
 }
-
-/* RESPONSIVE */
 
 @media (max-width: 390px) {
   .phone-container,
@@ -1413,8 +1435,8 @@ article.target-device-card > * {
   }
 
   .target-sub-info {
-    font-size: 7.8px;
-    gap: 5px;
+    gap: 8px;
+    font-size: 8px;
   }
 
   .split-grid,
@@ -1444,278 +1466,5 @@ article.target-device-card > * {
 
   .security-layout {
     grid-template-columns: 1fr 58px;
-  }
-}
-
-/* =======================================================
-   DEVICE CONTROL STATE + MOBILE HIT TARGET
-======================================================= */
-
-/* Area kontrol yang dikunci saat device OFF */
-.ac-card .target-sub-info,
-.ac-card .target-slider-row,
-.lamp-card .target-sub-info,
-.lamp-card .target-slider-row {
-  transition:
-    opacity .22s ease,
-    filter .22s ease;
-}
-
-/* State OFF */
-.ac-card.disabled .target-sub-info,
-.ac-card.disabled .target-slider-row,
-.lamp-card.disabled .target-sub-info,
-.lamp-card.disabled .target-slider-row {
-  opacity: .35;
-  pointer-events: none;
-  filter: saturate(.75);
-}
-
-/* Thumb visual tetap kecil */
-#acSliderFill,
-#lampBar {
-  width: 12px !important;
-  height: 12px !important;
-  min-width: 12px !important;
-  min-height: 12px !important;
-  border-radius: 50% !important;
-  background: #ff4040 !important;
-  will-change: transform !important;
-  transform: translate3d(-50%, -50%, 0) !important;
-}
-
-/* Track slider wajib jadi anchor pseudo hit area */
-.target-fake-slider,
-.lamp-bar {
-  position: relative !important;
-  overflow: visible !important;
-}
-
-/* Hit target transparan 48px untuk mobile */
-.target-fake-slider::after,
-.lamp-bar::after {
-  content: "";
-  position: absolute;
-  left: -12px;
-  right: -12px;
-  top: 50%;
-  height: 48px;
-  transform: translateY(-50%);
-  background: transparent;
-  pointer-events: auto;
-}
-
-/* Input asli lampu tetap menerima gesture */
-#lampBrightnessSlider {
-  touch-action: pan-x !important;
-}
-
-/* Smooth angka realtime */
-#acTemp,
-#lampBrightness {
-  will-change: contents, transform;
-  transform: translateZ(0);
-}
-
-/* =======================================================
-   AC + LAMPU — FINAL ID BASED POWER BUTTON
-   Aman dari bentrok .badge / .target-toggle / .hero-card
-======================================================= */
-
-#acToggleBtn,
-#lampToggleBtn {
-  width: 22px !important;
-  min-width: 22px !important;
-  max-width: 22px !important;
-
-  height: 22px !important;
-  min-height: 22px !important;
-  max-height: 22px !important;
-
-  padding: 0 !important;
-  margin: 0 !important;
-
-  border: 0 !important;
-  border-radius: 50% !important;
-  background: transparent !important;
-  box-shadow: none !important;
-
-  position: relative !important;
-  display: grid !important;
-  place-items: center !important;
-
-  font-size: 0 !important;
-  line-height: 0 !important;
-  color: transparent !important;
-  overflow: visible !important;
-}
-
-#acToggleBtn::before,
-#lampToggleBtn::before {
-  content: "" !important;
-
-  position: absolute !important;
-  width: 16px !important;
-  height: 16px !important;
-
-  border-radius: 50% !important;
-  border: 2px solid currentColor !important;
-  border-top-color: transparent !important;
-
-  background: transparent !important;
-  box-shadow: none !important;
-
-  transform: rotate(35deg) !important;
-}
-
-#acToggleBtn::after,
-#lampToggleBtn::after {
-  content: "" !important;
-
-  position: absolute !important;
-  top: 2px !important;
-  left: 50% !important;
-
-  width: 2px !important;
-  height: 10px !important;
-
-  border-radius: 999px !important;
-  background: currentColor !important;
-
-  transform: translateX(-50%) !important;
-}
-
-#acToggleBtn.on,
-#lampToggleBtn.on {
-  color: #2596be !important;
-}
-
-#acToggleBtn.off,
-#lampToggleBtn.off {
-  color: #f44236 !important;
-}
-
-.target-card-top {
-  display: grid !important;
-  grid-template-columns: 22px minmax(0, 1fr) 22px !important;
-  align-items: center !important;
-  gap: 0 !important;
-}
-
-.target-card-top .card-icon {
-  grid-column: 1 !important;
-  width: 22px !important;
-  height: 22px !important;
-  font-size: 22px !important;
-  line-height: 1 !important;
-}
-
-#acToggleBtn,
-#lampToggleBtn {
-  grid-column: 3 !important;
-  justify-self: end !important;
-  align-self: center !important;
-}
-
-/* =======================================================
-   HERO SUB INFO SAFE AREA FINAL
-   Mode aktif tidak boleh keluar area slider
-======================================================= */
-
-.ac-card .target-sub-info,
-.lamp-card .target-sub-info {
-  grid-row: 4 !important;
-
-  width: 100% !important;
-  max-width: calc(100% - 64px) !important;
-
-  margin-inline: auto !important;
-
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-
-  gap: 12px !important;
-
-  text-align: center !important;
-  white-space: nowrap !important;
-  overflow: hidden !important;
-
-  font-size: clamp(8px, 2.35vw, 10px) !important;
-  line-height: 1.15 !important;
-  font-weight: 400 !important;
-  color: rgba(255,255,255,.78) !important;
-
-  text-transform: capitalize !important;
-}
-
-.ac-card .target-sub-info small,
-.ac-card .target-sub-info #acStatus {
-  display: none !important;
-}
-
-.lamp-card .target-sub-info #lampStatus,
-.lamp-card .target-sub-info .logic-hidden {
-  position: static !important;
-  width: auto !important;
-  height: auto !important;
-  opacity: 1 !important;
-  overflow: visible !important;
-  pointer-events: auto !important;
-  display: inline !important;
-}
-
-/* =======================================================
-   HERO SUB INFO QUICK FIX
-   Safe area mengikuti batas tombol - dan +
-======================================================= */
-
-.ac-card .target-sub-info,
-.lamp-card .target-sub-info {
-  grid-row: 4 !important;
-
-  width: 100% !important;
-  max-width: 100% !important;
-  margin-inline: 0 !important;
-
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-
-  gap: 12px !important;
-
-  text-align: center !important;
-  white-space: nowrap !important;
-  overflow: visible !important;
-
-  font-size: clamp(8.5px, 2.45vw, 10px) !important;
-  line-height: 1.15 !important;
-  font-weight: 400 !important;
-
-  color: rgba(255,255,255,.78) !important;
-  text-transform: capitalize !important;
-}
-
-.ac-card .target-sub-info small,
-.ac-card .target-sub-info #acStatus {
-  display: none !important;
-}
-
-.lamp-card .target-sub-info #lampStatus,
-.lamp-card .target-sub-info .logic-hidden {
-  position: static !important;
-  width: auto !important;
-  height: auto !important;
-  opacity: 1 !important;
-  overflow: visible !important;
-  pointer-events: auto !important;
-  display: inline !important;
-}
-
-@media (max-width: 360px) {
-  .ac-card .target-sub-info,
-  .lamp-card .target-sub-info {
-    gap: 8px !important;
-    font-size: 8px !important;
   }
 }
