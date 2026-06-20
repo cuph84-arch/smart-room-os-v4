@@ -1486,11 +1486,9 @@ article.target-device-card > * {
   .app {
     padding-inline: 16px;
   }
-
-  .header h1 {
-    font-size: 28px;
-  }
-
+.header h1 {
+  font-size: clamp(25px, 7.1vw, 28px);
+}
   .summary-grid {
     gap: 8px;
   }
