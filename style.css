@@ -2394,3 +2394,69 @@ h3 {
   margin: 0 !important;
   transform: none !important;
 }
+
+/* =========================================================
+   ENT-001 FLEXBOX RESTORE PATCH
+   CSS ONLY — do not touch Climate & Power
+========================================================= */
+
+/* Restore native vertical flex stack */
+.entertainment-card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  align-items: stretch !important;
+}
+
+/* Support current uploaded HTML structure */
+.entertainment-grid .mini-device {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  align-items: stretch !important;
+}
+
+/* Lock top row */
+.card-title-container,
+.mini-device-head {
+  flex: 0 0 auto !important;
+  align-self: stretch !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+  margin: 0 !important;
+  transform: none !important;
+}
+
+/* TV icon only: centered naturally, no grid/absolute shift */
+.entertainment-card .tv-icon,
+.entertainment-grid .mini-device .tv-icon,
+.entertainment-grid .mini-device .mini-emoji {
+  flex: 1 1 auto !important;
+
+  height: 48% !important;
+  width: auto !important;
+  max-height: 58px !important;
+
+  display: block !important;
+  object-fit: contain !important;
+
+  margin: auto auto !important;
+  align-self: center !important;
+
+  transform: none !important;
+  grid-row: auto !important;
+}
+
+/* Lock bottom status row */
+.status-compact,
+.entertainment-card #tvStatus,
+.entertainment-grid .mini-device p {
+  flex: 0 0 auto !important;
+  align-self: flex-start !important;
+
+  margin: 0 !important;
+  transform: none !important;
+  grid-row: auto !important;
+}
