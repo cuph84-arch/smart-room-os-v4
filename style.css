@@ -870,6 +870,10 @@ h3 {
   box-shadow: 0 0 4px rgba(255, 76, 76, 0.34) !important;
 }
 
+/* =========================
+   ENTERTAINMENT — CLEAN FINAL
+========================= */
+
 .entertainment-card {
   padding: 16px 18px 18px;
   background:
@@ -891,10 +895,11 @@ h3 {
   aspect-ratio: 1 / 1;
   min-height: 128px;
   padding: 12px;
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: stretch;
+
   border-radius: 18px;
   background:
     radial-gradient(circle at 78% 12%, rgba(255, 255, 255, 0.10), transparent 44%),
@@ -921,12 +926,13 @@ h3 {
 }
 
 .mini-device-head {
-  flex: 0 0 auto;
+  flex: 0 0 24px;
+  min-height: 24px;
+
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 8px;
-  min-width: 0;
 }
 
 .mini-device h3 {
@@ -946,21 +952,41 @@ h3 {
   font-weight: 700;
 }
 
+/* TV middle icon */
 .tv-card .mini-emoji {
   flex: 1 1 auto;
-  width: auto;
-  height: 50%;
-  max-height: 58px;
+  width: 100%;
+
   display: grid;
   place-items: center;
-  margin: auto;
-  align-self: center;
+
+  margin: 0;
   color: rgba(255, 255, 255, 0.76);
   font-size: clamp(38px, 10.8vw, 50px);
   line-height: 1;
-  object-fit: contain;
   opacity: 0.82;
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.24));
+}
+
+/* Nest middle icon — clean pseudo element */
+.nest-card::before {
+  content: "🔊";
+
+  flex: 1 1 auto;
+  width: 100%;
+
+  display: grid;
+  place-items: center;
+
+  margin: 0;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: clamp(36px, 10.4vw, 48px);
+  line-height: 1;
+
+  filter: brightness(0) invert(1) opacity(0.66);
+  -webkit-filter: brightness(0) invert(1) opacity(0.66);
+
+  pointer-events: none;
 }
 
 .tv-card p {
@@ -970,7 +996,8 @@ h3 {
 }
 
 .nest-info {
-  margin-top: auto;
+  flex: 0 0 auto;
+  margin: 0;
 }
 
 .mini-device p,
@@ -985,6 +1012,7 @@ h3 {
 }
 
 .nest-volume-bar {
+  flex: 0 0 auto;
   width: 100%;
   height: 4px;
   margin-top: 8px;
@@ -1500,94 +1528,4 @@ h3 {
   }
 }
 
-/* =========================================================
-   NEST MINI ICON RESTORE
-   Safe pseudo-element injection
-========================================================= */
 
-.nest-card::before {
-  content: "🔊" !important;
-
-  display: block !important;
-  align-self: center !important;
-
-  font-size: clamp(38px, 11vw, 48px) !important;
-  line-height: 1 !important;
-
-  margin: auto auto 10px auto !important;
-
-  filter: brightness(0) invert(1) opacity(0.65) !important;
-  -webkit-filter: brightness(0) invert(1) opacity(0.65) !important;
-
-  pointer-events: none !important;
-}
-
-/* =========================================================
-   ENT-001 NEST MINI CENTER ICON FIXER
-   CSS ONLY — safe for current HTML + JS
-========================================================= */
-
-/* Inject speaker icon as the missing middle element */
-.nest-card::before {
-  content: "🔊";
-
-  flex: 1 1 auto;
-  width: 100%;
-
-  display: grid;
-  place-items: center;
-
-  margin: auto 0;
-  align-self: center;
-
-  color: rgba(255, 255, 255, 0.65);
-  font-size: clamp(38px, 10.8vw, 50px);
-  line-height: 1;
-
-  filter: brightness(0) invert(1) opacity(0.65);
-  -webkit-filter: brightness(0) invert(1) opacity(0.65);
-
-  pointer-events: none;
-}
-
-/* Keep Nest status in lower area without killing icon space */
-.nest-info {
-  flex: 0 0 auto;
-  margin-top: 0;
-}
-
-/* Keep volume bar locked at bottom */
-.nest-volume-bar {
-  flex: 0 0 auto;
-  margin-top: 8px;
-}
-
-/* =========================================================
-   ENT-001 NEST MINI ICON POSITION FIX
-   Nama device tetap di atas, speaker tepat di bawahnya
-========================================================= */
-
-.nest-card::before {
-  flex: 1 1 auto !important;
-
-  display: grid !important;
-  place-items: center !important;
-
-  margin: 4px 0 2px !important;
-  align-self: center !important;
-
-  font-size: clamp(34px, 9.8vw, 44px) !important;
-  line-height: 1 !important;
-
-  transform: translateY(-4px) !important;
-}
-
-.nest-info {
-  flex: 0 0 auto !important;
-  margin-top: 0 !important;
-}
-
-.nest-volume-bar {
-  flex: 0 0 auto !important;
-  margin-top: 7px !important;
-}
