@@ -1571,3 +1571,161 @@ article.target-device-card > * {
   }
 }
 
+/* =========================================================
+   DEV-001 & DEV-002 FINAL POLISH
+   No .hero-card selector
+========================================================= */
+
+.target-device-card {
+  padding: 15px 14px 14px;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition:
+    background .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease,
+    opacity .25s ease;
+}
+
+/* ON CARD */
+.ac-card:not(.disabled),
+.lamp-card:not(.disabled):not(.dimmed) {
+  background:
+    radial-gradient(circle at 22% 10%, rgba(255,255,255,.24), transparent 34%),
+    linear-gradient(145deg, rgba(0,230,118,.62), rgba(0,135,76,.42));
+  border-color: rgba(255,255,255,.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.16),
+    0 18px 38px rgba(0,0,0,.22),
+    0 0 28px rgba(0,230,118,.16);
+}
+
+/* OFF / DIMMED CARD */
+.ac-card.disabled,
+.lamp-card.disabled,
+.lamp-card.dimmed {
+  background:
+    radial-gradient(circle at 22% 10%, rgba(255,255,255,.10), transparent 34%),
+    rgba(10, 14, 24, .48);
+  border-color: rgba(255,255,255,.075);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 16px 34px rgba(0,0,0,.24);
+}
+
+/* Title */
+.target-card-title {
+  font-size: clamp(12.5px, 3.45vw, 14px);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+/* Main number slimmer */
+.target-main-value strong,
+#acTemp,
+#lampBrightness {
+  font-size: clamp(32px, 9vw, 39px);
+  font-weight: 550;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  text-shadow: 0 6px 16px rgba(0,0,0,.16);
+}
+
+/* Power button small glass */
+#acToggleBtn,
+#lampToggleBtn {
+  width: 24px !important;
+  height: 24px !important;
+  min-width: 24px !important;
+  min-height: 24px !important;
+  background: rgba(255,255,255,.10) !important;
+  border: 1px solid rgba(255,255,255,.16) !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Power icon color */
+#acToggleBtn.on::before,
+#lampToggleBtn.on::before {
+  border-color: #00ff88 !important;
+  border-top-color: transparent !important;
+}
+
+#acToggleBtn.on::after,
+#lampToggleBtn.on::after {
+  background: #00ff88 !important;
+}
+
+#acToggleBtn.off::before,
+#lampToggleBtn.off::before {
+  border-color: rgba(255, 92, 92, .92) !important;
+  border-top-color: transparent !important;
+}
+
+#acToggleBtn.off::after,
+#lampToggleBtn.off::after {
+  background: rgba(255, 92, 92, .92) !important;
+}
+
+/* Slider thin */
+.target-fake-slider,
+.ac-slider,
+.lamp-bar {
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,.90) 0%,
+    rgba(255,255,255,.90) var(--ac-pos, 45%),
+    rgba(255,255,255,.15) var(--ac-pos, 45%),
+    rgba(255,255,255,.15) 100%
+  );
+}
+
+.lamp-bar {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,.90) 0%,
+    rgba(255,255,255,.90) var(--lamp-pos, 50%),
+    rgba(255,255,255,.15) var(--lamp-pos, 50%),
+    rgba(255,255,255,.15) 100%
+  );
+}
+
+/* Thumb smaller */
+#acSliderFill,
+.ac-slider-fill,
+#lampBar,
+.lamp-bar div {
+  width: 11px;
+  height: 11px;
+  min-width: 11px;
+  min-height: 11px;
+  max-width: 11px;
+  max-height: 11px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(255,255,255,.26);
+}
+
+/* Plus minus clean */
+.target-slider-row .control-btn,
+#acMinusBtn,
+#acPlusBtn,
+.lamp-minus-btn,
+.lamp-plus-btn {
+  color: rgba(255,255,255,.92);
+  font-size: 17px;
+  font-weight: 400;
+  background: transparent;
+}
+
+/* OFF dim controls */
+.ac-card.disabled .target-sub-info,
+.ac-card.disabled .target-slider-row,
+.lamp-card.disabled .target-sub-info,
+.lamp-card.disabled .target-slider-row,
+.lamp-card.dimmed .target-sub-info,
+.lamp-card.dimmed .target-slider-row {
+  opacity: .48;
+  filter: saturate(.72);
+}
