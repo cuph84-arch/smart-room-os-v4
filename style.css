@@ -2196,3 +2196,139 @@ article.target-device-card > * {
   line-height: 1;
   vertical-align: -1px;
 }
+
+/* =========================================================
+   DEV-001 & DEV-002 PREMIUM BALANCE PATCH
+   Typography + Grid Gap + Meta Clean + Slider Color
+   No JS binding changes
+========================================================= */
+
+/* 1. Better gap between AC & Lamp cards */
+.hero-grid,
+.target-device-grid,
+section.hero-grid.target-device-grid {
+  gap: clamp(16px, 4.8vw, 22px) !important;
+}
+
+/* 2. Device title = same hierarchy as section title */
+.ac-card .target-card-title,
+.lamp-card .target-card-title {
+  font-size: 15px !important;
+  line-height: 1.15 !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.35px !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  text-align: center !important;
+}
+
+/* 3. Main number remains focal point */
+.ac-card .target-main-value strong,
+.lamp-card .target-main-value strong,
+#acTemp,
+#lampBrightness {
+  font-size: clamp(36px, 10.2vw, 44px) !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.055em !important;
+  color: rgba(255, 255, 255, 0.96) !important;
+}
+
+/* 4. Clean meta row */
+.target-meta-clean {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  font-size: clamp(8.5px, 2.45vw, 10.5px) !important;
+  line-height: 1.15 !important;
+  font-weight: 400 !important;
+  color: rgba(255, 255, 255, 0.66) !important;
+  text-transform: capitalize !important;
+}
+
+.target-meta-clean span,
+.target-meta-clean b {
+  font-size: inherit !important;
+  line-height: inherit !important;
+  font-weight: inherit !important;
+  color: inherit !important;
+}
+
+.target-meta-clean .meta-separator {
+  color: rgba(255, 255, 255, 0.42) !important;
+  font-size: 9px !important;
+}
+
+/* Hide logic-only status, keep JS binding safe */
+.lamp-meta-clean #lampStatus,
+.ac-meta-clean #acStatus {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 5. AC slider: cool blue / tosca */
+.ac-card .target-fake-slider,
+.ac-card .ac-slider {
+  height: 3px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(
+    90deg,
+    #41f4ff 0%,
+    #1ea7ff var(--ac-pos, 45%),
+    rgba(255, 255, 255, 0.14) var(--ac-pos, 45%),
+    rgba(255, 255, 255, 0.14) 100%
+  ) !important;
+  box-shadow: 0 0 10px rgba(65, 244, 255, 0.16) !important;
+}
+
+/* 6. Lamp slider: warm yellow / light */
+.lamp-card .lamp-bar {
+  height: 3px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(
+    90deg,
+    #fff6a3 0%,
+    #ffd84d var(--lamp-pos, 50%),
+    rgba(255, 255, 255, 0.14) var(--lamp-pos, 50%),
+    rgba(255, 255, 255, 0.14) 100%
+  ) !important;
+  box-shadow: 0 0 10px rgba(255, 216, 77, 0.18) !important;
+}
+
+/* 7. Thumb stays clean and realtime-safe */
+.ac-card #acSliderFill,
+.ac-card .ac-slider-fill,
+.lamp-card #lampBar,
+.lamp-card .lamp-bar div {
+  width: 11px !important;
+  height: 11px !important;
+  min-width: 11px !important;
+  min-height: 11px !important;
+  max-width: 11px !important;
+  max-height: 11px !important;
+  border-radius: 999px !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.72) !important;
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.10),
+    0 2px 8px rgba(0, 0, 0, 0.22) !important;
+}
+
+/* 8. Small screen balance */
+@media (max-width: 390px) {
+  .hero-grid,
+  .target-device-grid,
+  section.hero-grid.target-device-grid {
+    gap: 14px !important;
+  }
+
+  .ac-card .target-card-title,
+  .lamp-card .target-card-title {
+    font-size: 14px !important;
+  }
+}
