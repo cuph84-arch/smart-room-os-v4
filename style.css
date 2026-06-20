@@ -124,12 +124,6 @@ p {
 }
 
 .header {
-  padding: 0 0 12px;
-}
-
-.header-top {
-
-.header {
   padding-top: max(10px, env(safe-area-inset-top));
   padding-bottom: clamp(10px, 3vw, 14px);
 }
@@ -285,7 +279,6 @@ p {
   mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 9.5 12 4l8 5.5V21h-2v-9H6v9H4V9.5Zm4 4h8v2H8v-2Zm0 3.5h8v2H8v-2Z'/%3E%3C/svg%3E");
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 9.5 12 4l8 5.5V21h-2v-9H6v9H4V9.5Zm4 4h8v2H8v-2Zm0 3.5h8v2H8v-2Z'/%3E%3C/svg%3E");
 }
-  
 .dashboard {
   display: flex;
   flex-direction: column;
@@ -1486,9 +1479,11 @@ article.target-device-card > * {
   .app {
     padding-inline: 16px;
   }
-.header h1 {
+
+  .header h1 {
   font-size: clamp(25px, 7.1vw, 28px);
 }
+
   .summary-grid {
     gap: 8px;
   }
