@@ -1,39 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --asset-base: "https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/";
   --bg-image: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/bg/smartroom-bg.png");
 
-  --font-main: "Poppins", "Plus Jakarta Sans", Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-main: "Poppins", "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   --text-main: rgba(255, 255, 255, 0.96);
-  --text-soft: rgba(255, 255, 255, 0.68);
-  --text-muted: rgba(255, 255, 255, 0.46);
-  --text-faint: rgba(255, 255, 255, 0.28);
-
-  --glass: rgba(255, 255, 255, 0.075);
-  --glass-border: rgba(255, 255, 255, 0.12);
+  --text-soft: rgba(255, 255, 255, 0.70);
+  --text-muted: rgba(255, 255, 255, 0.48);
+  --text-faint: rgba(255, 255, 255, 0.30);
 
   --green: #00e676;
-  --power-blue: #2596be;
-  --power-red: #f44236;
+  --cyan: #41f4ff;
   --blue: #40c4ff;
-  --cyan: #64f4ff;
-  --purple: #b388ff;
+  --yellow: #ffd84d;
   --orange: #ffb74d;
-  --yellow: #ffe066;
+  --purple: #b388ff;
   --pink: #ff80ab;
-  --red: #ff4040;
+  --red: #ff4c4c;
 
-  --radius-card: 22px;
+  --radius-card: 24px;
   --radius-inner: 17px;
-  --section-gap: clamp(12px, 3.5vw, 16px);
+  --section-gap: 13px;
 
-  --blur-card: blur(22px);
+  --glass-bg: rgba(255, 255, 255, 0.065);
+  --glass-border: rgba(255, 255, 255, 0.10);
+
   --shadow-card:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 16px 38px rgba(0, 0, 0, 0.22);
-  --shadow-soft: 0 10px 28px rgba(0, 0, 0, 0.18);
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    0 16px 38px rgba(0, 0, 0, 0.24);
 }
 
 * {
@@ -70,6 +65,7 @@ input {
 button {
   border: 0;
   cursor: pointer;
+  background: none;
 }
 
 h1,
@@ -90,7 +86,7 @@ p {
   padding: 28px 27px 96px;
   overflow-x: hidden;
   background:
-    linear-gradient(180deg, rgba(4, 8, 20, 0.18), rgba(4, 8, 20, 0.74)),
+    linear-gradient(180deg, rgba(4, 8, 20, 0.16), rgba(4, 8, 20, 0.74)),
     radial-gradient(circle at 14% 8%, rgba(255, 0, 128, 0.32), transparent 34%),
     radial-gradient(circle at 92% 8%, rgba(0, 230, 118, 0.26), transparent 36%),
     radial-gradient(circle at 56% 66%, rgba(64, 196, 255, 0.18), transparent 42%),
@@ -101,8 +97,8 @@ p {
   background-attachment: fixed;
 }
 
-.phone-container::before,
-.app::before {
+.app::before,
+.phone-container::before {
   content: "";
   position: fixed;
   inset: 0;
@@ -113,8 +109,8 @@ p {
     radial-gradient(circle at 50% -8%, rgba(255, 255, 255, 0.10), transparent 34%);
 }
 
-.phone-container::after,
-.app::after {
+.app::after,
+.phone-container::after {
   content: "";
   position: fixed;
   inset: 0;
@@ -122,6 +118,10 @@ p {
   pointer-events: none;
   background: rgba(0, 0, 0, 0.10);
 }
+
+/* =========================
+   HEADER
+========================= */
 
 .header {
   padding-top: max(10px, env(safe-area-inset-top));
@@ -132,8 +132,8 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: clamp(12px, 3.5vw, 16px);
-  margin-bottom: 8px;
+  gap: 14px;
+  margin-bottom: 10px;
 }
 
 .header-text {
@@ -144,18 +144,13 @@ p {
   color: #fff;
   font-size: clamp(27px, 7vw, 32px);
   line-height: 1.02;
-  font-weight: 720;
-  letter-spacing: -1.1px;
+  font-weight: 760;
+  letter-spacing: -1.15px;
   text-shadow: 0 8px 26px rgba(0, 0, 0, 0.28);
 }
 
-.wave {
-  display: none;
-}
-
-.header-date,
 #lastUpdated {
-  margin-top: clamp(5px, 1.6vw, 7px);
+  margin-top: 6px;
   color: rgba(255, 255, 255, 0.88);
   font-size: clamp(10.5px, 2.85vw, 12px);
   line-height: 1.25;
@@ -173,41 +168,36 @@ p {
   border-radius: 999px;
   color: #fff;
   font-size: clamp(17px, 4.8vw, 20px);
-  line-height: 1;
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    0 8px 20px rgba(0, 0, 0, 0.10);
+    0 8px 20px rgba(0, 0, 0, 0.12);
   backdrop-filter: blur(14px) saturate(150%);
   -webkit-backdrop-filter: blur(14px) saturate(150%);
 }
 
 .notification-btn span {
   display: block;
-  color: #fff;
   line-height: 1;
-  filter: grayscale(1) brightness(2.2);
 }
 
-.notification-btn span {
-  display: block;
-  color: rgba(255, 255, 255, 0.92);
-  line-height: 1;
-  filter: none;
-}
+/* =========================
+   TOP TABS
+========================= */
 
 .top-tabs {
   display: flex;
   align-items: center;
-  gap: clamp(8px, 2.8vw, 12px);
+  gap: 11px;
   overflow-x: auto;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  padding: 1px 1px 4px;
+  padding: 1px 1px 5px;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
 .top-tabs::-webkit-scrollbar {
   display: none;
 }
@@ -221,16 +211,12 @@ p {
   gap: 7px;
   padding: 0 clamp(12px, 3.8vw, 16px);
   border-radius: 999px;
-  color: rgba(255, 255, 255, 0.76);
+  color: rgba(255, 255, 255, 0.74);
   font-size: clamp(10px, 2.8vw, 11.5px);
   font-weight: 600;
   letter-spacing: -0.01em;
   white-space: nowrap;
-  background: transparent;
   border: 1px solid transparent;
-  box-shadow: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
 }
 
 .top-tabs button.active {
@@ -290,6 +276,9 @@ p {
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 9.5 12 4l8 5.5V21h-2v-9H6v9H4V9.5Zm4 4h8v2H8v-2Zm0 3.5h8v2H8v-2Z'/%3E%3C/svg%3E");
 }
 
+/* =========================
+   BASE CARDS
+========================= */
 
 .dashboard {
   display: flex;
@@ -304,7 +293,7 @@ p {
   padding: 18px;
   border-radius: var(--radius-card);
   color: var(--text-main);
-  background: var(--glass);
+  background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   box-shadow: var(--shadow-card);
   backdrop-filter: blur(22px) saturate(140%);
@@ -358,6 +347,10 @@ h3 {
   font-weight: 600;
 }
 
+/* =========================
+   BADGES
+========================= */
+
 .badge,
 .status-pill {
   min-width: 42px;
@@ -369,7 +362,7 @@ h3 {
   border-radius: 999px;
   color: var(--text-main);
   font-size: 9px;
-  font-weight: 780;
+  font-weight: 760;
   text-align: center;
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(255, 255, 255, 0.10);
@@ -388,14 +381,14 @@ h3 {
   background: rgba(255, 255, 255, 0.055);
 }
 
+/* =========================
+   SUMMARY
+========================= */
+
 .summary-card,
-section.hero-grid,
 .hero-grid,
 .target-device-grid,
 .entertainment-grid,
-.climate-grid,
-.cctv-grid,
-.energy-grid,
 .metric-grid,
 .split-grid {
   margin-top: var(--section-gap);
@@ -453,7 +446,6 @@ section.hero-grid,
   color: var(--green);
   font-size: 9px;
   font-weight: 700;
-  letter-spacing: -0.01em;
 }
 
 .summary-energy {
@@ -479,22 +471,20 @@ section.hero-grid,
   text-align: right;
 }
 
+/* =========================
+   HERO DEVICE CARDS
+========================= */
+
 .hero-grid,
-.target-device-grid,
-section.hero-grid.target-device-grid {
+.target-device-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(10px, 3vw, 14px);
+  gap: clamp(14px, 4vw, 18px);
   width: 100%;
   align-items: stretch;
 }
 
-.hero-card,
-.target-device-card,
-article.card.hero-card.ac-card.target-device-card,
-article.card.hero-card.lamp-card.target-device-card,
-section.hero-grid.target-device-grid > article.card.hero-card.ac-card.target-device-card,
-section.hero-grid.target-device-grid > article.card.hero-card.lamp-card.target-device-card {
+.target-device-card {
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -508,33 +498,40 @@ section.hero-grid.target-device-grid > article.card.hero-card.lamp-card.target-d
   grid-template-rows: 24px 20px minmax(42px, 1fr) 18px 24px;
   row-gap: 3px;
   align-items: center;
-  border-radius: clamp(22px, 6.5vw, 32px);
+  border-radius: clamp(22px, 6.5vw, 30px);
+  border: 1px solid rgba(255, 255, 255, 0.085);
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    opacity 0.25s ease;
 }
 
-.ac-card,
-section.hero-grid.target-device-grid > article.ac-card {
+.ac-card {
   background:
-    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.13), transparent 30%),
-    rgba(0, 120, 38, 0.42);
+    radial-gradient(circle at 20% 12%, rgba(255, 255, 255, 0.16), transparent 32%),
+    linear-gradient(145deg, rgba(0, 160, 82, 0.40), rgba(12, 38, 42, 0.42));
 }
 
-.lamp-card,
-section.hero-grid.target-device-grid > article.lamp-card {
+.lamp-card {
   background:
-    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.13), transparent 30%),
-    rgba(90, 45, 40, 0.42);
+    radial-gradient(circle at 20% 12%, rgba(255, 255, 255, 0.15), transparent 32%),
+    linear-gradient(145deg, rgba(120, 76, 34, 0.36), rgba(12, 42, 48, 0.48));
 }
 
-section.hero-grid.target-device-grid > article.target-device-card > *,
-article.target-device-card > * {
+.ac-card.disabled,
+.lamp-card.disabled {
+  background:
+    radial-gradient(circle at 22% 10%, rgba(255, 255, 255, 0.10), transparent 34%),
+    rgba(10, 14, 24, 0.48);
+  border-color: rgba(255, 255, 255, 0.075);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 16px 34px rgba(0, 0, 0, 0.24);
+}
+
+.target-device-card > * {
   position: relative;
-  inset: auto;
-  top: auto;
-  right: auto;
-  bottom: auto;
-  left: auto;
-  transform: none;
-  margin: 0;
   z-index: 1;
   box-sizing: border-box;
 }
@@ -545,16 +542,21 @@ article.target-device-card > * {
   height: 24px;
   min-height: 24px;
   display: grid;
-  grid-template-columns: 24px minmax(0, 1fr) 24px;
+  grid-template-columns: 24px minmax(0, 1fr) 26px;
   align-items: center;
   gap: 0;
-  padding: 0;
-  margin: 0;
 }
 
 .card-icon,
+.emoji-card {
+  display: inline-grid;
+  place-items: center;
+  line-height: 1;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.28));
+}
+
 .target-card-top .emoji-card,
-.hero-card .emoji-card,
 .ac-card .card-icon,
 .lamp-card .card-icon {
   grid-column: 1;
@@ -562,116 +564,18 @@ article.target-device-card > * {
   align-self: center;
   width: 22px;
   height: 22px;
-  display: inline-grid;
-  place-items: center;
   font-size: 22px;
-  line-height: 1;
 }
 
-:root{
-  --power-on:#2596be;
-  --power-off:#f44236;
-}
-
-/* =========================
-   POWER BUTTON FINAL CSS PURE
-========================= */
-
-:root {
-  --power-on: #2596be;
-  --power-off: #f44236;
-}
-
-#acToggleBtn,
-#lampToggleBtn {
-  grid-column: 3 !important;
-  justify-self: end !important;
-  align-self: center !important;
-
-  width: 28px !important;
-  height: 28px !important;
-  min-width: 28px !important;
-  min-height: 28px !important;
-
-  padding: 0 !important;
-  margin: 0 !important;
-  border: 0 !important;
-  border-radius: 50% !important;
-
-  position: relative !important;
-  display: grid !important;
-  place-items: center !important;
-
-  font-size: 0 !important;
-  color: #fff !important;
-  overflow: visible !important;
-
-  background: var(--power-off) !important;
-  box-shadow:
-    inset 0 1px 1px rgba(255,255,255,.22),
-    0 4px 10px rgba(0,0,0,.18) !important;
-}
-
-#acToggleBtn.on,
-#lampToggleBtn.on {
-  background: var(--power-on) !important;
-}
-
-#acToggleBtn.off,
-#lampToggleBtn.off {
-  background: var(--power-off) !important;
-}
-
-/* 1. LINGKARAN POWER (Lebih presisi dan seimbang) */
-#acToggleBtn::before,
-#lampToggleBtn::before {
-  content: "" !important;
-  position: absolute !important;
-  left: 50% !important;
-  top: 52% !important; /* Sengaja diturunkan 2% agar seimbang dengan tiang atas */
-  
-  width: 14px !important;  /* Diperbesar sedikit agar tidak terlalu sempit */
-  height: 14px !important;
-  
-  border: 2px solid #fff !important; /* Ketebalan garis utama: 2px */
-  border-top-color: transparent !important;
-  border-radius: 50% !important;
-  
-  background: transparent !important;
-  box-shadow: none !important;
-  
-  transform: translate(-50%, -50%) !important;
-}
-
-/* 2. TIANG POWER VERTIKAL (Elegan dengan ujung membulat) */
-#acToggleBtn::after,
-#lampToggleBtn::after {
-  content: "" !important;
-  position: absolute !important;
-  left: 50% !important;
-  top: 20% !important; /* Menggunakan % agar adaptif terhadap ukuran tombol */
-  
-  width: 2px !important; /* WAJIB SAMA dengan ketebalan border lingkaran (2px) */
-  height: 7px !important;
-  
-  background: #fff !important;
-  border-radius: 999px !important; /* Rahasia modernitas: Ujung membulat (Rounded caps) */
-  
-  transform: translateX(-50%) !important;
-}
-
-
-.target-card-title,
-.hero-card h2 {
+.target-card-title {
   grid-row: 2;
   width: 100%;
-  margin-bottom: 4px;
   text-align: center;
-  font-size: clamp(13px, 3.7vw, 15px);
+  font-size: 14px;
   line-height: 1.15;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: #fff;
+  font-weight: 600;
+  letter-spacing: -0.35px;
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .target-main-value {
@@ -683,39 +587,37 @@ article.target-device-card > * {
   justify-content: center;
   text-align: center;
   white-space: nowrap;
-  transform: translateY(-1px);
 }
 
 .target-main-value strong,
 #acTemp,
-#lampBrightness,
-.ac-display strong,
-.lamp-display strong {
+#lampBrightness {
   display: block;
-  color: #fff;
-  font-size: clamp(34px, 10vw, 42px);
+  color: rgba(255, 255, 255, 0.96);
+  font-size: clamp(36px, 10.2vw, 44px);
   line-height: 1;
-  font-weight: 500;
+  font-weight: 300;
   letter-spacing: -0.055em;
   text-align: center;
+  text-shadow: 0 5px 14px rgba(0, 0, 0, 0.14);
+  transform: translateZ(0);
 }
 
 .target-sub-info {
   grid-row: 4;
   width: 100%;
   max-width: 100%;
-  margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(8px, 2.6vw, 12px);
+  gap: 7px;
   overflow: hidden;
   white-space: nowrap;
   text-align: center;
-  font-size: clamp(8px, 2.35vw, 10px);
+  font-size: clamp(8.5px, 2.45vw, 10.5px);
   line-height: 1.15;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.66);
   text-transform: capitalize;
 }
 
@@ -728,21 +630,21 @@ article.target-device-card > * {
   color: inherit;
 }
 
-.ac-card .target-sub-info small,
-.ac-card .target-sub-info #acStatus {
-  display: none;
+.meta-separator {
+  color: rgba(255, 255, 255, 0.42) !important;
+  font-size: 9px !important;
 }
 
-.lamp-card .target-sub-info #lampStatus,
-.lamp-card .target-sub-info .logic-hidden {
-  position: static;
-  width: auto;
-  height: auto;
-  overflow: visible;
-  opacity: 1;
-  pointer-events: auto;
-  display: inline;
-  text-transform: capitalize;
+.logic-hidden,
+.hidden-energy-cost,
+#acStatus,
+#lampStatus {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 .target-slider-row {
@@ -757,7 +659,9 @@ article.target-device-card > * {
 
 .target-slider-row .control-btn,
 #acMinusBtn,
-#acPlusBtn {
+#acPlusBtn,
+.lamp-minus-btn,
+.lamp-plus-btn {
   width: 24px;
   height: 24px;
   min-width: 24px;
@@ -770,26 +674,29 @@ article.target-device-card > * {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 17px;
   line-height: 1;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.96);
+  font-weight: 400;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.20);
 }
 
-.target-fake-slider,
-.ac-slider {
+.ac-slider,
+.target-fake-slider {
   position: relative;
   width: 100%;
-  height: 2.5px;
+  height: 3px;
   border-radius: 999px;
   overflow: visible;
-  background: linear-gradient(
-    90deg,
-    var(--red) 0%,
-    var(--red) var(--ac-pos, 45%),
-    rgba(64, 196, 255, 0.7) var(--ac-pos, 45%),
-    rgba(64, 196, 255, 0.7) 100%
-  );
+  background:
+    linear-gradient(
+      90deg,
+      var(--cyan) 0%,
+      #1ea7ff var(--ac-pos, 45%),
+      rgba(255, 255, 255, 0.14) var(--ac-pos, 45%),
+      rgba(255, 255, 255, 0.14) 100%
+    );
+  box-shadow: 0 0 10px rgba(65, 244, 255, 0.16);
 }
 
 .target-range-wrap {
@@ -804,18 +711,20 @@ article.target-device-card > * {
   left: 0;
   right: 0;
   top: 50%;
-  transform: translateY(-50%);
   width: 100%;
-  height: 2.5px;
+  height: 3px;
   border-radius: 999px;
   overflow: visible;
-  background: linear-gradient(
-    90deg,
-    var(--red) 0%,
-    var(--red) var(--lamp-pos, 50%),
-    rgba(64, 196, 255, 0.7) var(--lamp-pos, 50%),
-    rgba(64, 196, 255, 0.7) 100%
-  );
+  transform: translateY(-50%);
+  background:
+    linear-gradient(
+      90deg,
+      #fff6a3 0%,
+      var(--yellow) var(--lamp-pos, 50%),
+      rgba(255, 255, 255, 0.14) var(--lamp-pos, 50%),
+      rgba(255, 255, 255, 0.14) 100%
+    );
+  box-shadow: 0 0 10px rgba(255, 216, 77, 0.18);
   pointer-events: none;
 }
 
@@ -825,19 +734,19 @@ article.target-device-card > * {
 .lamp-bar div {
   position: absolute;
   top: 50%;
-  width: 12px;
-  height: 12px;
-  min-width: 12px;
-  min-height: 12px;
-  max-width: 12px;
-  max-height: 12px;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  background: var(--red);
-  background-image: none;
-  box-shadow: none;
+  width: 11px;
+  height: 11px;
+  min-width: 11px;
+  min-height: 11px;
+  max-width: 11px;
+  max-height: 11px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.10),
+    0 2px 8px rgba(0, 0, 0, 0.22);
   pointer-events: none;
-  will-change: transform;
 }
 
 #acSliderFill,
@@ -868,23 +777,7 @@ article.target-device-card > * {
 }
 
 #lampBrightnessSlider::-webkit-slider-runnable-track,
-.brightness-slider::-webkit-slider-runnable-track {
-  opacity: 0;
-  height: 0;
-  background: transparent;
-}
-
-#lampBrightnessSlider::-webkit-slider-thumb,
-.brightness-slider::-webkit-slider-thumb {
-  opacity: 0;
-  width: 0;
-  height: 0;
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-  -webkit-appearance: none;
-}
-
+.brightness-slider::-webkit-slider-runnable-track,
 #lampBrightnessSlider::-moz-range-track,
 .brightness-slider::-moz-range-track {
   opacity: 0;
@@ -892,6 +785,8 @@ article.target-device-card > * {
   background: transparent;
 }
 
+#lampBrightnessSlider::-webkit-slider-thumb,
+.brightness-slider::-webkit-slider-thumb,
 #lampBrightnessSlider::-moz-range-thumb,
 .brightness-slider::-moz-range-thumb {
   opacity: 0;
@@ -900,11 +795,7 @@ article.target-device-card > * {
   background: transparent;
   border: 0;
   box-shadow: none;
-}
-
-.target-fake-slider,
-.lamp-bar {
-  overflow: visible;
+  -webkit-appearance: none;
 }
 
 .target-fake-slider::after,
@@ -920,78 +811,120 @@ article.target-device-card > * {
   pointer-events: auto;
 }
 
-.ac-card .target-sub-info,
-.ac-card .target-slider-row,
-.lamp-card .target-sub-info,
-.lamp-card .target-slider-row {
-  transition:
-    opacity .22s ease,
-    filter .22s ease;
-}
-
 .ac-card.disabled .target-sub-info,
 .ac-card.disabled .target-slider-row,
 .lamp-card.disabled .target-sub-info,
 .lamp-card.disabled .target-slider-row {
-  opacity: .35;
-  pointer-events: none;
-  filter: saturate(.75);
+  opacity: 0.48;
+  filter: saturate(0.72);
 }
 
-#acTemp,
-#lampBrightness {
-  will-change: contents, transform;
-  transform: translateZ(0);
+/* =========================
+   POWER BUTTON CSS PURE
+========================= */
+
+#acToggleBtn,
+#lampToggleBtn,
+#acToggleBtn.on,
+#lampToggleBtn.on,
+#acToggleBtn.off,
+#lampToggleBtn.off {
+  grid-column: 3 !important;
+  justify-self: end !important;
+  align-self: center !important;
+
+  width: 26px !important;
+  height: 26px !important;
+  min-width: 26px !important;
+  min-height: 26px !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+  position: relative !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 999px !important;
+
+  background:
+    radial-gradient(
+      circle at 35% 28%,
+      rgba(255, 255, 255, 0.22),
+      rgba(0, 0, 0, 0.42) 58%,
+      rgba(0, 0, 0, 0.56) 100%
+    ) !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.24) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.20),
+    0 6px 14px rgba(0, 0, 0, 0.28) !important;
+
+  backdrop-filter: blur(14px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
+
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+  text-shadow: none !important;
+  overflow: visible !important;
 }
 
-.ac-display,
-.lamp-display,
-.device-meta.clean-meta,
-.slider-control-wrap,
-.slider-buttons,
-.lamp-control-wrap {
-  margin: 0;
+#acToggleBtn::before,
+#lampToggleBtn::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 52% !important;
+  width: 13px !important;
+  height: 13px !important;
+  border-width: 3px !important;
+  border-style: solid !important;
+  border-radius: 999px !important;
+  border-top-color: transparent !important;
+  background: transparent !important;
+  transform: translate(-50%, -50%) !important;
 }
 
-.device-meta.clean-meta {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2px;
+#acToggleBtn::after,
+#lampToggleBtn::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 18% !important;
+  width: 3px !important;
+  height: 8px !important;
+  border-radius: 999px !important;
+  transform: translateX(-50%) !important;
 }
 
-.device-meta.clean-meta div {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 0;
-  border: 0;
-  background: transparent;
+#acToggleBtn.on::before,
+#lampToggleBtn.on::before {
+  border-color: #00d2ff !important;
+  border-top-color: transparent !important;
+  filter: drop-shadow(0 0 5px rgba(0, 210, 255, 0.55));
 }
 
-.device-meta.clean-meta span,
-.device-meta.clean-meta strong,
-.lamp-display span,
-.lamp-display b,
-.metric-item span {
-  color: var(--text-muted);
-  font-size: 10px;
-  font-weight: 500;
+#acToggleBtn.on::after,
+#lampToggleBtn.on::after {
+  background: #00d2ff !important;
+  box-shadow: 0 0 7px rgba(0, 210, 255, 0.65) !important;
 }
 
-.lamp-control-wrap {
-  position: relative;
-  padding-top: 0;
+#acToggleBtn.off::before,
+#lampToggleBtn.off::before {
+  border-color: var(--red) !important;
+  border-top-color: transparent !important;
+  filter: drop-shadow(0 0 5px rgba(255, 76, 76, 0.50));
 }
 
-.slider-labels {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 3px;
-  color: rgba(255, 255, 255, 0.36);
-  font-size: 7.5px;
-  font-weight: 560;
+#acToggleBtn.off::after,
+#lampToggleBtn.off::after {
+  background: var(--red) !important;
+  box-shadow: 0 0 7px rgba(255, 76, 76, 0.55) !important;
 }
+
+/* =========================
+   ENTERTAINMENT
+========================= */
 
 .entertainment-card {
   padding: 16px 18px;
@@ -1034,14 +967,6 @@ article.target-device-card > * {
   gap: 8px;
 }
 
-.tv-card .mini-emoji {
-  margin-top: 8px;
-}
-
-.tv-card p {
-  margin-top: auto;
-}
-
 .mini-device h3 {
   font-size: 12px;
   font-weight: 600;
@@ -1060,6 +985,14 @@ article.target-device-card > * {
   color: var(--text-muted);
   font-size: 9.5px;
   font-weight: 400;
+}
+
+.tv-card .mini-emoji {
+  margin-top: 8px;
+}
+
+.tv-card p {
+  margin-top: auto;
 }
 
 .nest-info {
@@ -1082,6 +1015,10 @@ article.target-device-card > * {
   background: linear-gradient(90deg, var(--blue), rgba(255, 255, 255, 0.62));
 }
 
+/* =========================
+   CLIMATE & POWER
+========================= */
+
 .climate-power-card {
   padding: 15px 18px;
   background:
@@ -1103,7 +1040,6 @@ article.target-device-card > * {
   text-align: center;
   padding: 0 6px;
   background: transparent;
-  border: 0;
   border-right: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -1126,6 +1062,10 @@ article.target-device-card > * {
   font-weight: 400;
   color: var(--text-muted);
 }
+
+/* =========================
+   CCTV + ENERGY
+========================= */
 
 .split-grid {
   display: grid;
@@ -1191,7 +1131,7 @@ article.target-device-card > * {
 
 .security-line strong[id="cctvMotion"],
 .security-line strong[id="cctvRecording"] {
-  color: #00e676;
+  color: var(--green);
 }
 
 .security-visual {
@@ -1252,7 +1192,7 @@ article.target-device-card > * {
 
 .energy-total-box span,
 .energy-total-box strong {
-  color: #00e676;
+  color: var(--green);
   font-size: 10px;
   font-weight: 700;
 }
@@ -1268,6 +1208,10 @@ article.target-device-card > * {
   font-size: 7.8px;
   font-weight: 400;
 }
+
+/* =========================
+   SCENE
+========================= */
 
 .scene-card {
   min-height: 64px;
@@ -1292,9 +1236,6 @@ article.target-device-card > * {
   align-items: center;
   gap: 8px;
   margin-top: 4px;
-  padding: 0;
-  border: 0;
-  background: transparent;
 }
 
 .scene-row span {
@@ -1320,6 +1261,10 @@ article.target-device-card > * {
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 12px 28px rgba(108, 60, 220, 0.20);
 }
+
+/* =========================
+   BOTTOM NAV
+========================= */
 
 .bottom-nav,
 .nav-bar {
@@ -1379,8 +1324,11 @@ article.target-device-card > * {
     0 0 0 1px rgba(255, 255, 255, 0.20);
 }
 
+/* =========================
+   ICON COLORS
+========================= */
+
 .emoji-icon,
-.emoji-card,
 .emoji-device,
 .metric-emoji,
 .mini-emoji {
@@ -1395,12 +1343,6 @@ article.target-device-card > * {
   width: 24px;
   height: 24px;
   font-size: 21px;
-}
-
-.emoji-card {
-  width: 22px;
-  height: 22px;
-  font-size: 20px;
 }
 
 .emoji-device {
@@ -1428,15 +1370,9 @@ article.target-device-card > * {
 .pink { color: var(--pink); }
 .purple { color: var(--purple); }
 
-.logic-hidden,
-.hidden-energy-cost {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  opacity: 0;
-  pointer-events: none;
-}
+/* =========================
+   ACTIVE FEEDBACK
+========================= */
 
 .control-btn:active,
 .scene-action:active,
@@ -1446,9 +1382,18 @@ article.target-device-card > * {
   transform: scale(0.96);
 }
 
+#acToggleBtn:active,
+#lampToggleBtn:active {
+  transform: scale(0.94) !important;
+}
+
 .center-action:active {
   transform: translateY(-8px) scale(0.96);
 }
+
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media (max-width: 390px) {
   .phone-container,
@@ -1463,26 +1408,17 @@ article.target-device-card > * {
 
   .hero-grid,
   .target-device-grid,
-  section.hero-grid.target-device-grid,
   .split-grid,
   .entertainment-grid {
     gap: 10px;
   }
 
-  .hero-card,
-  .target-device-card,
-  article.card.hero-card.ac-card.target-device-card,
-  article.card.hero-card.lamp-card.target-device-card {
+  .target-device-card {
     padding: 12px;
   }
 
   .security-layout {
     grid-template-columns: 1fr 58px;
-  }
-
-  .security-visual {
-    width: 58px;
-    height: 58px;
   }
 }
 
@@ -1493,8 +1429,8 @@ article.target-device-card > * {
   }
 
   .header h1 {
-  font-size: clamp(25px, 7.1vw, 28px);
-}
+    font-size: clamp(25px, 7.1vw, 28px);
+  }
 
   .summary-grid {
     gap: 8px;
@@ -1506,38 +1442,28 @@ article.target-device-card > * {
   }
 
   .hero-grid,
-  .target-device-grid,
-  section.hero-grid.target-device-grid {
+  .target-device-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
   }
 
-  .hero-card,
-  .target-device-card,
-  article.card.hero-card.ac-card.target-device-card,
-  article.card.hero-card.lamp-card.target-device-card {
+  .target-device-card {
     padding: 10px;
     border-radius: 22px;
   }
 
-  .target-card-title,
-  .hero-card h2 {
+  .target-card-title {
     font-size: 12px;
-    font-weight: 700;
-    color: #fff;
   }
 
   .target-main-value strong,
   #acTemp,
-  #lampBrightness,
-  .ac-display strong,
-  .lamp-display strong {
+  #lampBrightness {
     font-size: clamp(32px, 9.5vw, 40px);
-    line-height: 1;
   }
 
   .target-sub-info {
-    gap: 8px;
+    gap: 6px;
     font-size: 8px;
   }
 
@@ -1564,771 +1490,5 @@ article.target-device-card > * {
   .cctv-card,
   .energy-card {
     min-height: auto;
-  }
-
-  .security-layout {
-    grid-template-columns: 1fr 58px;
-  }
-}
-
-/* =========================================================
-   DEV-001 & DEV-002 FINAL POLISH
-   No .hero-card selector
-========================================================= */
-
-.target-device-card {
-  padding: 15px 14px 14px;
-  border-radius: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition:
-    background .35s ease,
-    border-color .35s ease,
-    box-shadow .35s ease,
-    opacity .25s ease;
-}
-
-/* ON CARD */
-.ac-card:not(.disabled),
-.lamp-card:not(.disabled):not(.dimmed) {
-  background:
-    radial-gradient(circle at 22% 10%, rgba(255,255,255,.24), transparent 34%),
-    linear-gradient(145deg, rgba(0,230,118,.62), rgba(0,135,76,.42));
-  border-color: rgba(255,255,255,.12);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.16),
-    0 18px 38px rgba(0,0,0,.22),
-    0 0 28px rgba(0,230,118,.16);
-}
-
-/* OFF / DIMMED CARD */
-.ac-card.disabled,
-.lamp-card.disabled,
-.lamp-card.dimmed {
-  background:
-    radial-gradient(circle at 22% 10%, rgba(255,255,255,.10), transparent 34%),
-    rgba(10, 14, 24, .48);
-  border-color: rgba(255,255,255,.075);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.08),
-    0 16px 34px rgba(0,0,0,.24);
-}
-
-/* Title */
-.target-card-title {
-  font-size: clamp(12.5px, 3.45vw, 14px);
-  font-weight: 600;
-  letter-spacing: -0.025em;
-}
-
-/* Main number slimmer */
-.target-main-value strong,
-#acTemp,
-#lampBrightness {
-  font-size: clamp(32px, 9vw, 39px);
-  font-weight: 550;
-  letter-spacing: -0.045em;
-  line-height: 1;
-  text-shadow: 0 6px 16px rgba(0,0,0,.16);
-}
-
-/* Power button small glass */
-#acToggleBtn,
-#lampToggleBtn {
-  width: 24px !important;
-  height: 24px !important;
-  min-width: 24px !important;
-  min-height: 24px !important;
-  background: rgba(255,255,255,.10) !important;
-  border: 1px solid rgba(255,255,255,.16) !important;
-  box-shadow: none !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-/* Power icon color */
-#acToggleBtn.on::before,
-#lampToggleBtn.on::before {
-  border-color: #00ff88 !important;
-  border-top-color: transparent !important;
-}
-
-#acToggleBtn.on::after,
-#lampToggleBtn.on::after {
-  background: #00ff88 !important;
-}
-
-#acToggleBtn.off::before,
-#lampToggleBtn.off::before {
-  border-color: rgba(255, 92, 92, .92) !important;
-  border-top-color: transparent !important;
-}
-
-#acToggleBtn.off::after,
-#lampToggleBtn.off::after {
-  background: rgba(255, 92, 92, .92) !important;
-}
-
-/* Slider thin */
-.target-fake-slider,
-.ac-slider,
-.lamp-bar {
-  height: 3px;
-  background: linear-gradient(
-    90deg,
-    rgba(255,255,255,.90) 0%,
-    rgba(255,255,255,.90) var(--ac-pos, 45%),
-    rgba(255,255,255,.15) var(--ac-pos, 45%),
-    rgba(255,255,255,.15) 100%
-  );
-}
-
-.lamp-bar {
-  background: linear-gradient(
-    90deg,
-    rgba(255,255,255,.90) 0%,
-    rgba(255,255,255,.90) var(--lamp-pos, 50%),
-    rgba(255,255,255,.15) var(--lamp-pos, 50%),
-    rgba(255,255,255,.15) 100%
-  );
-}
-
-/* Thumb smaller */
-#acSliderFill,
-.ac-slider-fill,
-#lampBar,
-.lamp-bar div {
-  width: 11px;
-  height: 11px;
-  min-width: 11px;
-  min-height: 11px;
-  max-width: 11px;
-  max-height: 11px;
-  background: #fff;
-  box-shadow: 0 0 10px rgba(255,255,255,.26);
-}
-
-/* Plus minus clean */
-.target-slider-row .control-btn,
-#acMinusBtn,
-#acPlusBtn,
-.lamp-minus-btn,
-.lamp-plus-btn {
-  color: rgba(255,255,255,.92);
-  font-size: 17px;
-  font-weight: 400;
-  background: transparent;
-}
-
-/* OFF dim controls */
-.ac-card.disabled .target-sub-info,
-.ac-card.disabled .target-slider-row,
-.lamp-card.disabled .target-sub-info,
-.lamp-card.disabled .target-slider-row,
-.lamp-card.dimmed .target-sub-info,
-.lamp-card.dimmed .target-slider-row {
-  opacity: .48;
-  filter: saturate(.72);
-}
-
-/* DEV-001/002 Toggle Text Cleanup */
-#acToggleBtn,
-#lampToggleBtn {
-  font-size: 0 !important;
-  color: transparent !important;
-  text-shadow: none !important;
-  line-height: 0 !important;
-  overflow: visible !important;
-}
-
-#acToggleBtn::before,
-#acToggleBtn::after,
-#lampToggleBtn::before,
-#lampToggleBtn::after {
-  color: initial !important;
-  text-shadow: none !important;
-}
-
-/* DEV-001/002 Main Indicator Thin Typography */
-#acTemp,
-#lampBrightness,
-.target-main-value strong {
-  font-weight: 300 !important;
-  letter-spacing: -0.055em;
-  text-shadow: 0 5px 14px rgba(0, 0, 0, 0.14);
-}
-
-/* =========================================================
-   DEV-001 & DEV-002 FINAL FINISHING
-   Power Button Contrast + Premium Gradient Slider
-   CSS ONLY — no HTML / no JS
-========================================================= */
-
-/* =========================
-   POWER BUTTON BASE CLEANUP
-========================= */
-
-#acToggleBtn,
-#lampToggleBtn {
-  width: 24px !important;
-  height: 24px !important;
-  min-width: 24px !important;
-  min-height: 24px !important;
-
-  padding: 0 !important;
-  margin: 0 !important;
-
-  position: relative !important;
-  display: grid !important;
-  place-items: center !important;
-
-  border-radius: 999px !important;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important;
-
-  background:
-    radial-gradient(
-      circle at 35% 25%,
-      rgba(255, 255, 255, 0.18),
-      rgba(0, 0, 0, 0.34) 58%,
-      rgba(0, 0, 0, 0.46) 100%
-    ) !important;
-
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
-    0 6px 14px rgba(0, 0, 0, 0.22) !important;
-
-  backdrop-filter: blur(14px) saturate(150%) !important;
-  -webkit-backdrop-filter: blur(14px) saturate(150%) !important;
-
-  font-size: 0 !important;
-  line-height: 0 !important;
-  color: transparent !important;
-  text-shadow: none !important;
-
-  overflow: visible !important;
-}
-
-/* =========================
-   POWER ICON RING
-========================= */
-
-#acToggleBtn::before,
-#lampToggleBtn::before {
-  content: "" !important;
-  position: absolute !important;
-
-  left: 50% !important;
-  top: 52% !important;
-
-  width: 13px !important;
-  height: 13px !important;
-
-  border-width: 2.5px !important;
-  border-style: solid !important;
-  border-radius: 999px !important;
-  border-top-color: transparent !important;
-
-  background: transparent !important;
-  box-shadow: none !important;
-
-  transform: translate(-50%, -50%) !important;
-}
-
-/* =========================
-   POWER ICON STEM
-========================= */
-
-#acToggleBtn::after,
-#lampToggleBtn::after {
-  content: "" !important;
-  position: absolute !important;
-
-  left: 50% !important;
-  top: 19% !important;
-
-  width: 2.5px !important;
-  height: 7.5px !important;
-
-  border-radius: 999px !important;
-  transform: translateX(-50%) !important;
-}
-
-/* =========================
-   POWER ICON ON STATE
-========================= */
-
-#acToggleBtn.on::before,
-#lampToggleBtn.on::before {
-  border-color: #00d2ff !important;
-  border-top-color: transparent !important;
-  filter: drop-shadow(0 0 5px rgba(0, 210, 255, 0.42));
-}
-
-#acToggleBtn.on::after,
-#lampToggleBtn.on::after {
-  background: #00d2ff !important;
-  box-shadow: 0 0 6px rgba(0, 210, 255, 0.55) !important;
-}
-
-/* =========================
-   POWER ICON OFF STATE
-========================= */
-
-#acToggleBtn.off::before,
-#lampToggleBtn.off::before {
-  border-color: #ff4c4c !important;
-  border-top-color: transparent !important;
-  filter: drop-shadow(0 0 5px rgba(255, 76, 76, 0.35));
-}
-
-#acToggleBtn.off::after,
-#lampToggleBtn.off::after {
-  background: #ff4c4c !important;
-  box-shadow: 0 0 6px rgba(255, 76, 76, 0.45) !important;
-}
-
-/* =========================
-   POWER BUTTON ACTIVE FEEDBACK
-========================= */
-
-#acToggleBtn:active,
-#lampToggleBtn:active {
-  transform: scale(0.94) !important;
-}
-
-/* =========================
-   AC SLIDER TRACK
-   Green to Cyan Gradient
-========================= */
-
-.ac-card .target-fake-slider,
-.ac-card .ac-slider {
-  position: relative !important;
-  height: 3px !important;
-  border-radius: 999px !important;
-  overflow: visible !important;
-
-  background:
-    linear-gradient(
-      90deg,
-      #2ecc71 0%,
-      #00d2ff var(--ac-pos, 45%),
-      rgba(255, 255, 255, 0.15) var(--ac-pos, 45%),
-      rgba(255, 255, 255, 0.15) 100%
-    ) !important;
-
-  box-shadow:
-    0 0 10px rgba(0, 210, 255, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
-}
-
-/* =========================
-   AC SLIDER THUMB
-========================= */
-
-.ac-card #acSliderFill,
-.ac-card .ac-slider-fill {
-  position: absolute !important;
-
-  top: 50% !important;
-  left: var(--ac-pos, 45%) !important;
-
-  width: 11px !important;
-  height: 11px !important;
-  min-width: 11px !important;
-  min-height: 11px !important;
-  max-width: 11px !important;
-  max-height: 11px !important;
-
-  border-radius: 999px !important;
-
-  background:
-    radial-gradient(
-      circle at 35% 30%,
-      #ffffff,
-      #dffaff 72%
-    ) !important;
-
-  border: 1px solid rgba(255, 255, 255, 0.65) !important;
-
-  box-shadow:
-    0 0 0 2px rgba(0, 210, 255, 0.12),
-    0 2px 8px rgba(0, 0, 0, 0.22) !important;
-
-  transform: translate3d(-50%, -50%, 0) !important;
-  pointer-events: none !important;
-}
-
-/* =========================
-   LAMP SLIDER TRACK
-   Red to Amber Gradient
-========================= */
-
-.lamp-card .lamp-bar {
-  position: absolute !important;
-  left: 0 !important;
-  right: 0 !important;
-  top: 50% !important;
-
-  width: 100% !important;
-  height: 3px !important;
-
-  border-radius: 999px !important;
-  overflow: visible !important;
-
-  background:
-    linear-gradient(
-      90deg,
-      #ff4c4c 0%,
-      #ffb84d var(--lamp-pos, 50%),
-      rgba(255, 255, 255, 0.15) var(--lamp-pos, 50%),
-      rgba(255, 255, 255, 0.15) 100%
-    ) !important;
-
-  box-shadow:
-    0 0 10px rgba(255, 184, 77, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
-
-  transform: translateY(-50%) !important;
-  pointer-events: none !important;
-}
-
-/* =========================
-   LAMP SLIDER THUMB
-========================= */
-
-.lamp-card #lampBar,
-.lamp-card .lamp-bar div {
-  position: absolute !important;
-
-  top: 50% !important;
-  left: var(--lamp-pos, 50%) !important;
-
-  width: 11px !important;
-  height: 11px !important;
-  min-width: 11px !important;
-  min-height: 11px !important;
-  max-width: 11px !important;
-  max-height: 11px !important;
-
-  border-radius: 999px !important;
-
-  background:
-    radial-gradient(
-      circle at 35% 30%,
-      #ffffff,
-      #fff2d7 72%
-    ) !important;
-
-  border: 1px solid rgba(255, 255, 255, 0.65) !important;
-
-  box-shadow:
-    0 0 0 2px rgba(255, 184, 77, 0.12),
-    0 2px 8px rgba(0, 0, 0, 0.22) !important;
-
-  transform: translate3d(-50%, -50%, 0) !important;
-  pointer-events: none !important;
-}
-
-/* =========================
-   SLIDER CONTROL TEXT
-========================= */
-
-.target-slider-row .control-btn,
-#acMinusBtn,
-#acPlusBtn,
-.lamp-minus-btn,
-.lamp-plus-btn {
-  color: rgba(255, 255, 255, 0.92) !important;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.20) !important;
-}
-
-/* =========================
-   DISABLED STATE SOFTENING
-========================= */
-
-.ac-card.disabled .target-fake-slider,
-.ac-card.disabled .ac-slider {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(46, 204, 113, 0.36) 0%,
-      rgba(0, 210, 255, 0.30) var(--ac-pos, 45%),
-      rgba(255, 255, 255, 0.10) var(--ac-pos, 45%),
-      rgba(255, 255, 255, 0.10) 100%
-    ) !important;
-}
-
-.lamp-card.disabled .lamp-bar,
-.lamp-card.dimmed .lamp-bar {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(255, 76, 76, 0.36) 0%,
-      rgba(255, 184, 77, 0.30) var(--lamp-pos, 50%),
-      rgba(255, 255, 255, 0.10) var(--lamp-pos, 50%),
-      rgba(255, 255, 255, 0.10) 100%
-    ) !important;
-}
-
-.ac-card.disabled #acSliderFill,
-.ac-card.disabled .ac-slider-fill,
-.lamp-card.disabled #lampBar,
-.lamp-card.disabled .lamp-bar div,
-.lamp-card.dimmed #lampBar,
-.lamp-card.dimmed .lamp-bar div {
-  opacity: 0.62 !important;
-}
-
-/* =========================================================
-   DEV-001 & DEV-002 POWER BUTTON CLARITY PATCH
-   Keep existing slider gradient unchanged
-========================================================= */
-
-/* Force dark glass button, remove old solid red/blue background */
-#acToggleBtn,
-#lampToggleBtn,
-#acToggleBtn.on,
-#lampToggleBtn.on,
-#acToggleBtn.off,
-#lampToggleBtn.off {
-  width: 26px !important;
-  height: 26px !important;
-  min-width: 26px !important;
-  min-height: 26px !important;
-
-  padding: 0 !important;
-  border-radius: 999px !important;
-
-  background:
-    radial-gradient(
-      circle at 35% 28%,
-      rgba(255, 255, 255, 0.22),
-      rgba(0, 0, 0, 0.42) 58%,
-      rgba(0, 0, 0, 0.56) 100%
-    ) !important;
-
-  border: 1px solid rgba(255, 255, 255, 0.24) !important;
-
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.20),
-    0 6px 14px rgba(0, 0, 0, 0.28) !important;
-
-  backdrop-filter: blur(14px) saturate(160%) !important;
-  -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
-
-  font-size: 0 !important;
-  line-height: 0 !important;
-  color: transparent !important;
-  text-shadow: none !important;
-  overflow: visible !important;
-}
-
-/* Power ring thicker */
-#acToggleBtn::before,
-#lampToggleBtn::before {
-  content: "" !important;
-  position: absolute !important;
-
-  left: 50% !important;
-  top: 52% !important;
-
-  width: 13px !important;
-  height: 13px !important;
-
-  border-width: 3px !important;
-  border-style: solid !important;
-  border-radius: 999px !important;
-  border-top-color: transparent !important;
-
-  background: transparent !important;
-  transform: translate(-50%, -50%) !important;
-}
-
-/* Power stem thicker */
-#acToggleBtn::after,
-#lampToggleBtn::after {
-  content: "" !important;
-  position: absolute !important;
-
-  left: 50% !important;
-  top: 18% !important;
-
-  width: 3px !important;
-  height: 8px !important;
-
-  border-radius: 999px !important;
-  transform: translateX(-50%) !important;
-}
-
-/* ON icon color */
-#acToggleBtn.on::before,
-#lampToggleBtn.on::before {
-  border-color: #00d2ff !important;
-  border-top-color: transparent !important;
-  filter: drop-shadow(0 0 5px rgba(0, 210, 255, 0.55));
-}
-
-#acToggleBtn.on::after,
-#lampToggleBtn.on::after {
-  background: #00d2ff !important;
-  box-shadow: 0 0 7px rgba(0, 210, 255, 0.65) !important;
-}
-
-/* OFF icon color */
-#acToggleBtn.off::before,
-#lampToggleBtn.off::before {
-  border-color: #ff4c4c !important;
-  border-top-color: transparent !important;
-  filter: drop-shadow(0 0 5px rgba(255, 76, 76, 0.50));
-}
-
-#acToggleBtn.off::after,
-#lampToggleBtn.off::after {
-  background: #ff4c4c !important;
-  box-shadow: 0 0 7px rgba(255, 76, 76, 0.55) !important;
-}
-
-/* Restore moon icon before lamp mode without editing HTML */
-.lamp-card .target-sub-info span:last-child::before {
-  content: "🌓 ";
-  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
-  font-size: 10px;
-  line-height: 1;
-  vertical-align: -1px;
-}
-
-/* =========================================================
-   DEV-001 & DEV-002 PREMIUM BALANCE PATCH
-   Typography + Grid Gap + Meta Clean + Slider Color
-   No JS binding changes
-========================================================= */
-
-/* 1. Better gap between AC & Lamp cards */
-.hero-grid,
-.target-device-grid,
-section.hero-grid.target-device-grid {
-  gap: clamp(16px, 4.8vw, 22px) !important;
-}
-
-/* 2. Device title = same hierarchy as section title */
-.ac-card .target-card-title,
-.lamp-card .target-card-title {
-  font-size: 15px !important;
-  line-height: 1.15 !important;
-  font-weight: 600 !important;
-  letter-spacing: -0.35px !important;
-  color: rgba(255, 255, 255, 0.88) !important;
-  text-align: center !important;
-}
-
-/* 3. Main number remains focal point */
-.ac-card .target-main-value strong,
-.lamp-card .target-main-value strong,
-#acTemp,
-#lampBrightness {
-  font-size: clamp(36px, 10.2vw, 44px) !important;
-  font-weight: 300 !important;
-  letter-spacing: -0.055em !important;
-  color: rgba(255, 255, 255, 0.96) !important;
-}
-
-/* 4. Clean meta row */
-.target-meta-clean {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 7px !important;
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  font-size: clamp(8.5px, 2.45vw, 10.5px) !important;
-  line-height: 1.15 !important;
-  font-weight: 400 !important;
-  color: rgba(255, 255, 255, 0.66) !important;
-  text-transform: capitalize !important;
-}
-
-.target-meta-clean span,
-.target-meta-clean b {
-  font-size: inherit !important;
-  line-height: inherit !important;
-  font-weight: inherit !important;
-  color: inherit !important;
-}
-
-.target-meta-clean .meta-separator {
-  color: rgba(255, 255, 255, 0.42) !important;
-  font-size: 9px !important;
-}
-
-/* Hide logic-only status, keep JS binding safe */
-.lamp-meta-clean #lampStatus,
-.ac-meta-clean #acStatus {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  overflow: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-
-/* 5. AC slider: cool blue / tosca */
-.ac-card .target-fake-slider,
-.ac-card .ac-slider {
-  height: 3px !important;
-  border-radius: 999px !important;
-  background: linear-gradient(
-    90deg,
-    #41f4ff 0%,
-    #1ea7ff var(--ac-pos, 45%),
-    rgba(255, 255, 255, 0.14) var(--ac-pos, 45%),
-    rgba(255, 255, 255, 0.14) 100%
-  ) !important;
-  box-shadow: 0 0 10px rgba(65, 244, 255, 0.16) !important;
-}
-
-/* 6. Lamp slider: warm yellow / light */
-.lamp-card .lamp-bar {
-  height: 3px !important;
-  border-radius: 999px !important;
-  background: linear-gradient(
-    90deg,
-    #fff6a3 0%,
-    #ffd84d var(--lamp-pos, 50%),
-    rgba(255, 255, 255, 0.14) var(--lamp-pos, 50%),
-    rgba(255, 255, 255, 0.14) 100%
-  ) !important;
-  box-shadow: 0 0 10px rgba(255, 216, 77, 0.18) !important;
-}
-
-/* 7. Thumb stays clean and realtime-safe */
-.ac-card #acSliderFill,
-.ac-card .ac-slider-fill,
-.lamp-card #lampBar,
-.lamp-card .lamp-bar div {
-  width: 11px !important;
-  height: 11px !important;
-  min-width: 11px !important;
-  min-height: 11px !important;
-  max-width: 11px !important;
-  max-height: 11px !important;
-  border-radius: 999px !important;
-  background: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.72) !important;
-  box-shadow:
-    0 0 0 2px rgba(255, 255, 255, 0.10),
-    0 2px 8px rgba(0, 0, 0, 0.22) !important;
-}
-
-/* 8. Small screen balance */
-@media (max-width: 390px) {
-  .hero-grid,
-  .target-device-grid,
-  section.hero-grid.target-device-grid {
-    gap: 14px !important;
-  }
-
-  .ac-card .target-card-title,
-  .lamp-card .target-card-title {
-    font-size: 14px !important;
   }
 }
