@@ -29,19 +29,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function loadFirebaseState() {
   try {
-    const res = await fetch(FIREBASE_STATE_URL + '?t=' + Date.now());
-    const state = await res.json();
+    const response = await fetch(FIREBASE_STATE_URL + '?t=' + Date.now());
 
+    if (!response.ok) {
+      throw new Error('Firebase response not OK: ' + response.status);
+    }
+
+    const state = await response.json();
     const data = mapFirebaseState(state || {});
+
     renderDashboard(data);
-  } catch (err) {
-    console.error('Firebase load error:', err);
+  } catch (error) {
+    console.error('Firebase load error:', error);
     showToast('Gagal memuat data');
   }
 }
 
 /* =========================
-   MAP DATA
+   MAP FIREBASE STATE
 ========================= */
 
 function mapFirebaseState(state) {
@@ -52,12 +57,13 @@ function mapFirebaseState(state) {
   const nest = state.nest || {};
   const cctv = state.cctv || {};
   const energy = state.energy || {};
+  const climate = state.climate || {};
   const lastAutomation = state.last_automation || {};
 
   return {
     climate: {
-      temp: state.climate?.temperature ?? '--',
-      humidity: state.climate?.humidity ?? '--'
+      temp: climate.temperature ?? '--',
+      humidity: climate.humidity ?? '--'
     },
 
     smartplug: {
@@ -157,12 +163,6 @@ function mapFirebaseState(state) {
 ========================= */
 
 function renderDashboard(data) {
-  setText(
-    'headerDate',
-    'Last Updated: ' +
-    (data.cctv?.updated_at || '--')
-  );
-
   setText('roomTemp', formatValue(data.climate.temp, '°C'));
   setText('roomHumidity', formatValue(data.climate.humidity, '%'));
 
@@ -224,7 +224,10 @@ function renderDashboard(data) {
   setBadge('tvPowerBadge', isOn(data.tv.power));
   setBadge('nestPowerBadge', data.nest.online === true || isOn(data.nest.online));
 
-   /* =========================
+  renderHeroCardMeta(data);
+}
+
+/* =========================
    HERO CARD META POLISH
 ========================= */
 
@@ -234,21 +237,21 @@ function renderHeroCardMeta(data) {
 }
 
 function renderACMeta(data) {
-  const modeEl = document.getElementById('acMode');
-  const fanEl = document.getElementById('acFan');
+  const modeElement = document.getElementById('acMode');
+  const fanElement = document.getElementById('acFan');
 
-  if (modeEl) {
-    modeEl.textContent = formatACModeLabel(data.ac.mode);
+  if (modeElement) {
+    modeElement.textContent = formatACModeLabel(data.ac.mode);
   }
 
-  if (fanEl) {
-    fanEl.textContent = formatFanLabel(data.ac.fan);
+  if (fanElement) {
+    fanElement.textContent = formatFanLabel(data.ac.fan);
   }
 }
 
 function renderLampMeta(data) {
   const lampCard = document.querySelector('.lamp-card');
-  const lampModeEl = document.getElementById('lampMode');
+  const lampModeElement = document.getElementById('lampMode');
 
   if (!lampCard) return;
 
@@ -258,8 +261,8 @@ function renderLampMeta(data) {
     metaSpans[0].textContent = isOn(data.lamp.power) ? 'Active' : 'Standby';
   }
 
-  if (lampModeEl) {
-    lampModeEl.textContent = formatLampModeLabel(data.lamp.mode);
+  if (lampModeElement) {
+    lampModeElement.textContent = formatLampModeLabel(data.lamp.mode);
   }
 }
 
@@ -308,8 +311,9 @@ function formatLampModeLabel(value) {
 function toTitleCase(value) {
   return String(value || '')
     .toLowerCase()
-    .replace(/\b\w/g, char => char.toUpperCase());
+    .replace(/\b\w/g, character => character.toUpperCase());
 }
+
 /* =========================
    VISUAL SLIDERS
 ========================= */
@@ -344,7 +348,7 @@ function renderLampSlider(power, brightness) {
   }
 }
 
-function updateSliderVisual(trackSelector, thumbSelector, cssVarName, percent) {
+function updateSliderVisual(trackSelector, thumbSelector, cssVariableName, percent) {
   const track = document.querySelector(trackSelector);
   const thumb = document.querySelector(thumbSelector);
 
@@ -352,8 +356,7 @@ function updateSliderVisual(trackSelector, thumbSelector, cssVarName, percent) {
 
   const safePercent = clampNumber(percent, 0, 100);
 
-  track.style.setProperty(cssVarName, safePercent + '%');
-
+  track.style.setProperty(cssVariableName, safePercent + '%');
   thumb.style.left = safePercent + '%';
   thumb.style.transform = 'translate3d(-50%, -50%, 0)';
 }
@@ -376,12 +379,14 @@ function isDeviceOn(value) {
     state === 'online' ||
     state === 'true' ||
     state === '1' ||
-    state.includes(' on')
+    state.includes(' on') ||
+    state.includes('on')
   );
 }
 
 function applyDeviceControlState(cardSelector, statusValue) {
   const card = document.querySelector(cardSelector);
+
   if (!card) return;
 
   const active = isDeviceOn(statusValue);
@@ -395,42 +400,42 @@ function applyDeviceControlState(cardSelector, statusValue) {
 ========================= */
 
 function bindControls() {
-  const acToggleBtn = document.getElementById('acToggleBtn');
-  const acPlusBtn = document.getElementById('acPlusBtn');
-  const acMinusBtn = document.getElementById('acMinusBtn');
-  const lampToggleBtn = document.getElementById('lampToggleBtn');
+  const acToggleButton = document.getElementById('acToggleBtn');
+  const acPlusButton = document.getElementById('acPlusBtn');
+  const acMinusButton = document.getElementById('acMinusBtn');
+  const lampToggleButton = document.getElementById('lampToggleBtn');
   const lampSlider = document.getElementById('lampBrightnessSlider');
-  const rerunSceneBtn = document.getElementById('rerunSceneBtn');
+  const rerunSceneButton = document.getElementById('rerunSceneBtn');
 
-  if (acToggleBtn) {
-    acToggleBtn.addEventListener('click', () => {
-      const active = acToggleBtn.classList.contains('on');
+  if (acToggleButton) {
+    acToggleButton.addEventListener('click', () => {
+      const active = acToggleButton.classList.contains('on');
       sendControl(active ? 'ac_off' : 'ac_on');
     });
   }
 
-  if (acPlusBtn) {
-    acPlusBtn.addEventListener('click', () => {
+  if (acPlusButton) {
+    acPlusButton.addEventListener('click', () => {
       sendControl('ac_temp_up');
     });
   }
 
-  if (acMinusBtn) {
-    acMinusBtn.addEventListener('click', () => {
+  if (acMinusButton) {
+    acMinusButton.addEventListener('click', () => {
       sendControl('ac_temp_down');
     });
   }
 
-  if (lampToggleBtn) {
-    lampToggleBtn.addEventListener('click', () => {
-      const active = lampToggleBtn.classList.contains('on');
+  if (lampToggleButton) {
+    lampToggleButton.addEventListener('click', () => {
+      const active = lampToggleButton.classList.contains('on');
       sendControl(active ? 'lamp_off' : 'lamp_on');
     });
   }
 
   if (lampSlider) {
     lampSlider.addEventListener('input', () => {
-      const lampBrightness = document.getElementById('lampBrightness');
+      const lampBrightnessElement = document.getElementById('lampBrightness');
       const value = clampNumber(Number(lampSlider.value || 0), 0, 100);
 
       updateSliderVisual(
@@ -440,8 +445,8 @@ function bindControls() {
         value
       );
 
-      if (lampBrightness) {
-        lampBrightness.textContent = value + '%';
+      if (lampBrightnessElement) {
+        lampBrightnessElement.textContent = value + ' %';
       }
     });
 
@@ -450,8 +455,8 @@ function bindControls() {
     });
   }
 
-  if (rerunSceneBtn) {
-    rerunSceneBtn.addEventListener('click', () => {
+  if (rerunSceneButton) {
+    rerunSceneButton.addEventListener('click', () => {
       const scene =
         document.getElementById('sceneName')?.textContent || '';
 
@@ -483,16 +488,16 @@ async function sendControl(action, value = '') {
       '&t=' +
       Date.now();
 
-    const res = await fetch(url);
-    const text = await res.text();
+    const response = await fetch(url);
+    const text = await response.text();
 
     console.log('Control response:', text);
 
     showToast('Perintah terkirim');
 
     setTimeout(loadFirebaseState, 1200);
-  } catch (err) {
-    console.error('Control error:', err);
+  } catch (error) {
+    console.error('Control error:', error);
     showToast('Gagal kirim perintah');
   }
 }
@@ -519,28 +524,32 @@ function sceneToAction(sceneName) {
 ========================= */
 
 function setText(id, value) {
-  const el = document.getElementById(id);
-  if (el) el.textContent = value;
+  const element = document.getElementById(id);
+
+  if (element) {
+    element.textContent = value;
+  }
 }
 
 function setBadge(id, active) {
-  const el = document.getElementById(id);
-  if (!el) return;
+  const element = document.getElementById(id);
+
+  if (!element) return;
 
   const isHeroToggle =
     id === 'acToggleBtn' ||
     id === 'lampToggleBtn';
 
-  el.className = isHeroToggle
+  element.className = isHeroToggle
     ? 'badge target-toggle ' + (active ? 'on' : 'off')
     : 'badge ' + (active ? 'on' : 'off');
 
   if (isHeroToggle) {
-    el.textContent = '';
-    el.setAttribute('aria-pressed', active ? 'true' : 'false');
-    el.setAttribute('title', active ? 'ON' : 'OFF');
+    element.textContent = '';
+    element.setAttribute('aria-pressed', active ? 'true' : 'false');
+    element.setAttribute('title', active ? 'ON' : 'OFF');
   } else {
-    el.textContent = active ? 'ON' : 'OFF';
+    element.textContent = active ? 'ON' : 'OFF';
   }
 }
 
@@ -564,7 +573,12 @@ function clampNumber(value, min, max) {
 }
 
 function formatValue(value, suffix) {
-  if (value === '--' || value === null || value === undefined || value === '') {
+  if (
+    value === '--' ||
+    value === null ||
+    value === undefined ||
+    value === ''
+  ) {
     return '--';
   }
 
@@ -575,112 +589,12 @@ function formatValue(value, suffix) {
   return value + suffix;
 }
 
-
 function formatKwh(value) {
   return Number(value || 0).toFixed(2) + ' kWh';
 }
 
 function formatRupiah(value) {
   return 'Rp ' + Number(value || 0).toLocaleString('id-ID');
-}
-
-function getLatestDeviceUpdatedTime(data) {
-  const devices = [
-    data?.ac,
-    data?.cctv,
-    data?.climate,
-    data?.lamp,
-    data?.nest,
-    data?.smartplug,
-    data?.speaker,
-    data?.tv
-  ];
-
-  const dates = devices
-    .map(device => {
-      if (!device) return null;
-
-      return parseDeviceDate(
-        device.updated_at ||
-        device.updatedAt ||
-        device.timestamp ||
-        device.last_update ||
-        device.lastUpdate
-      );
-    })
-    .filter(Boolean);
-
-  if (!dates.length) return '--';
-
-  const latest = new Date(
-    Math.max(...dates.map(date => date.getTime()))
-  );
-
-  return latest.toLocaleTimeString('id-ID', {
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hour12: false
-  });
-}
-
-function parseDeviceDate(value) {
-  if (!value) return null;
-
-  if (typeof value === 'number') {
-    const date = new Date(value);
-    return isNaN(date.getTime()) ? null : date;
-  }
-
-  if (typeof value === 'string') {
-    const cleaned = value.trim();
-
-    const normal = new Date(cleaned);
-    if (!isNaN(normal.getTime())) return normal;
-
-    const match = cleaned.match(/(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2}):(\d{2})/);
-    if (match) {
-      return new Date(
-        Number(match[1]),
-        Number(match[2]) - 1,
-        Number(match[3]),
-        Number(match[4]),
-        Number(match[5]),
-        Number(match[6])
-      );
-    }
-  }
-
-  return null;
-}
-
-function parseFirebaseDate(value) {
-  if (!value) return null;
-
-  if (value instanceof Date && !isNaN(value.getTime())) {
-    return value;
-  }
-
-  if (typeof value === 'number') {
-    const date = new Date(value);
-    return isNaN(date.getTime()) ? null : date;
-  }
-
-  if (typeof value === 'string') {
-    const cleaned = value.trim();
-
-    const normalDate = new Date(cleaned);
-    if (!isNaN(normalDate.getTime())) return normalDate;
-
-    const match = cleaned.match(/(\d{1,2}):(\d{2}):(\d{2})/);
-    if (match) {
-      const now = new Date();
-      now.setHours(Number(match[1]), Number(match[2]), Number(match[3]), 0);
-      return now;
-    }
-  }
-
-  return null;
 }
 
 function getTvDisplayStatus(tv) {
@@ -700,6 +614,7 @@ function getTvDisplayStatus(tv) {
     app.toLowerCase() === 'no app'
   ) {
     if (status === 'PLAYING') return 'Screen Saver';
+
     return 'Home Screen';
   }
 
@@ -745,23 +660,33 @@ function showToast(message) {
 }
 
 function updateHeaderDateTime() {
-  const el = document.getElementById('lastUpdated');
-  if (!el) return;
+  const element = document.getElementById('lastUpdated');
+
+  if (!element) return;
 
   const now = new Date();
 
-  const bulan = [
-    'Januari', 'Februari', 'Maret', 'April',
-    'Mei', 'Juni', 'Juli', 'Agustus',
-    'September', 'Oktober', 'November', 'Desember'
+  const months = [
+    'Januari',
+    'Februari',
+    'Maret',
+    'April',
+    'Mei',
+    'Juni',
+    'Juli',
+    'Agustus',
+    'September',
+    'Oktober',
+    'November',
+    'Desember'
   ];
 
-  const tanggal = now.getDate();
-  const namaBulan = bulan[now.getMonth()];
-  const tahun = now.getFullYear();
+  const date = now.getDate();
+  const month = months[now.getMonth()];
+  const year = now.getFullYear();
 
-  const jam = String(now.getHours()).padStart(2, '0');
-  const menit = String(now.getMinutes()).padStart(2, '0');
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
 
-  el.textContent = `${tanggal} ${namaBulan} ${tahun} • ${jam}:${menit}`;
+  element.textContent = `${date} ${month} ${year} • ${hours}:${minutes}`;
 }
