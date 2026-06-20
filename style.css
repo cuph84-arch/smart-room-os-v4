@@ -1570,3 +1570,241 @@ article.target-device-card > * {
     grid-template-columns: 1fr 58px;
   }
 }
+
+/* =========================================================
+   DEV-001 & DEV-002 HERO CARD FINAL POLISH
+   Safe patch: visual only, no JS binding changes
+========================================================= */
+
+.target-device-grid,
+.hero-grid {
+  gap: 14px;
+  margin-top: 14px;
+}
+
+/* Main Hero Cards */
+.device-card,
+.ac-card,
+.lamp-card,
+.hero-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.105),
+      rgba(255, 255, 255, 0.035)
+    );
+  border: 1px solid rgba(255, 255, 255, 0.105);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* Premium top light reflection */
+.device-card::before,
+.ac-card::before,
+.lamp-card::before,
+.hero-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 24% 0%,
+      rgba(255, 255, 255, 0.16),
+      transparent 34%
+    );
+  opacity: 0.85;
+}
+
+/* Inner soft glow */
+.device-card::after,
+.ac-card::after,
+.lamp-card::after,
+.hero-card::after {
+  content: "";
+  position: absolute;
+  inset: auto -30% -45% -30%;
+  height: 110px;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.08),
+    transparent 65%
+  );
+}
+
+/* Keep content above pseudo layers */
+.device-card > *,
+.ac-card > *,
+.lamp-card > *,
+.hero-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero title / label */
+.device-card h3,
+.ac-card h3,
+.lamp-card h3,
+.hero-card h3 {
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Status text */
+.device-card .device-status,
+.ac-card .device-status,
+.lamp-card .device-status,
+.hero-card .device-status {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+/* Main value: AC temp / Lamp brightness */
+#acTemp,
+#lampBrightness {
+  font-size: clamp(2.15rem, 8vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.07em;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.96);
+  text-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+}
+
+/* Secondary info */
+#acStatus,
+#acMode,
+#acFan,
+#lampStatus,
+#lampMode {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+/* Plus minus button premium */
+#acMinusBtn,
+#acPlusBtn,
+.lamp-minus-btn,
+.lamp-plus-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.18),
+      rgba(255, 255, 255, 0.06)
+    );
+  color: rgba(255, 255, 255, 0.92);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+  transition:
+    transform 0.16s ease,
+    background 0.16s ease,
+    box-shadow 0.16s ease;
+}
+
+#acMinusBtn:active,
+#acPlusBtn:active,
+.lamp-minus-btn:active,
+.lamp-plus-btn:active {
+  transform: scale(0.94);
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* AC slider fill */
+#acSliderFill {
+  height: 5px;
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(116, 220, 255, 0.95),
+      rgba(255, 255, 255, 0.72)
+    );
+  box-shadow: 0 0 18px rgba(116, 220, 255, 0.28);
+}
+
+/* Lamp bar */
+#lampBar {
+  height: 5px;
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 214, 120, 0.95),
+      rgba(255, 255, 255, 0.72)
+    );
+  box-shadow: 0 0 18px rgba(255, 214, 120, 0.28);
+}
+
+/* Native lamp slider, if visible */
+#lampBrightnessSlider {
+  accent-color: rgba(255, 214, 120, 0.95);
+}
+
+/* Toggle button polish */
+#acToggleBtn,
+#lampToggleBtn {
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.16),
+      rgba(255, 255, 255, 0.055)
+    );
+  color: rgba(255, 255, 255, 0.92);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.20),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* Mobile density refinement */
+@media (max-width: 430px) {
+  .target-device-grid,
+  .hero-grid {
+    gap: 12px;
+  }
+
+  .device-card,
+  .ac-card,
+  .lamp-card,
+  .hero-card {
+    border-radius: 26px;
+  }
+
+  #acTemp,
+  #lampBrightness {
+    font-size: clamp(2rem, 8vw, 2.7rem);
+  }
+
+  #acMinusBtn,
+  #acPlusBtn,
+  .lamp-minus-btn,
+  .lamp-plus-btn {
+    width: 32px;
+    height: 32px;
+  }
+}
