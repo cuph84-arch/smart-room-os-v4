@@ -1561,3 +1561,33 @@ h3 {
   flex: 0 0 auto;
   margin-top: 8px;
 }
+
+/* =========================================================
+   ENT-001 NEST MINI ICON POSITION FIX
+   Nama device tetap di atas, speaker tepat di bawahnya
+========================================================= */
+
+.nest-card::before {
+  flex: 1 1 auto !important;
+
+  display: grid !important;
+  place-items: center !important;
+
+  margin: 4px 0 2px !important;
+  align-self: center !important;
+
+  font-size: clamp(34px, 9.8vw, 44px) !important;
+  line-height: 1 !important;
+
+  transform: translateY(-4px) !important;
+}
+
+.nest-info {
+  flex: 0 0 auto !important;
+  margin-top: 0 !important;
+}
+
+.nest-volume-bar {
+  flex: 0 0 auto !important;
+  margin-top: 7px !important;
+}
