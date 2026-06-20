@@ -2225,3 +2225,117 @@ h3 {
   margin-top: 4px !important;
   transform: translateY(-2px) !important;
 }
+
+/* =========================================================
+   ENT-001 + CLM-001 CORRECTED SELECTOR PATCH
+   CSS ONLY — append at the very end of style.css
+========================================================= */
+
+/* TV Kamar: target by internal TV icon, not by card class */
+.entertainment-card:has(.tv-icon),
+.entertainment-card:has(.mini-emoji) {
+  display: grid !important;
+  grid-template-rows: 22% 52% 26% !important;
+  align-items: center !important;
+}
+
+.entertainment-card .tv-icon,
+.entertainment-card .mini-emoji {
+  grid-row: 2 !important;
+  align-self: center !important;
+  justify-self: center !important;
+
+  height: 55% !important;
+  width: auto !important;
+  max-height: 68px !important;
+
+  display: grid !important;
+  place-items: center !important;
+
+  font-size: clamp(42px, 12vw, 56px) !important;
+  line-height: 1 !important;
+  object-fit: contain !important;
+
+  transform: translateY(4px) !important;
+}
+
+.entertainment-card:has(.tv-icon) p,
+.entertainment-card:has(.mini-emoji) p,
+.entertainment-card #tvStatus {
+  align-self: start !important;
+  margin-top: 2px !important;
+  transform: translateY(-4px) !important;
+}
+
+/* Climate & Power: portrait mini cards, no strip/stretch logic */
+.climate-grid,
+.metric-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+  align-items: initial !important;
+  width: 100% !important;
+  margin-top: 13px !important;
+}
+
+.climate-item,
+.metric-item {
+  aspect-ratio: 1 / 1.35 !important;
+  min-height: unset !important;
+  height: auto !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+
+  padding: 12% 8% !important;
+  text-align: center !important;
+
+  background: rgba(255, 255, 255, 0.035) !important;
+  border: 1px solid rgba(255, 255, 255, 0.07) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.07) !important;
+  border-radius: 17px !important;
+
+  backdrop-filter: blur(14px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
+}
+
+/* Force monochrome climate icons */
+.climate-item img,
+.climate-item svg,
+.climate-item i,
+.climate-item .climate-icon,
+.climate-item .metric-emoji,
+.metric-item img,
+.metric-item svg,
+.metric-item i,
+.metric-item .climate-icon,
+.metric-item .metric-emoji {
+  color: rgba(255, 255, 255, 0.65) !important;
+  opacity: 0.65 !important;
+  filter: brightness(0) invert(1) opacity(0.65) !important;
+}
+
+/* Climate typography balance */
+.climate-value,
+.metric-item strong {
+  color: rgba(255, 255, 255, 0.94) !important;
+  font-size: clamp(12px, 3.25vw, 13.8px) !important;
+  line-height: 1.08 !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.025em !important;
+  margin: 0 !important;
+}
+
+.climate-label,
+.metric-item span:last-child {
+  color: rgba(255, 255, 255, 0.48) !important;
+  font-size: clamp(6.4px, 1.85vw, 7.4px) !important;
+  line-height: 1.15 !important;
+  font-weight: 560 !important;
+  letter-spacing: 0.07em !important;
+  text-transform: uppercase !important;
+  margin: 0 !important;
+}
