@@ -490,8 +490,6 @@ function formatValue(value, suffix) {
   return value + suffix;
 }
 
-  return value + suffix;
-}
 
 function formatKwh(value) {
   return Number(value || 0).toFixed(2) + ' kWh';
