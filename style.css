@@ -2339,3 +2339,58 @@ h3 {
   text-transform: uppercase !important;
   margin: 0 !important;
 }
+
+/* =========================================================
+   ENT-001 TV CARD RESTORE PATCH
+   CSS ONLY — append at the very end of style.css
+   Do not touch Climate & Power
+========================================================= */
+
+/* Restore safe internal layout for Entertainment mini cards */
+.entertainment-grid .mini-device {
+  display: grid !important;
+  grid-template-rows: 22% 50% 28% !important;
+  align-items: stretch !important;
+}
+
+/* Header stays fixed at top */
+.entertainment-grid .mini-device-head {
+  grid-row: 1 !important;
+  align-self: start !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+  transform: none !important;
+}
+
+/* TV icon only: centered inside middle row */
+.entertainment-card .tv-icon,
+.entertainment-card .mini-emoji {
+  grid-row: 2 !important;
+  align-self: center !important;
+  justify-self: center !important;
+
+  height: 50% !important;
+  width: auto !important;
+  max-height: 60px !important;
+
+  display: grid !important;
+  place-items: center !important;
+
+  font-size: clamp(36px, 10.5vw, 50px) !important;
+  line-height: 1 !important;
+  object-fit: contain !important;
+
+  transform: none !important;
+}
+
+/* Status stays fixed at bottom */
+.entertainment-card #tvStatus,
+.entertainment-grid .mini-device p {
+  grid-row: 3 !important;
+  align-self: end !important;
+  justify-self: start !important;
+  margin: 0 !important;
+  transform: none !important;
+}
