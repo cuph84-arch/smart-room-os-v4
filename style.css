@@ -1543,4 +1543,44 @@ h3 {
   }
 }
 
+/* FORCE KILL OLD NEST ::before */
+.nest-card::before {
+  content: none !important;
+  display: none !important;
+}
 
+/* FORCE NEST STRUCTURE */
+.nest-card {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.nest-card .mini-device-head {
+  order: 1 !important;
+}
+
+.nest-card::after {
+  content: "🔊" !important;
+  order: 2 !important;
+  flex: 1 1 auto !important;
+
+  width: 100% !important;
+  display: grid !important;
+  place-items: center !important;
+
+  font-size: clamp(36px, 10.4vw, 48px) !important;
+  line-height: 1 !important;
+
+  filter: brightness(0) invert(1) opacity(0.66) !important;
+  -webkit-filter: brightness(0) invert(1) opacity(0.66) !important;
+
+  pointer-events: none !important;
+}
+
+.nest-card .nest-info {
+  order: 3 !important;
+}
+
+.nest-card .nest-volume-bar {
+  order: 4 !important;
+}
