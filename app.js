@@ -483,6 +483,13 @@ function formatValue(value, suffix) {
     return '--';
   }
 
+  if (suffix === '°C' || suffix === '%') {
+    return value + ' ' + suffix;
+  }
+
+  return value + suffix;
+}
+
   return value + suffix;
 }
 
