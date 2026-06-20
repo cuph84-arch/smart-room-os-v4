@@ -1747,3 +1747,12 @@ article.target-device-card > * {
   color: initial !important;
   text-shadow: none !important;
 }
+
+/* DEV-001/002 Main Indicator Thin Typography */
+#acTemp,
+#lampBrightness,
+.target-main-value strong {
+  font-weight: 300 !important;
+  letter-spacing: -0.055em;
+  text-shadow: 0 5px 14px rgba(0, 0, 0, 0.14);
+}
