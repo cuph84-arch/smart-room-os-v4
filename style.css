@@ -2078,3 +2078,121 @@ article.target-device-card > * {
 .lamp-card.dimmed .lamp-bar div {
   opacity: 0.62 !important;
 }
+
+/* =========================================================
+   DEV-001 & DEV-002 POWER BUTTON CLARITY PATCH
+   Keep existing slider gradient unchanged
+========================================================= */
+
+/* Force dark glass button, remove old solid red/blue background */
+#acToggleBtn,
+#lampToggleBtn,
+#acToggleBtn.on,
+#lampToggleBtn.on,
+#acToggleBtn.off,
+#lampToggleBtn.off {
+  width: 26px !important;
+  height: 26px !important;
+  min-width: 26px !important;
+  min-height: 26px !important;
+
+  padding: 0 !important;
+  border-radius: 999px !important;
+
+  background:
+    radial-gradient(
+      circle at 35% 28%,
+      rgba(255, 255, 255, 0.22),
+      rgba(0, 0, 0, 0.42) 58%,
+      rgba(0, 0, 0, 0.56) 100%
+    ) !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.24) !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.20),
+    0 6px 14px rgba(0, 0, 0, 0.28) !important;
+
+  backdrop-filter: blur(14px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
+
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+  text-shadow: none !important;
+  overflow: visible !important;
+}
+
+/* Power ring thicker */
+#acToggleBtn::before,
+#lampToggleBtn::before {
+  content: "" !important;
+  position: absolute !important;
+
+  left: 50% !important;
+  top: 52% !important;
+
+  width: 13px !important;
+  height: 13px !important;
+
+  border-width: 3px !important;
+  border-style: solid !important;
+  border-radius: 999px !important;
+  border-top-color: transparent !important;
+
+  background: transparent !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+/* Power stem thicker */
+#acToggleBtn::after,
+#lampToggleBtn::after {
+  content: "" !important;
+  position: absolute !important;
+
+  left: 50% !important;
+  top: 18% !important;
+
+  width: 3px !important;
+  height: 8px !important;
+
+  border-radius: 999px !important;
+  transform: translateX(-50%) !important;
+}
+
+/* ON icon color */
+#acToggleBtn.on::before,
+#lampToggleBtn.on::before {
+  border-color: #00d2ff !important;
+  border-top-color: transparent !important;
+  filter: drop-shadow(0 0 5px rgba(0, 210, 255, 0.55));
+}
+
+#acToggleBtn.on::after,
+#lampToggleBtn.on::after {
+  background: #00d2ff !important;
+  box-shadow: 0 0 7px rgba(0, 210, 255, 0.65) !important;
+}
+
+/* OFF icon color */
+#acToggleBtn.off::before,
+#lampToggleBtn.off::before {
+  border-color: #ff4c4c !important;
+  border-top-color: transparent !important;
+  filter: drop-shadow(0 0 5px rgba(255, 76, 76, 0.50));
+}
+
+#acToggleBtn.off::after,
+#lampToggleBtn.off::after {
+  background: #ff4c4c !important;
+  box-shadow: 0 0 7px rgba(255, 76, 76, 0.55) !important;
+}
+
+/* Restore moon icon before lamp mode without editing HTML */
+.lamp-card .target-sub-info span:last-child::before {
+  content: "🌓 ";
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+  font-size: 10px;
+  line-height: 1;
+  vertical-align: -1px;
+}
