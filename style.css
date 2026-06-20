@@ -1521,3 +1521,43 @@ h3 {
 
   pointer-events: none !important;
 }
+
+/* =========================================================
+   ENT-001 NEST MINI CENTER ICON FIXER
+   CSS ONLY — safe for current HTML + JS
+========================================================= */
+
+/* Inject speaker icon as the missing middle element */
+.nest-card::before {
+  content: "🔊";
+
+  flex: 1 1 auto;
+  width: 100%;
+
+  display: grid;
+  place-items: center;
+
+  margin: auto 0;
+  align-self: center;
+
+  color: rgba(255, 255, 255, 0.65);
+  font-size: clamp(38px, 10.8vw, 50px);
+  line-height: 1;
+
+  filter: brightness(0) invert(1) opacity(0.65);
+  -webkit-filter: brightness(0) invert(1) opacity(0.65);
+
+  pointer-events: none;
+}
+
+/* Keep Nest status in lower area without killing icon space */
+.nest-info {
+  flex: 0 0 auto;
+  margin-top: 0;
+}
+
+/* Keep volume bar locked at bottom */
+.nest-volume-bar {
+  flex: 0 0 auto;
+  margin-top: 8px;
+}
