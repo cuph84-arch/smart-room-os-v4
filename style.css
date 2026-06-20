@@ -1729,3 +1729,21 @@ article.target-device-card > * {
   opacity: .48;
   filter: saturate(.72);
 }
+
+/* DEV-001/002 Toggle Text Cleanup */
+#acToggleBtn,
+#lampToggleBtn {
+  font-size: 0 !important;
+  color: transparent !important;
+  text-shadow: none !important;
+  line-height: 0 !important;
+  overflow: visible !important;
+}
+
+#acToggleBtn::before,
+#acToggleBtn::after,
+#lampToggleBtn::before,
+#lampToggleBtn::after {
+  color: initial !important;
+  text-shadow: none !important;
+}
