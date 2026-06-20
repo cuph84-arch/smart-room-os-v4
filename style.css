@@ -1499,3 +1499,25 @@ h3 {
     min-height: auto;
   }
 }
+
+/* =========================================================
+   NEST MINI ICON RESTORE
+   Safe pseudo-element injection
+========================================================= */
+
+.nest-card::before {
+  content: "🔊" !important;
+
+  display: block !important;
+  align-self: center !important;
+
+  font-size: clamp(38px, 11vw, 48px) !important;
+  line-height: 1 !important;
+
+  margin: auto auto 10px auto !important;
+
+  filter: brightness(0) invert(1) opacity(0.65) !important;
+  -webkit-filter: brightness(0) invert(1) opacity(0.65) !important;
+
+  pointer-events: none !important;
+}
