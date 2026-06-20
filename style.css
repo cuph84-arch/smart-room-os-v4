@@ -2063,3 +2063,65 @@ h3 {
     letter-spacing: 0.055em;
   }
 }
+
+/* =========================================================
+   FINAL DETAIL POLISH — ENT-001 + CLM-001
+   CSS ONLY — append at the end of style.css
+========================================================= */
+
+/* FIX POINT A — TV icon visual weight */
+.tv-card .tv-icon,
+.tv-card .mini-emoji {
+  grid-row: 2 !important;
+  align-self: center !important;
+  justify-self: center !important;
+
+  height: 54% !important;
+  width: auto !important;
+  max-height: 62px !important;
+
+  display: grid !important;
+  place-items: center !important;
+
+  font-size: clamp(38px, 11vw, 52px) !important;
+  line-height: 1 !important;
+  object-fit: contain !important;
+}
+
+/* FIX POINT B — Climate as 4 standalone square mini cards */
+.climate-grid,
+.metric-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+  width: 100% !important;
+  margin-top: 13px !important;
+}
+
+.climate-item,
+.metric-item {
+  aspect-ratio: 1 / 1 !important;
+  min-height: 0 !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 8% !important;
+  text-align: center !important;
+
+  background: rgba(255, 255, 255, 0.035) !important;
+  border: 1px solid rgba(255, 255, 255, 0.07) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.07) !important;
+  border-radius: 16px !important;
+
+  backdrop-filter: blur(14px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
+}
+
+/* Remove old strip divider logic */
+.climate-item:last-child,
+.metric-item:last-child {
+  border-right: 1px solid rgba(255, 255, 255, 0.07) !important;
+}
