@@ -1859,3 +1859,68 @@ h3 {
 .tv-card .mini-device-head h3 {
   font-weight: 600 !important;
 }
+/* =========================================================
+   TV CARD LAYOUT FIX — STATUS CARD FINAL
+   CSS ONLY — append at very end
+========================================================= */
+
+.tv-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: space-between !important;
+}
+
+/* Header tetap atas */
+.tv-card .mini-device-head {
+  order: 1 !important;
+  flex: 0 0 28px !important;
+  min-height: 28px !important;
+}
+
+/* TV icon center point sejajar speaker Nest */
+.tv-card .mini-emoji {
+  order: 2 !important;
+  flex: 1 1 auto !important;
+
+  width: 100% !important;
+  min-height: 62px !important;
+  margin: 4px 0 6px !important;
+
+  background:
+    url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/tv-screen-icon.svg")
+    center / 88px 50px no-repeat !important;
+
+  font-size: 0 !important;
+  color: transparent !important;
+  filter: brightness(0) invert(1) opacity(0.84) !important;
+  -webkit-filter: brightness(0) invert(1) opacity(0.84) !important;
+}
+
+/* Hapus sisa media control / slider TV */
+.tv-card #tvStatus::before,
+.tv-card #tvStatus::after {
+  display: none !important;
+  content: none !important;
+  background: none !important;
+}
+
+/* Status device TV rata kiri sejajar TV Kamar */
+.tv-card #tvStatus {
+  order: 3 !important;
+  flex: 0 0 auto !important;
+
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  display: block !important;
+  text-align: left !important;
+
+  color: rgba(255, 255, 255, 0.58) !important;
+  font-size: clamp(8.2px, 2.35vw, 9.6px) !important;
+  line-height: 1.35 !important;
+  font-weight: 440 !important;
+  letter-spacing: -0.01em !important;
+  text-transform: none !important;
+}
