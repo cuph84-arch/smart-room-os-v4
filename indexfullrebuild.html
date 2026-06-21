@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <title>Smart Room OS V4</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+
+  <meta name="theme-color" content="#07111f" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+</head>
+
+<body>
+  <main class="app phone-container">
+
+    <header class="header">
+      <div class="header-top">
+        <div class="header-text">
+          <h1>Welcome Home</h1>
+          <div id="lastUpdated">--</div>
+        </div>
+
+        <button class="notification-btn" aria-label="Notification" type="button">
+          <span aria-hidden="true">🔔</span>
+        </button>
+      </div>
+
+      <nav class="top-tabs">
+        <button class="active" type="button">
+          <span class="tab-icon tab-home" aria-hidden="true"></span>
+          <span>Home</span>
+        </button>
+
+        <button type="button">
+          <span class="tab-icon tab-room" aria-hidden="true"></span>
+          <span>Kamar</span>
+        </button>
+
+        <button type="button">
+          <span class="tab-icon tab-living" aria-hidden="true"></span>
+          <span>Ruang Tamu</span>
+        </button>
+
+        <button type="button">
+          <span class="tab-icon tab-terrace" aria-hidden="true"></span>
+          <span>Teras</span>
+        </button>
+
+        <button type="button">
+          <span class="tab-icon tab-garage" aria-hidden="true"></span>
+          <span>Garasi</span>
+        </button>
+      </nav>
+    </header>
+
+    <section class="dashboard">
+
+      <section class="wide-card summary-card">
+        <div class="section-head">
+          <div>
+            <h2>Smart Room Summary</h2>
+          </div>
+        </div>
+
+        <div class="summary-grid">
+          <div class="summary-item">
+            <span class="emoji-icon green" aria-hidden="true">❄️</span>
+            <span>AC</span>
+            <strong id="summaryAC">--</strong>
+          </div>
+
+          <div class="summary-item">
+            <span class="emoji-icon yellow" aria-hidden="true">💡</span>
+            <span>Lampu</span>
+            <strong id="summaryLamp">--</strong>
+          </div>
+
+          <div class="summary-item">
+            <span class="emoji-icon blue" aria-hidden="true">📺</span>
+            <span>TV</span>
+            <strong id="summaryTV">--</strong>
+          </div>
+
+          <div class="summary-item">
+            <span class="emoji-icon cyan" aria-hidden="true">📹</span>
+            <span>CCTV</span>
+            <strong id="summaryCCTV">--</strong>
+          </div>
+        </div>
+
+        <div class="summary-energy">
+          <span>⚡ Konsumsi hari ini</span>
+          <strong id="summaryEnergy">-- kWh · Rp 0</strong>
+        </div>
+      </section>
+
+      <section class="hero-grid target-device-grid">
+        <article class="card hero-card ac-card target-device-card">
+          <div class="target-card-top">
+            <span class="card-icon emoji-card green" aria-hidden="true">❄️</span>
+            <button id="acToggleBtn" class="badge target-toggle off" type="button" aria-label="Toggle AC"></button>
+          </div>
+
+          <h2 class="target-card-title">AC kamar</h2>
+
+          <div class="target-main-value">
+            <strong id="acTemp">--</strong>
+          </div>
+
+          <div class="target-sub-info target-meta-clean ac-meta-clean">
+            <span><b id="acMode">--</b></span>
+            <span class="meta-separator">•</span>
+            <span><b id="acFan">--</b></span>
+            <small id="acStatus" class="logic-hidden">--</small>
+          </div>
+
+          <div class="target-slider-row">
+            <button id="acMinusBtn" class="control-btn" type="button">−</button>
+
+            <div class="ac-slider target-fake-slider" style="--ac-pos: 50%;">
+              <div id="acSliderFill" class="ac-slider-fill"></div>
+            </div>
+
+            <button id="acPlusBtn" class="control-btn" type="button">+</button>
+          </div>
+        </article>
+
+        <article class="card hero-card lamp-card target-device-card">
+          <div class="target-card-top">
+            <span class="card-icon emoji-card yellow" aria-hidden="true">💡</span>
+            <button id="lampToggleBtn" class="badge target-toggle off" type="button" aria-label="Toggle Lampu"></button>
+          </div>
+
+          <h2 class="target-card-title">Lampu kamar</h2>
+
+          <div class="target-main-value">
+            <strong id="lampBrightness">--</strong>
+          </div>
+
+          <div class="target-sub-info target-meta-clean lamp-meta-clean">
+            <span>Standby</span>
+            <span class="meta-separator">•</span>
+            <span><b id="lampMode">--</b> Mode</span>
+            <b id="lampStatus" class="logic-hidden">--</b>
+          </div>
+
+          <div class="target-slider-row">
+            <button class="control-btn lamp-minus-btn" type="button">−</button>
+
+            <div class="target-range-wrap">
+              <div class="lamp-bar" style="--lamp-pos: 1%;">
+                <div id="lampBar"></div>
+              </div>
+
+              <input
+                id="lampBrightnessSlider"
+                class="brightness-slider"
+                type="range"
+                min="0"
+                max="100"
+                value="1"
+                aria-label="Lamp brightness"
+              />
+            </div>
+
+            <button class="control-btn lamp-plus-btn" type="button">+</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="wide-card entertainment-card">
+        <div class="section-head">
+          <div>
+            <h2>Entertainment</h2>
+          </div>
+        </div>
+
+        <div class="entertainment-grid">
+          <div class="mini-device tv-card">
+            <div class="mini-device-head">
+              <h3>TV Kamar -</h3>
+
+              <label class="tv-power-control" aria-label="Toggle TV">
+                <input
+                  id="tvPowerToggle"
+                  class="logic-hidden"
+                  type="checkbox"
+                  checked
+                />
+                <span id="tvPowerBadge" class="badge on">ON</span>
+              </label>
+            </div>
+
+            <span class="mini-emoji dynamic-icon-tv blue" aria-hidden="true"></span>
+
+            <div class="tv-info">
+              <p>Playing: <span id="tvStatus">--</span></p>
+              <small>Vol: <span id="tvVolume">45</span>%</small>
+            </div>
+
+            <div class="tv-volume-control">
+              <input
+                id="tvVolumeSlider"
+                class="vision-slider-range"
+                type="range"
+                min="0"
+                max="100"
+                value="45"
+                aria-label="TV volume"
+              />
+            </div>
+          </div>
+
+          <div class="mini-device nest-card">
+            <div class="mini-device-head">
+              <h3>🔊 Nest Mini</h3>
+              <span id="nestPowerBadge" class="badge on">ON</span>
+            </div>
+
+            <div class="nest-info">
+              <p>Status : <span id="nestStatus">--</span></p>
+              <small>Volume : <span id="nestVolume">--</span>%</small>
+            </div>
+
+            <div class="nest-volume-bar">
+              <div id="nestVolumeBarFill" style="width: 45%;"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="wide-card climate-power-card">
+        <div class="section-head">
+          <div>
+            <h2>Climate & Power</h2>
+          </div>
+        </div>
+
+        <div class="metric-grid">
+          <div class="metric-item">
+            <span class="metric-emoji pink" aria-hidden="true">🌡️</span>
+            <strong id="roomTemp">--</strong>
+            <span>Suhu Kamar</span>
+          </div>
+
+          <div class="metric-item">
+            <span class="metric-emoji cyan" aria-hidden="true">💧</span>
+            <strong id="roomHumidity">--</strong>
+            <span>Humidity</span>
+          </div>
+
+          <div class="metric-item">
+            <span class="metric-emoji orange" aria-hidden="true">⚡</span>
+            <strong id="plugPower">--</strong>
+            <span>Power</span>
+          </div>
+
+          <div class="metric-item">
+            <span class="metric-emoji blue" aria-hidden="true">🔌</span>
+            <strong id="plugVolt">--</strong>
+            <span>Voltage</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="split-grid">
+        <section class="wide-card cctv-card">
+          <div class="section-head compact-head">
+            <div class="title-group">
+              <span class="card-icon emoji-card cyan" aria-hidden="true">📹</span>
+              <div>
+                <h2>CCTV Kamar</h2>
+              </div>
+            </div>
+
+            <span id="cctvOnline" class="status-pill">--</span>
+          </div>
+
+          <div class="security-layout">
+            <div class="security-info">
+              <div class="security-line">
+                <span>Motion</span>
+                <strong id="cctvMotion">--</strong>
+              </div>
+
+              <div class="security-line">
+                <span>Recording</span>
+                <strong id="cctvRecording">--</strong>
+              </div>
+
+              <div class="security-line last-motion-line">
+                <span>Last Motion</span>
+                <strong id="cctvLastMotion">--</strong>
+              </div>
+            </div>
+
+            <div class="security-visual">
+              <span aria-hidden="true">📹</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="wide-card energy-card">
+          <div class="section-head compact-head">
+            <div class="title-group">
+              <span class="card-icon emoji-card orange" aria-hidden="true">📊</span>
+              <div>
+                <h2>Energy Usage</h2>
+              </div>
+            </div>
+          </div>
+
+          <div class="energy-compact">
+            <div class="energy-row">
+              <span>Hari ini</span>
+              <strong id="energyToday">-- kWh</strong>
+            </div>
+
+            <div class="energy-row">
+              <span>Minggu ini</span>
+              <strong id="energyWeek">-- kWh</strong>
+            </div>
+
+            <div class="energy-row">
+              <span>Bulan ini</span>
+              <strong id="energyMonth">-- kWh</strong>
+            </div>
+
+            <div class="energy-total-box">
+              <span>Total Bulan Ini</span>
+              <strong id="energyMonthCost">Rp 0</strong>
+            </div>
+
+            <small id="energyTodayCost" class="hidden-energy-cost">Rp 0</small>
+            <small id="energyWeekCost" class="hidden-energy-cost">Rp 0</small>
+            <strong id="energyRuntimeMonth" class="hidden-energy-cost">--</strong>
+
+            <small id="energyTariff" class="energy-tariff-compact">
+              Est. Rp605/kWh · B1 900VA
+            </small>
+          </div>
+        </section>
+      </section>
+
+      <section class="wide-card scene-card">
+        <div class="section-head">
+          <div class="title-group">
+            <span class="card-icon emoji-card purple" aria-hidden="true">🎬</span>
+            <div>
+              <h2 id="sceneName">Belum ada scene</h2>
+            </div>
+          </div>
+
+          <button id="rerunSceneBtn" class="scene-action" type="button">
+            ▶ Jalankan Lagi
+          </button>
+        </div>
+
+        <div class="scene-row">
+          <span id="sceneTime">🕘</span>
+          <small id="sceneDate">--</small>
+        </div>
+      </section>
+
+    </section>
+
+    <nav class="bottom-nav nav-bar">
+      <button class="active" type="button">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label">Home</span>
+      </button>
+
+      <button type="button">
+        <span class="nav-icon">⚙️</span>
+        <span class="nav-label">Automation</span>
+      </button>
+
+      <button class="center-action" type="button">＋</button>
+
+      <button type="button">
+        <span class="nav-icon">📱</span>
+        <span class="nav-label">Devices</span>
+      </button>
+
+      <button type="button">
+        <span class="nav-icon">🔧</span>
+        <span class="nav-label">Settings</span>
+      </button>
+    </nav>
+
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
