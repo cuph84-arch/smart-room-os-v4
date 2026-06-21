@@ -1737,3 +1737,20 @@ h3 {
 
   filter: brightness(0) invert(1) opacity(0.82) !important;
 }
+
+/* =========================================================
+   TV ICON FINAL ASSET PATCH
+   tv-screen-icon.svg
+========================================================= */
+
+.tv-card .mini-emoji {
+  background:
+    url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/tv-screen-icon.svg")
+    center / 78px 44px no-repeat !important;
+}
+
+.tv-card .mini-emoji::before,
+.tv-card .mini-emoji::after {
+  content: none !important;
+  display: none !important;
+}
