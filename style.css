@@ -871,7 +871,8 @@ h3 {
 }
 
 /* =========================
-   ENTERTAINMENT — CLEAN FINAL
+   ENTERTAINMENT — FINAL CLEAN
+   TV media-control card + stable Nest card
 ========================= */
 
 .entertainment-card {
@@ -895,11 +896,9 @@ h3 {
   aspect-ratio: 1 / 1;
   min-height: 128px;
   padding: 12px;
-
   display: flex;
   flex-direction: column;
   align-items: stretch;
-
   border-radius: 18px;
   background:
     radial-gradient(circle at 78% 12%, rgba(255, 255, 255, 0.10), transparent 44%),
@@ -913,22 +912,9 @@ h3 {
   overflow: hidden;
 }
 
-.tv-card {
-  background:
-    radial-gradient(circle at top right, rgba(64, 196, 255, 0.12), transparent 50%),
-    rgba(255, 255, 255, 0.045);
-}
-
-.nest-card {
-  background:
-    radial-gradient(circle at top right, rgba(0, 230, 118, 0.11), transparent 50%),
-    rgba(255, 255, 255, 0.045);
-}
-
 .mini-device-head {
   flex: 0 0 24px;
   min-height: 24px;
-
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -952,65 +938,184 @@ h3 {
   font-weight: 700;
 }
 
-/* TV middle icon */
-.tv-card .mini-emoji {
-  flex: 1 1 auto;
-  width: 100%;
-
-  display: grid;
-  place-items: center;
-
-  margin: 0;
-  color: rgba(255, 255, 255, 0.76);
-  font-size: clamp(38px, 10.8vw, 50px);
-  line-height: 1;
-  opacity: 0.82;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.24));
+.tv-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  aspect-ratio: 1 / 1;
+  background:
+    radial-gradient(circle at 78% 12%, rgba(64, 196, 255, 0.13), transparent 48%),
+    rgba(255, 255, 255, 0.045);
 }
 
-/* Nest middle icon — clean pseudo element */
-/* Nest icon after header */
-.nest-card::after {
-  content: "🔊";
+.tv-card .mini-device-head {
+  order: 1;
+  flex: 0 0 27px;
+  min-height: 27px;
+  align-items: flex-start;
+}
 
+.tv-card .mini-device-head h3 {
+  flex: 1 1 auto;
+  max-width: calc(100% - 34px);
+  font-size: 0;
+  line-height: 1;
+}
+
+.tv-card .mini-device-head h3::before {
+  content: "TV Kamar -";
+  display: block;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: clamp(9.8px, 2.72vw, 11.6px);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  text-align: left;
+}
+
+.tv-card .mini-device-head h3::after {
+  content: "● Active";
+  display: block;
+  margin-top: 4px;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: clamp(7.1px, 1.95vw, 8.4px);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+#tvPowerBadge {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  font-size: 0;
+  line-height: 0;
+  color: transparent;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.10),
+    0 8px 18px rgba(0, 0, 0, 0.16);
+}
+
+#tvPowerBadge::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  display: block;
+  background: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/power-on-icon.svg") center / contain no-repeat;
+  filter: brightness(0) invert(1) opacity(0.84);
+  -webkit-filter: brightness(0) invert(1) opacity(0.84);
+}
+
+.tv-card .mini-emoji {
   order: 2;
   flex: 1 1 auto;
-
-  display: grid;
-  place-items: center;
-
   width: 100%;
+  min-height: 42px;
   margin: 0;
-
-  font-size: clamp(36px, 10.4vw, 48px);
-  line-height: 1;
-
-  filter: brightness(0) invert(1) opacity(0.66);
-  -webkit-filter: brightness(0) invert(1) opacity(0.66);
-
-  pointer-events: none;
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  color: transparent;
+  opacity: 1;
+  filter: brightness(0) invert(1) opacity(0.84) drop-shadow(0 12px 20px rgba(0, 0, 0, 0.18));
+  -webkit-filter: brightness(0) invert(1) opacity(0.84) drop-shadow(0 12px 20px rgba(0, 0, 0, 0.18));
+  background: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/smart_tv.svg") center / clamp(58px, 17vw, 76px) auto no-repeat;
 }
 
-/* Flex order hierarchy */
+.tv-card #tvStatus {
+  order: 3;
+  flex: 0 0 auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: clamp(7.6px, 2.15vw, 8.8px);
+  line-height: 1.15;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-align: center;
+  text-transform: none;
+}
+
+.tv-card #tvStatus::before {
+  content: "";
+  width: 100%;
+  height: 16px;
+  display: block;
+  margin: 0 0 5px;
+  background: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/media-controls.svg") center / clamp(66px, 19vw, 86px) auto no-repeat;
+  filter: brightness(0) invert(1) opacity(0.80);
+  -webkit-filter: brightness(0) invert(1) opacity(0.80);
+}
+
+.tv-card #tvStatus::after {
+  content: "";
+  width: 100%;
+  height: 15px;
+  display: block;
+  margin-top: 7px;
+  background-image:
+    url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/speaker-min.svg"),
+    url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/speaker-max.svg"),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.76) 0%,
+      rgba(255, 255, 255, 0.76) 45%,
+      rgba(255, 255, 255, 0.20) 45%,
+      rgba(255, 255, 255, 0.20) 100%
+    );
+  background-repeat: no-repeat;
+  background-size: 13px 13px, 15px 15px, calc(100% - 42px) 4px;
+  background-position: left center, right center, center center;
+  filter: brightness(0) invert(1) opacity(0.78);
+  -webkit-filter: brightness(0) invert(1) opacity(0.78);
+}
+
+.nest-card {
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(circle at top right, rgba(0, 230, 118, 0.11), transparent 50%),
+    rgba(255, 255, 255, 0.045);
+}
+
+.nest-card::before {
+  content: none;
+  display: none;
+}
+
 .nest-card .mini-device-head {
   order: 1;
 }
 
+.nest-card::after {
+  content: "🔊";
+  order: 2;
+  flex: 1 1 auto;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  font-size: clamp(36px, 10.4vw, 48px);
+  line-height: 1;
+  filter: brightness(0) invert(1) opacity(0.66);
+  -webkit-filter: brightness(0) invert(1) opacity(0.66);
+  pointer-events: none;
+}
+
 .nest-card .nest-info {
   order: 3;
-}
-
-.nest-card .nest-volume-bar {
-  order: 4;
-}
-
-.tv-card p {
-  flex: 0 0 auto;
-  margin: 0;
-  align-self: flex-start;
-}
-
-.nest-info {
   flex: 0 0 auto;
   margin: 0;
 }
@@ -1024,6 +1129,10 @@ h3 {
   line-height: 1.35;
   font-weight: 440;
   letter-spacing: -0.01em;
+}
+
+.nest-card .nest-volume-bar {
+  order: 4;
 }
 
 .nest-volume-bar {
@@ -1542,47 +1651,4 @@ h3 {
     min-height: auto;
   }
 }
-
-/* FORCE KILL OLD NEST ::before */
-.nest-card::before {
-  content: none !important;
-  display: none !important;
-}
-
-/* FORCE NEST STRUCTURE */
-.nest-card {
-  display: flex !important;
-  flex-direction: column !important;
-}
-
-.nest-card .mini-device-head {
-  order: 1 !important;
-}
-
-.nest-card::after {
-  content: "🔊" !important;
-  order: 2 !important;
-  flex: 1 1 auto !important;
-
-  width: 100% !important;
-  display: grid !important;
-  place-items: center !important;
-
-  font-size: clamp(36px, 10.4vw, 48px) !important;
-  line-height: 1 !important;
-
-  filter: brightness(0) invert(1) opacity(0.66) !important;
-  -webkit-filter: brightness(0) invert(1) opacity(0.66) !important;
-
-  pointer-events: none !important;
-}
-
-.nest-card .nest-info {
-  order: 3 !important;
-}
-
-.nest-card .nest-volume-bar {
-  order: 4 !important;
-}
-
 
