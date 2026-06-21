@@ -2019,3 +2019,29 @@ h3 {
   font-weight: 440 !important;
   letter-spacing: -0.01em !important;
 }
+
+/* =========================================================
+   TV CARD VISUAL BALANCE FIX
+   Add subtle bottom anchor line to balance Nest slider
+========================================================= */
+
+.tv-card #tvStatus {
+  position: relative !important;
+  padding-bottom: 13px !important;
+}
+
+/* Subtle base line: bukan slider kontrol, hanya visual anchor */
+.tv-card #tvStatus::after {
+  content: "" !important;
+
+  display: block !important;
+  width: 100% !important;
+  height: 4px !important;
+
+  margin-top: 9px !important;
+
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.18) !important;
+
+  opacity: 0.72 !important;
+}
