@@ -1970,128 +1970,97 @@ h3 {
   color: rgba(255,255,255,0.52) !important;
 }
 
+
 /* =========================================================
-   TV STATUS TYPOGRAPHY + LEFT ALIGN FIX
+   TV CARD FINAL CLEAN BUILD
+   Replace semua patch TV sebelumnya
 ========================================================= */
 
+/* Card TV */
+.tv-card {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Header */
+.tv-card .card-title-container {
+  flex: 0 0 auto !important;
+}
+
+/* TV Icon Area */
+.tv-card .tv-icon {
+  width: 78px !important;
+  height: 44px !important;
+
+  display: block !important;
+  margin: auto auto 14px auto !important;
+
+  object-fit: contain !important;
+
+  filter:
+    brightness(0)
+    invert(1)
+    opacity(0.88) !important;
+}
+
+/* Status Container */
 .tv-card #tvStatus {
   width: 100% !important;
-  align-items: flex-start !important;
+
+  margin-top: 0 !important;
+
   text-align: left !important;
+
   font-size: 0 !important;
   line-height: 0 !important;
-}
 
-/* Baris 1 */
-.tv-card #tvStatus::before {
-  content: "Playing: Screen Saver" !important;
+  padding-bottom: 12px !important;
 
-  display: block !important;
-  width: 100% !important;
-
-  margin: 0 !important;
-  padding: 0 !important;
-
-  text-align: left !important;
-
-  color: rgba(255, 255, 255, 0.62) !important;
-  font-size: clamp(8.2px, 2.35vw, 9.6px) !important;
-  line-height: 1.35 !important;
-  font-weight: 440 !important;
-  letter-spacing: -0.01em !important;
-}
-
-/* Baris 2 */
-.tv-card #tvStatus::after {
-  content: "Vol: 45%" !important;
-
-  display: block !important;
-  width: 100% !important;
-
-  margin-top: 3px !important;
-  padding: 0 !important;
-
-  text-align: left !important;
-
-  color: rgba(255, 255, 255, 0.56) !important;
-  font-size: clamp(8.2px, 2.35vw, 9.6px) !important;
-  line-height: 1.35 !important;
-  font-weight: 440 !important;
-  letter-spacing: -0.01em !important;
-}
-
-/* =========================================================
-   TV CARD VISUAL BALANCE FIX
-   Add subtle bottom anchor line to balance Nest slider
-========================================================= */
-
-.tv-card #tvStatus {
-  position: relative !important;
-  padding-bottom: 13px !important;
-}
-
-/* Subtle base line: bukan slider kontrol, hanya visual anchor */
-.tv-card #tvStatus::after {
-  content: "" !important;
-
-  display: block !important;
-  width: 100% !important;
-  height: 4px !important;
-
-  margin-top: 9px !important;
-
-  border-radius: 999px !important;
-  background: rgba(255, 255, 255, 0.18) !important;
-
-  opacity: 0.72 !important;
-}
-
-/* =========================================================
-   TV STATUS + VOLUME + BALANCE LINE FIX
-========================================================= */
-
-.tv-card #tvStatus {
-  position: relative !important;
-  padding-bottom: 13px !important;
-  font-size: 0 !important;
-  line-height: 0 !important;
-  text-align: left !important;
-}
-
-/* Baris 1 */
-.tv-card #tvStatus::before {
-  content: "Playing: Screen Saver" !important;
-  display: block !important;
-  width: 100% !important;
-
-  color: rgba(255, 255, 255, 0.62) !important;
-  font-size: clamp(8.2px, 2.35vw, 9.6px) !important;
-  line-height: 1.35 !important;
-  font-weight: 440 !important;
-  text-align: left !important;
-}
-
-/* Baris 2 */
-.tv-card #tvStatus::after {
-  content: "Vol: 45%" !important;
-  display: block !important;
-  width: 100% !important;
-
-  margin-top: 3px !important;
-
-  color: rgba(255, 255, 255, 0.56) !important;
-  font-size: clamp(8.2px, 2.35vw, 9.6px) !important;
-  line-height: 1.35 !important;
-  font-weight: 440 !important;
-  text-align: left !important;
-}
-
-/* Garis balance tanpa memakai pseudo-element */
-.tv-card #tvStatus {
   background:
     linear-gradient(
-      rgba(255, 255, 255, 0.18),
-      rgba(255, 255, 255, 0.18)
+      rgba(255,255,255,.18),
+      rgba(255,255,255,.18)
     )
     left bottom / 100% 4px no-repeat !important;
+}
+
+/* Playing */
+.tv-card #tvStatus::before {
+  content: "Playing: Screen Saver" !important;
+
+  display: block !important;
+
+  color: rgba(255,255,255,.68) !important;
+
+  font-size: 11px !important;
+  line-height: 1.4 !important;
+  font-weight: 500 !important;
+
+  text-align: left !important;
+}
+
+/* Volume */
+.tv-card #tvStatus::after {
+  content: "Vol: 45%" !important;
+
+  display: block !important;
+
+  margin-top: 4px !important;
+
+  color: rgba(255,255,255,.55) !important;
+
+  font-size: 10px !important;
+  line-height: 1.35 !important;
+  font-weight: 450 !important;
+
+  text-align: left !important;
+}
+
+/* Vertical Alignment dengan Nest */
+.tv-card .tv-icon {
+  transform: translateY(10px) !important;
+}
+
+.tv-card #tvStatus {
+  transform: translateY(6px) !important;
 }
