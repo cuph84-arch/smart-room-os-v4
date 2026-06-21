@@ -1754,3 +1754,66 @@ h3 {
   content: none !important;
   display: none !important;
 }
+
+/* =========================================================
+   TV CARD FINAL MICRO POLISH — CSS ONLY
+========================================================= */
+
+/* Header lebih ringan dan rapi */
+.tv-card .mini-device-head h3 {
+  font-weight: 600 !important;
+  letter-spacing: -0.035em !important;
+}
+
+/* Power icon: tetap 22px tapi lebih masuk safe area */
+#tvPowerBadge {
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  min-height: 22px !important;
+  margin-top: 2px !important;
+  margin-right: 2px !important;
+}
+
+/* TV icon target: 78px × 44px */
+.tv-card .mini-emoji {
+  min-height: 48px !important;
+  background:
+    url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/tv-screen-icon.svg")
+    center / 78px 44px no-repeat !important;
+}
+
+/* Media controls target: 70px × 18px */
+.tv-card #tvStatus::before {
+  width: 70px !important;
+  height: 18px !important;
+  margin: 6px auto 5px !important;
+}
+
+/* Metadata lebih kecil dan tidak mendominasi */
+.tv-card #tvStatus {
+  font-size: 8.6px !important;
+  line-height: 1.1 !important;
+  font-weight: 500 !important;
+  color: rgba(255, 255, 255, 0.56) !important;
+}
+
+/* Slider bawah: speaker 18px, track flexible */
+.tv-card #tvStatus::after {
+  height: 18px !important;
+  margin-top: 7px !important;
+
+  background:
+    url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/speaker-min.svg")
+      left center / 18px 18px no-repeat,
+    url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/speaker-max.svg")
+      right center / 18px 18px no-repeat,
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.72) 0%,
+      rgba(255, 255, 255, 0.72) 45%,
+      rgba(255, 255, 255, 0.22) 45%,
+      rgba(255, 255, 255, 0.22) 100%
+    )
+      center / calc(100% - 56px) 4px no-repeat !important;
+}
