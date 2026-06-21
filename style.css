@@ -1817,3 +1817,45 @@ h3 {
     )
       center / calc(100% - 56px) 4px no-repeat !important;
 }
+
+/* =========================================================
+   TV CARD CLEAN STATUS FIX
+   Remove media control + slider from TV only
+========================================================= */
+
+.tv-card #tvStatus::before,
+.tv-card #tvStatus::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+
+.tv-card .mini-emoji {
+  flex: 1 1 auto !important;
+  min-height: 68px !important;
+  margin: 8px 0 6px !important;
+
+  background:
+    url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/tv-screen-icon.svg")
+    center / 88px 50px no-repeat !important;
+}
+
+.tv-card #tvStatus {
+  flex: 0 0 auto !important;
+  margin: 0 auto !important;
+
+  display: block !important;
+  width: 100% !important;
+
+  color: rgba(255, 255, 255, 0.58) !important;
+  font-size: 9.2px !important;
+  line-height: 1.2 !important;
+  font-weight: 500 !important;
+  text-align: center !important;
+  letter-spacing: -0.01em !important;
+  text-transform: none !important;
+}
+
+.tv-card .mini-device-head h3 {
+  font-weight: 600 !important;
+}
