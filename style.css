@@ -1924,3 +1924,48 @@ h3 {
   letter-spacing: -0.01em !important;
   text-transform: none !important;
 }
+
+/* =========================================================
+   TV CARD DUMMY CONTENT
+   UI Freeze Candidate
+========================================================= */
+
+/* Sembunyikan status realtime sementara */
+.tv-card #tvStatus {
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+
+/* Playing */
+.tv-card #tvStatus::before {
+  content: "Playing: Screen Saver" !important;
+
+  display: block !important;
+
+  margin-top: 2px !important;
+
+  text-align: left !important;
+
+  font-size: 10px !important;
+  line-height: 1.3 !important;
+  font-weight: 500 !important;
+
+  color: rgba(255,255,255,0.72) !important;
+}
+
+/* Volume */
+.tv-card #tvStatus::after {
+  content: "Vol: 45%" !important;
+
+  display: block !important;
+
+  margin-top: 3px !important;
+
+  text-align: left !important;
+
+  font-size: 9px !important;
+  line-height: 1.3 !important;
+  font-weight: 500 !important;
+
+  color: rgba(255,255,255,0.52) !important;
+}
