@@ -1652,3 +1652,88 @@ h3 {
   }
 }
 
+/* =========================================================
+   TV CARD NON-TV-ASSET PATCH
+   Keep smart_tv.svg unchanged for now
+========================================================= */
+
+/* Power icon target: 22px */
+.tv-card .badge,
+#tvPowerBadge {
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  min-height: 22px !important;
+  padding: 0 !important;
+
+  font-size: 0 !important;
+  color: transparent !important;
+
+  background:
+    url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/power-on-icon.svg")
+    center / 22px 22px no-repeat !important;
+
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: brightness(0) invert(1) opacity(0.88) !important;
+}
+
+/* Media controls target: 70px × 18px */
+.tv-card #tvStatus::before {
+  content: "" !important;
+  display: block !important;
+
+  width: 70px !important;
+  height: 18px !important;
+
+  margin: 5px auto 4px !important;
+
+  background:
+    url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/media-controls.svg")
+    center / contain no-repeat !important;
+
+  filter: brightness(0) invert(1) opacity(0.86) !important;
+}
+
+/* Status/value text */
+.tv-card #tvStatus {
+  width: 100% !important;
+  margin: 0 !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+
+  color: rgba(255, 255, 255, 0.62) !important;
+  font-size: 9px !important;
+  line-height: 1.15 !important;
+  font-weight: 500 !important;
+  text-align: center !important;
+}
+
+/* Slider bottom row: speaker-min | flexible track | speaker-max */
+.tv-card #tvStatus::after {
+  content: "" !important;
+  display: block !important;
+
+  width: 100% !important;
+  height: 18px !important;
+
+  margin-top: 8px !important;
+
+  background:
+    url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/speaker-min.svg")
+      left center / 18px 18px no-repeat,
+    url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/speaker-max.svg")
+      right center / 18px 18px no-repeat,
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.72) 0%,
+      rgba(255, 255, 255, 0.72) 45%,
+      rgba(255, 255, 255, 0.22) 45%,
+      rgba(255, 255, 255, 0.22) 100%
+    )
+      center / calc(100% - 52px) 4px no-repeat !important;
+
+  filter: brightness(0) invert(1) opacity(0.82) !important;
+}
