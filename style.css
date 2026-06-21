@@ -1743,3 +1743,36 @@ h3 {
   background: #ffffff !important;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.4) !important;
 }
+
+
+/* Slider custom Vision OS agar serasi dengan Nest Mini */
+.tv-card .vision-slider-range {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  width: 100% !important;
+  height: 4px !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  outline: none !important;
+  margin: 4px 0 0 0 !important;
+}
+
+/* Knob lingkaran putih slider */
+.tv-card .vision-slider-range::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+}
+
+.tv-card .vision-slider-range::-moz-range-thumb {
+  width: 10px !important;
+  height: 10px !important;
+  border: none !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+}
