@@ -171,7 +171,7 @@
         </article>
       </section>
 
-            <section class="wide-card entertainment-card">
+      <section class="wide-card entertainment-card">
         <div class="section-head">
           <div>
             <h2>Entertainment</h2>
@@ -179,47 +179,33 @@
         </div>
 
         <div class="entertainment-grid">
-          
-          <!-- KARTU TV KAMAR: STRUKTUR MURNI YANG DISELIPKAN SLIDER VISION OS -->
           <div class="mini-device tv-card">
             <div class="mini-device-head">
-              <h3>Tv Kamar</h3>
-              <!-- Checkbox bawaan aslimu di screenshot pertama -->
-              <input type="checkbox" checked style="accent-color: var(--blue); width: 14px; height: 14px;" />
+              <h3>📺 TV Kamar</h3>
+              <span id="tvPowerBadge" class="badge on">ON</span>
             </div>
-            
-            <!-- Ikon bawaan asli yang tadinya aktif di screenshot pertama -->
-            <div class="mini-emoji blue" style="flex: 1; display: grid; place-items: center; font-size: 38px;">📺</div>
-            
-            <p style="margin: 0; font-size: 9px; color: var(--green);">Active</p>
-            <small style="font-size: 8.5px; color: rgba(255,255,255,0.5);">Screen Saver</small>
 
-            <!-- Vision OS Slider Tambahan di letakkan paling bawah -->
-            <div class="volume-slider-container" style="width: 100%; margin-top: 4px; display: flex; align-items: center;">
-              <input type="range" class="vision-slider-range" id="tvVolumeSlider" min="0" max="100" value="45" style="width: 100%;">
-            </div>
+            <span class="mini-emoji blue">📺</span>
+            <p id="tvStatus">--</p>
           </div>
 
-          <!-- KARTU NEST MINI -->
           <div class="mini-device nest-card">
             <div class="mini-device-head">
-              <h3>Nest Mini</h3>
-              <span class="badge on">ON</span>
+              <h3>🔊 Nest Mini</h3>
+              <span id="nestPowerBadge" class="badge on">ON</span>
             </div>
 
             <div class="nest-info">
-              <p>Status : IDLE</p>
-              <small>Volume : 45%</small>
+              <p>Status : <span id="nestStatus">--</span></p>
+              <small>Volume : <span id="nestVolume">--</span>%</small>
             </div>
 
             <div class="nest-volume-bar">
-              <div style="width: 45%;"></div>
+              <div></div>
             </div>
           </div>
-
         </div>
       </section>
-
 
       <section class="wide-card climate-power-card">
         <div class="section-head">
