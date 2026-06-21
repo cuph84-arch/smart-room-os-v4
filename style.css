@@ -1586,231 +1586,12 @@ h3 {
 }
 
 /* ==========================================================================
-   PATCH CSS PREMIUM: TV KAMAR 1:1 MINIMALIST MONOCHROME (VISION OS THEME)
+   PATCH FINAL: TV KAMAR 1:1 ABSOLUTE SYMMETRY (VISION OS STYLE)
    ========================================================================== */
 
-/* 1. Pengunci Box Utama Kartu TV (Strict 1:1 Aspect Ratio) */
+/* 1. Pengunci Box Utama Kartu TV (Strict 1:1 Aspect Ratio & Flex Isolator) */
 .entertainment-row .card.tv-card,
 .tv-card {
-  aspect-ratio: 1 / 1 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-between !important;
-  align-items: stretch !important;
-  padding: clamp(12px, 3.5vw, 16px) !important;
-  box-sizing: border-box !important;
-  position: relative !important;
-  overflow: hidden !important;
-}
-
-/* 2. Tata Letak Baris Atas (Header Alignment) */
-.tv-card .card-header,
-.tv-card .header-compact {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: flex-start !important;
-  width: 100% !important;
-  margin: 0 0 auto 0 !important;
-}
-
-/* Penataan Tipografi Sisi Kiri (Bold & Regular) */
-.tv-card .title-group-vertical {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  gap: 2px !important;
-  text-align: left !important;
-}
-
-.tv-card .title-group-vertical .card-title {
-  font-family: var(--font-main), sans-serif !important;
-  font-size: clamp(12px, 3.2vw, 14px) !important;
-  font-weight: 700 !important; /* Bold */
-  color: rgba(255, 255, 255, 0.95) !important;
-  line-height: 1.2 !important;
-  margin: 0 !important;
-}
-
-.tv-card .title-group-vertical .status-text {
-  font-family: var(--font-main), sans-serif !important;
-  font-size: clamp(9.5px, 2.6vw, 11px) !important;
-  font-weight: 400 !important; /* Regular */
-  color: var(--green, #00e676) !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 4px !important;
-  margin: 0 !important;
-  opacity: 0.85 !important;
-}
-
-/* Menyembunyikan Logo N (Netflix) dan YouTube di Header Sesuai Perintah */
-.tv-card .app-logos,
-.tv-card .header-badge-icon,
-.tv-card .netflix-logo,
-.tv-card .youtube-logo,
-.tv-card [class*="logo"],
-.tv-card [class*="badge"] {
-  display: none !important; /* Dihapus total dari visual header */
-}
-
-/* Sisi Kanan Header: Hanya Menampilkan Toggle Switch */
-.tv-card .header-action-toggle {
-  display: flex !important;
-  align-items: center !important;
-  margin-left: auto !important;
-}
-
-
-/* 3. Pusat Massa Tengah: Flat White Modern Smart TV Icon */
-.tv-card .mini-emoji,
-.tv-card .tv-icon-center {
-  flex: 1 1 auto !important;
-  width: 100% !important;
-  margin: auto 0 !important;
-  display: grid !important;
-  place-items: center !important;
-  align-content: center !important;
-  filter: none !important;
-  opacity: 1 !important;
-}
-
-/* Rekayasa Glyph Tipis Menggantikan Kotak Kosong / TV Tabung Lama */
-.tv-card .mini-emoji::before,
-.tv-card .tv-icon-center::before {
-  content: "📺" !important; /* Fallback glyph murni */
-  font-size: clamp(38px, 11vw, 46px) !important;
-  line-height: 1 !important;
-  font-weight: 300 !important;
-  color: rgba(255, 255, 255, 0.9) !important;
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-  display: block !important;
-}
-
-/* Opsional: Jika menggunakan font/karakter outline untuk Smart TV modern datar */
-.tv-card .mini-emoji.flat-modern::before {
-  content: "🖥️" !important;
-  font-size: clamp(38px, 11vw, 46px) !important;
-  color: rgba(255, 255, 255, 0.85) !important;
-}
-
-
-/* 4. Ruang Kendali Media & Informasi Subteks (Lower Third Row) */
-.tv-card .media-controls-container {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  gap: 3px !important;
-  width: 100% !important;
-  margin-top: auto !important;
-  margin-bottom: 6px !important;
-}
-
-/* Deretan Tombol Media (◄◄  ❙❙  ►►) */
-.tv-card .media-buttons-row {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  gap: clamp(14px, 4vw, 20px) !important;
-  color: rgba(255, 255, 255, 0.85) !important;
-  font-size: clamp(13px, 3.6vw, 15px) !important;
-  font-weight: 400 !important; /* Regular */
-  cursor: pointer !important;
-  user-select: none !important;
-  line-height: 1 !important;
-}
-
-/* Indikator Angka Persentase Feedback "45%" */
-.tv-card .feedback-percentage {
-  font-family: var(--font-main), sans-serif !important;
-  font-size: clamp(9px, 2.5vw, 10.5px) !important;
-  font-weight: 400 !important; /* Regular */
-  color: rgba(255, 255, 255, 0.5) !important;
-  text-align: center !important;
-  margin: 0 !important;
-  line-height: 1 !important;
-}
-
-
-/* 5. Komponen Slider Volume & Jangkar Speaker Bawah (Symmetry Lock) */
-.tv-card .bottom-slider-anchor,
-.tv-card #tvStatus {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  gap: 8px !important;
-  width: 100% !important;
-  margin: auto 0 0 0 !important;
-  box-sizing: border-box !important;
-}
-
-/* Ikon Speaker Mikro di Ujung Kiri dan Kanan Slider */
-.tv-card .slider-speaker-icon {
-  font-size: clamp(10px, 2.8vw, 12px) !important;
-  color: rgba(255, 255, 255, 0.4) !important;
-  display: inline-block !important;
-  flex: 0 0 auto !important;
-  user-select: none !important;
-}
-
-/* Bar Slider Linear Horizontal (Sejajar Sempurna Dengan Nest Mini) */
-.tv-card .slider-track-line,
-.tv-card .custom-slider-bar {
-  flex: 1 1 auto !important;
-  height: 4px !important;
-  background: rgba(255, 255, 255, 0.16) !important;
-  border-radius: 2px !important;
-  position: relative !important;
-  display: flex !important;
-  align-items: center !important;
-}
-
-/* Isian Progress Slider (Warna Aksen Putih Semi Transparan / Lembut) */
-.tv-card .slider-track-line .progress-fill,
-.tv-card .custom-slider-bar .fill {
-  position: absolute !important;
-  left: 0 !important;
-  top: 0 !important;
-  height: 100% !important;
-  width: 45% !important; /* Nilai dinamis mengikuti feedback 45% */
-  background: rgba(255, 255, 255, 0.85) !important;
-  border-radius: 2px !important;
-}
-
-/* Titik Handle Bulat Slider (Knob Tipis Eksklusif) */
-.tv-card .slider-track-line .progress-fill::after,
-.tv-card .custom-slider-bar .fill::after {
-  content: "" !important;
-  position: absolute !important;
-  right: -3px !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  width: 7px !important;
-  height: 7px !important;
-  background: #ffffff !important;
-  border-radius: 50% !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
-}
-
-/* Teks Status Aplikasi Ekstra (Misal: SCREEN SAVER) Ditaruh Sangat Tipis Di Paling Bawah */
-.tv-card .metadata-subfooter {
-  font-family: var(--font-main), sans-serif !important;
-  font-size: 9px !important;
-  font-weight: 500 !important;
-  color: rgba(255, 255, 255, 0.35) !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.06em !important;
-  text-align: center !important;
-  width: 100% !important;
-  margin-top: 4px !important;
-}
-
-/* ==========================================================================
-   MICRO-PATCH PREMUM: TV KAMAR 1:1 SYMMETRY (VISION OS STYLE)
-   ========================================================================== */
-
-/* 1. Pengunci Box Utama Kartu TV (Strict 1:1 Aspect Ratio) */
-.entertainment-row .card.tv-card {
   aspect-ratio: 1 / 1 !important;
   display: flex !important;
   flex-direction: column !important;
@@ -1820,16 +1601,16 @@ h3 {
   box-sizing: border-box !important;
 }
 
-/* 2. Header Clean-Up (Menghapus Logo N & Youtube & Mengatur Posisi) */
+/* 2. Header Alignment (Bold & Regular Typography Lock) */
 .tv-card .card-head {
   display: flex !important;
   justify-content: space-between !important;
   align-items: flex-start !important;
   width: 100% !important;
-  margin-bottom: auto !important;
+  margin: 0 0 auto 0 !important;
 }
 
-/* Tipografi Kiri: Nama Perangkat (Bold) & Status (Regular) */
+/* Tipografi Sisi Kiri Header */
 .tv-card .card-head .title-group {
   display: flex !important;
   flex-direction: column !important;
@@ -1840,7 +1621,7 @@ h3 {
 .tv-card .card-head h3 {
   font-family: var(--font-main), sans-serif !important;
   font-size: clamp(12px, 3.2vw, 13.5px) !important;
-  font-weight: 700 !important; /* Bold sesuai ketentuan */
+  font-weight: 700 !important; /* Bold murni sesuai target view */
   color: rgba(255, 255, 255, 0.95) !important;
   margin: 0 !important;
   line-height: 1.2 !important;
@@ -1849,22 +1630,23 @@ h3 {
 .tv-card .card-head .status-text {
   font-family: var(--font-main), sans-serif !important;
   font-size: clamp(9.5px, 2.6vw, 11px) !important;
-  font-weight: 400 !important; /* Regular sesuai ketentuan */
+  font-weight: 400 !important; /* Regular murni */
   color: var(--green, #00e676) !important;
   margin: 0 !important;
   opacity: 0.85 !important;
 }
 
-/* Menyembunyikan Logo N dan Youtube di dalam header */
+/* Pembersihan Total Logo N (Netflix) dan Youtube dari Visual Header */
 .tv-card .card-head .app-badges,
 .tv-card .card-head img,
 .tv-card .card-head svg,
 .tv-card .card-head .badge-netflix,
-.tv-card .card-head .badge-youtube {
+.tv-card .card-head .badge-youtube,
+.tv-card .card-head .header-badge-icon {
   display: none !important;
 }
 
-/* Memastikan Switch Toggle Terkunci di Kanan Atas */
+/* Memastikan Switch Toggle Terkunci Sempurna di Kanan Atas */
 .tv-card .card-head .switch-toggle,
 .tv-card .card-head .action-btn {
   margin-left: auto !important;
@@ -1872,7 +1654,7 @@ h3 {
 }
 
 
-/* 3. Pusat Massa Tengah (Flat White Modern Smart TV Icon) */
+/* 3. Pusat Massa Tengah (Memanggil Aset tv.svg dari GitHub via CSS) */
 .tv-card .mini-emoji {
   flex: 1 1 auto !important;
   width: 100% !important;
@@ -1880,25 +1662,28 @@ h3 {
   display: grid !important;
   place-items: center !important;
   align-content: center !important;
-  font-size: 0 !important; /* Mematikan emoji bawaan text */
-  line-height: 1 !important;
+  font-size: 0 !important; /* Mematikan teks emoji bawaan HTML */
+  line-height: 0 !important;
   filter: none !important;
   opacity: 1 !important;
 }
 
-/* Mengganti Kotak Kosong Kasar Menggunakan Unicode Outline TV Tipis Premium */
+/* Rekayasa Penyuntikan tv.svg secara Presisi */
 .tv-card .mini-emoji::before {
-  content: "📺" !important; 
-  font-size: clamp(40px, 11vw, 48px) !important;
-  line-height: 1 !important;
-  color: rgba(255, 255, 255, 0.85) !important;
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-  font-weight: 300 !important;
+  content: "" !important;
   display: block !important;
+  width: 42px !important; /* Mengunci dimensi agar sejajar geometris */
+  height: 42px !important;
+  background-image: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/tv.svg") !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  /* Membuat ikon dari GitHub otomatis menjadi Putih Matte Khas Vision OS */
+  filter: brightness(0) invert(1) opacity(0.85) !important; 
 }
 
 
-/* 4. Rekayasa Sumbu Kendali & Slider Menggunakan Pseudo Element Pada Elemen Bawaan */
+/* 4. Rekayasa Area Bawah (Media Control & Progress Tracker via Sumbu #tvStatus) */
 .tv-card #tvStatus {
   flex: 0 0 auto !important;
   width: 100% !important;
@@ -1907,11 +1692,11 @@ h3 {
   flex-direction: column !important;
   align-items: center !important;
   gap: 6px !important;
-  box-sizing: border-box !important;
   padding: 0 !important;
+  box-sizing: border-box !important;
   overflow: visible !important;
   
-  /* Text Utama "Screen Saver" di format sebagai metadata subfooter */
+  /* Desain Teks Status Tengah (Screen Saver / Netflix / YouTube) */
   font-family: var(--font-main), sans-serif !important;
   font-size: clamp(9px, 2.5vw, 10.5px) !important;
   font-weight: 400 !important; /* Regular */
@@ -1919,33 +1704,41 @@ h3 {
   text-transform: uppercase !important;
   letter-spacing: 0.05em !important;
   text-align: center !important;
-  order: 2 !important; /* Memposisikan teks di tengah antara media button & slider */
+  order: 2 !important; /* Mengunci teks tepat di baris tengah area bawah */
 }
 
-/* MENYUNTIKKAN TOMBOL MEDIA (◄◄  ❙❙  ►►) DI ATAS TEKS STATUS */
+/* MENYUNTIKKAN TOMBOL MEDIA (◄◄  ❙❙  ►►) DI ATAS TEKS STATUS (ANTI-MELESET CHROME) */
 .tv-card #tvStatus::before {
-  content: "◄◄     ❙❙     ►►" !important;
+  content: "◄◄\a0\a0\a0\a0\a0❙❙\a0\a0\a0\a0\a0►►" !important; /* Menggunakan non-breaking space aman browser */
   display: block !important;
-  font-size: clamp(13px, 3.6vw, 15px) !important;
+  font-size: clamp(12.5px, 3.5vw, 14.5px) !important;
   font-weight: 400 !important; /* Regular */
   color: rgba(255, 255, 255, 0.85) !important;
-  letter-spacing: 2px !important;
   text-align: center !important;
   width: 100% !important;
-  margin-bottom: 2px !important;
+  margin: 0 auto 2px auto !important;
+  letter-spacing: 0px !important; /* Menghilangkan sisa space hantu */
+  text-indent: 0px !important;   /* Menjaga teks terkunci simetris di tengah */
   cursor: pointer !important;
-  order: 1 !important; /* Baris paling atas di area kontrol */
+  order: 1 !important; /* Berada di urutan pertama area bawah */
 }
 
-/* MENYUNTIKKAN BAR TRACK SLIDER LINE DI PALING BAWAH (SEJAJAR NEST MINI) */
+/* MENYUNTIKKAN PROGRESS BAR SLIDER DI PALING DASAR (PARAREL NEST MINI 100% WIDTH) */
 .tv-card #tvStatus::after {
   content: "" !important;
   display: block !important;
-  width: 100% !important;
-  height: 4px !important; /* Ketebalan 4px presisi linear */
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.8) 45%, rgba(255, 255, 255, 0.16) 45%) !important; /* Isian fill 45% */
+  width: 100% !important; /* Melebar penuh menyentuh sisi horizontal */
+  height: 4px !important; /* Ketebalan linear 4px identik dengan Nest Mini */
+  /* Membuat efek linear progress fill 45% berwarna putih solid, sisanya transparan */
+  background: linear-gradient(to right, 
+    rgba(255, 255, 255, 0.85) 0%, 
+    rgba(255, 255, 255, 0.85) 45%, 
+    rgba(255, 255, 255, 0.16) 45%, 
+    rgba(255, 255, 255, 0.16) 100%
+  ) !important;
   border-radius: 2px !important;
   margin-top: 4px !important;
-  order: 3 !important; /* Baris paling bawah di dalam koordinat flexbox */
+  order: 3 !important; /* Berada di dasar terbawah koordinat kartu */
   box-sizing: border-box !important;
 }
+
