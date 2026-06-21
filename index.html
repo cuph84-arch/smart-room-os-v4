@@ -180,28 +180,18 @@
 
         <div class="entertainment-grid">
           
-          <div class="card tv-card">
-            <div class="card-head">
-              <div class="title-group">
-                <h3>Tv Kamar</h3>
-                <p class="status-text">Active</p>
-              </div>
-              <label class="switch-toggle">
-                <input type="checkbox" id="tvPowerToggle" checked>
-                <span class="slider-round"></span>
-              </label>
-              <span id="tvPowerBadge" class="badge on" style="display: none !important;">ON</span>
+          <div class="mini-device tv-card">
+            <div class="mini-device-head">
+              <h3>📺 TV Kamar</h3>
+              <span id="tvPowerBadge" class="badge on">ON</span>
             </div>
+            
+            <span class="mini-emoji blue">📺</span>
+            <p id="tvStatus">--</p>
 
-            <div class="mini-emoji dynamic-icon-tv"></div>
-
-            <div class="tv-control-wrapper">
-              <div class="media-playback-row"></div>
-              <p id="tvStatus" class="volume-percentage-text">45%</p>
+            <div class="tv-control-wrapper" style="width: 100%; margin-top: auto; padding-top: 4px;">
               <div class="volume-slider-container">
-                <span class="vol-icon icon-min"></span>
                 <input type="range" class="vision-slider-range" id="tvVolumeSlider" min="0" max="100" value="45">
-                <span class="vol-icon icon-max"></span>
               </div>
             </div>
           </div>
