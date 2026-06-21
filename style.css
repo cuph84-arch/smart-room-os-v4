@@ -1585,97 +1585,162 @@ h3 {
   order: 4 !important;
 }
 
+
 /* =========================================================
-   TV CARD — PREMIUM MEDIA CONTROL POLISH
-   CSS ONLY — TV card only
+   ENT-001 TV KAMAR — TARGET VIEW RATIO PATCH
+   CSS ONLY — do not touch Nest / Climate
 ========================================================= */
 
 .tv-card {
   aspect-ratio: 1 / 1 !important;
+  padding: 13px !important;
+
   display: flex !important;
   flex-direction: column !important;
-  justify-content: space-between !important;
   align-items: stretch !important;
+  justify-content: space-between !important;
 
-  background:
-    radial-gradient(circle at 78% 12%, rgba(255, 255, 255, 0.10), transparent 44%),
-    rgba(255, 255, 255, 0.045) !important;
-  border: 1px solid rgba(255, 255, 255, 0.075) !important;
   border-radius: 18px !important;
+  background:
+    radial-gradient(circle at 18% 10%, rgba(255,255,255,0.12), transparent 42%),
+    radial-gradient(circle at 85% 12%, rgba(80,255,180,0.08), transparent 46%),
+    rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.11) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.10),
+    0 14px 28px rgba(0,0,0,0.18) !important;
   backdrop-filter: blur(20px) saturate(145%) !important;
   -webkit-backdrop-filter: blur(20px) saturate(145%) !important;
 }
 
+/* Top row: title left, app/toggle right */
 .tv-card .mini-device-head {
-  flex: 0 0 auto !important;
+  flex: 0 0 30px !important;
+  min-height: 30px !important;
+
   display: flex !important;
-  justify-content: space-between !important;
   align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
 }
 
 .tv-card .mini-device-head h3 {
-  max-width: 68% !important;
-  line-height: 1.18 !important;
+  max-width: 58% !important;
+  color: rgba(255,255,255,0.94) !important;
+  font-size: clamp(10px, 2.9vw, 12px) !important;
+  line-height: 1.08 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.035em !important;
 }
 
-/* Replace old emoji feel with flat monochrome TV glyph */
+.tv-card .mini-device-head h3::after {
+  content: "• Active" !important;
+  display: block !important;
+  margin-top: 3px !important;
+
+  color: rgba(255,255,255,0.62) !important;
+  font-size: clamp(8px, 2.2vw, 9px) !important;
+  line-height: 1 !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+}
+
+/* App badges mimic: Netflix + YouTube + ON */
+.tv-card .mini-device-head::after {
+  content: "N  ▶" !important;
+
+  margin-left: auto !important;
+  margin-right: 6px !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+
+  color: rgba(255,255,255,0.86) !important;
+  font-size: clamp(13px, 3.8vw, 18px) !important;
+  line-height: 1 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.06em !important;
+}
+
+.tv-card #tvPowerBadge {
+  min-width: 34px !important;
+  min-height: 20px !important;
+  padding: 4px 7px !important;
+  font-size: 7.5px !important;
+  font-weight: 800 !important;
+}
+
+/* Center TV icon: clean flat monitor */
 .tv-card .mini-emoji {
   flex: 1 1 auto !important;
   width: 100% !important;
-  margin: 0 !important;
 
   display: grid !important;
   place-items: center !important;
 
+  margin: 0 !important;
   font-size: 0 !important;
   line-height: 1 !important;
+  color: transparent !important;
   filter: none !important;
   opacity: 1 !important;
 }
 
 .tv-card .mini-emoji::before {
   content: "▭" !important;
-  color: rgba(255, 255, 255, 0.82) !important;
-  font-size: clamp(46px, 13vw, 62px) !important;
-  line-height: 1 !important;
-  font-weight: 300 !important;
-  text-shadow: 0 10px 22px rgba(0, 0, 0, 0.22) !important;
+
+  color: rgba(255,255,255,0.88) !important;
+  font-size: clamp(54px, 15vw, 72px) !important;
+  line-height: 0.82 !important;
+  font-weight: 400 !important;
+
+  text-shadow:
+    0 0 18px rgba(255,255,255,0.10),
+    0 10px 22px rgba(0,0,0,0.20) !important;
 }
 
-/* Bottom media area */
+/* Media controls + status + volume track */
 .tv-card #tvStatus {
-  flex: 0 0 auto !important;
+  flex: 0 0 50px !important;
   width: 100% !important;
   margin: 0 !important;
 
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
+  justify-content: flex-end !important;
   gap: 5px !important;
 
-  color: rgba(255, 255, 255, 0.56) !important;
-  font-size: clamp(8.2px, 2.35vw, 9.6px) !important;
-  line-height: 1.25 !important;
+  color: rgba(255,255,255,0.58) !important;
+  font-size: clamp(8px, 2.25vw, 9.2px) !important;
+  line-height: 1.1 !important;
+  font-weight: 500 !important;
   text-align: center !important;
+  letter-spacing: -0.01em !important;
+  text-transform: none !important;
 }
 
 .tv-card #tvStatus::before {
-  content: "◄◄   ❙❙   ►►" !important;
+  content: "◄◄  ❙❙  ►►" !important;
   display: block !important;
-  color: rgba(255, 255, 255, 0.76) !important;
-  font-size: clamp(12px, 3.5vw, 15px) !important;
+
+  color: rgba(255,255,255,0.86) !important;
+  font-size: clamp(13px, 3.7vw, 16px) !important;
   line-height: 1 !important;
-  letter-spacing: 0.08em !important;
-  margin-bottom: 1px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.10em !important;
+  text-align: center !important;
 }
 
 .tv-card #tvStatus::after {
-  content: "◂  ━━━━━  ▸" !important;
+  content: "◂  ━━━━━━━  ▸" !important;
   display: block !important;
   width: 100% !important;
-  color: rgba(255, 255, 255, 0.54) !important;
-  font-size: clamp(9px, 2.8vw, 12px) !important;
-  line-height: 1 !important;
-  letter-spacing: 0.04em !important;
-}
 
+  color: rgba(255,255,255,0.55) !important;
+  font-size: clamp(8px, 2.35vw, 10px) !important;
+  line-height: 1 !important;
+  letter-spacing: 0.035em !important;
+  text-align: center !important;
+}
