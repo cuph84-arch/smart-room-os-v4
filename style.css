@@ -1797,3 +1797,102 @@ h3 {
 #tvPowerBadge.off::after {
   display: none !important;
 }
+
+
+/* =========================================================
+   TV CARD STACK BALANCE TEST
+   Target visual stack ±84–88px
+========================================================= */
+
+/* Header: 20px */
+.tv-card .mini-device-head {
+  flex: 0 0 20px !important;
+  min-height: 20px !important;
+  align-items: center !important;
+}
+
+.tv-card .mini-device-head h3 {
+  font-size: 11px !important;
+  line-height: 20px !important;
+  font-weight: 650 !important;
+}
+
+/* Capsule toggle: 48 × 18 */
+#tvPowerBadge {
+  width: 48px !important;
+  height: 18px !important;
+  min-width: 48px !important;
+  min-height: 18px !important;
+  font-size: 8px !important;
+}
+
+#tvPowerBadge::before {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+#tvPowerBadge.on {
+  padding-left: 8px !important;
+  padding-right: 20px !important;
+}
+
+#tvPowerBadge.off {
+  padding-left: 20px !important;
+  padding-right: 6px !important;
+}
+
+/* Icon TV: 58 × 42 */
+.tv-card .dynamic-icon-tv,
+.tv-card .mini-emoji.dynamic-icon-tv {
+  min-height: 42px !important;
+  margin: 4px 0 4px !important;
+
+  background:
+    url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/tv.svg")
+    center / 58px 42px no-repeat !important;
+}
+
+/* Info block: 16–18px */
+.tv-card .tv-info p,
+.tv-card .tv-info small {
+  font-size: 8.6px !important;
+  line-height: 1.15 !important;
+}
+
+.tv-card .tv-info small {
+  margin-top: 2px !important;
+}
+
+/* Slider row: compact 12px */
+.tv-card .tv-volume-control {
+  height: 14px !important;
+  min-height: 14px !important;
+  margin-top: 4px !important;
+
+  grid-template-columns: 20px minmax(0, 1fr) 20px !important;
+  gap: 7px !important;
+}
+
+.tv-card .tv-volume-control::before,
+.tv-card .tv-volume-control::after {
+  width: 20px !important;
+  height: 14px !important;
+  mask-size: 13px 13px !important;
+  -webkit-mask-size: 13px 13px !important;
+}
+
+#tvVolumeSlider,
+.tv-card .vision-slider-range {
+  height: 3px !important;
+}
+
+#tvVolumeSlider::-webkit-slider-thumb {
+  width: 9px !important;
+  height: 9px !important;
+  margin-top: -3px !important;
+}
+
+#tvVolumeSlider::-moz-range-thumb {
+  width: 9px !important;
+  height: 9px !important;
+}
