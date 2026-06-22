@@ -1896,3 +1896,70 @@ h3 {
   width: 9px !important;
   height: 9px !important;
 }
+
+/* =========================================================
+   TV CARD MICRO FIX 02
+   Penyempurna patch: TV CARD STACK BALANCE TEST
+   - Kecilkan capsule toggle
+   - Naikkan icon TV sedikit
+   - Samakan visual weight TV vs Nest
+========================================================= */
+
+/* Toggle capsule lebih kecil agar tidak menabrak header */
+#tvPowerBadge {
+  width: 43px !important;
+  min-width: 43px !important;
+  height: 17px !important;
+  min-height: 17px !important;
+
+  font-size: 7.4px !important;
+  letter-spacing: -0.025em !important;
+}
+
+/* Knob capsule lebih proporsional */
+#tvPowerBadge::before {
+  width: 13px !important;
+  height: 13px !important;
+}
+
+/* ON: text kiri, knob kanan */
+#tvPowerBadge.on {
+  padding-left: 7px !important;
+  padding-right: 17px !important;
+}
+
+#tvPowerBadge.on::before {
+  right: 2px !important;
+}
+
+/* OFF: knob kiri, text kanan */
+#tvPowerBadge.off {
+  padding-left: 17px !important;
+  padding-right: 5px !important;
+}
+
+#tvPowerBadge.off::before {
+  left: 2px !important;
+}
+
+/* Naikkan icon TV agar center-nya lebih sejajar dengan speaker Nest */
+.tv-card .dynamic-icon-tv,
+.tv-card .mini-emoji.dynamic-icon-tv {
+  margin: 0 0 5px !important;
+
+  background:
+    url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/tv.svg")
+    center / 58px 42px no-repeat !important;
+
+  transform: translateY(-4px) !important;
+}
+
+/* Sedikit turunkan info agar jarak icon-text tetap lega */
+.tv-card .tv-info {
+  transform: translateY(1px) !important;
+}
+
+/* Slider tetap compact tapi lebih masuk safe area */
+.tv-card .tv-volume-control {
+  margin-top: 5px !important;
+}
