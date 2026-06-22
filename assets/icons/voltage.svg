@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" role="img" aria-label="Voltage plug icon">
+  <path d="M24 13v13" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+  <path d="M40 13v13" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+  <path d="M20 26h24v9a12 12 0 0 1-24 0v-9z" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M32 47v5" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+  <path d="M27 52h10" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+</svg>

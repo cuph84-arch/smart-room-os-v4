@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none" role="img" aria-label="Nest speaker dashboard icon">
+  <circle cx="60" cy="60" r="35" stroke="#FFFFFF" stroke-width="3"/>
+  <circle cx="60" cy="60" r="24" stroke="#FFFFFF" stroke-width="1.5" opacity="0.85"/>
+  <circle cx="60" cy="60" r="12" stroke="#FFFFFF" stroke-width="1.5" opacity="0.65"/>
+  <circle cx="60" cy="60" r="3" fill="#FFFFFF"/>
+  <path d="M44 75c8 5 24 5 32 0" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+</svg>

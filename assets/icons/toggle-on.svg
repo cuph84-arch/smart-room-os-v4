@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 48" width="120" height="48" fill="none" role="img" aria-label="Toggle on">
+  <rect x="4" y="4" width="112" height="40" rx="20" stroke="#22543d" stroke-width="2" fill="none"/>
+  <text x="27" y="30" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#22543d">ON</text>
+  <circle cx="96" cy="24" r="16" fill="#22543d"/>
+</svg>

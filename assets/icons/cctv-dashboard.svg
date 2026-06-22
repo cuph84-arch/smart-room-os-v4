@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" fill="none" role="img" aria-label="CCTV dashboard icon">
+  <path d="M14 45c0-15 11-27 26-27s26 12 26 27H14z" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M20 45h40v7a6 6 0 0 1-6 6H26a6 6 0 0 1-6-6v-7z" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="40" cy="51" r="5" fill="#FFFFFF"/>
+  <path d="M34 64h12" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+</svg>

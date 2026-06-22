@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" role="img" aria-label="Humidity icon">
+  <path d="M32 12s15 17 15 29a15 15 0 0 1-30 0c0-12 15-29 15-29z" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M25 43a8 8 0 0 0 10 5" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+</svg>

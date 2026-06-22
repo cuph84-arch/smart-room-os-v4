@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" fill="none" role="img" aria-label="Smart lamp hero icon">
+  <path d="M40 14c-11 0-19 8-19 19 0 7 4 12 9 16 3 3 4 5 4 9h12c0-4 1-6 4-9 5-4 9-9 9-16 0-11-8-19-19-19z" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M34 62h12" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+  <path d="M35 68h10" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+  <path d="M34 32c0-4 3-7 6-7" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+</svg>
