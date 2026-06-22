@@ -1964,3 +1964,241 @@ h3 {
 
 /* TV toggle: keep CSS capsule; uploaded toggle-on/off assets are available for later image-based toggle migration. */
 
+/* =========================================================
+   ENT-001 — ENTERTAINMENT PREMIUM POLISH PATCH
+   Append only at the bottom of style.css
+   Purpose:
+   - Reduce TV toggle dominance
+   - Balance TV and Nest icon weight
+   - Improve text hierarchy and spacing
+========================================================= */
+
+/* ---------- TV CARD HEADER ---------- */
+
+.tv-card .mini-device-head {
+  min-height: 22px !important;
+  flex-basis: 22px !important;
+  align-items: flex-start !important;
+}
+
+.tv-card .mini-device-head h3 {
+  max-width: calc(100% - 42px) !important;
+  font-size: 11px !important;
+  line-height: 18px !important;
+  font-weight: 650 !important;
+  letter-spacing: -0.035em !important;
+}
+
+/* ---------- TV TOGGLE CAPSULE ---------- */
+
+.tv-card .tv-power-control {
+  width: 38px !important;
+  height: 17px !important;
+  flex: 0 0 38px !important;
+  transform: translate(2px, -1px) !important;
+}
+
+#tvPowerBadge {
+  width: 38px !important;
+  min-width: 38px !important;
+  height: 17px !important;
+  min-height: 17px !important;
+
+  font-size: 7.2px !important;
+  font-weight: 720 !important;
+  letter-spacing: -0.03em !important;
+
+  background: rgba(255, 255, 255, 0.115) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 4px 10px rgba(0, 0, 0, 0.14) !important;
+}
+
+#tvPowerBadge::before {
+  width: 12px !important;
+  height: 12px !important;
+}
+
+#tvPowerBadge.on {
+  padding-left: 6px !important;
+  padding-right: 15px !important;
+  color: rgba(0, 230, 118, 0.95) !important;
+}
+
+#tvPowerBadge.on::before {
+  right: 2px !important;
+}
+
+#tvPowerBadge.off {
+  padding-left: 15px !important;
+  padding-right: 5px !important;
+  color: rgba(255, 76, 76, 0.95) !important;
+}
+
+#tvPowerBadge.off::before {
+  left: 2px !important;
+}
+
+/* ---------- TV ICON ---------- */
+
+.tv-card .dynamic-icon-tv,
+.tv-card .mini-emoji.dynamic-icon-tv {
+  min-height: 46px !important;
+  margin: 1px 0 3px !important;
+  transform: translateY(-1px) !important;
+
+  background-position: center !important;
+  background-size: 58px 46px !important;
+
+  opacity: 0.96 !important;
+  filter:
+    brightness(0)
+    invert(1)
+    opacity(0.96)
+    drop-shadow(0 8px 16px rgba(0, 0, 0, 0.18)) !important;
+
+  -webkit-filter:
+    brightness(0)
+    invert(1)
+    opacity(0.96)
+    drop-shadow(0 8px 16px rgba(0, 0, 0, 0.18)) !important;
+}
+
+/* ---------- TV INFO ---------- */
+
+.tv-card .tv-info {
+  gap: 2px !important;
+  transform: translateY(-1px) !important;
+}
+
+.tv-card .tv-info p,
+.tv-card .tv-info small,
+.tv-card .tv-info span {
+  font-size: 8.4px !important;
+  line-height: 1.18 !important;
+  font-weight: 460 !important;
+  letter-spacing: -0.015em !important;
+}
+
+.tv-card .tv-info p {
+  color: rgba(255, 255, 255, 0.66) !important;
+}
+
+.tv-card .tv-info small {
+  color: rgba(255, 255, 255, 0.56) !important;
+}
+
+/* ---------- TV SLIDER ---------- */
+
+.tv-card .tv-volume-control {
+  margin-top: 5px !important;
+  min-height: 12px !important;
+  height: 12px !important;
+  grid-template-columns: 18px minmax(0, 1fr) 18px !important;
+  gap: 6px !important;
+}
+
+.tv-card .tv-volume-control::before,
+.tv-card .tv-volume-control::after {
+  width: 18px !important;
+  height: 12px !important;
+  mask-size: 12px 12px !important;
+  -webkit-mask-size: 12px 12px !important;
+  opacity: 0.78 !important;
+}
+
+.tv-card .vision-slider-range {
+  height: 3px !important;
+}
+
+/* ---------- NEST CARD HEADER ---------- */
+
+.nest-card .mini-device-head {
+  min-height: 22px !important;
+  flex-basis: 22px !important;
+  align-items: flex-start !important;
+}
+
+.nest-card .mini-device-head h3 {
+  max-width: calc(100% - 36px) !important;
+  font-size: 11px !important;
+  line-height: 18px !important;
+  font-weight: 650 !important;
+  letter-spacing: -0.035em !important;
+}
+
+/* ---------- NEST BADGE ---------- */
+
+#nestPowerBadge {
+  min-width: 34px !important;
+  min-height: 18px !important;
+  height: 18px !important;
+  padding: 3px 7px !important;
+
+  font-size: 7.5px !important;
+  font-weight: 760 !important;
+
+  color: rgba(0, 230, 118, 1) !important;
+  background: rgba(0, 230, 118, 0.16) !important;
+  border-color: rgba(0, 230, 118, 0.30) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 0 16px rgba(0, 230, 118, 0.16) !important;
+}
+
+/* ---------- NEST ICON ---------- */
+
+.nest-card::after {
+  min-height: 46px !important;
+  background-size: 54px 54px !important;
+  opacity: 0.86 !important;
+
+  filter:
+    brightness(1)
+    opacity(0.86)
+    drop-shadow(0 4px 10px rgba(255, 255, 255, 0.08))
+    drop-shadow(0 8px 14px rgba(0, 0, 0, 0.16)) !important;
+
+  -webkit-filter:
+    brightness(1)
+    opacity(0.86)
+    drop-shadow(0 4px 10px rgba(255, 255, 255, 0.08))
+    drop-shadow(0 8px 14px rgba(0, 0, 0, 0.16)) !important;
+}
+
+/* ---------- NEST INFO ---------- */
+
+.nest-card .nest-info {
+  transform: translateY(-1px) !important;
+}
+
+.nest-card .nest-info p,
+.nest-card .nest-info small,
+.nest-card .nest-info span {
+  font-size: 8.4px !important;
+  line-height: 1.22 !important;
+  font-weight: 460 !important;
+  letter-spacing: -0.015em !important;
+}
+
+.nest-card .nest-info p {
+  color: rgba(255, 255, 255, 0.66) !important;
+}
+
+.nest-card .nest-info small {
+  color: rgba(255, 255, 255, 0.56) !important;
+}
+
+/* ---------- NEST VOLUME BAR ---------- */
+
+.nest-card .nest-volume-bar {
+  height: 3px !important;
+  margin-top: 6px !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+}
+
+.nest-card .nest-volume-bar div,
+#nestVolumeBarFill {
+  background: rgba(255, 255, 255, 0.76) !important;
+}
