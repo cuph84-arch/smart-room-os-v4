@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="128" height="128">
-  <circle cx="32" cy="32" r="26" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.9"/>
-  <!-- Ikon Roda Gigi / Otomatisasi -->
-  <circle cx="32" cy="32" r="7" fill="none" stroke="#ffffff" stroke-width="2.5"/>
-  <path d="M32,17 L32,21 M32,43 L32,47 M17,32 L21,32 M43,32 L47,32 M21.4,21.4 L24.2,24.2 M39.8,39.8 L42.6,42.6 M21.4,42.6 L24.2,39.8 M39.8,21.4 L42.6,24.2" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
-</svg>
