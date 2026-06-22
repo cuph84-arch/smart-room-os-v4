@@ -994,7 +994,7 @@ h3 {
   width: 15px;
   height: 15px;
   display: block;
-  background: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/power-on-icon.svg") center / contain no-repeat;
+  background: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/toggle-on.svg") center / contain no-repeat;
   filter: brightness(0) invert(1) opacity(0.86);
   -webkit-filter: brightness(0) invert(1) opacity(0.86);
 }
@@ -1014,7 +1014,7 @@ h3 {
   font-size: 0;
   line-height: 0;
   color: transparent;
-  background: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/tv-screen-icon.svg") center / clamp(64px, 19vw, 86px) auto no-repeat;
+  background: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/tv-dashboard.svg") center / clamp(64px, 19vw, 86px) auto no-repeat;
   filter: brightness(0) invert(1) opacity(0.84) drop-shadow(0 12px 20px rgba(0, 0, 0, 0.18));
   -webkit-filter: brightness(0) invert(1) opacity(0.84) drop-shadow(0 12px 20px rgba(0, 0, 0, 0.18));
 }
@@ -1848,7 +1848,7 @@ h3 {
   margin: 4px 0 4px !important;
 
   background:
-    url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/tv.svg")
+    url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/tv-dashboard.svg")
     center / 58px 42px no-repeat !important;
 }
 
@@ -1948,7 +1948,7 @@ h3 {
   margin: 0 0 5px !important;
 
   background:
-    url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/tv.svg")
+    url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/tv-dashboard.svg")
     center / 58px 42px no-repeat !important;
 
   transform: translateY(-4px) !important;
@@ -1963,3 +1963,191 @@ h3 {
 .tv-card .tv-volume-control {
   margin-top: 5px !important;
 }
+
+
+/* =========================================================
+   SMART ROOM OS V4 — ASSET ICON MIGRATION FINAL
+   Sinkron dengan folder assets/icons terbaru
+   Append-safe: override emoji lama menjadi SVG asset
+========================================================= */
+
+:root {
+  --icon-ac-hero: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/ac-hero.svg");
+  --icon-lamp-hero: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/lamp-hero.svg");
+  --icon-tv-dashboard: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/tv-dashboard.svg");
+  --icon-nest-dashboard: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/nest-dashboard.svg");
+  --icon-speaker-min: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/speaker-min.svg");
+  --icon-speaker-max: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/speaker-max.svg");
+  --icon-cctv-dashboard: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/cctv-dashboard.svg");
+  --icon-energy-dashboard: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/energy-dashboard.svg");
+  --icon-climate-temp: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/climate-temp.svg");
+  --icon-climate-humidity: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/climate-humidity.svg");
+  --icon-power-watt: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/power-watt.svg");
+  --icon-voltage: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/voltage.svg");
+  --icon-scene: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/scene.svg");
+  --icon-toggle-on: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/toggle-on.svg");
+  --icon-toggle-off: url("https://raw.githubusercontent.com/cuph84-arch/smart-room-os-v4/main/assets/icons/toggle-off.svg");
+}
+
+/* Summary icons: replace Android emoji with stable SVG assets */
+.summary-item .emoji-icon {
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+  filter: brightness(0) invert(1) opacity(0.74) drop-shadow(0 8px 18px rgba(0, 0, 0, 0.22)) !important;
+  -webkit-filter: brightness(0) invert(1) opacity(0.74) drop-shadow(0 8px 18px rgba(0, 0, 0, 0.22)) !important;
+}
+
+.summary-grid .summary-item:nth-child(1) .emoji-icon { background-image: var(--icon-ac-hero) !important; }
+.summary-grid .summary-item:nth-child(2) .emoji-icon { background-image: var(--icon-lamp-hero) !important; }
+.summary-grid .summary-item:nth-child(3) .emoji-icon { background-image: var(--icon-tv-dashboard) !important; }
+.summary-grid .summary-item:nth-child(4) .emoji-icon { background-image: var(--icon-cctv-dashboard) !important; }
+
+/* Hero icons */
+.ac-card .emoji-card,
+.lamp-card .emoji-card {
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+  filter: brightness(0) invert(1) opacity(0.80) drop-shadow(0 8px 18px rgba(0, 0, 0, 0.24)) !important;
+  -webkit-filter: brightness(0) invert(1) opacity(0.80) drop-shadow(0 8px 18px rgba(0, 0, 0, 0.24)) !important;
+}
+
+.ac-card .emoji-card { background-image: var(--icon-ac-hero) !important; }
+.lamp-card .emoji-card { background-image: var(--icon-lamp-hero) !important; }
+
+/* Entertainment TV icon: final asset name */
+.tv-card .dynamic-icon-tv,
+.tv-card .mini-emoji.dynamic-icon-tv {
+  background: var(--icon-tv-dashboard) center / 58px 58px no-repeat !important;
+  min-height: 42px !important;
+  margin: 0 0 5px !important;
+  transform: translateY(-4px) !important;
+  filter: brightness(0) invert(1) opacity(0.84) drop-shadow(0 12px 20px rgba(0, 0, 0, 0.18)) !important;
+  -webkit-filter: brightness(0) invert(1) opacity(0.84) drop-shadow(0 12px 20px rgba(0, 0, 0, 0.18)) !important;
+}
+
+/* Entertainment Nest icon: replace emoji pseudo-element with SVG asset */
+.nest-card::after {
+  content: "" !important;
+  order: 2 !important;
+  flex: 1 1 auto !important;
+  width: 100% !important;
+  min-height: 48px !important;
+  display: block !important;
+  background: var(--icon-nest-dashboard) center / 58px 58px no-repeat !important;
+  filter: brightness(0) invert(1) opacity(0.66) drop-shadow(0 12px 20px rgba(0, 0, 0, 0.18)) !important;
+  -webkit-filter: brightness(0) invert(1) opacity(0.66) drop-shadow(0 12px 20px rgba(0, 0, 0, 0.18)) !important;
+  pointer-events: none !important;
+}
+
+/* TV slider speaker icons from uploaded assets */
+.tv-card .tv-volume-control {
+  display: grid !important;
+  grid-template-columns: 20px minmax(0, 1fr) 20px !important;
+  gap: 7px !important;
+  align-items: center !important;
+}
+
+.tv-card .tv-volume-control::before,
+.tv-card .tv-volume-control::after {
+  content: "" !important;
+  width: 20px !important;
+  height: 14px !important;
+  display: block !important;
+  background-color: rgba(255, 255, 255, 0.78) !important;
+  mask-repeat: no-repeat !important;
+  mask-position: center !important;
+  mask-size: 13px 13px !important;
+  -webkit-mask-repeat: no-repeat !important;
+  -webkit-mask-position: center !important;
+  -webkit-mask-size: 13px 13px !important;
+  opacity: 0.82 !important;
+}
+
+.tv-card .tv-volume-control::before {
+  grid-column: 1 !important;
+  mask-image: var(--icon-speaker-min) !important;
+  -webkit-mask-image: var(--icon-speaker-min) !important;
+}
+
+.tv-card .tv-volume-control::after {
+  grid-column: 3 !important;
+  mask-image: var(--icon-speaker-max) !important;
+  -webkit-mask-image: var(--icon-speaker-max) !important;
+}
+
+#tvVolumeSlider,
+.tv-card .vision-slider-range {
+  grid-column: 2 !important;
+}
+
+/* Climate & Power SVG icons */
+.metric-item .metric-emoji {
+  width: 20px !important;
+  height: 20px !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+  opacity: 0.65 !important;
+  filter: brightness(0) invert(1) opacity(0.65) !important;
+  -webkit-filter: brightness(0) invert(1) opacity(0.65) !important;
+}
+
+.metric-grid .metric-item:nth-child(1) .metric-emoji { background-image: var(--icon-climate-temp) !important; }
+.metric-grid .metric-item:nth-child(2) .metric-emoji { background-image: var(--icon-climate-humidity) !important; }
+.metric-grid .metric-item:nth-child(3) .metric-emoji { background-image: var(--icon-power-watt) !important; }
+.metric-grid .metric-item:nth-child(4) .metric-emoji { background-image: var(--icon-voltage) !important; }
+
+/* CCTV, Energy, Scene SVG icon migration */
+.cctv-card .emoji-card,
+.energy-card .emoji-card,
+.scene-card .emoji-card,
+.security-visual span {
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+  filter: brightness(0) invert(1) opacity(0.72) drop-shadow(0 8px 18px rgba(0, 0, 0, 0.20)) !important;
+  -webkit-filter: brightness(0) invert(1) opacity(0.72) drop-shadow(0 8px 18px rgba(0, 0, 0, 0.20)) !important;
+}
+
+.cctv-card .emoji-card,
+.security-visual span {
+  background-image: var(--icon-cctv-dashboard) !important;
+}
+
+.energy-card .emoji-card {
+  background-image: var(--icon-energy-dashboard) !important;
+}
+
+.scene-card .emoji-card {
+  background-image: var(--icon-scene) !important;
+}
+
+.cctv-card .emoji-card,
+.energy-card .emoji-card,
+.scene-card .emoji-card {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.security-visual span {
+  width: 32px !important;
+  height: 32px !important;
+  display: block !important;
+}
+
+/* TV toggle: keep CSS capsule; uploaded toggle-on/off assets are available for later image-based toggle migration. */
+
