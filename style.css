@@ -1836,38 +1836,7 @@ h3 {
 .lamp-card .emoji-card { background-image: var(--icon-lamp-hero) !important; }
 
 /* Entertainment TV icon: final asset name */
-.tv-card .dynamic-icon-tv,
-.tv-card .mini-emoji.dynamic-icon-tv {
-  order: 2;
 
-  flex: 1 1 auto !important;
-  width: 100%;
-  min-height: 64px !important;
-
-  display: block !important;
-
-  margin: 10px 0 10px !important;
-
-  background-image: var(--icon-tv-dashboard) !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  background-size: 62px 50px !important;
-
-  transform: none !important;
-  opacity: 0.96 !important;
-
-  filter:
-    brightness(0)
-    invert(1)
-    opacity(0.96)
-    drop-shadow(0 8px 16px rgba(0,0,0,.18)) !important;
-
-  -webkit-filter:
-    brightness(0)
-    invert(1)
-    opacity(0.96)
-    drop-shadow(0 8px 16px rgba(0,0,0,.18)) !important;
-}
 
 /* Entertainment Nest icon: replace emoji pseudo-element with SVG asset */
 .nest-card::after {
@@ -2067,6 +2036,8 @@ h3 {
 
 .tv-card .dynamic-icon-tv,
 .tv-card .mini-emoji.dynamic-icon-tv {
+  background-image: var(--icon-tv-dashboard) !important;
+  background-repeat: no-repeat !important;
   min-height: 46px !important;
   margin: 1px 0 3px !important;
   transform: translateY(-1px) !important;
