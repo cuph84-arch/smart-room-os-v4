@@ -2192,8 +2192,20 @@ h3 {
   background: rgba(255, 255, 255, 0.14) !important;
 }
 
-.nest-card .nest-volume-bar div,
-#nestVolumeBarFill {
-  background: rgba(255, 255, 255, 0.76) !important;
+.nest-card .nest-volume-bar {
+  order: 4 !important;
+  width: 100% !important;
+  height: 12px !important;
+  min-height: 12px !important;
+  margin-top: 6px !important;
+
+  display: grid !important;
+  grid-template-columns: 18px minmax(0, 1fr) 18px !important;
+  gap: 6px !important;
+  align-items: center !important;
+
+  overflow: visible !important;
+  border-radius: 0 !important;
+  background: transparent !important;
 }
 
