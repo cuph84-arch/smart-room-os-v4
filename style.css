@@ -2445,3 +2445,93 @@ h3 {
     drop-shadow(0 4px 10px rgba(255, 255, 255, 0.10))
     drop-shadow(0 10px 18px rgba(0, 0, 0, 0.16)) !important;
 }
+
+/* =========================================================
+   SMART ROOM OS V4
+   VISUAL TUNING PATCH V2
+   APPEND ONLY
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1. SUMMARY ICON BOOST
+   --------------------------------------------------------- */
+
+.summary-item .emoji-card,
+.summary-item .summary-icon,
+.summary-item .mini-icon {
+  opacity: 1 !important;
+  filter:
+    brightness(1)
+    drop-shadow(0 2px 6px rgba(255,255,255,0.12))
+    !important;
+}
+
+/* ---------------------------------------------------------
+   2. AC HERO ICON REBALANCE
+   --------------------------------------------------------- */
+
+.ac-card .emoji-hero,
+.ac-card .hero-icon,
+.ac-card .card-icon {
+  width: 46px !important;
+  height: 46px !important;
+
+  background-size: 108% !important;
+
+  opacity: 0.96 !important;
+}
+
+/* ---------------------------------------------------------
+   3. LAMP HERO ICON REBALANCE
+   --------------------------------------------------------- */
+
+.lamp-card .emoji-hero,
+.lamp-card .hero-icon,
+.lamp-card .card-icon {
+  width: 46px !important;
+  height: 46px !important;
+
+  background-size: 108% !important;
+
+  opacity: 0.96 !important;
+}
+
+/* ---------------------------------------------------------
+   4. TV TOGGLE POSITION FIX
+   --------------------------------------------------------- */
+
+.tv-card .tv-power-control,
+.tv-card #tvPowerBadge,
+.tv-card .badge {
+  transform: translateY(10px) !important;
+}
+
+/* ---------------------------------------------------------
+   5. NEST VISUAL WEIGHT BOOST
+   --------------------------------------------------------- */
+
+.nest-card .emoji-card,
+.nest-card .dynamic-icon-nest {
+  opacity: 1 !important;
+
+  filter:
+    brightness(1)
+    drop-shadow(0 4px 12px rgba(255,255,255,0.18))
+    !important;
+}
+
+/* ---------------------------------------------------------
+   6. TV ICON MICRO BOOST
+   --------------------------------------------------------- */
+
+.tv-card .emoji-card,
+.tv-card .dynamic-icon-tv {
+  opacity: 1 !important;
+
+  background-size: 92% auto !important;
+
+  filter:
+    brightness(1)
+    drop-shadow(0 4px 10px rgba(255,255,255,0.12))
+    !important;
+}
