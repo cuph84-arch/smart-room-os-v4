@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="128" height="128">
-  <!-- Lingkaran Luar -->
-  <circle cx="32" cy="32" r="26" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.9"/>
-  <!-- Kepingan Salju / Snowflake (AC) -->
-  <path d="M32,14 L32,50 M14,32 L50,32 M19.2,19.2 L44.8,44.8 M19.2,44.8 L44.8,19.2" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
-  <path d="M29,17 L32,20 L35,17 M29,47 L32,44 L35,47 M17,29 L20,32 L17,35 M47,29 L44,32 L47,35" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
-</svg>
