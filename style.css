@@ -2535,3 +2535,43 @@ h3 {
     drop-shadow(0 4px 10px rgba(255,255,255,0.12))
     !important;
 }
+
+/* =========================================================================
+   7. FINAL VISUAL REBALANCE & BUG FIXES (YUSUF OPTIMIZATION)
+   ========================================================================= */
+
+/* Fix AC & Lampu Hero - Mengembalikan proporsi badge lingkaran agar tidak merusak teks */
+.ac-card .hero-icon, 
+.ac-card .card-icon,
+.lamp-card .hero-icon,
+.lamp-card .card-icon {
+  width: 40px !important;  /* Ukuran lingkaran badge yang ideal */
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Memperbesar visual vector di dalam badge tanpa merusak ukuran badge luar */
+.ac-card .emoji-hero,
+.lamp-card .emoji-hero {
+  width: 100% !important;
+  height: 100% !important;
+  background-size: 85% center !important; /* Menghilangkan efek over-scale raksasa */
+  opacity: 0.95 !important;
+}
+
+/* Fix Posisi Toggle TV Kamar - Mengembalikan posisi seimbang di kanan atas */
+.tv-card .tv-power-control,
+.tv-card #tvPowerBadge,
+.tv-card .badge {
+  transform: translateY(0px) !important; /* Reset penurunan 10px dari ChatGPT */
+}
+
+/* Merapikan susunan header di dalam TV Card agar teks dan toggle sejajar murni */
+.tv-card .card-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+}
