@@ -1688,10 +1688,6 @@ h3 {
    CSS only — append at bottom of style.css
 ========================================================= */
 
-.tv-card .mini-device-head {
-  align-items: center !important;
-}
-
 .tv-card .mini-device-head h3 {
   color: rgba(255, 255, 255, 0.92) !important;
   font-size: clamp(10.2px, 2.8vw, 12px) !important;
