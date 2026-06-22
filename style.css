@@ -2164,13 +2164,8 @@ h3 {
 
 /* ---------- NEST INFO ---------- */
 
-.nest-card .nest-info{
-  margin-top:auto !important;
-
-  display:grid !important;
-  gap:2px !important;
-
-  text-align:left !important;
+.nest-card .nest-info {
+  transform: translateY(-1px) !important;
 }
 .nest-card .nest-info p,
 .nest-card .nest-info small,
