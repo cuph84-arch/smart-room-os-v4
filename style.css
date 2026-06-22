@@ -2575,3 +2575,47 @@ h3 {
   justify-content: space-between !important;
   width: 100% !important;
 }
+
+/* =========================================================================
+   FORCE RESET & VISUAL REBALANCE (ANTI-BUG CHATGPT)
+   ========================================================================= */
+
+/* 1. Paksa ukuran ikon line-art AC & Lampu agar kembali proporsional */
+div[class*="card"] svg, 
+div[class*="card"] .hero-icon, 
+div[class*="card"] .card-icon,
+div[class*="card"] img[src*="ac"], 
+div[class*="card"] img[src*="lamp"] {
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  min-height: 38px !important;
+  object-fit: contain !important;
+}
+
+/* 2. Atur kerenggangan area header agar ikon, teks, dan tombol power tidak bertabrakan */
+div[class*="card"] .card-header,
+div[class*="card"] > flex, 
+div[class*="card"] > div:first-child {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+  width: 100% !important;
+}
+
+/* 3. Pastikan teks "AC kamar" dan "Lampu kamar" vertikal di tengah terhadap ikon */
+div[class*="card"] h3, 
+div[class*="card"] .card-title,
+div[class*="card"] span {
+  margin: 0 !important;
+  line-height: 1.2 !important;
+}
+
+/* 4. Fix total untuk tombol Power (Bulat Merah) agar tetap di pojok kanan atas secara simetris */
+div[class*="card"] .power-btn,
+div[class*="card"] [id*="power"],
+div[class*="card"] [class*="power"] {
+  margin-left: auto !important;
+  transform: translateY(0) !important; /* Reset total jika diturunkan ChatGPT */
+}
