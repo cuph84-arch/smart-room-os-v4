@@ -2364,3 +2364,84 @@ h3 {
    This block intentionally avoids redefining #tvPowerBadge dimensions,
    positioning, padding, or pseudo-elements to prevent rule fluttering.
 ========================= */
+
+
+/* =========================================================
+   VISUAL TUNING FIX 02
+   Purpose:
+   - Reduce AC/Lamp icon overshoot
+   - Keep TV icon stable
+   - Keep Nest sharper without changing layout
+   Append at the very bottom of style.css
+========================================================= */
+
+/* AC & Lamp icon: reduce from 56px to premium 50px */
+.ac-card .emoji-card,
+.lamp-card .emoji-card,
+.ac-card .card-icon,
+.lamp-card .card-icon {
+  width: 50px !important;
+  height: 50px !important;
+  min-width: 50px !important;
+  min-height: 50px !important;
+
+  background-size: 108% 108% !important;
+  opacity: 0.92 !important;
+
+  filter:
+    brightness(0)
+    invert(1)
+    opacity(0.92)
+    drop-shadow(0 8px 18px rgba(0, 0, 0, 0.26)) !important;
+
+  -webkit-filter:
+    brightness(0)
+    invert(1)
+    opacity(0.92)
+    drop-shadow(0 8px 18px rgba(0, 0, 0, 0.26)) !important;
+}
+
+/* Reposition enlarged AC/Lamp icons safely in top-left */
+.target-card-top .emoji-card,
+.ac-card .target-card-top .card-icon,
+.lamp-card .target-card-top .card-icon {
+  transform: translate(-9px, -9px) !important;
+}
+
+/* TV icon: keep stronger but slightly calmer */
+.tv-card .dynamic-icon-tv,
+.tv-card .mini-emoji.dynamic-icon-tv {
+  background-size: 60px 48px !important;
+  opacity: 0.96 !important;
+
+  filter:
+    brightness(0)
+    invert(1)
+    opacity(0.96)
+    drop-shadow(0 10px 18px rgba(0, 0, 0, 0.20)) !important;
+
+  -webkit-filter:
+    brightness(0)
+    invert(1)
+    opacity(0.96)
+    drop-shadow(0 10px 18px rgba(0, 0, 0, 0.20)) !important;
+}
+
+/* Nest: keep crisp but reduce radar dominance slightly */
+.nest-card::after,
+.nest-card .emoji-card {
+  background-size: 58px 58px !important;
+  opacity: 0.88 !important;
+
+  filter:
+    brightness(1)
+    opacity(0.88)
+    drop-shadow(0 4px 10px rgba(255, 255, 255, 0.10))
+    drop-shadow(0 10px 18px rgba(0, 0, 0, 0.16)) !important;
+
+  -webkit-filter:
+    brightness(1)
+    opacity(0.88)
+    drop-shadow(0 4px 10px rgba(255, 255, 255, 0.10))
+    drop-shadow(0 10px 18px rgba(0, 0, 0, 0.16)) !important;
+}
