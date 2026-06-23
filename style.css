@@ -2032,20 +2032,32 @@ h3 {
   left: 2px !important;
 }
 
-/* ---------- TV ICON ---------- */
+/* ---------- TV ICON BODY LOCK ---------- */
 
 .tv-card .dynamic-icon-tv,
 .tv-card .mini-emoji.dynamic-icon-tv {
-  background-image: var(--icon-tv-dashboard) !important;
-  background-repeat: no-repeat !important;
+  order: 2 !important;
+
+  flex: 1 1 auto !important;
+  width: 100% !important;
   min-height: 46px !important;
+
+  display: block !important;
+
   margin: 1px 0 3px !important;
   transform: translateY(-1px) !important;
 
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+
+  background-image: var(--icon-tv-dashboard) !important;
   background-position: center !important;
+  background-repeat: no-repeat !important;
   background-size: 58px 46px !important;
 
   opacity: 0.96 !important;
+
   filter:
     brightness(0)
     invert(1)
