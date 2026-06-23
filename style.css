@@ -1286,6 +1286,35 @@ h3 {
   display: grid;
   gap: 8px;
 }
+.cctv-card h2 {
+  display: grid;
+  gap: 1px;
+  line-height: 1.05;
+}
+
+.cctv-card h2 strong {
+  display: block;
+  color: rgba(255,255,255,0.94);
+  font-size: 15px;
+  font-weight: 760;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.cctv-card h2 span {
+  display: block;
+  color: rgba(255,255,255,0.86);
+  font-size: 14px;
+  font-weight: 430;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.security-line > span,
+.cctv-mode-pill strong {
+  filter: grayscale(1) brightness(2.2);
+  -webkit-filter: grayscale(1) brightness(2.2);
+}
 
 .security-line {
   display: grid;
