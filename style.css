@@ -1277,12 +1277,11 @@ h3 {
 
 .security-layout {
   display: grid;
-  grid-template-columns: 1fr 58px;
+  grid-template-columns: 1fr;
   gap: 8px;
-  align-items: end;
+  align-items: start;
   margin-top: 10px;
 }
-
 .security-info {
   display: grid;
   gap: 6px;
