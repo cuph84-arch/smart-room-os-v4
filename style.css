@@ -1303,11 +1303,11 @@ h3 {
 
 .cctv-card h2 span {
   display: block;
-  color: rgba(255,255,255,0.86);
-  font-size: 14px;
-  font-weight: 430;
+  color: rgba(255,255,255,0.82);
+  font-size: 11.5px;
+  font-weight: 420;
   line-height: 1.05;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.025em;
 }
 
 .security-line > span,
