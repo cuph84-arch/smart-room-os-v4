@@ -1326,6 +1326,47 @@ h3 {
   filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.28));
 }
 
+.cctv-mode-pill {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: rgba(120, 80, 180, 0.18);
+  border: 1px solid rgba(190, 140, 255, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.cctv-mode-pill strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.92);
+  line-height: 1.1;
+}
+
+.cctv-mode-pill span {
+  display: block;
+  margin-top: 3px;
+  font-size: 10px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.48);
+}
+
+.cctv-mode-pill b {
+  min-width: 48px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 800;
+  color: #d89cff;
+  background: rgba(160, 80, 255, 0.14);
+  border: 1px solid rgba(216, 156, 255, 0.24);
+}
+
 .energy-compact {
   display: grid;
   gap: 7px;
