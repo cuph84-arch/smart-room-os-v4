@@ -219,6 +219,7 @@ function renderDashboard(data) {
   setText("cctvMotion", data.cctv.motion);
   setText("cctvRecording", data.cctv.recording);
   setText("cctvLastMotion", data.cctv.lastMotion);
+  setText("cctvRecordMode", cctv.recordMode ?? "--");
 
   setText("summaryAC", data.ac.power);
   setText("summaryLamp", data.lamp.power);
