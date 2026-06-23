@@ -1327,16 +1327,15 @@ h3 {
 }
 
 .cctv-mode-pill {
-  margin-top: 14px;
-  padding: 12px 14px;
-  border-radius: 18px;
+  margin-top: 12px;
+  padding: 9px 10px;
+  border-radius: 16px;
   background: rgba(120, 80, 180, 0.18);
   border: 1px solid rgba(190, 140, 255, 0.22);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+  gap: 10px;
 }
 
 .cctv-mode-pill strong {
@@ -1614,8 +1613,12 @@ h3 {
   }
 
   .security-layout {
-    grid-template-columns: 1fr 58px;
-  }
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  align-items: start;
+  margin-top: 10px;
+}
 }
 
 @media (max-width: 360px) {
