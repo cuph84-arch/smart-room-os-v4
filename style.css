@@ -1336,6 +1336,8 @@ h3 {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+  width: 100%;
+box-sizing: border-box;
 }
 
 .cctv-mode-pill strong {
