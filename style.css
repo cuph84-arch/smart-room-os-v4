@@ -1303,11 +1303,11 @@ h3 {
 
 .cctv-card h2 span {
   display: block;
-  color: rgba(255,255,255,0.82);
-  font-size: 11.5px;
+  color: rgba(255,255,255,0.78);
+  font-size: 10.8px;
   font-weight: 420;
-  line-height: 1.05;
-  letter-spacing: -0.025em;
+  line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 .security-line > span,
@@ -1383,45 +1383,46 @@ h3 {
 }
 
 .cctv-mode-pill {
-  margin-top: 12px;
-  padding: 8px 10px;
-  border-radius: 15px;
-  background: rgba(120, 80, 180, 0.16);
-  border: 1px solid rgba(190, 140, 255, 0.20);
+  margin-top: 10px;
+  padding: 7px 9px;
+  border-radius: 14px;
+  background: rgba(120, 80, 180, 0.14);
+  border: 1px solid rgba(190, 140, 255, 0.18);
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   width: 100%;
   box-sizing: border-box;
 }
 
 .cctv-mode-pill strong {
   display: block;
-  font-size: 10.2px;
-  font-weight: 700;
-  color: rgba(255,255,255,0.90);
-  line-height: 1.12;
+  font-size: 9.6px;
+  font-weight: 650;
+  color: rgba(255,255,255,0.88);
+  line-height: 1.1;
 }
 
 .cctv-mode-pill span {
   display: block;
-  margin-top: 2px;
-  font-size: 8px;
+  margin-top: 1px;
+  font-size: 7.6px;
   font-weight: 500;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.42);
+  line-height: 1.1;
 }
 
 .cctv-mode-pill b {
-  min-width: 44px;
-  padding: 4px 8px;
+  min-width: 40px;
+  padding: 3px 7px;
   border-radius: 999px;
   text-align: center;
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 800;
   color: #d89cff;
-  background: rgba(160, 80, 255, 0.13);
-  border: 1px solid rgba(216, 156, 255, 0.22);
+  background: rgba(160, 80, 255, 0.12);
+  border: 1px solid rgba(216, 156, 255, 0.20);
 }
 
 .energy-compact {
