@@ -1284,23 +1284,41 @@ h3 {
 }
 .security-info {
   display: grid;
-  gap: 6px;
+  gap: 8px;
 }
 
 .security-line {
   display: grid;
-  gap: 2px;
-  color: var(--text-muted);
-  font-size: 9px;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.62);
+  font-size: 9.5px;
   line-height: 1.15;
-  font-weight: 620;
+  font-weight: 500;
 }
 
 .security-line strong {
   color: #fff;
-  font-size: 10.5px;
+  font-size: 10.8px;
   line-height: 1.15;
   font-weight: 700;
+  text-align: right;
+}
+
+.last-motion-line {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3px;
+  align-items: start;
+}
+
+.last-motion-line strong {
+  text-align: left;
+  font-size: 10.5px;
+  font-weight: 700;
+  line-height: 1.18;
+  color: rgba(255,255,255,0.94);
 }
 
 .security-line strong[id="cctvMotion"],
@@ -1327,44 +1345,44 @@ h3 {
 
 .cctv-mode-pill {
   margin-top: 12px;
-  padding: 9px 10px;
-  border-radius: 16px;
-  background: rgba(120, 80, 180, 0.18);
-  border: 1px solid rgba(190, 140, 255, 0.22);
-  display: flex;
+  padding: 8px 10px;
+  border-radius: 15px;
+  background: rgba(120, 80, 180, 0.16);
+  border: 1px solid rgba(190, 140, 255, 0.20);
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
-  justify-content: space-between;
   gap: 10px;
   width: 100%;
-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .cctv-mode-pill strong {
   display: block;
-  font-size: 12px;
+  font-size: 10.2px;
   font-weight: 700;
-  color: rgba(255,255,255,0.92);
-  line-height: 1.1;
+  color: rgba(255,255,255,0.90);
+  line-height: 1.12;
 }
 
 .cctv-mode-pill span {
   display: block;
-  margin-top: 3px;
-  font-size: 10px;
+  margin-top: 2px;
+  font-size: 8px;
   font-weight: 500;
-  color: rgba(255,255,255,0.48);
+  color: rgba(255,255,255,0.45);
 }
 
 .cctv-mode-pill b {
-  min-width: 48px;
-  padding: 5px 9px;
+  min-width: 44px;
+  padding: 4px 8px;
   border-radius: 999px;
   text-align: center;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 800;
   color: #d89cff;
-  background: rgba(160, 80, 255, 0.14);
-  border: 1px solid rgba(216, 156, 255, 0.24);
+  background: rgba(160, 80, 255, 0.13);
+  border: 1px solid rgba(216, 156, 255, 0.22);
 }
 
 .energy-compact {
@@ -2248,4 +2266,3 @@ box-sizing: border-box;
   margin-top: 6px !important;
   background: rgba(255, 255, 255, 0.14) !important;
 }
-
