@@ -216,6 +216,15 @@ function renderDashboard(data) {
   renderNestVolumeBar(data.nest.volume);
 
   setText("cctvOnline", data.cctv.online);
+  const cctvBadge = document.getElementById("cctvOnline");
+
+if (cctvBadge) {
+  const online =
+    String(data.cctv.online || "").toUpperCase() === "ONLINE";
+
+  cctvBadge.classList.toggle("online", online);
+  cctvBadge.classList.toggle("offline", !online);
+}
   setText("cctvMotion", data.cctv.motion);
   setText("cctvRecording", data.cctv.recording);
   const lastMotionText = data?.cctv?.lastMotion ?? "--";
