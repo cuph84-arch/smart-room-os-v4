@@ -1460,7 +1460,7 @@ h3 {
 
 .energy-compact {
   display: grid;
-  gap: 7px;
+  gap: 9px;
   margin-top: 10px;
 }
 
@@ -1469,20 +1469,22 @@ h3 {
   grid-template-columns: 1fr auto;
   align-items: center;
   gap: 10px;
-  min-height: 20px;
+  min-height: 24px;
 }
 
 .energy-row span {
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 10px;
-  font-weight: 400;
+  color: rgba(255,255,255,0.68);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
 }
 
 .energy-row strong {
-  color: #fff;
-  font-size: 11px;
-  font-weight: 700;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 650;
   text-align: right;
+  letter-spacing: -0.02em;
 }
 
 .energy-total-box {
@@ -1490,30 +1492,44 @@ h3 {
   grid-template-columns: 1fr auto;
   align-items: center;
   gap: 10px;
-  margin-top: 5px;
-  padding: 9px 10px;
-  border-radius: 13px;
-  background: rgba(0, 230, 118, 0.10);
-  border: 1px solid rgba(0, 230, 118, 0.14);
+
+  margin-top: 8px;
+
+  padding: 11px 12px;
+
+  border-radius: 16px;
+
+  background: rgba(0,230,118,0.10);
+  border: 1px solid rgba(0,230,118,0.16);
 }
 
 .energy-total-box span,
 .energy-total-box strong {
   color: var(--green);
-  font-size: 10px;
   font-weight: 700;
 }
 
+.energy-total-box span {
+  font-size: 11px;
+  line-height: 1.15;
+}
+
 .energy-total-box strong {
+  font-size: 13px;
   text-align: right;
+  letter-spacing: -0.02em;
 }
 
 .energy-tariff-compact {
   display: block;
-  margin-top: 2px;
+  margin-top: 6px;
+
   color: var(--text-faint);
-  font-size: 7.8px;
-  font-weight: 400;
+
+  font-size: 8.8px;
+  font-weight: 450;
+
+  letter-spacing: -0.01em;
 }
 
 .scene-card {
