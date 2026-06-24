@@ -1309,6 +1309,14 @@ h3 {
   line-height: 1;
   letter-spacing: -0.02em;
 }
+.cctv-card .title-group {
+  align-items: flex-start;
+  gap: 9px;
+}
+
+.cctv-card .card-icon {
+  margin-top: 1px;
+}
 
 .security-line > span,
 .cctv-mode-pill strong {
