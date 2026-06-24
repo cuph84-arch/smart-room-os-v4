@@ -1416,11 +1416,11 @@ h3 {
 }
 
 .cctv-mode-pill {
-  margin-top: 10px;
-  padding: 7px 9px;
+  margin-top: 11px;
+  padding: 8px 9px;
   border-radius: 14px;
-  background: rgba(120, 80, 180, 0.14);
-  border: 1px solid rgba(190, 140, 255, 0.18);
+  background: rgba(120, 80, 180, 0.18);
+  border: 1px solid rgba(190, 140, 255, 0.24);
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
@@ -1431,31 +1431,31 @@ h3 {
 
 .cctv-mode-pill strong {
   display: block;
-  font-size: 9.6px;
-  font-weight: 650;
-  color: rgba(255,255,255,0.88);
+  font-size: 10px;
+  font-weight: 720;
+  color: #ffffff;
   line-height: 1.1;
 }
 
 .cctv-mode-pill span {
   display: block;
-  margin-top: 1px;
-  font-size: 7.6px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.42);
+  margin-top: 2px;
+  font-size: 7.8px;
+  font-weight: 520;
+  color: #ffffff;
   line-height: 1.1;
 }
 
 .cctv-mode-pill b {
-  min-width: 40px;
+  min-width: 42px;
   padding: 3px 7px;
   border-radius: 999px;
   text-align: center;
   font-size: 8px;
   font-weight: 800;
   color: #d89cff;
-  background: rgba(160, 80, 255, 0.12);
-  border: 1px solid rgba(216, 156, 255, 0.20);
+  background: rgba(160, 80, 255, 0.16);
+  border: 1px solid rgba(216, 156, 255, 0.28);
 }
 
 .energy-compact {
