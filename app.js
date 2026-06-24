@@ -224,8 +224,7 @@ const lastMotionParts = String(lastMotionText).trim().split(/\s+/);
 setText("cctvLastDate", lastMotionParts[0] ?? "--");
 setText("cctvLastTime", lastMotionParts[1] ?? "--");
   
-  setText("cctvRecordMode", cctv.recordMode ?? "--");
-
+  setText("cctvRecordMode", data?.cctv?.recordMode ?? "--");
   setText("summaryAC", data.ac.power);
   setText("summaryLamp", data.lamp.power);
   setText("summaryTV", data.tv.power);
