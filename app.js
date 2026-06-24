@@ -218,12 +218,11 @@ function renderDashboard(data) {
   setText("cctvOnline", data.cctv.online);
   setText("cctvMotion", data.cctv.motion);
   setText("cctvRecording", data.cctv.recording);
-  const lastMotionText = data.cctv.lastMotion ?? "--";
-const lastMotionParts = String(lastMotionText).split(" ");
+  const lastMotionText = data?.cctv?.lastMotion ?? "--";
+const lastMotionParts = String(lastMotionText).trim().split(/\s+/);
 
 setText("cctvLastDate", lastMotionParts[0] ?? "--");
 setText("cctvLastTime", lastMotionParts[1] ?? "--");
-
   
   setText("cctvRecordMode", cctv.recordMode ?? "--");
 
