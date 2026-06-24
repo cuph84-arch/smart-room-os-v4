@@ -2359,3 +2359,142 @@ h3 {
   border: 1px solid rgba(255, 76, 76, 0.24);
   box-shadow: 0 0 18px rgba(255, 76, 76, 0.12);
 }
+
+/* =========================================================
+   ENG-001 FINAL CSS PASS — ENERGY USAGE
+   Scope: Energy card only
+   ========================================================= */
+
+.energy-card {
+  padding: 18px 16px 14px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.095);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 14px 34px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
+
+.energy-card .section-header,
+.energy-card .card-header {
+  margin-bottom: 14px;
+}
+
+.energy-card h2,
+.energy-card h3 {
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 15.5px;
+  font-weight: 760;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+
+.energy-list,
+.energy-metrics {
+  display: grid;
+  gap: 9px;
+}
+
+.energy-row,
+.energy-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 25px;
+}
+
+.energy-row span:first-child,
+.energy-item span:first-child,
+.energy-label {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.energy-row span:last-child,
+.energy-item span:last-child,
+.energy-value,
+#energyToday,
+#energyWeek,
+#energyMonth {
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 13.5px;
+  font-weight: 720;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.energy-total,
+.energy-cost,
+.energy-total-box,
+.energy-month-cost {
+  margin-top: 13px;
+  padding: 12px 12px;
+  border-radius: 18px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(34, 197, 94, 0.16),
+      rgba(255, 255, 255, 0.055)
+    );
+  border: 1px solid rgba(134, 239, 172, 0.18);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.energy-total,
+.energy-cost,
+.energy-total-box,
+.energy-month-cost {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.energy-total span:first-child,
+.energy-cost span:first-child,
+.energy-total-box span:first-child,
+.energy-month-cost span:first-child {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 11.5px;
+  font-weight: 560;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.energy-total span:last-child,
+.energy-cost span:last-child,
+.energy-total-box span:last-child,
+.energy-month-cost span:last-child,
+#energyMonthCost {
+  color: #86efac;
+  font-size: 14.5px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  text-align: right;
+  white-space: nowrap;
+  text-shadow: 0 0 14px rgba(134, 239, 172, 0.18);
+}
+
+.energy-note,
+.energy-tariff,
+.energy-card small,
+#energyTariff {
+  display: block;
+  margin-top: 9px;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 10.5px;
+  font-weight: 480;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
