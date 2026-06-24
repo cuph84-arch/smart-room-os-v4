@@ -1094,77 +1094,6 @@ h3 {
    NEST CARD
 ========================= */
 
-.nest-card {
-  display: flex;
-  flex-direction: column;
-  background:
-    radial-gradient(circle at top right, rgba(0, 230, 118, 0.11), transparent 50%),
-    rgba(255, 255, 255, 0.045);
-}
-
-.nest-card::before {
-  content: none;
-  display: none;
-}
-
-.nest-card .mini-device-head {
-  order: 1;
-}
-
-.nest-card::after {
-  content: "🔊";
-  order: 2;
-  flex: 1 1 auto;
-  width: 100%;
-  min-height: 48px;
-  display: grid;
-  place-items: center;
-  font-size: clamp(36px, 10.4vw, 48px);
-  line-height: 1;
-  filter: brightness(0) invert(1) opacity(0.66);
-  -webkit-filter: brightness(0) invert(1) opacity(0.66);
-  pointer-events: none;
-}
-
-.nest-card .nest-info {
-  order: 3;
-  flex: 0 0 auto;
-  margin: 0;
-}
-
-.mini-device p,
-.mini-device small,
-.nest-info p,
-.nest-info small {
-  color: rgba(255, 255, 255, 0.56);
-  font-size: clamp(8.2px, 2.35vw, 9.6px);
-  line-height: 1.35;
-  font-weight: 440;
-  letter-spacing: -0.01em;
-}
-
-.nest-card .nest-volume-bar {
-  order: 4;
-}
-
-.nest-volume-bar {
-  flex: 0 0 auto;
-  width: 100%;
-  height: 4px;
-  margin-top: 8px;
-  overflow: hidden;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
-}
-
-.nest-volume-bar div,
-#nestVolumeBarFill {
-  width: 45%;
-  height: 100%;
-  border-radius: inherit;
-  background: rgba(255, 255, 255, 0.72);
-}
-
 .climate-power-card {
   padding: 15px 18px 17px;
   background:
@@ -2283,38 +2212,108 @@ h3 {
   align-items: flex-start !important;
 }
 
+/* ---------- NEST FINAL SYMMETRY PASS ---------- */
+
+.nest-card {
+  justify-content: space-between !important;
+}
+
+.nest-card .mini-device-head {
+  order: 1 !important;
+  flex: 0 0 27px !important;
+  min-height: 27px !important;
+  align-items: flex-start !important;
+}
+
 .nest-card .mini-device-head h3 {
-  max-width: calc(100% - 36px) !important;
+  display: grid !important;
+  gap: 3px !important;
   font-size: 11px !important;
-  line-height: 18px !important;
+  line-height: 1 !important;
   font-weight: 650 !important;
   letter-spacing: -0.035em !important;
 }
 
-/* ---------- NEST BADGE ---------- */
-
-#nestPowerBadge {
-  min-width: 34px !important;
-  min-height: 18px !important;
-  height: 18px !important;
-  padding: 3px 7px !important;
-
-  font-size: 7.5px !important;
-  font-weight: 760 !important;
-
-  color: rgba(0, 230, 118, 1) !important;
-  background: rgba(0, 230, 118, 0.16) !important;
-  border-color: rgba(0, 230, 118, 0.30) !important;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    0 0 16px rgba(0, 230, 118, 0.16) !important;
+/* Nest badge = TV badge */
+.nest-card .nest-power-control {
+  width: 38px !important;
+  height: 17px !important;
+  flex: 0 0 38px !important;
+  transform: translate(2px, -1px) !important;
+  display: grid !important;
+  place-items: center !important;
 }
 
-/* ---------- NEST ICON ---------- */
+#nestPowerBadge {
+  width: 38px !important;
+  min-width: 38px !important;
+  height: 17px !important;
+  min-height: 17px !important;
+  padding: 0 !important;
 
+  display: grid !important;
+  place-items: center !important;
+
+  font-size: 7.2px !important;
+  font-weight: 720 !important;
+  letter-spacing: -0.03em !important;
+
+  color: rgba(0, 230, 118, 1) !important;
+  background: rgba(255, 255, 255, 0.115) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 4px 10px rgba(0, 0, 0, 0.14) !important;
+}
+
+#nestPowerBadge::before {
+  width: 12px !important;
+  height: 12px !important;
+}
+
+#nestPowerBadge.on {
+  padding-left: 6px !important;
+  padding-right: 15px !important;
+}
+
+#nestPowerBadge.on::before {
+  right: 2px !important;
+}
+
+#nestPowerBadge.off {
+  padding-left: 15px !important;
+  padding-right: 5px !important;
+}
+
+#nestPowerBadge.off::before {
+  left: 2px !important;
+}
+
+/* Nest real icon = TV real icon system */
 .nest-card::after {
+  content: none !important;
+  display: none !important;
+}
+
+.nest-card .dynamic-icon-nest,
+.nest-card .mini-emoji.dynamic-icon-nest {
+  order: 2 !important;
+  flex: 1 1 auto !important;
+  width: 100% !important;
   min-height: 46px !important;
+
+  display: block !important;
+  margin: 1px 0 3px !important;
+
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+
+  background-image: var(--icon-nest-dashboard) !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
   background-size: 54px 54px !important;
+
   opacity: 0.86 !important;
 
   filter:
@@ -2330,11 +2329,17 @@ h3 {
     drop-shadow(0 8px 14px rgba(0, 0, 0, 0.16)) !important;
 }
 
-/* ---------- NEST INFO ---------- */
-
+/* Nest info = TV info rhythm */
 .nest-card .nest-info {
+  order: 3 !important;
+  flex: 0 0 auto !important;
+  display: grid !important;
+  gap: 2px !important;
+  margin: 0 !important;
+  text-align: left !important;
   transform: translateY(-1px) !important;
 }
+
 .nest-card .nest-info p,
 .nest-card .nest-info small,
 .nest-card .nest-info span {
@@ -2349,15 +2354,65 @@ h3 {
 }
 
 .nest-card .nest-info small {
+  display: block !important;
   color: rgba(255, 255, 255, 0.56) !important;
 }
 
-/* ---------- NEST VOLUME BAR ---------- */
+/* Nest volume = TV slider composition */
+.nest-card .nest-volume-control {
+  order: 4 !important;
+  flex: 0 0 9px !important;
+  min-height: 9px !important;
+  margin-top: 7px !important;
 
-.nest-card .nest-volume-bar {
+  display: grid !important;
+  grid-template-columns: 20px minmax(0, 1fr) 20px !important;
+  gap: 7px !important;
+  align-items: center !important;
+}
+
+.nest-card .nest-volume-control::before,
+.nest-card .nest-volume-control::after {
+  content: "" !important;
+  width: 20px !important;
+  height: 14px !important;
+  display: block !important;
+  background-color: rgba(255, 255, 255, 0.78) !important;
+  mask-repeat: no-repeat !important;
+  mask-position: center !important;
+  mask-size: 13px 13px !important;
+  -webkit-mask-repeat: no-repeat !important;
+  -webkit-mask-position: center !important;
+  -webkit-mask-size: 13px 13px !important;
+  opacity: 0.82 !important;
+}
+
+.nest-card .nest-volume-control::before {
+  grid-column: 1 !important;
+  mask-image: var(--icon-speaker-min) !important;
+  -webkit-mask-image: var(--icon-speaker-min) !important;
+}
+
+.nest-card .nest-volume-control::after {
+  grid-column: 3 !important;
+  mask-image: var(--icon-speaker-max) !important;
+  -webkit-mask-image: var(--icon-speaker-max) !important;
+}
+
+.nest-card .nest-volume-track {
+  grid-column: 2 !important;
+  width: 100% !important;
   height: 3px !important;
-  margin-top: 6px !important;
+  overflow: hidden !important;
+  border-radius: 999px !important;
   background: rgba(255, 255, 255, 0.14) !important;
+}
+
+#nestVolumeBarFill {
+  width: 45%;
+  height: 100% !important;
+  border-radius: inherit !important;
+  background: rgba(255, 255, 255, 0.72) !important;
 }
 
 /* CCTV Status Badge */
