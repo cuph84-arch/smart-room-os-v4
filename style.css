@@ -1315,7 +1315,7 @@ h3 {
 }
 
 .cctv-card .card-icon {
-  margin-top: 1px;
+  margin-top: 0;
 }
 
 .security-line > span,
@@ -1387,9 +1387,9 @@ h3 {
 }
 
 .last-motion-split span:last-child {
-  font-size: 9.2px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.68);
+  font-size: 9px;
+  font-weight: 520;
+  color: rgba(255,255,255,0.82);
   text-align: right;
 }
 
@@ -1447,7 +1447,7 @@ h3 {
 }
 
 .cctv-mode-pill b {
-  min-width: 42px;
+  min-width: 44px;
   padding: 3px 7px;
   border-radius: 999px;
   text-align: center;
@@ -2077,7 +2077,11 @@ h3 {
   background-image: var(--icon-scene) !important;
 }
 
-.cctv-card .emoji-card,
+.cctv-card .emoji-card {
+  width: 28px !important;
+  height: 28px !important;
+}
+
 .energy-card .emoji-card,
 .scene-card .emoji-card {
   width: 24px !important;
