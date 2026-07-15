@@ -1,0 +1,470 @@
+========================================
+LAYOUT AUDIT REPORT
+========================================
+
+DATE : Mon Jul 13 15:38:00 WIB 2026
+
+===== HTML SECTION =====
+22:  <main class="app phone-container">
+24:    <header class="header">
+25:      <div class="header-top">
+26:        <div class="header-text">
+31:        <button class="notification-btn" aria-label="Notification" type="button">
+32:          <span class="icon" aria-hidden="true">
+41:      <nav class="top-tabs">
+42:        <button class="active" type="button">
+43:          <span class="tab-icon tab-home" aria-hidden="true"></span>
+48:          <span class="tab-icon tab-room" aria-hidden="true"></span>
+53:          <span class="tab-icon tab-living" aria-hidden="true"></span>
+58:          <span class="tab-icon tab-terrace" aria-hidden="true"></span>
+63:          <span class="tab-icon tab-garage" aria-hidden="true"></span>
+69:    <section class="dashboard">
+71:      <section class="wide-card summary-card">
+72:        <div class="section-head">
+78:        <div class="summary-grid">
+79:          <div class="summary-item">
+80:            <span class="emoji-icon green" aria-hidden="true">
+81:              <span class="icon">
+92:          <div class="summary-item">
+93:            <span class="emoji-icon yellow" aria-hidden="true">
+94:              <span class="icon">
+105:          <div class="summary-item">
+106:            <span class="emoji-icon blue" aria-hidden="true">
+107:              <span class="icon">
+118:          <div class="summary-item">
+119:            <span class="emoji-icon cyan" aria-hidden="true">
+120:              <span class="icon">
+132:        <div class="summary-energy">
+134:            <span class="icon icon-sm" aria-hidden="true">
+145:      <section class="hero-grid target-device-grid">
+146:        <article class="card hero-card ac-card target-device-card">
+147:          <div class="target-card-top">
+148:            <span class="card-icon emoji-card green" aria-hidden="true">
+149:              <span class="icon">
+156:            <button id="acToggleBtn" class="badge target-toggle off" type="button" aria-label="Toggle AC"></button>
+159:          <h2 class="target-card-title">AC kamar</h2>
+161:          <div class="target-main-value">
+165:          <div class="target-sub-info target-meta-clean ac-meta-clean">
+167:            <span class="meta-separator">•</span>
+169:            <small id="acStatus" class="logic-hidden">--</small>
+172:          <div class="target-slider-row">
+173:            <button id="acMinusBtn" class="control-btn" type="button">−</button>
+175:            <div class="ac-slider target-fake-slider" style="--ac-pos: 50%;">
+176:              <div id="acSliderFill" class="ac-slider-fill"></div>
+179:            <button id="acPlusBtn" class="control-btn" type="button">+</button>
+183:        <article class="card hero-card lamp-card target-device-card">
+184:          <div class="target-card-top">
+185:            <span class="card-icon emoji-card yellow" aria-hidden="true">
+186:              <span class="icon">
+193:            <button id="lampToggleBtn" class="badge target-toggle off" type="button" aria-label="Toggle Lampu"></button>
+196:          <h2 class="target-card-title">Lampu kamar</h2>
+198:          <div class="target-main-value">
+202:          <div class="target-sub-info target-meta-clean lamp-meta-clean">
+204:            <span class="meta-separator">•</span>
+206:            <b id="lampStatus" class="logic-hidden">--</b>
+209:          <div class="target-slider-row">
+210:            <button class="control-btn lamp-minus-btn" type="button">−</button>
+212:            <div class="target-range-wrap">
+213:              <div class="lamp-bar" style="--lamp-pos: 1%;">
+219:                class="brightness-slider"
+228:            <button class="control-btn lamp-plus-btn" type="button">+</button>
+233:      <section class="wide-card entertainment-card">
+234:        <div class="section-head">
+240:        <div class="entertainment-grid">
+241:          <div class="mini-device tv-card">
+242:            <div class="mini-device-head">
+245:              <label class="tv-power-control" aria-label="Toggle TV">
+248:                  class="logic-hidden"
+252:                <span id="tvPowerBadge" class="badge on">ON</span>
+256:            <span class="mini-emoji dynamic-icon-tv blue" aria-hidden="true">
+257:              <span class="icon">
+265:            <div class="tv-info">
+270:            <div class="tv-volume-control">
+273:                class="vision-slider-range"
+283:          <div class="mini-device nest-card">
+284:  <div class="mini-device-head">
+287:    <label class="nest-power-control" aria-label="Toggle Nest">
+288:      <span id="nestPowerBadge" class="badge on">ON</span>
+292:  <span class="mini-emoji dynamic-icon-nest purple" aria-hidden="true">
+293:    <span class="icon">
+303:  <div class="nest-info">
+308:  <div class="nest-volume-control">
+309:    <div class="nest-volume-track">
+317:<section class="wide-card climate-power-card">
+318:        <div class="section-head">
+324:        <div class="metric-grid">
+325:          <div class="metric-item">
+326:            <span class="metric-emoji pink" aria-hidden="true">
+327:              <span class="icon">
+337:          <div class="metric-item">
+338:            <span class="metric-emoji cyan" aria-hidden="true">
+339:              <span class="icon">
+349:          <div class="metric-item">
+350:            <span class="metric-emoji orange" aria-hidden="true">
+351:              <span class="icon">
+361:          <div class="metric-item">
+362:            <span class="metric-emoji blue" aria-hidden="true">
+363:              <span class="icon">
+377:      <section class="split-grid">
+378:        <section class="wide-card cctv-card">
+379:  <div class="section-head compact-head">
+380:    <div class="title-group">
+381:      <span class="card-icon emoji-card cyan" aria-hidden="true">
+382:        <span class="icon">
+397:    <span id="cctvOnline" class="status-pill">--</span>
+400:  <div class="security-layout">
+401:    <div class="security-info">
+402:      <div class="security-line">
+404:          <span class="icon icon-sm" aria-hidden="true">
+415:      <div class="security-line">
+417:          <span class="icon icon-sm" aria-hidden="true">
+427:      <div class="security-line last-motion-line">
+429:    <span class="icon icon-sm" aria-hidden="true">
+436:  <strong class="last-motion-split">
+444:  <div class="cctv-mode-pill">
+446:      <strong><span class="icon icon-sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2 0 2-6 4-6s2 6 4 6 2-6 4-6 2 6 4 6 2-6 4-6"/></svg></span> Event Mode</strong>
+453:        <section class="wide-card energy-card">
+454:          <div class="section-head compact-head">
+455:            <div class="title-group">
+456:              <span class="card-icon emoji-card orange" aria-hidden="true"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span></span>
+463:          <div class="energy-compact">
+464:            <div class="energy-row">
+469:            <div class="energy-row">
+474:            <div class="energy-row">
+479:            <div class="energy-total-box">
+484:            <small id="energyTodayCost" class="hidden-energy-cost">Rp 0</small>
+485:            <small id="energyWeekCost" class="hidden-energy-cost">Rp 0</small>
+486:            <strong id="energyRuntimeMonth" class="hidden-energy-cost">--</strong>
+488:            <small id="energyTariff" class="energy-tariff-compact">
+495:      <section class="wide-card scene-card">
+496:        <div class="section-head">
+497:          <div class="title-group">
+498:            <span class="card-icon emoji-card purple" aria-hidden="true"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5 5 4h3l-2 4.5M9 8.5 11 4h3l-2 4.5M15 8.5 17 4h3l-2 4.5"/><rect x="3" y="8.5" width="18" height="11.5" rx="2"/></svg></span></span>
+504:          <button id="rerunSceneBtn" class="scene-action" type="button">
+505:            <span class="icon icon-sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg></span> Jalankan Lagi
+509:        <div class="scene-row">
+510:          <span id="sceneTime" class="scene-time-icon">🕘</span>
+517:    <nav class="bottom-nav nav-bar">
+518:      <button class="active" type="button">
+519:        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/><path d="M9.5 20v-6h5v6"/></svg></span>
+520:        <span class="nav-label">Home</span>
+524:        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11M19 7h1M4 17h1M9 17h11M7 7a2 2 0 1 0 0-.01M16 17a2 2 0 1 0 0-.01"/></svg></span>
+525:        <span class="nav-label">Automation</span>
+528:      <button class="center-action" type="button" aria-label="Tambah"></button>
+531:        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg></span>
+532:        <span class="nav-label">Devices</span>
+536:        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V19a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H4a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H10a1.7 1.7 0 0 0 1-1.5V4a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V10a1.7 1.7 0 0 0 1.5 1H20a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg></span>
+537:        <span class="nav-label">Settings</span>
+
+===== GRID =====
+283:  display: grid;
+284:  grid-template-columns: repeat(4, 1fr);
+361:  display: grid;
+362:  grid-template-columns: 1fr 1fr;
+602:  display: grid;
+603:  grid-template-columns: 1fr 1fr;
+749:  display: grid;
+750:  grid-template-columns: repeat(4, 1fr);
+791:  display: grid;
+792:  grid-template-columns: 1fr 1fr;
+
+===== FLEX =====
+99:  display: inline-flex;
+100:  align-items: center;
+101:  justify-content: center;
+127:  display: flex;
+128:  align-items: flex-start;
+129:  justify-content: space-between;
+156:  display: flex;
+157:  align-items: center;
+158:  justify-content: center;
+173:  display: flex;
+185:  display: flex;
+186:  align-items: center;
+262:  display: flex;
+263:  align-items: center;
+264:  justify-content: space-between;
+273:  display: flex;
+274:  align-items: center;
+294:  display: flex;
+295:  flex-direction: column;
+296:  align-items: center;
+322:  display: flex;
+323:  align-items: center;
+324:  justify-content: center;
+335:  display: flex;
+336:  align-items: center;
+337:  justify-content: space-between;
+346:  display: inline-flex;
+347:  align-items: center;
+377:display: flex;
+378:  flex-direction: column;
+387:  display: flex;
+388:  align-items: center;
+389:  justify-content: space-between;
+397:  display: flex;
+398:  align-items: center;
+399:  justify-content: center;
+425:  display: flex;
+426:  align-items: center;
+502:  display: flex;
+503:  align-items: center;
+518:  display: flex;
+519:  align-items: center;
+520:  justify-content: center;
+582:  display: flex;
+583:  align-items: center;
+612:display: flex;
+613:  flex-direction: column;
+622:  display: flex;
+623:  align-items: center;
+624:  justify-content: space-between;
+634:  display: inline-flex;
+635:  align-items: center;
+636:  justify-content: center;
+665:  display: flex;
+666:  align-items: center;
+667:  justify-content: center;
+757:  display: flex;
+758:  flex-direction: column;
+759:  align-items: center;
+767:  display: flex;
+768:  align-items: center;
+769:  justify-content: center;
+811:  display: flex;
+812:  flex-direction: column;
+851:  display: flex;
+852:  align-items: center;
+853:  justify-content: space-between;
+866:  display: inline-flex;
+867:  align-items: center;
+877:  display: flex;
+893:  display: flex;
+894:  align-items: center;
+895:  justify-content: space-between;
+899:  display: flex;
+900:  align-items: center;
+913:  display: flex;
+914:  flex-direction: column;
+918:  display: flex;
+919:  align-items: center;
+920:  justify-content: space-between;
+937:  display: flex;
+938:  align-items: center;
+939:  justify-content: space-between;
+976:  display: inline-flex;
+977:  align-items: center;
+995:  display: flex;
+996:  align-items: center;
+1031:  display: flex;
+1032:  align-items: center;
+1033:  justify-content: space-between;
+1046:  display: flex;
+1047:  flex-direction: column;
+1048:  align-items: center;
+1059:  display: flex;
+1060:  align-items: center;
+1061:  justify-content: center;
+1132:  display:flex;
+1133:  flex-direction:column;
+
+===== ASPECT RATIO =====
+376:  aspect-ratio: 1 / 1;
+611:  aspect-ratio: 1 / 1;
+800:  aspect-ratio: 1 / 1;
+1126:  aspect-ratio:1/1;
+
+===== HEIGHT =====
+59:  min-height: 100vh;
+89:  min-height: 100vh;
+103:  height: 20px;
+110:  height: 100%;
+114:.icon-sm { width: 16px; height: 16px; }
+115:.icon-md { width: 24px; height: 24px; }
+116:.icon-lg { width: 30px; height: 30px; }
+136:  line-height: 1.15;
+150:  height: 52px;
+164:  height: 24px;
+210:  height: 20px;
+320:  height: 38px;
+327:.emoji-icon .icon { width: 19px; height: 19px; }
+395:  height: 40px;
+402:.card-icon.emoji-card .icon { width: 20px; height: 20px; }
+421:  line-height: 1;
+455:  height: 38px;
+468:  height: 8px;
+480:  height: 16px;
+510:  height: 34px;
+517:  line-height: 1;
+528:  height: 6px;
+543:  height: 18px;
+556:  height: 100%;
+565:  height: 6px;
+575:  height: 100%;
+591:  height: 100%;
+663:  height: 44px;
+671:.mini-emoji .icon { width: 22px; height: 22px; }
+699:  height: 4px;
+708:  height: 14px;
+716:  height: 14px;
+731:  height: 4px;
+739:  height: 100%;
+766:  height: 26px;
+991:  height: 12px;
+1010:  height: 15px;
+1058:  height: 22px;
+1066:  height: 100%;
+1087:  height: 58px;
+1110:  height: 3px;
+1115:  height: 20px;
+
+===== WIDTH =====
+87:  max-width: 480px;
+102:  width: 20px;
+109:  width: 100%;
+114:.icon-sm { width: 16px; height: 16px; }
+115:.icon-md { width: 24px; height: 24px; }
+116:.icon-lg { width: 30px; height: 30px; }
+149:  width: 52px;
+163:  width: 24px;
+177:  scrollbar-width: none;
+209:  width: 20px;
+319:  width: 38px;
+327:.emoji-icon .icon { width: 19px; height: 19px; }
+394:  width: 40px;
+402:.card-icon.emoji-card .icon { width: 20px; height: 20px; }
+454:  width: 38px;
+467:  width: 2px;
+479:  width: 16px;
+509:  width: 34px;
+542:  width: 18px;
+557:  width: var(--ac-pos, 50%);
+576:  width: var(--lamp-pos, 1%);
+590:  width: 100%;
+662:  width: 44px;
+671:.mini-emoji .icon { width: 22px; height: 22px; }
+696:  width: 100%;
+707:  width: 14px;
+715:  width: 14px;
+730:  width: 100%;
+765:  width: 26px;
+990:  width: 12px;
+1009:  width: 15px;
+1029:  width: calc(100% - 36px);
+1030:  max-width: 444px;
+1057:  width: 22px;
+1065:  width: 100%;
+1086:  width: 58px;
+1109:  width: 20px;
+1114:  width: 3px;
+1142:@media (max-width: 380px) {
+
+===== OVERFLOW =====
+175:  overflow-x: auto;
+584:  overflow: visible;
+734:  overflow: hidden;
+1134:  overflow:hidden;
+
+===== POSITION =====
+90:  position: relative;
+123:  margin-bottom: var(--header-space);
+131:  margin-bottom: var(--dashboard-space);
+141:  margin-top: 6px;
+176:  padding-bottom: 4px;
+214:  background-position: center;
+258:  margin-bottom: var(--dashboard-space);
+265:  margin-bottom: var(--space-section);
+286:  margin-bottom: var(--dashboard-space);
+338:  padding-top: 16px;
+339:  border-top: 1px solid var(--glass-border-soft);
+364:  margin-bottom: var(--dashboard-space);
+390:  margin-bottom: var(--space-local-lg);
+413:  margin-bottom: 6px;
+428:  margin-top: var(--space-local-sm);
+429:  margin-right: 0;
+430:  margin-bottom: var(--dashboard-space);
+431:  margin-left: 0;
+453:  position: relative;
+464:  position: absolute;
+465:  top: 8px;
+466:  left: 50%;
+476:  position: absolute;
+477:  top: 11px;
+478:  left: 50%;
+505:  margin-top: auto;
+526:  position: relative;
+540:  position: absolute;
+541:  top: 50%;
+547:  left: var(--ac-pos, 50%);
+553:  position: absolute;
+554:  top: 0;
+555:  left: 0;
+563:  position: relative;
+572:  position: absolute;
+573:  top: 0;
+574:  left: 0;
+588:  position: absolute;
+625:  margin-bottom: var(--space-local-md);
+668:  margin-bottom: var(--space-local-md);
+692:  margin-top: var(--space-local-md);
+723:  margin-top: auto;
+724:  padding-top: 12px;
+729:  position: relative;
+770:  margin-bottom: 2px;
+794:  margin-bottom: var(--dashboard-space);
+798:  margin-bottom: 0;
+806:  margin-bottom: var(--space-compact);
+858:  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+862:  border-bottom: none;
+888:  margin-top: var(--space-local-lg);
+932:  margin-top: var(--space-local-xs);
+956:  margin-top: var(--space-local-sm);
+967:  margin-bottom: var(--space-local-md);
+1007:  position: relative;
+1015:  background-position: center;
+1025:  position: fixed;
+1026:  left: 50%;
+1027:  bottom: 18px;
+1084:  position: relative;
+1085:  top: -22px;
+1100:  position: absolute;
+1101:  top: 50%;
+1102:  left: 50%;
+
+===== DISPLAY NONE =====
+
+===== Z-INDEX =====
+1041:  z-index: 50;
+
+===== CARD CLASS =====
+243:.wide-card,
+245:.mini-device,
+246:.metric-item,
+255:.wide-card {
+367:.hero-card.target-device-card {
+382:.hero-card.disabled {
+607:.mini-device {
+617:.mini-device.disabled {
+621:.mini-device-head {
+628:.mini-device-head h3 {
+754:.metric-item {
+773:.metric-item strong {
+778:.metric-item > span {
+797:.split-grid .wide-card {
+966:.scene-card .section-head {
+970:.scene-card h2 {
+1123:.hero-card.target-device-card,
+1124:.cctv-card,
+1125:.energy-card{
+1129:.hero-card.target-device-card,
+1130:.cctv-card,
+1131:.energy-card{
+
+===== GRID CLASS =====
+282:.summary-grid {
+360:.hero-grid.target-device-grid {
+601:.entertainment-grid {
+748:.metric-grid {
+790:.split-grid {
+797:.split-grid .wide-card {
+1145:  .summary-grid { gap: 8px; }

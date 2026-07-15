@@ -1,0 +1,86 @@
+./index.html:241:          <div class="mini-device tv-card">
+./index.html:266:              <p>Playing: <span id="tvStatus">--</span></p>
+./index.html:267:              <small>Vol: <span id="tvVolume">45</span>%</small>
+./index.html:272:                id="tvVolumeSlider"
+./index.html:378:        <section class="wide-card cctv-card">
+./app.js:90:      displayStatus: getTvDisplayStatus(tv)
+./app.js:184:  renderTV(data.tv);
+./app.js:245:function renderTV(tv) {
+./app.js:253:  setText("tvStatus", displayStatus);
+./app.js:254:  setText("tvVolume", volume);
+./app.js:263:  const tvVolumeSlider = document.getElementById("tvVolumeSlider");
+./app.js:264:  if (tvVolumeSlider && document.activeElement !== tvVolumeSlider) {
+./app.js:265:    tvVolumeSlider.value = volume;
+./app.js:266:    updateRangeBackground(tvVolumeSlider, volume);
+./app.js:269:  const tvCard = document.querySelector(".tv-card");
+./app.js:440:  const tvVolumeSlider = document.getElementById("tvVolumeSlider");
+./app.js:505:  if (tvVolumeSlider) {
+./app.js:506:    tvVolumeSlider.addEventListener("input", () => {
+./app.js:507:      const value = clampNumber(Number(tvVolumeSlider.value || 45), 0, 100);
+./app.js:509:      updateRangeBackground(tvVolumeSlider, value);
+./app.js:510:      setText("tvVolume", value);
+./app.js:512:      const tvCard = document.querySelector(".tv-card");
+./app.js:518:    tvVolumeSlider.addEventListener("change", () => {
+./app.js:519:      const value = clampNumber(Number(tvVolumeSlider.value || 45), 0, 100);
+./app.js:581:function getTvDisplayStatus(tv) {
+./audit/module01_header/01_html_header.txt:10:266:              <p>Playing: <span id="tvStatus">--</span></p>
+./audit/module01_header/03_js_header.txt:16:90:      displayStatus: getTvDisplayStatus(tv)
+./audit/module01_header/03_js_header.txt:42:184:  renderTV(data.tv);
+./audit/module01_header/03_js_header.txt:52:245:function renderTV(tv) {
+./audit/module01_header/03_js_header.txt:56:253:  setText("tvStatus", displayStatus);
+./audit/module01_header/03_js_header.txt:57:266:    updateRangeBackground(tvVolumeSlider, volume);
+./audit/module01_header/03_js_header.txt:79:509:      updateRangeBackground(tvVolumeSlider, value);
+./audit/module01_header/03_js_header.txt:80:581:function getTvDisplayStatus(tv) {
+./audit/module02_room_tabs/03_js.txt:2:264:  if (tvVolumeSlider && document.activeElement !== tvVolumeSlider) {
+./audit/module02_room_tabs/03_js.txt:28:506:    tvVolumeSlider.addEventListener("input", () => {
+./audit/module02_room_tabs/03_js.txt:29:518:    tvVolumeSlider.addEventListener("change", () => {
+./audit/module03_summary/01_html.txt:24:241:          <div class="mini-device tv-card">
+./audit/module03_summary/01_html.txt:37:378:        <section class="wide-card cctv-card">
+./audit/module03_summary/03_js.txt:55:253:  setText("tvStatus", displayStatus);
+./audit/module03_summary/03_js.txt:56:254:  setText("tvVolume", volume);
+./audit/module03_summary/03_js.txt:63:510:      setText("tvVolume", value);
+./audit/module03_summary/04_formatter.txt:32:507:      const value = clampNumber(Number(tvVolumeSlider.value || 45), 0, 100);
+./audit/module03_summary/04_formatter.txt:33:519:      const value = clampNumber(Number(tvVolumeSlider.value || 45), 0, 100);
+./audit/module04_ac/04_event.txt:26:506:    tvVolumeSlider.addEventListener("input", () => {
+./audit/module04_ac/04_event.txt:27:518:    tvVolumeSlider.addEventListener("change", () => {
+./audit/module05_lamp/04_event.txt:31:506:    tvVolumeSlider.addEventListener("input", () => {
+./audit/module05_lamp/04_event.txt:32:518:    tvVolumeSlider.addEventListener("change", () => {
+./audit/module06_tv/01_html.txt:5:241:          <div class="mini-device tv-card">
+./audit/module06_tv/01_html.txt:12:266:              <p>Playing: <span id="tvStatus">--</span></p>
+./audit/module06_tv/01_html.txt:13:267:              <small>Vol: <span id="tvVolume">45</span>%</small>
+./audit/module06_tv/01_html.txt:15:272:                id="tvVolumeSlider"
+./audit/module06_tv/01_html.txt:21:378:        <section class="wide-card cctv-card">
+./audit/module06_tv/03_js.txt:3:90:      displayStatus: getTvDisplayStatus(tv)
+./audit/module06_tv/03_js.txt:5:184:  renderTV(data.tv);
+./audit/module06_tv/03_js.txt:8:245:function renderTV(tv) {
+./audit/module06_tv/03_js.txt:10:253:  setText("tvStatus", displayStatus);
+./audit/module06_tv/03_js.txt:11:254:  setText("tvVolume", volume);
+./audit/module06_tv/03_js.txt:12:263:  const tvVolumeSlider = document.getElementById("tvVolumeSlider");
+./audit/module06_tv/03_js.txt:13:264:  if (tvVolumeSlider && document.activeElement !== tvVolumeSlider) {
+./audit/module06_tv/03_js.txt:14:265:    tvVolumeSlider.value = volume;
+./audit/module06_tv/03_js.txt:15:266:    updateRangeBackground(tvVolumeSlider, volume);
+./audit/module06_tv/03_js.txt:21:440:  const tvVolumeSlider = document.getElementById("tvVolumeSlider");
+./audit/module06_tv/03_js.txt:22:505:  if (tvVolumeSlider) {
+./audit/module06_tv/03_js.txt:23:506:    tvVolumeSlider.addEventListener("input", () => {
+./audit/module06_tv/03_js.txt:24:507:      const value = clampNumber(Number(tvVolumeSlider.value || 45), 0, 100);
+./audit/module06_tv/03_js.txt:25:509:      updateRangeBackground(tvVolumeSlider, value);
+./audit/module06_tv/03_js.txt:26:510:      setText("tvVolume", value);
+./audit/module06_tv/03_js.txt:28:518:    tvVolumeSlider.addEventListener("change", () => {
+./audit/module06_tv/03_js.txt:29:519:      const value = clampNumber(Number(tvVolumeSlider.value || 45), 0, 100);
+./audit/module06_tv/03_js.txt:31:581:function getTvDisplayStatus(tv) {
+./audit/module06_tv/04_event.txt:2:254:  setText("tvVolume", volume);
+./audit/module06_tv/04_event.txt:3:263:  const tvVolumeSlider = document.getElementById("tvVolumeSlider");
+./audit/module06_tv/04_event.txt:4:264:  if (tvVolumeSlider && document.activeElement !== tvVolumeSlider) {
+./audit/module06_tv/04_event.txt:5:265:    tvVolumeSlider.value = volume;
+./audit/module06_tv/04_event.txt:6:266:    updateRangeBackground(tvVolumeSlider, volume);
+./audit/module06_tv/04_event.txt:16:440:  const tvVolumeSlider = document.getElementById("tvVolumeSlider");
+./audit/module06_tv/04_event.txt:24:505:  if (tvVolumeSlider) {
+./audit/module06_tv/04_event.txt:25:506:    tvVolumeSlider.addEventListener("input", () => {
+./audit/module06_tv/04_event.txt:26:507:      const value = clampNumber(Number(tvVolumeSlider.value || 45), 0, 100);
+./audit/module06_tv/04_event.txt:27:509:      updateRangeBackground(tvVolumeSlider, value);
+./audit/module06_tv/04_event.txt:28:510:      setText("tvVolume", value);
+./audit/module06_tv/04_event.txt:29:518:    tvVolumeSlider.addEventListener("change", () => {
+./audit/module06_tv/04_event.txt:30:519:      const value = clampNumber(Number(tvVolumeSlider.value || 45), 0, 100);
+./audit/module06_tv/05_data.txt:4:90:      displayStatus: getTvDisplayStatus(tv)
+./audit/module06_tv/05_data.txt:9:253:  setText("tvStatus", displayStatus);
+./audit/module06_tv/05_data.txt:13:581:function getTvDisplayStatus(tv) {

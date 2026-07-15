@@ -1,0 +1,7 @@
+677:function normalizeDeviceState(value) {
+681:function isDeviceOn(value) {
+694:function isOn(value) {
+716:function clampNumber(value, min, max) {
+724:function setText(id, value) {
+732:function setBadge(id, active) {
+773:function showToast(message) {

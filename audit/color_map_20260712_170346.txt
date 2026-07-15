@@ -1,0 +1,915 @@
+==================================================
+SMART ROOM OS V4 - COLOR MAP AUDIT
+==================================================
+
+DATE : Sun Jul 12 17:03:46 WIB 2026
+DIR  : /data/data/com.termux/files/home/smart-room-os-v4/offline_dev
+
+==============================
+HTML FILE
+==============================
+./index.html
+
+==============================
+CSS FILE
+==============================
+./style.css
+
+==============================
+CSS VARIABLES (:root)
+==============================
+:root {
+  --white: #ffffff;
+  --text: #ffffff;
+
+  --glass-bg: rgba(255, 255, 255, 0.14);
+  --glass-bg-soft: rgba(255, 255, 255, 0.10);
+  --glass-border: rgba(255, 255, 255, 0.28);
+  --glass-border-soft: rgba(255, 255, 255, 0.16);
+  --glass-shadow: 0 12px 34px rgba(70, 30, 20, 0.18);
+
+  --glass-dark: rgba(15, 14, 20, 0.42);
+  --glass-dark-border: rgba(255, 255, 255, 0.14);
+
+  --nav-dark: rgba(10, 14, 22, 0.55);
+
+  --accent-blue: #3b8dff;
+  --accent-green: #3ddc84;
+  --accent-red: #ff5d6c;
+
+  --radius-xl: 30px;
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --radius-full: 999px;
+}
+
+==============================
+LINEAR / RADIAL GRADIENT
+==============================
+4:   Background: linear-gradient #ffdb6e -> #ff6a88
+47:  background: linear-gradient(180deg, #ffdb6e 0%, #ff9a6e 45%, #ff6a88 100%);
+138:  background: radial-gradient(circle at 35% 30%, rgba(140, 255, 170, 0.55), rgba(61, 220, 132, 0.28));
+353:  background: linear-gradient(165deg, rgba(20, 16, 22, 0.55), rgba(20, 16, 22, 0.28));
+538:  background: linear-gradient(90deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.55));
+557:  background: linear-gradient(90deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.55));
+679:  background: linear-gradient(90deg, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.78) 45%, rgba(255,255,255,0.16) 45%, rgba(255,255,255,0.16) 100%);
+957:  background: linear-gradient(135deg, #b06cff, #6a7bff);
+1064:  background: radial-gradient(circle at 35% 30%, #6cb1ff, var(--accent-blue));
+
+==============================
+BACKGROUND
+==============================
+47:  background: linear-gradient(180deg, #ffdb6e 0%, #ff9a6e 45%, #ff6a88 100%);
+138:  background: radial-gradient(circle at 35% 30%, rgba(140, 255, 170, 0.55), rgba(61, 220, 132, 0.28));
+177:  background: transparent;
+185:  background: rgba(255, 255, 255, 0.22);
+233:  background: var(--glass-bg);
+275:  background: rgba(255, 255, 255, 0.08);
+314:.emoji-icon.green  { background: rgba(255, 178, 120, 0.30); }
+315:.emoji-icon.yellow { background: rgba(255, 214, 110, 0.30); }
+316:.emoji-icon.blue   { background: rgba(120, 220, 170, 0.30); }
+317:.emoji-icon.cyan   { background: rgba(120, 220, 170, 0.30); }
+353:  background: linear-gradient(165deg, rgba(20, 16, 22, 0.55), rgba(20, 16, 22, 0.28));
+387:.card-icon.emoji-card.green  { background: rgba(255, 178, 120, 0.28); }
+388:.card-icon.emoji-card.yellow { background: rgba(255, 214, 110, 0.28); }
+389:.card-icon.emoji-card.cyan   { background: rgba(120, 220, 210, 0.28); }
+390:.card-icon.emoji-card.orange { background: rgba(255, 178, 120, 0.28); }
+391:.card-icon.emoji-card.purple { background: rgba(200, 160, 255, 0.28); }
+438:  background: rgba(255, 255, 255, 0.08);
+449:  background: currentColor;
+469:  background: rgba(255, 93, 108, 0.16);
+475:  background: rgba(61, 220, 132, 0.18);
+493:  background: rgba(255, 255, 255, 0.10);
+510:  background: rgba(255, 255, 255, 0.18);
+525:  background: var(--white);
+538:  background: linear-gradient(90deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.55));
+547:  background: rgba(255, 255, 255, 0.18);
+557:  background: linear-gradient(90deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.55));
+624:  background: rgba(61, 220, 132, 0.18);
+630:  background: rgba(255, 255, 255, 0.10);
+651:.mini-emoji.blue   { background: rgba(120, 190, 255, 0.22); }
+652:.mini-emoji.purple { background: rgba(200, 160, 255, 0.22); }
+679:  background: linear-gradient(90deg, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.78) 45%, rgba(255,255,255,0.16) 45%, rgba(255,255,255,0.16) 100%);
+688:  background: var(--white);
+697:  background: var(--white);
+711:  background: rgba(255, 255, 255, 0.16);
+718:  background: rgba(255, 255, 255, 0.85);
+808:  background: rgba(255, 255, 255, 0.10);
+815:  background: rgba(61, 220, 132, 0.16);
+821:  background: rgba(255, 93, 108, 0.16);
+866:  background: rgba(255, 255, 255, 0.08);
+910:  background: rgba(255, 255, 255, 0.10);
+957:  background: linear-gradient(135deg, #b06cff, #6a7bff);
+1011:  background: var(--nav-dark);
+1025:  background: transparent;
+1064:  background: radial-gradient(circle at 35% 30%, #6cb1ff, var(--accent-blue));
+1078:  background: var(--white);
+
+==============================
+COLOR
+==============================
+46:  color: var(--text);
+55:  color: var(--white);
+59:  color: var(--white);
+89:  color: var(--white);
+129:  color: rgba(255, 255, 255, 0.85);
+150:  color: #fff;
+178:  color: rgba(255, 255, 255, 0.75);
+186:  border-color: rgba(255, 255, 255, 0.35);
+187:  color: var(--white);
+197:  background-color: transparent;
+289:  color: rgba(255, 255, 255, 0.85);
+295:  color: var(--accent-green);
+300:  color: #ffb0b8;
+327:  color: rgba(255, 255, 255, 0.9);
+397:  color: rgba(255, 255, 255, 0.92);
+414:  color: rgba(255, 255, 255, 0.75);
+419:  color: rgba(255, 255, 255, 0.95);
+462:  border-top-color: transparent;
+468:  color: var(--accent-red);
+470:  border-color: rgba(255, 93, 108, 0.4);
+474:  color: var(--accent-green);
+476:  border-color: rgba(61, 220, 132, 0.45);
+494:  color: var(--white);
+623:  color: var(--accent-green);
+629:  color: rgba(255, 255, 255, 0.65);
+659:  color: rgba(255, 255, 255, 0.85);
+666:  color: rgba(255, 255, 255, 0.7);
+759:  color: rgba(255, 255, 255, 0.7);
+799:  color: rgba(255, 255, 255, 0.7);
+810:  color: rgba(255, 255, 255, 0.7);
+814:  color: var(--accent-green);
+816:  border-color: rgba(61, 220, 132, 0.4);
+820:  color: #ffb0b8;
+822:  border-color: rgba(255, 93, 108, 0.4);
+832:  color: rgba(255, 255, 255, 0.8);
+884:  color: rgba(255, 255, 255, 0.65);
+899:  color: rgba(255, 255, 255, 0.8);
+920:  color: var(--accent-green);
+934:  color: rgba(255, 255, 255, 0.55);
+958:  color: var(--white);
+975:  color: rgba(255, 255, 255, 0.65);
+987:  color: transparent;
+1028:  color: rgba(255, 255, 255, 0.55);
+1050:  color: var(--accent-green);
+1068:  color: var(--white);
+
+==============================
+BORDER
+==============================
+15:  --glass-border: rgba(255, 255, 255, 0.28);
+20:  --glass-dark-border: rgba(255, 255, 255, 0.14);
+137:  border: 1px solid rgba(255, 255, 255, 0.35);
+176:  border: 1px solid transparent;
+181:  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+186:  border-color: rgba(255, 255, 255, 0.35);
+236:  border: 1px solid var(--glass-border-soft);
+276:  border: 1px solid var(--glass-border-soft);
+354:  border: 1px solid rgba(255, 255, 255, 0.12);
+437:  border: 1px solid rgba(255, 255, 255, 0.28);
+461:  border: 2px solid currentColor;
+470:  border-color: rgba(255, 93, 108, 0.4);
+476:  border-color: rgba(61, 220, 132, 0.45);
+492:  border: 1px solid rgba(255, 255, 255, 0.25);
+625:  border: 1px solid rgba(61, 220, 132, 0.4);
+631:  border: 1px solid rgba(255, 255, 255, 0.2);
+695:  border: none;
+809:  border: 1px solid rgba(255, 255, 255, 0.2);
+816:  border-color: rgba(61, 220, 132, 0.4);
+822:  border-color: rgba(255, 93, 108, 0.4);
+867:  border: 1px solid rgba(255, 255, 255, 0.14);
+911:  border: 1px solid rgba(255, 255, 255, 0.16);
+955:  border: none;
+1012:  border: 1px solid rgba(255, 255, 255, 0.14);
+1026:  border: none;
+
+==============================
+BOX SHADOW
+==============================
+139:  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+188:  box-shadow: 0 6px 16px rgba(80, 20, 20, 0.12);
+237:  box-shadow: var(--glass-shadow);
+359:  box-shadow: var(--glass-shadow);
+526:  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+689:  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+961:  box-shadow: 0 8px 20px rgba(106, 100, 255, 0.35);
+1015:  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+1065:  box-shadow: 0 0 0 6px rgba(15, 14, 20, 0.35),
+
+==============================
+RGBA
+==============================
+      1 rgba(0, 0, 0, 0.3)
+      2 rgba(0, 0, 0, 0.35)
+      1 rgba(10, 14, 22, 0.55)
+      1 rgba(106, 100, 255, 0.35)
+      1 rgba(120, 190, 255, 0.22)
+      2 rgba(120, 220, 170, 0.30)
+      1 rgba(120, 220, 210, 0.28)
+      1 rgba(140, 255, 170, 0.55)
+      1 rgba(15, 14, 20, 0.35)
+      1 rgba(15, 14, 20, 0.42)
+      1 rgba(20, 16, 22, 0.28)
+      1 rgba(20, 16, 22, 0.55)
+      1 rgba(200, 160, 255, 0.22)
+      1 rgba(200, 160, 255, 0.28)
+      2 rgba(255, 178, 120, 0.28)
+      1 rgba(255, 178, 120, 0.30)
+      1 rgba(255, 214, 110, 0.28)
+      1 rgba(255, 214, 110, 0.30)
+      4 rgba(255, 255, 255, 0.08)
+      6 rgba(255, 255, 255, 0.10)
+      1 rgba(255, 255, 255, 0.12)
+      4 rgba(255, 255, 255, 0.14)
+      3 rgba(255, 255, 255, 0.16)
+      2 rgba(255, 255, 255, 0.18)
+      2 rgba(255, 255, 255, 0.2)
+      1 rgba(255, 255, 255, 0.22)
+      1 rgba(255, 255, 255, 0.25)
+      2 rgba(255, 255, 255, 0.28)
+      2 rgba(255, 255, 255, 0.35)
+      4 rgba(255, 255, 255, 0.55)
+      3 rgba(255, 255, 255, 0.65)
+      4 rgba(255, 255, 255, 0.7)
+      2 rgba(255, 255, 255, 0.75)
+      2 rgba(255, 255, 255, 0.8)
+      4 rgba(255, 255, 255, 0.85)
+      3 rgba(255, 255, 255, 0.9)
+      1 rgba(255, 255, 255, 0.92)
+      1 rgba(255, 255, 255, 0.95)
+      2 rgba(255, 93, 108, 0.16)
+      2 rgba(255, 93, 108, 0.4)
+      2 rgba(255,255,255,0.16)
+      2 rgba(255,255,255,0.78)
+      1 rgba(59, 141, 255, 0.55)
+      1 rgba(59, 141, 255, 0.6)
+      1 rgba(61, 220, 132, 0.16)
+      2 rgba(61, 220, 132, 0.18)
+      1 rgba(61, 220, 132, 0.28)
+      2 rgba(61, 220, 132, 0.4)
+      1 rgba(61, 220, 132, 0.45)
+      1 rgba(61, 220, 132, 0.55)
+      1 rgba(61, 220, 132, 0.85)
+      1 rgba(70, 30, 20, 0.18)
+      1 rgba(80, 20, 20, 0.12)
+
+==============================
+HEX COLORS
+==============================
+      1 #3b8dff
+      1 #3ddc84
+      1 #6a7bff
+      1 #6cb1ff
+      1 #b06cff
+      1 #ff5d6c
+      2 #ff6a88
+      1 #ff9a6e
+      2 #ffb0b8
+      2 #ffdb6e
+      1 #fff
+      2 #ffffff
+
+==============================
+HTML CLASS ATTRIBUTE
+==============================
+ac-card
+ac-meta-clean
+ac-slider
+ac-slider-fill
+active
+app
+badge
+blue
+bottom-nav
+brightness-slider
+card
+card-icon
+cctv-card
+cctv-mode-pill
+center-action
+climate-power-card
+compact-head
+control-btn
+cyan
+dashboard
+dynamic-icon-nest
+dynamic-icon-tv
+emoji-card
+emoji-icon
+energy-card
+energy-compact
+energy-row
+energy-tariff-compact
+energy-total-box
+entertainment-card
+entertainment-grid
+green
+header
+header-text
+header-top
+hero-card
+hero-grid
+hidden-energy-cost
+icon
+icon-sm
+lamp-bar
+lamp-card
+lamp-meta-clean
+lamp-minus-btn
+lamp-plus-btn
+last-motion-line
+last-motion-split
+logic-hidden
+meta-separator
+metric-emoji
+metric-grid
+metric-item
+mini-device
+mini-device-head
+mini-emoji
+nav-bar
+nav-icon
+nav-label
+nest-card
+nest-info
+nest-power-control
+nest-volume-control
+nest-volume-track
+notification-btn
+off
+on
+orange
+phone-container
+pink
+purple
+scene-action
+scene-card
+scene-row
+scene-time-icon
+section-head
+security-info
+security-layout
+security-line
+split-grid
+status-pill
+summary-card
+summary-energy
+summary-grid
+summary-item
+tab-garage
+tab-home
+tab-icon
+tab-living
+tab-room
+tab-terrace
+target-card-title
+target-card-top
+target-device-card
+target-device-grid
+target-fake-slider
+target-main-value
+target-meta-clean
+target-range-wrap
+target-slider-row
+target-sub-info
+target-toggle
+title-group
+top-tabs
+tv-card
+tv-info
+tv-power-control
+tv-volume-control
+vision-slider-range
+wide-card
+yellow
+
+==============================
+HTML ID ATTRIBUTE
+==============================
+acFan
+acMinusBtn
+acMode
+acPlusBtn
+acSliderFill
+acStatus
+acTemp
+acToggleBtn
+cctvLastDate
+cctvLastTime
+cctvMotion
+cctvOnline
+cctvRecordMode
+cctvRecording
+energyMonth
+energyMonthCost
+energyRuntimeMonth
+energyTariff
+energyToday
+energyTodayCost
+energyWeek
+energyWeekCost
+lampBar
+lampBrightness
+lampBrightnessSlider
+lampMode
+lampStatus
+lampToggleBtn
+lastUpdated
+nestPowerBadge
+nestStatus
+nestVolume
+nestVolumeBarFill
+plugPower
+plugVolt
+rerunSceneBtn
+roomHumidity
+roomTemp
+sceneDate
+sceneName
+sceneTime
+summaryAC
+summaryCCTV
+summaryEnergy
+summaryLamp
+summaryTV
+tvPowerBadge
+tvPowerToggle
+tvStatus
+tvVolume
+tvVolumeSlider
+
+==============================
+CSS SELECTOR
+==============================
+              0 0 18px 2px rgba(61, 220, 132, 0.55);
+              0 0 22px 4px rgba(59, 141, 255, 0.6);
+              0 10px 26px rgba(59, 141, 255, 0.55),
+   BOTTOM NAVIGATION
+   Background: linear-gradient #ffdb6e -> #ff6a88
+   CLIMATE & POWER
+   ENTERTAINMENT
+   Font: Plus Jakarta Sans
+   GLASS CARD BASE
+   HEADER
+   HERO GRID (AC / LAMP)
+   ICON SYSTEM
+   PHONE / APP CONTAINER
+   RESPONSIVE
+   SCENE CARD
+   SMART ROOM OS — GLASSMORPHISM THEME
+   SPLIT GRID (CCTV / ENERGY)
+   SUMMARY CARD
+   TOP TABS
+   background-image instead, so app.js can keep writing to it safely. */
+   emoji) — we shrink that text to invisible and paint a real icon via
+  --accent-blue: #3b8dff;
+  --accent-green: #3ddc84;
+  --accent-red: #ff5d6c;
+  --glass-bg-soft: rgba(255, 255, 255, 0.10);
+  --glass-bg: rgba(255, 255, 255, 0.14);
+  --glass-border-soft: rgba(255, 255, 255, 0.16);
+  --glass-border: rgba(255, 255, 255, 0.28);
+  --glass-dark-border: rgba(255, 255, 255, 0.14);
+  --glass-dark: rgba(15, 14, 20, 0.42);
+  --glass-shadow: 0 12px 34px rgba(70, 30, 20, 0.18);
+  --nav-dark: rgba(10, 14, 22, 0.55);
+  --radius-full: 999px;
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --radius-xl: 30px;
+  --text: #ffffff;
+  --white: #ffffff;
+  -webkit-appearance: none;
+  -webkit-backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(26px) saturate(140%);
+  -webkit-font-smoothing: antialiased;
+  .header-text h1
+  .summary-grid
+  .target-main-value strong
+  align-items: center;
+  align-items: flex-start;
+  appearance: none;
+  backdrop-filter: blur(14px);
+  backdrop-filter: blur(22px) saturate(140%);
+  backdrop-filter: blur(24px) saturate(160%);
+  backdrop-filter: blur(26px) saturate(140%);
+  background-attachment: fixed;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7v5l3.5 2'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3c3 2 5 5 5 8a5 5 0 0 1-10 0c0-3 2-6 5-8Z'/%3E%3Cpath d='M12 21v-6'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 18v-6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v6'/%3E%3Cpath d='M2 18v2M22 18v2'/%3E%3Cpath d='M2 12V8a2 2 0 0 1 2-2h6v6'/%3E%3Cpath d='M12 12h10'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 11.5 12 4l9 7.5'/%3E%3Cpath d='M5 10v10h14V10'/%3E%3Cpath d='M9.5 20v-6h5v6'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 11l1.5-5A2 2 0 0 1 6.4 4.5h11.2A2 2 0 0 1 19.5 6l1.5 5'/%3E%3Crect x='2.5' y='11' width='19' height='6' rx='2'/%3E%3Cpath d='M6 17v2M18 17v2'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='5' width='18' height='12' rx='2'/%3E%3Cpath d='M9 21h6M12 17v4'/%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background: currentColor;
+  background: linear-gradient(135deg, #b06cff, #6a7bff);
+  background: linear-gradient(165deg, rgba(20, 16, 22, 0.55), rgba(20, 16, 22, 0.28));
+  background: linear-gradient(180deg, #ffdb6e 0%, #ff9a6e 45%, #ff6a88 100%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.55));
+  background: linear-gradient(90deg, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.78) 45%, rgba(255,255,255,0.16) 45%, rgba(255,255,255,0.16) 100%);
+  background: radial-gradient(circle at 35% 30%, #6cb1ff, var(--accent-blue));
+  background: radial-gradient(circle at 35% 30%, rgba(140, 255, 170, 0.55), rgba(61, 220, 132, 0.28));
+  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 93, 108, 0.16);
+  background: rgba(61, 220, 132, 0.16);
+  background: rgba(61, 220, 132, 0.18);
+  background: transparent;
+  background: var(--glass-bg);
+  background: var(--nav-dark);
+  background: var(--white);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  border-bottom: none;
+  border-color: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 93, 108, 0.4);
+  border-color: rgba(61, 220, 132, 0.4);
+  border-color: rgba(61, 220, 132, 0.45);
+  border-radius: 2px;
+  border-radius: 50%;
+  border-radius: var(--radius-full);
+  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
+  border-radius: var(--radius-xl);
+  border-top-color: transparent;
+  border-top: 1px solid var(--glass-border-soft);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(61, 220, 132, 0.4);
+  border: 1px solid transparent;
+  border: 1px solid var(--glass-border-soft);
+  border: 2px solid currentColor;
+  border: none;
+  bottom: 18px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+  box-shadow: 0 0 0 6px rgba(15, 14, 20, 0.35),
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 6px 16px rgba(80, 20, 20, 0.12);
+  box-shadow: 0 8px 20px rgba(106, 100, 255, 0.35);
+  box-shadow: var(--glass-shadow);
+  box-sizing: border-box;
+  color: #ffb0b8;
+  color: #fff;
+  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.95);
+  color: transparent;
+  color: var(--accent-green);
+  color: var(--accent-red);
+  color: var(--text);
+  color: var(--white);
+  content: "";
+  cursor: pointer;
+  display: block;
+  display: flex;
+  display: grid;
+  display: inline-block;
+  display: inline-flex;
+  display: none !important;
+  display: none;
+  filter: drop-shadow(0 0 7px rgba(61, 220, 132, 0.85));
+  flex-direction: column;
+  flex-shrink: 0;
+  flex: 0 0 auto;
+  flex: 1;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: inherit;
+  font-size: 0;
+  font-size: 10.5px;
+  font-size: 11.5px;
+  font-size: 11px;
+  font-size: 12.5px;
+  font-size: 12px;
+  font-size: 13.5px;
+  font-size: 13px;
+  font-size: 14px;
+  font-size: 15px;
+  font-size: 16px;
+  font-size: 18px;
+  font-size: 19px;
+  font-size: 34px;
+  font-size: 42px;
+  font-weight: 400;
+  font-weight: 500;
+  font-weight: 600;
+  font-weight: 700;
+  gap: 10px;
+  gap: 12px;
+  gap: 14px;
+  gap: 2px;
+  gap: 4px;
+  gap: 6px;
+  gap: 8px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  height: 100%;
+  height: 12px;
+  height: 14px;
+  height: 15px;
+  height: 16px;
+  height: 18px;
+  height: 20px;
+  height: 22px;
+  height: 24px;
+  height: 26px;
+  height: 34px;
+  height: 38px;
+  height: 3px;
+  height: 40px;
+  height: 44px;
+  height: 4px;
+  height: 52px;
+  height: 58px;
+  height: 6px;
+  height: 8px;
+  inset: 0;
+  justify-content: center;
+  justify-content: space-between;
+  left: 0;
+  left: 50%;
+  left: var(--ac-pos, 50%);
+  letter-spacing: -0.5px;
+  letter-spacing: -1px;
+  letter-spacing: 0.2px;
+  letter-spacing: 0.3px;
+  letter-spacing: 0.4px;
+  line-height: 1.15;
+  line-height: 1;
+  margin-bottom: 0;
+  margin-bottom: 12px;
+  margin-bottom: 14px;
+  margin-bottom: 16px;
+  margin-bottom: 18px;
+  margin-bottom: 20px;
+  margin-bottom: 2px;
+  margin-bottom: 6px;
+  margin-top: 10px;
+  margin-top: 12px;
+  margin-top: 14px;
+  margin-top: 6px;
+  margin-top: 8px;
+  margin-top: auto;
+  margin: 0 0 4px;
+  margin: 0 auto;
+  margin: 0;
+  margin: 10px 0 18px;
+  max-width: 444px;
+  max-width: 480px;
+  min-height: 100vh;
+  opacity: 0.55;
+  opacity: 0.5;
+  opacity: 0.65;
+  opacity: 0.75;
+  opacity: 0.95;
+  opacity: 0;
+  outline: none;
+  overflow-x: auto;
+  overflow: hidden;
+  overflow: visible;
+  padding-bottom: 4px;
+  padding-top: 12px;
+  padding-top: 16px;
+  padding: 0;
+  padding: 10px 18px;
+  padding: 10px 8px;
+  padding: 12px 14px;
+  padding: 12px 18px;
+  padding: 16px 8px;
+  padding: 16px;
+  padding: 18px;
+  padding: 22px 18px 130px;
+  padding: 22px;
+  padding: 4px 12px;
+  padding: 7px 0;
+  padding: 8px 4px;
+  padding: 9px 0;
+  position: absolute;
+  position: fixed;
+  position: relative;
+  scrollbar-width: none;
+  text-align: center;
+  text-transform: uppercase;
+  top: -22px;
+  top: 0;
+  top: 11px;
+  top: 50%;
+  top: 8px;
+  transform: translate(-50%, -50%);
+  transform: translate3d(-50%, -50%, 0);
+  transform: translateX(-50%) rotate(-45deg);
+  transform: translateX(-50%);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: opacity 0.25s ease;
+  transition: opacity 0.2s ease;
+  width: 100%;
+  width: 12px;
+  width: 14px;
+  width: 15px;
+  width: 16px;
+  width: 18px;
+  width: 20px;
+  width: 22px;
+  width: 24px;
+  width: 26px;
+  width: 2px;
+  width: 34px;
+  width: 38px;
+  width: 3px;
+  width: 40px;
+  width: 44px;
+  width: 52px;
+  width: 58px;
+  width: calc(100% - 36px);
+  width: var(--ac-pos, 50%);
+  width: var(--lamp-pos, 1%);
+  z-index: 50;
+#acSliderFill,
+#lampBar
+*
+.ac-slider-fill,
+.app.phone-container
+.badge
+.badge.off
+.badge.on
+.badge.target-toggle
+.badge.target-toggle.off
+.badge.target-toggle.on
+.badge.target-toggle::after
+.badge.target-toggle::before
+.bottom-nav .center-action
+.bottom-nav .center-action::after
+.bottom-nav .center-action::before
+.bottom-nav .center-action::before,
+.bottom-nav .nav-icon
+.bottom-nav .nav-icon svg
+.bottom-nav .nav-label
+.bottom-nav button
+.bottom-nav button.active
+.bottom-nav button.active .nav-icon
+.bottom-nav.nav-bar
+.brightness-slider
+.card,
+.card-icon.emoji-card
+.card-icon.emoji-card .icon
+.card-icon.emoji-card.cyan
+.card-icon.emoji-card.green
+.card-icon.emoji-card.orange
+.card-icon.emoji-card.purple
+.card-icon.emoji-card.yellow
+.cctv-mode-pill
+.cctv-mode-pill span
+.cctv-mode-pill strong
+.compact-head
+.compact-head h2
+.compact-head h2 span
+.compact-head h2 strong
+.control-btn
+.emoji-icon
+.emoji-icon .icon
+.emoji-icon.blue
+.emoji-icon.cyan
+.emoji-icon.green
+.emoji-icon.yellow
+.energy-compact
+.energy-row
+.energy-row strong
+.energy-tariff-compact
+.energy-total-box
+.energy-total-box strong
+.entertainment-grid
+.header
+.header-text #lastUpdated
+.header-text h1
+.header-top
+.hero-card.disabled
+.hero-card.target-device-card
+.hero-grid.target-device-grid
+.hidden-energy-cost
+.icon
+.icon svg
+.icon-lg
+.icon-md
+.icon-sm
+.lamp-bar
+.lamp-bar > div
+.lamp-bar::before
+.last-motion-split
+.last-motion-split span:first-child
+.logic-hidden
+.meta-separator
+.metric-emoji
+.metric-grid
+.metric-item
+.metric-item > span
+.metric-item strong
+.metric-item,
+.mini-device
+.mini-device,
+.mini-device-head
+.mini-device-head h3
+.mini-device.disabled
+.mini-emoji
+.mini-emoji .icon
+.mini-emoji.blue
+.mini-emoji.purple
+.nest-info p
+.nest-info small
+.nest-power-control
+.nest-volume-bar
+.nest-volume-bar div
+.nest-volume-control
+.nest-volume-track div,
+.nest-volume-track,
+.notification-btn
+.notification-btn .icon
+.scene-action
+.scene-action .icon
+.scene-card .section-head
+.scene-card h2
+.scene-row
+.scene-time-icon
+.section-head
+.section-head h2
+.security-line
+.security-line span
+.security-line strong
+.security-line:last-child
+.split-grid
+.split-grid .wide-card
+.status-pill
+.status-pill.offline
+.status-pill.online
+.summary-energy
+.summary-energy span
+.summary-energy strong
+.summary-grid
+.summary-item
+.summary-item > span:not(.emoji-icon)
+.summary-item strong
+.summary-item:nth-child(4) strong
+.tab-garage
+.tab-home
+.tab-icon
+.tab-living
+.tab-room
+.tab-terrace
+.target-card-title
+.target-card-top
+.target-fake-slider,
+.target-fake-slider::before
+.target-main-value strong
+.target-range-wrap
+.target-slider-row
+.target-sub-info b
+.target-sub-info.target-meta-clean
+.title-group
+.top-tabs
+.top-tabs button
+.top-tabs button.active
+.top-tabs::-webkit-scrollbar
+.tv-info p,
+.tv-info small,
+.tv-power-control,
+.tv-volume-control
+.vision-slider-range
+.vision-slider-range::-moz-range-thumb
+.vision-slider-range::-webkit-slider-thumb
+.wide-card
+.wide-card,
+/* #sceneTime's text is written directly by app.js (always the clock
+/* --- power toggle (pure CSS icon, survives JS textContent reset) --- */
+/* --- slider row (AC / Lamp) --- */
+/* =========================
+/* =====================================================
+/* Font loaded via <link> tags in index.html head */
+:root
+========================= */
+===================================================== */
+@media (max-width: 380px)
+body
+button
+h1, h2, h3
+html, body
+p, span, small, strong, b, label
+}

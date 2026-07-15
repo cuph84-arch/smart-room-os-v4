@@ -1,0 +1,22 @@
+53:      updatedAt: climate.updated_at ?? "--"
+62:      updatedAt: smartplug.updated_at ?? "--"
+70:      updatedAt: ac.updated_at ?? "--"
+78:      updatedAt: lamp.updated_at ?? "--"
+89:      updatedAt: tv.updated_at ?? "--",
+98:      updatedAt: nest.updated_at ?? speaker.updated_at ?? "--"
+110:      updatedAt: cctv.updated_at ?? "--"
+143:        smartplug.updated_at ??
+144:        energy.updated_at ??
+150:      timestamp:
+151:        lastAutomation.timestamp ??
+152:        lastAutomation.updated_at ??
+163:  setText("roomTemp", formatValue(data.climate.temp, "°C"));
+164:  setText("roomHumidity", formatValue(data.climate.humidity, "%"));
+166:  setText("plugPower", formatValue(data.smartplug.power, "W"));
+167:  setText("plugVolt", formatValue(data.smartplug.voltage, "V"));
+178:  setText("lampBrightness", formatValue(data.lamp.brightness, "%"));
+232:  setText("sceneDate", data.lastAutomation.timestamp);
+653:function formatValue(value, suffix) {
+670:  return "Rp " + Number(value || 0).toLocaleString("id-ID");
+816:  const now = new Date();
+833:  const date = now.getDate();

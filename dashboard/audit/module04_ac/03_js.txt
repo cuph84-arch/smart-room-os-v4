@@ -1,0 +1,85 @@
+51:      temp: climate.temperature ?? "--",
+67:      temp: ac.temp ?? ac.temperature ?? "--",
+68:      mode: ac.mode ?? "--",
+69:      fan: ac.fan ?? "--",
+76:      mode: lamp.mode ?? "--",
+77:      colorTemp: lamp.color_temp ?? "--",
+105:      recordMode: cctv.record_mode ?? "--",
+163:  setText("roomTemp", formatValue(data.climate.temp, "°C"));
+169:  setText("acTemp", getACDisplayValue(data.ac));
+170:  setText("acStatus", data.ac.power);
+171:  setText("acMode", data.ac.mode);
+172:  setText("acFan", data.ac.fan);
+174:  renderACSlider(data.ac.temp);
+179:  setText("lampMode", data.lamp.mode);
+209:  setText("cctvRecordMode", data?.cctv?.recordMode ?? "--");
+235:  setBadge("acToggleBtn", isOn(data.ac.power));
+282:  renderACMeta(data);
+288:  const mode = String(ac.mode || "").trim().toUpperCase();
+290:  const temp = Number(ac.temp || 0);
+292:  if (!power || status === "OFF" || mode === "OFF") {
+296:  if (mode.includes("FAN") || status.includes("FAN")) {
+297:    return "Fan";
+300:  if (mode.includes("DRY") || status.includes("DRY")) {
+304:  if (mode.includes("HEAT") || status.includes("HEAT")) {
+308:  if (temp >= 16 && temp <= 30) {
+309:    return temp + " °C";
+312:  if (mode.includes("COOL") || status.includes("COOL")) {
+319:function renderACMeta(data) {
+320:  const modeElement = document.getElementById("acMode");
+321:  const fanElement = document.getElementById("acFan");
+323:  if (modeElement) {
+324:    modeElement.textContent = formatACModeLabel(data.ac.mode);
+327:  if (fanElement) {
+328:    fanElement.textContent = formatFanLabel(data.ac.fan);
+334:  const lampModeElement = document.getElementById("lampMode");
+344:  if (lampModeElement) {
+345:    lampModeElement.textContent = formatLampModeLabel(data.lamp.mode);
+353:function renderACSlider(tempValue) {
+354:  const temp = Number(tempValue || 24);
+355:  const percent = ((temp - 16) / 14) * 100;
+360:    "#acSliderFill",
+427:  const button = document.getElementById("acToggleBtn");
+432:  const acToggleButton = document.getElementById("acToggleBtn");
+444:  if (acToggleButton) {
+445:    acToggleButton.addEventListener("click", () => {
+446:      const active = acToggleButton.classList.contains("on");
+455:      const currentTemp = getCurrentACTemp();
+456:      const nextTemp = clampNumber(currentTemp + 1, 16, 30);
+457:      sendAcControl("cool_" + nextTemp + "_auto");
+465:      const currentTemp = getCurrentACTemp();
+466:      const nextTemp = clampNumber(currentTemp - 1, 16, 30);
+467:      sendAcControl("cool_" + nextTemp + "_auto");
+543:function getCurrentACTemp() {
+544:  const value = document.getElementById("acTemp")?.textContent || "24";
+605:function formatACModeLabel(value) {
+606:  const mode = String(value || "--").trim().toLowerCase();
+608:  if (mode === "--" || mode === "") return "--";
+609:  if (mode.includes("cool")) return "Cooling";
+610:  if (mode.includes("heat")) return "Heating";
+611:  if (mode.includes("dry")) return "Dry";
+612:  if (mode.includes("fan")) return "Fan";
+613:  if (mode.includes("auto")) return "Auto";
+615:  return toTitleCase(mode);
+618:function formatFanLabel(value) {
+619:  const fan = String(value || "--").trim().toLowerCase();
+621:  if (fan === "--" || fan === "") return "--";
+622:  if (fan.includes("auto")) return "Auto";
+623:  if (fan.includes("low")) return "Low";
+624:  if (fan.includes("mid")) return "Medium";
+625:  if (fan.includes("medium")) return "Medium";
+626:  if (fan.includes("high")) return "High";
+627:  if (fan.includes("turbo")) return "Turbo";
+628:  if (fan.includes("sleep")) return "Sleep";
+630:  return toTitleCase(fan);
+633:function formatLampModeLabel(value) {
+634:  const mode = String(value || "--").trim().toLowerCase();
+636:  if (mode === "--" || mode === "") return "--";
+637:  if (mode.includes("white")) return "White";
+638:  if (mode.includes("colour")) return "Color";
+639:  if (mode.includes("color")) return "Color";
+640:  if (mode.includes("scene")) return "Scene";
+641:  if (mode.includes("music")) return "Music";
+642:  if (mode.includes("night")) return "Night";
+644:  return toTitleCase(mode);
+737:  const isHeroToggle = id === "acToggleBtn" || id === "lampToggleBtn";

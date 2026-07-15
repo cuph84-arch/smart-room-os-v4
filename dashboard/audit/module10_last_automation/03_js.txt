@@ -1,0 +1,9 @@
+47:  const lastAutomation = state.last_automation || {};
+148:    lastAutomation: {
+149:      scene: lastAutomation.scene ?? "Belum ada scene",
+150:      timestamp:
+151:        lastAutomation.timestamp ??
+152:        lastAutomation.updated_at ??
+231:  setText("sceneName", data.lastAutomation.scene);
+232:  setText("sceneDate", data.lastAutomation.timestamp);
+233:  setText("sceneTime", "🕘");

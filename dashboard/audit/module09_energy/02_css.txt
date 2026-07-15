@@ -1,0 +1,13 @@
+319:.summary-energy {
+330:.summary-energy span {
+336:.summary-energy strong {
+449:  background: currentColor;
+461:  border: 2px solid currentColor;
+765:   SPLIT GRID (CCTV / ENERGY)
+887:.energy-compact {
+892:.energy-row {
+902:.energy-row strong {
+906:.energy-total-box {
+919:.energy-total-box strong {
+925:.hidden-energy-cost {
+929:.energy-tariff-compact {

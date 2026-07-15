@@ -1,0 +1,126 @@
+html, body
+  margin: 0
+  padding: 0
+h1, h2, h3
+  margin: 0
+.app.phone-container
+  margin: 0 auto
+  padding: 22px 18px 130px
+.header
+  margin-bottom: 20px
+.header-top
+  gap: 12px
+  margin-bottom: 18px
+.header-text #lastUpdated
+  margin-top: 6px
+.top-tabs
+  gap: 8px
+  padding-bottom: 4px
+.top-tabs button
+  gap: 8px
+  padding: 12px 18px
+.wide-card
+  padding: 22px
+  margin-bottom: 18px
+.section-head
+  margin-bottom: 18px
+.title-group
+  gap: 12px
+.summary-grid
+  gap: 10px
+  margin-bottom: 18px
+.summary-item
+  padding: 16px 8px
+  gap: 8px
+.summary-energy
+  padding-top: 16px
+.summary-energy span
+  gap: 8px
+.hero-grid.target-device-grid
+  gap: 14px
+  margin-bottom: 18px
+.hero-card.target-device-card
+  padding: 18px
+.target-card-top
+  margin-bottom: 14px
+.target-card-title
+  margin-bottom: 6px
+.target-sub-info.target-meta-clean
+  gap: 8px
+  margin: 10px 0 18px
+.target-slider-row
+  gap: 12px
+  margin-top: auto
+.brightness-slider
+  margin: 0
+.entertainment-grid
+  gap: 14px
+.mini-device
+  padding: 16px
+.mini-device-head
+  margin-bottom: 12px
+.badge
+  padding: 4px 12px
+.mini-emoji
+  margin-bottom: 12px
+.tv-info p,
+.nest-info p
+  margin: 0 0 4px
+.tv-volume-control
+  margin-top: 12px
+.nest-volume-control
+  margin-top: auto
+  padding-top: 12px
+.metric-grid
+  gap: 10px
+.metric-item
+  padding: 16px 8px
+  gap: 6px
+.metric-emoji
+  margin-bottom: 2px
+.split-grid
+  gap: 14px
+  margin-bottom: 18px
+.split-grid .wide-card
+  margin-bottom: 0
+  padding: 18px
+.compact-head
+  margin-bottom: 16px
+.compact-head h2
+  gap: 2px
+.status-pill
+  padding: 4px 12px
+.security-line
+  padding: 9px 0
+.security-line span
+  gap: 8px
+.last-motion-split
+  gap: 6px
+.cctv-mode-pill
+  margin-top: 14px
+  padding: 12px 14px
+.cctv-mode-pill strong
+  gap: 8px
+.energy-row
+  padding: 7px 0
+.energy-total-box
+  margin-top: 8px
+  padding: 12px 14px
+.energy-tariff-compact
+  margin-top: 10px
+.scene-card .section-head
+  margin-bottom: 12px
+.scene-action
+  gap: 8px
+  padding: 10px 18px
+.scene-row
+  gap: 8px
+.bottom-nav.nav-bar
+  padding: 10px 8px
+.bottom-nav button
+  gap: 4px
+  padding: 8px 4px
+.bottom-nav .center-action
+  padding: 0
+.summary-grid
+  gap: 8px

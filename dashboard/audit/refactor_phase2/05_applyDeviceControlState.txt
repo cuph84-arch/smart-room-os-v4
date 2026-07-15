@@ -1,0 +1,3 @@
+175:  applyDeviceControlState(".ac-card", data.ac.power);
+182:  applyDeviceControlState(".lamp-card", data.lamp.power);
+705:function applyDeviceControlState(cardSelector, statusValue) {

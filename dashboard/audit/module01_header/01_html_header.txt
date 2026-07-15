@@ -1,0 +1,17 @@
+18:  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+24:    <header class="header">
+25:      <div class="header-top">
+26:        <div class="header-text">
+27:          <h1>Welcome Home</h1>
+28:          <div id="lastUpdated">--</div>
+67:    </header>
+169:            <small id="acStatus" class="logic-hidden">--</small>
+206:            <b id="lampStatus" class="logic-hidden">--</b>
+266:              <p>Playing: <span id="tvStatus">--</span></p>
+304:    <p>Status: <span id="nestStatus">--</span></p>
+397:    <span id="cctvOnline" class="status-pill">--</span>
+437:    <span id="cctvLastTime">--</span>
+438:    <span id="cctvLastDate">--</span>
+486:            <strong id="energyRuntimeMonth" class="hidden-energy-cost">--</strong>
+510:          <span id="sceneTime" class="scene-time-icon">🕘</span>
+511:          <small id="sceneDate">--</small>

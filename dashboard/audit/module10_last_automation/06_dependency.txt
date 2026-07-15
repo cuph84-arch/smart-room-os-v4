@@ -1,0 +1,47 @@
+./index.html:510:          <span id="sceneTime" class="scene-time-icon">🕘</span>
+./index.html:511:          <small id="sceneDate">--</small>
+./style.css:978:/* #sceneTime's text is written directly by app.js (always the clock
+./app.js:47:  const lastAutomation = state.last_automation || {};
+./app.js:148:    lastAutomation: {
+./app.js:149:      scene: lastAutomation.scene ?? "Belum ada scene",
+./app.js:151:        lastAutomation.timestamp ??
+./app.js:152:        lastAutomation.updated_at ??
+./app.js:231:  setText("sceneName", data.lastAutomation.scene);
+./app.js:232:  setText("sceneDate", data.lastAutomation.timestamp);
+./app.js:233:  setText("sceneTime", "🕘");
+./audit/module01_header/01_html_header.txt:16:510:          <span id="sceneTime" class="scene-time-icon">🕘</span>
+./audit/module01_header/01_html_header.txt:17:511:          <small id="sceneDate">--</small>
+./audit/module01_header/02_css_header.txt:9:978:/* #sceneTime's text is written directly by app.js (always the clock
+./audit/module01_header/03_js_header.txt:34:151:        lastAutomation.timestamp ??
+./audit/module01_header/03_js_header.txt:35:152:        lastAutomation.updated_at ??
+./audit/module01_header/03_js_header.txt:48:232:  setText("sceneDate", data.lastAutomation.timestamp);
+./audit/module01_header/03_js_header.txt:49:233:  setText("sceneTime", "🕘");
+./audit/module03_summary/03_js.txt:51:231:  setText("sceneName", data.lastAutomation.scene);
+./audit/module03_summary/03_js.txt:52:232:  setText("sceneDate", data.lastAutomation.timestamp);
+./audit/module03_summary/03_js.txt:53:233:  setText("sceneTime", "🕘");
+./audit/module08_climate/05_data.txt:14:152:        lastAutomation.updated_at ??
+./audit/module09_energy/03_js.txt:66:231:  setText("sceneName", data.lastAutomation.scene);
+./audit/module09_energy/03_js.txt:67:232:  setText("sceneDate", data.lastAutomation.timestamp);
+./audit/module09_energy/03_js.txt:68:233:  setText("sceneTime", "🕘");
+./audit/module09_energy/05_data.txt:18:152:        lastAutomation.updated_at ??
+./audit/module10_last_automation/01_html.txt:5:510:          <span id="sceneTime" class="scene-time-icon">🕘</span>
+./audit/module10_last_automation/01_html.txt:6:511:          <small id="sceneDate">--</small>
+./audit/module10_last_automation/02_css.txt:7:978:/* #sceneTime's text is written directly by app.js (always the clock
+./audit/module10_last_automation/03_js.txt:1:47:  const lastAutomation = state.last_automation || {};
+./audit/module10_last_automation/03_js.txt:2:148:    lastAutomation: {
+./audit/module10_last_automation/03_js.txt:3:149:      scene: lastAutomation.scene ?? "Belum ada scene",
+./audit/module10_last_automation/03_js.txt:5:151:        lastAutomation.timestamp ??
+./audit/module10_last_automation/03_js.txt:6:152:        lastAutomation.updated_at ??
+./audit/module10_last_automation/03_js.txt:7:231:  setText("sceneName", data.lastAutomation.scene);
+./audit/module10_last_automation/03_js.txt:8:232:  setText("sceneDate", data.lastAutomation.timestamp);
+./audit/module10_last_automation/03_js.txt:9:233:  setText("sceneTime", "🕘");
+./audit/module10_last_automation/04_formatter.txt:11:151:        lastAutomation.timestamp ??
+./audit/module10_last_automation/04_formatter.txt:12:152:        lastAutomation.updated_at ??
+./audit/module10_last_automation/04_formatter.txt:18:232:  setText("sceneDate", data.lastAutomation.timestamp);
+./audit/module10_last_automation/05_data.txt:1:47:  const lastAutomation = state.last_automation || {};
+./audit/module10_last_automation/05_data.txt:11:148:    lastAutomation: {
+./audit/module10_last_automation/05_data.txt:12:149:      scene: lastAutomation.scene ?? "Belum ada scene",
+./audit/module10_last_automation/05_data.txt:14:151:        lastAutomation.timestamp ??
+./audit/module10_last_automation/05_data.txt:15:152:        lastAutomation.updated_at ??
+./audit/module10_last_automation/05_data.txt:16:231:  setText("sceneName", data.lastAutomation.scene);
+./audit/module10_last_automation/05_data.txt:17:232:  setText("sceneDate", data.lastAutomation.timestamp);

@@ -1,0 +1,17 @@
+{
+  "lamp":"ON",
+  "climate":{
+    "temperature":24,
+    "humidity":60
+  },
+  "smart_plug":{
+    "power_watt":45,
+    "status":"ON"
+  },
+  "tv":"OFF",
+  "ac":{
+    "status":"ON",
+    "temp_set":22,
+    "mode":"cool"
+  }
+}

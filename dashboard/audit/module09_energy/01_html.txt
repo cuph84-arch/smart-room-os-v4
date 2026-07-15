@@ -1,0 +1,72 @@
+33:            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+82:                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+95:                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+101:            <span>Lampu</span>
+102:            <strong id="summaryLamp">--</strong>
+108:                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+121:                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+132:        <div class="summary-energy">
+135:              <svg viewBox="0 0 24 24" fill="currentColor">
+141:          <strong id="summaryEnergy">-- kWh · Rp 0</strong>
+150:                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+183:        <article class="card hero-card lamp-card target-device-card">
+187:                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+193:            <button id="lampToggleBtn" class="badge target-toggle off" type="button" aria-label="Toggle Lampu"></button>
+196:          <h2 class="target-card-title">Lampu kamar</h2>
+199:            <strong id="lampBrightness">--</strong>
+202:          <div class="target-sub-info target-meta-clean lamp-meta-clean">
+205:            <span><b id="lampMode">--</b> Mode</span>
+206:            <b id="lampStatus" class="logic-hidden">--</b>
+210:            <button class="control-btn lamp-minus-btn" type="button">−</button>
+213:              <div class="lamp-bar" style="--lamp-pos: 1%;">
+214:                <div id="lampBar"></div>
+218:                id="lampBrightnessSlider"
+224:                aria-label="Lamp brightness"
+228:            <button class="control-btn lamp-plus-btn" type="button">+</button>
+245:              <label class="tv-power-control" aria-label="Toggle TV">
+247:                  id="tvPowerToggle"
+252:                <span id="tvPowerBadge" class="badge on">ON</span>
+258:                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+287:    <label class="nest-power-control" aria-label="Toggle Nest">
+288:      <span id="nestPowerBadge" class="badge on">ON</span>
+294:      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+295:        <circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none" />
+317:<section class="wide-card climate-power-card">
+320:            <h2>Climate & Power</h2>
+328:                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+340:                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+352:                <svg viewBox="0 0 24 24" fill="currentColor">
+357:            <strong id="plugPower">--</strong>
+358:            <span>Power</span>
+364:                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+371:            <strong id="plugVolt">--</strong>
+372:            <span>Voltage</span>
+383:          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+405:            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+406:              <circle cx="13" cy="4" r="1.6" fill="currentColor" stroke="none" />
+418:            <svg viewBox="0 0 24 24" fill="currentColor">
+430:      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+446:      <strong><span class="icon icon-sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2 0 2-6 4-6s2 6 4 6 2-6 4-6 2 6 4 6 2-6 4-6"/></svg></span> Event Mode</strong>
+453:        <section class="wide-card energy-card">
+456:              <span class="card-icon emoji-card orange" aria-hidden="true"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span></span>
+458:                <h2>Energy Usage</h2>
+463:          <div class="energy-compact">
+464:            <div class="energy-row">
+466:              <strong id="energyToday">-- kWh</strong>
+469:            <div class="energy-row">
+471:              <strong id="energyWeek">-- kWh</strong>
+474:            <div class="energy-row">
+476:              <strong id="energyMonth">-- kWh</strong>
+479:            <div class="energy-total-box">
+481:              <strong id="energyMonthCost">Rp 0</strong>
+484:            <small id="energyTodayCost" class="hidden-energy-cost">Rp 0</small>
+485:            <small id="energyWeekCost" class="hidden-energy-cost">Rp 0</small>
+486:            <strong id="energyRuntimeMonth" class="hidden-energy-cost">--</strong>
+488:            <small id="energyTariff" class="energy-tariff-compact">
+489:              Est. Rp605/kWh · B1 900VA
+498:            <span class="card-icon emoji-card purple" aria-hidden="true"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5 5 4h3l-2 4.5M9 8.5 11 4h3l-2 4.5M15 8.5 17 4h3l-2 4.5"/><rect x="3" y="8.5" width="18" height="11.5" rx="2"/></svg></span></span>
+505:            <span class="icon icon-sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg></span> Jalankan Lagi
+519:        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/><path d="M9.5 20v-6h5v6"/></svg></span>
+524:        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11M19 7h1M4 17h1M9 17h11M7 7a2 2 0 1 0 0-.01M16 17a2 2 0 1 0 0-.01"/></svg></span>
+531:        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg></span>
+536:        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V19a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H4a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H10a1.7 1.7 0 0 0 1-1.5V4a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V10a1.7 1.7 0 0 0 1.5 1H20a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg></span>

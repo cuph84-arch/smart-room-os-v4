@@ -1,0 +1,12 @@
+163:  setText("roomTemp", formatValue(data.climate.temp, "°C"));
+164:  setText("roomHumidity", formatValue(data.climate.humidity, "%"));
+166:  setText("plugPower", formatValue(data.smartplug.power, "W"));
+167:  setText("plugVolt", formatValue(data.smartplug.voltage, "V"));
+178:  setText("lampBrightness", formatValue(data.lamp.brightness, "%"));
+217:    formatKwh(data.energy.today) + " · " + formatRupiah(data.energy.todayCost)
+220:  setText("energyToday", formatKwh(data.energy.today));
+221:  setText("energyWeek", formatKwh(data.energy.week));
+222:  setText("energyMonth", formatKwh(data.energy.month));
+653:function formatValue(value, suffix) {
+665:function formatKwh(value) {
+670:  return "Rp " + Number(value || 0).toLocaleString("id-ID");

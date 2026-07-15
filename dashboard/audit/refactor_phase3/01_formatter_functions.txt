@@ -1,0 +1,7 @@
+605:function formatACModeLabel(value) {
+618:function formatFanLabel(value) {
+633:function formatLampModeLabel(value) {
+647:function toTitleCase(value) {
+653:function formatValue(value, suffix) {
+665:function formatKwh(value) {
+669:function formatRupiah(value) {

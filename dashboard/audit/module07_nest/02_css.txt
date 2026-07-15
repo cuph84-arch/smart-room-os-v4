@@ -1,0 +1,9 @@
+635:.nest-power-control {
+655:.nest-info p {
+663:.nest-info small {
+669:.tv-volume-control {
+700:.nest-volume-control {
+705:.nest-volume-track,
+706:.nest-volume-bar {
+715:.nest-volume-track div,
+716:.nest-volume-bar div {

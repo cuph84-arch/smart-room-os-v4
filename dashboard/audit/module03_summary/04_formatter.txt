@@ -1,0 +1,45 @@
+88:      volume: clampNumber(tv.volume ?? 45, 0, 100),
+96:      volume: clampNumber(nest.volume ?? speaker.volume ?? 45, 0, 100),
+163:  setText("roomTemp", formatValue(data.climate.temp, "°C"));
+164:  setText("roomHumidity", formatValue(data.climate.humidity, "%"));
+166:  setText("plugPower", formatValue(data.smartplug.power, "W"));
+167:  setText("plugVolt", formatValue(data.smartplug.voltage, "V"));
+178:  setText("lampBrightness", formatValue(data.lamp.brightness, "%"));
+217:    formatKwh(data.energy.today) + " · " + formatRupiah(data.energy.todayCost)
+220:  setText("energyToday", formatKwh(data.energy.today));
+221:  setText("energyWeek", formatKwh(data.energy.week));
+222:  setText("energyMonth", formatKwh(data.energy.month));
+224:  setText("energyTodayCost", formatRupiah(data.energy.todayCost));
+225:  setText("energyWeekCost", formatRupiah(data.energy.weekCost));
+226:  setText("energyMonthCost", formatRupiah(data.energy.monthCost));
+247:  const volume = clampNumber(tv.volume ?? 45, 0, 100);
+290:  const temp = Number(ac.temp || 0);
+324:    modeElement.textContent = formatACModeLabel(data.ac.mode);
+328:    fanElement.textContent = formatFanLabel(data.ac.fan);
+345:    lampModeElement.textContent = formatLampModeLabel(data.lamp.mode);
+354:  const temp = Number(tempValue || 24);
+356:  const safePercent = clampNumber(percent, 0, 100);
+368:  const value = Number(brightness || 0);
+369:  const safeValue = clampNumber(value, 0, 100);
+386:  const safeVolume = clampNumber(volume ?? 45, 0, 100);
+399:  const safePercent = clampNumber(percent, 0, 100);
+409:  const min = Number(input.min || 0);
+410:  const max = Number(input.max || 100);
+411:  const numberValue = clampNumber(value, min, max);
+456:      const nextTemp = clampNumber(currentTemp + 1, 16, 30);
+466:      const nextTemp = clampNumber(currentTemp - 1, 16, 30);
+481:      const value = clampNumber(Number(lampSlider.value || 0), 0, 100);
+507:      const value = clampNumber(Number(tvVolumeSlider.value || 45), 0, 100);
+519:      const value = clampNumber(Number(tvVolumeSlider.value || 45), 0, 100);
+546:  return clampNumber(Number(match ? match[0] : 24), 16, 30);
+578:   FORMATTERS
+605:function formatACModeLabel(value) {
+618:function formatFanLabel(value) {
+633:function formatLampModeLabel(value) {
+653:function formatValue(value, suffix) {
+665:function formatKwh(value) {
+666:  return Number(value || 0).toFixed(2) + " kWh";
+669:function formatRupiah(value) {
+670:  return "Rp " + Number(value || 0).toLocaleString("id-ID");
+716:function clampNumber(value, min, max) {
+717:  const number = Number(value);

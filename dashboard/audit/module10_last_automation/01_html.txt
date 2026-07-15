@@ -1,0 +1,7 @@
+495:      <section class="wide-card scene-card">
+500:              <h2 id="sceneName">Belum ada scene</h2>
+504:          <button id="rerunSceneBtn" class="scene-action" type="button">
+509:        <div class="scene-row">
+510:          <span id="sceneTime" class="scene-time-icon">🕘</span>
+511:          <small id="sceneDate">--</small>
+525:        <span class="nav-label">Automation</span>

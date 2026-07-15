@@ -1,0 +1,54 @@
+1044:     try {
+1045:       if (!window.firebase || !window.firebase.database) {
+1046:         return false;
+1047:       }
+1048: 
+1049:       const db = window.firebase.database();
+1050:       db.ref(DASHBOARD_STATUS_FIREBASE_PATH).on("value", function (snapshot) {
+1051:         const payload = snapshot.val();
+1052:         if (payload) {
+1053:           applyContract(payload);
+1054:         }
+1055:       });
+1056: 
+1057:       return true;
+1058:     } catch (error) {
+1059:       console.warn("Dashboard status Firebase listener failed:", error);
+1060:       return false;
+1061:     }
+1062:   }
+1063: 
+1064:   async function start() {
+1065:     const firebaseStarted = startFirebaseDashboardStatusListener();
+1066: 
+1067:     if (!firebaseStarted) {
+1068:       const local = await fetchLocalDashboardStatus();
+1069:       if (local.success) {
+1070:         applyContract(local.payload);
+1071:       }
+1072:     }
+1073:   }
+1074: 
+1075:   window.SmartRoomDashboardStatusAdapter = {
+1076:     checkpoint: "OS-DASHBOARD-002B",
+1077:     contract: "dashboard_status.json",
+1078:     firebasePath: DASHBOARD_STATUS_FIREBASE_PATH,
+1079:     bindingMap: BINDING_MAP,
+1080:     apply: applyContract,
+1081:     start: start,
+1082:     rules: {
+1083:       localFirst: true,
+1084:       dashboardBindingChanged: false,
+1085:       deviceCommandExecuted: false,
+1086:       cloudApiCalled: false,
+1087:       smartPlugProtected: true
+1088:     }
+1089:   };
+1090: 
+1091:   if (document.readyState === "loading") {
+1092:     document.addEventListener("DOMContentLoaded", start);
+1093:   } else {
+1094:     start();
+1095:   }
+1096: })();
+1097: 

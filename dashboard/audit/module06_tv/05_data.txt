@@ -1,0 +1,14 @@
+41:  const tv = state.tv || {};
+86:      mediaState: tv.media_state ?? tv.status ?? "--",
+88:      volume: clampNumber(tv.volume ?? 45, 0, 100),
+90:      displayStatus: getTvDisplayStatus(tv)
+247:  const volume = clampNumber(tv.volume ?? 45, 0, 100);
+248:  const displayStatus =
+249:  tv.status ||
+250:  tv.displayStatus ||
+253:  setText("tvStatus", displayStatus);
+273:    tvCard.style.setProperty("--tv-volume", volume + "%");
+514:        tvCard.style.setProperty("--tv-volume", value + "%");
+521:console.log("TV volume slider local only:", value);
+581:function getTvDisplayStatus(tv) {
+586:  const status = String(tv.status || tv.media_state || "").toUpperCase();

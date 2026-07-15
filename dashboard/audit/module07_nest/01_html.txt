@@ -1,0 +1,16 @@
+256:            <span class="mini-emoji dynamic-icon-tv blue" aria-hidden="true">
+267:              <small>Vol: <span id="tvVolume">45</span>%</small>
+270:            <div class="tv-volume-control">
+272:                id="tvVolumeSlider"
+278:                aria-label="TV volume"
+283:          <div class="mini-device nest-card">
+285:    <h3>Nest Mini</h3>
+287:    <label class="nest-power-control" aria-label="Toggle Nest">
+288:      <span id="nestPowerBadge" class="badge on">ON</span>
+292:  <span class="mini-emoji dynamic-icon-nest purple" aria-hidden="true">
+303:  <div class="nest-info">
+304:    <p>Status: <span id="nestStatus">--</span></p>
+305:    <small>Vol: <span id="nestVolume">--</span>%</small>
+308:  <div class="nest-volume-control">
+309:    <div class="nest-volume-track">
+310:      <div id="nestVolumeBarFill" style="width: 45%;"></div>

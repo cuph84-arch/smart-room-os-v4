@@ -1,0 +1,56 @@
+71:      <section class="wide-card summary-card">
+74:            <h2>Smart Room Summary</h2>
+78:        <div class="summary-grid">
+79:          <div class="summary-item">
+89:            <strong id="summaryAC">--</strong>
+92:          <div class="summary-item">
+102:            <strong id="summaryLamp">--</strong>
+105:          <div class="summary-item">
+115:            <strong id="summaryTV">--</strong>
+118:          <div class="summary-item">
+128:            <strong id="summaryCCTV">--</strong>
+132:        <div class="summary-energy">
+141:          <strong id="summaryEnergy">-- kWh · Rp 0</strong>
+145:      <section class="hero-grid target-device-grid">
+146:        <article class="card hero-card ac-card target-device-card">
+147:          <div class="target-card-top">
+148:            <span class="card-icon emoji-card green" aria-hidden="true">
+159:          <h2 class="target-card-title">AC kamar</h2>
+183:        <article class="card hero-card lamp-card target-device-card">
+184:          <div class="target-card-top">
+185:            <span class="card-icon emoji-card yellow" aria-hidden="true">
+196:          <h2 class="target-card-title">Lampu kamar</h2>
+233:      <section class="wide-card entertainment-card">
+241:          <div class="mini-device tv-card">
+245:              <label class="tv-power-control" aria-label="Toggle TV">
+247:                  id="tvPowerToggle"
+252:                <span id="tvPowerBadge" class="badge on">ON</span>
+283:          <div class="mini-device nest-card">
+287:    <label class="nest-power-control" aria-label="Toggle Nest">
+288:      <span id="nestPowerBadge" class="badge on">ON</span>
+317:<section class="wide-card climate-power-card">
+320:            <h2>Climate & Power</h2>
+345:            <strong id="roomHumidity">--</strong>
+346:            <span>Humidity</span>
+357:            <strong id="plugPower">--</strong>
+358:            <span>Power</span>
+378:        <section class="wide-card cctv-card">
+381:      <span class="card-icon emoji-card cyan" aria-hidden="true">
+453:        <section class="wide-card energy-card">
+456:              <span class="card-icon emoji-card orange" aria-hidden="true"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span></span>
+458:                <h2>Energy Usage</h2>
+463:          <div class="energy-compact">
+464:            <div class="energy-row">
+466:              <strong id="energyToday">-- kWh</strong>
+469:            <div class="energy-row">
+471:              <strong id="energyWeek">-- kWh</strong>
+474:            <div class="energy-row">
+476:              <strong id="energyMonth">-- kWh</strong>
+479:            <div class="energy-total-box">
+481:              <strong id="energyMonthCost">Rp 0</strong>
+484:            <small id="energyTodayCost" class="hidden-energy-cost">Rp 0</small>
+485:            <small id="energyWeekCost" class="hidden-energy-cost">Rp 0</small>
+486:            <strong id="energyRuntimeMonth" class="hidden-energy-cost">--</strong>
+488:            <small id="energyTariff" class="energy-tariff-compact">
+495:      <section class="wide-card scene-card">
+498:            <span class="card-icon emoji-card purple" aria-hidden="true"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5 5 4h3l-2 4.5M9 8.5 11 4h3l-2 4.5M15 8.5 17 4h3l-2 4.5"/><rect x="3" y="8.5" width="18" height="11.5" rx="2"/></svg></span></span>

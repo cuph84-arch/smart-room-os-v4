@@ -1,0 +1,28 @@
+3:  sendControlRequest,
+4:  sendTvControl,
+15:  bindControls();
+175:  applyDeviceControlState(".ac-card", data.ac.power);
+182:  applyDeviceControlState(".lamp-card", data.lamp.power);
+423:   CONTROL BINDINGS
+426:function isACControlEnabled() {
+431:function bindControls() {
+447:      sendAcControl(active ? "ac_off" : "ac_on");
+453:      if (!isACControlEnabled()) return;
+457:      sendAcControl("cool_" + nextTemp + "_auto");
+463:      if (!isACControlEnabled()) return;
+467:      sendAcControl("cool_" + nextTemp + "_auto");
+474:      sendControl(active ? "lamp_off" : "lamp_on");
+492:      sendControl("lamp_brightness", lampSlider.value);
+498:    sendTvControl("tv_power").catch((error) => {
+499:      console.error("TV power control error:", error);
+531:        sendControl(action);
+540:   SEND CONTROL
+549:async function sendAcControl(command) {
+553:await sendControlRequest(command);
+555:    console.log("AC control request:", command);
+558:    console.error("AC control error:", error);
+563:async function sendControl(action, value = "") {
+567:    await sendControlRequest(action, value);
+569:    console.log("Control request:", action, value);
+572:    console.error("Control error:", error);
+705:function applyDeviceControlState(cardSelector, statusValue) {

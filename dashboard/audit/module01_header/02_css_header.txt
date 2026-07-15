@@ -1,0 +1,11 @@
+104:   HEADER
+107:.header {
+111:.header-top {
+119:.header-text h1 {
+125:.header-text #lastUpdated {
+802:.status-pill {
+813:.status-pill.online {
+819:.status-pill.offline {
+978:/* #sceneTime's text is written directly by app.js (always the clock
+981:.scene-time-icon {
+1098:  .header-text h1 { font-size: 28px; }

@@ -1,0 +1,10 @@
+/* STYLE MODULAR V1 */
+@import url("./css_modules/98_legacy_core.css");
+@import url("./css_modules/00_variables.css");
+@import url("./css_modules/01_root.css");
+@import url("./css_modules/02_header.css");
+@import url("./css_modules/03_tabs.css");
+@import url("./css_modules/04_parent_geometry.css");
+@import url("./css_modules/05_grid_system.css");
+@import url("./css_modules/11_bottom_nav.css");
+@import url("./css_modules/99_utilities.css");

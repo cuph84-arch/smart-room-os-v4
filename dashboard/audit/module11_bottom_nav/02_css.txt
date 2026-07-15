@@ -1,0 +1,33 @@
+108:  margin-bottom: 20px;
+116:  margin-bottom: 18px;
+161:  padding-bottom: 4px;
+184:.top-tabs button.active {
+243:  margin-bottom: 18px;
+250:  margin-bottom: 18px;
+271:  margin-bottom: 18px;
+349:  margin-bottom: 18px;
+373:  margin-bottom: 14px;
+396:  margin-bottom: 6px;
+603:  margin-bottom: 12px;
+646:  margin-bottom: 12px;
+748:  margin-bottom: 2px;
+772:  margin-bottom: 18px;
+776:  margin-bottom: 0;
+781:  margin-bottom: 16px;
+833:  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+837:  border-bottom: none;
+942:  margin-bottom: 12px;
+996:   BOTTOM NAVIGATION
+999:.bottom-nav.nav-bar {
+1002:  bottom: 18px;
+1019:.bottom-nav button {
+1031:.bottom-nav .nav-icon {
+1039:.bottom-nav .nav-icon svg {
+1044:.bottom-nav .nav-label {
+1049:.bottom-nav button.active {
+1053:.bottom-nav button.active .nav-icon {
+1057:.bottom-nav .center-action {
+1072:.bottom-nav .center-action::before,
+1073:.bottom-nav .center-action::after {
+1083:.bottom-nav .center-action::before {
+1088:.bottom-nav .center-action::after {

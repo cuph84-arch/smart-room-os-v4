@@ -1,0 +1,1187 @@
+==================================================
+SMART ROOM OS V4 - CARD LAYOUT FACT AUDIT
+==================================================
+
+DATE : Sun Jul 12 17:25:51 WIB 2026
+DIR  : /data/data/com.termux/files/home/smart-room-os-v4/offline_dev
+
+==============================
+HTML FILE
+==============================
+./index.html
+
+==============================
+CSS FILE
+==============================
+./style.css
+
+==============================
+HTML CLASS
+==============================
+ac-card
+ac-meta-clean
+ac-slider
+ac-slider-fill
+active
+app
+badge
+blue
+bottom-nav
+brightness-slider
+card
+card-icon
+cctv-card
+cctv-mode-pill
+center-action
+climate-power-card
+compact-head
+control-btn
+cyan
+dashboard
+dynamic-icon-nest
+dynamic-icon-tv
+emoji-card
+emoji-icon
+energy-card
+energy-compact
+energy-row
+energy-tariff-compact
+energy-total-box
+entertainment-card
+entertainment-grid
+green
+header
+header-text
+header-top
+hero-card
+hero-grid
+hidden-energy-cost
+icon
+icon-sm
+lamp-bar
+lamp-card
+lamp-meta-clean
+lamp-minus-btn
+lamp-plus-btn
+last-motion-line
+last-motion-split
+logic-hidden
+meta-separator
+metric-emoji
+metric-grid
+metric-item
+mini-device
+mini-device-head
+mini-emoji
+nav-bar
+nav-icon
+nav-label
+nest-card
+nest-info
+nest-power-control
+nest-volume-control
+nest-volume-track
+notification-btn
+off
+on
+orange
+phone-container
+pink
+purple
+scene-action
+scene-card
+scene-row
+scene-time-icon
+section-head
+security-info
+security-layout
+security-line
+split-grid
+status-pill
+summary-card
+summary-energy
+summary-grid
+summary-item
+tab-garage
+tab-home
+tab-icon
+tab-living
+tab-room
+tab-terrace
+target-card-title
+target-card-top
+target-device-card
+target-device-grid
+target-fake-slider
+target-main-value
+target-meta-clean
+target-range-wrap
+target-slider-row
+target-sub-info
+target-toggle
+title-group
+top-tabs
+tv-card
+tv-info
+tv-power-control
+tv-volume-control
+vision-slider-range
+wide-card
+yellow
+
+==============================
+CSS SELECTOR
+==============================
+#acSliderFill,
+#lampBar
+*
+--accent-blue: #3b8dff;
+--accent-green: #3ddc84;
+--accent-red: #ff5d6c;
+--glass-bg-soft: rgba(255, 255, 255, 0.10);
+--glass-bg: rgba(255, 255, 255, 0.14);
+--glass-border-soft: rgba(255, 255, 255, 0.16);
+--glass-border: rgba(255, 255, 255, 0.28);
+--glass-dark-border: rgba(255, 255, 255, 0.14);
+--glass-dark: rgba(15, 14, 20, 0.42);
+--glass-shadow: 0 12px 34px rgba(70, 30, 20, 0.18);
+--nav-dark: rgba(10, 14, 22, 0.55);
+--radius-full: 999px;
+--radius-lg: 24px;
+--radius-md: 18px;
+--radius-xl: 30px;
+--text: #ffffff;
+--white: #ffffff;
+-webkit-appearance: none;
+-webkit-backdrop-filter: blur(14px);
+-webkit-backdrop-filter: blur(22px) saturate(140%);
+-webkit-backdrop-filter: blur(24px) saturate(160%);
+-webkit-backdrop-filter: blur(26px) saturate(140%);
+-webkit-font-smoothing: antialiased;
+.ac-slider-fill,
+.app.phone-container
+.badge
+.badge.off
+.badge.on
+.badge.target-toggle
+.badge.target-toggle.off
+.badge.target-toggle.on
+.badge.target-toggle::after
+.badge.target-toggle::before
+.bottom-nav .center-action
+.bottom-nav .center-action::after
+.bottom-nav .center-action::before
+.bottom-nav .center-action::before,
+.bottom-nav .nav-icon
+.bottom-nav .nav-icon svg
+.bottom-nav .nav-label
+.bottom-nav button
+.bottom-nav button.active
+.bottom-nav button.active .nav-icon
+.bottom-nav.nav-bar
+.brightness-slider
+.card,
+.card-icon.emoji-card
+.card-icon.emoji-card .icon
+.card-icon.emoji-card.cyan
+.card-icon.emoji-card.green
+.card-icon.emoji-card.orange
+.card-icon.emoji-card.purple
+.card-icon.emoji-card.yellow
+.cctv-mode-pill
+.cctv-mode-pill span
+.cctv-mode-pill strong
+.compact-head
+.compact-head h2
+.compact-head h2 span
+.compact-head h2 strong
+.control-btn
+.emoji-icon
+.emoji-icon .icon
+.emoji-icon.blue
+.emoji-icon.cyan
+.emoji-icon.green
+.emoji-icon.yellow
+.energy-compact
+.energy-row
+.energy-row strong
+.energy-tariff-compact
+.energy-total-box
+.energy-total-box strong
+.entertainment-grid
+.header
+.header-text #lastUpdated
+.header-text h1
+.header-top
+.hero-card.disabled
+.hero-card.target-device-card
+.hero-grid.target-device-grid
+.hidden-energy-cost
+.icon
+.icon svg
+.icon-lg
+.icon-md
+.icon-sm
+.lamp-bar
+.lamp-bar > div
+.lamp-bar::before
+.last-motion-split
+.last-motion-split span:first-child
+.logic-hidden
+.meta-separator
+.metric-emoji
+.metric-grid
+.metric-item
+.metric-item > span
+.metric-item strong
+.metric-item,
+.mini-device
+.mini-device,
+.mini-device-head
+.mini-device-head h3
+.mini-device.disabled
+.mini-emoji
+.mini-emoji .icon
+.mini-emoji.blue
+.mini-emoji.purple
+.nest-info p
+.nest-info small
+.nest-power-control
+.nest-volume-bar
+.nest-volume-bar div
+.nest-volume-control
+.nest-volume-track div,
+.nest-volume-track,
+.notification-btn
+.notification-btn .icon
+.scene-action
+.scene-action .icon
+.scene-card .section-head
+.scene-card h2
+.scene-row
+.scene-time-icon
+.section-head
+.section-head h2
+.security-line
+.security-line span
+.security-line strong
+.security-line:last-child
+.split-grid
+.split-grid .wide-card
+.status-pill
+.status-pill.offline
+.status-pill.online
+.summary-energy
+.summary-energy span
+.summary-energy strong
+.summary-grid
+.summary-item
+.summary-item > span:not(.emoji-icon)
+.summary-item strong
+.summary-item:nth-child(4) strong
+.tab-garage
+.tab-home
+.tab-icon
+.tab-living
+.tab-room
+.tab-terrace
+.target-card-title
+.target-card-top
+.target-fake-slider,
+.target-fake-slider::before
+.target-main-value strong
+.target-range-wrap
+.target-slider-row
+.target-sub-info b
+.target-sub-info.target-meta-clean
+.title-group
+.top-tabs
+.top-tabs button
+.top-tabs button.active
+.top-tabs::-webkit-scrollbar
+.tv-info p,
+.tv-info small,
+.tv-power-control,
+.tv-volume-control
+.vision-slider-range
+.vision-slider-range::-moz-range-thumb
+.vision-slider-range::-webkit-slider-thumb
+.wide-card
+.wide-card,
+/* #sceneTime's text is written directly by app.js (always the clock
+/* --- power toggle (pure CSS icon, survives JS textContent reset) --- */
+/* --- slider row (AC / Lamp) --- */
+/* =========================
+/* =====================================================
+/* Font loaded via <link> tags in index.html head */
+0 0 18px 2px rgba(61, 220, 132, 0.55);
+0 0 22px 4px rgba(59, 141, 255, 0.6);
+0 10px 26px rgba(59, 141, 255, 0.55),
+:root
+========================= */
+===================================================== */
+@media (max-width: 380px)
+BOTTOM NAVIGATION
+Background: linear-gradient #ffdb6e -> #ff6a88
+CLIMATE & POWER
+ENTERTAINMENT
+Font: Plus Jakarta Sans
+GLASS CARD BASE
+HEADER
+HERO GRID (AC / LAMP)
+ICON SYSTEM
+PHONE / APP CONTAINER
+RESPONSIVE
+SCENE CARD
+SMART ROOM OS — GLASSMORPHISM THEME
+SPLIT GRID (CCTV / ENERGY)
+SUMMARY CARD
+TOP TABS
+align-items: center;
+align-items: flex-start;
+appearance: none;
+backdrop-filter: blur(14px);
+backdrop-filter: blur(22px) saturate(140%);
+backdrop-filter: blur(24px) saturate(160%);
+backdrop-filter: blur(26px) saturate(140%);
+background-attachment: fixed;
+background-color: transparent;
+background-image instead, so app.js can keep writing to it safely. */
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7v5l3.5 2'/%3E%3C/svg%3E");
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3c3 2 5 5 5 8a5 5 0 0 1-10 0c0-3 2-6 5-8Z'/%3E%3Cpath d='M12 21v-6'/%3E%3C/svg%3E");
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 18v-6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v6'/%3E%3Cpath d='M2 18v2M22 18v2'/%3E%3Cpath d='M2 12V8a2 2 0 0 1 2-2h6v6'/%3E%3Cpath d='M12 12h10'/%3E%3C/svg%3E");
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 11.5 12 4l9 7.5'/%3E%3Cpath d='M5 10v10h14V10'/%3E%3Cpath d='M9.5 20v-6h5v6'/%3E%3C/svg%3E");
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 11l1.5-5A2 2 0 0 1 6.4 4.5h11.2A2 2 0 0 1 19.5 6l1.5 5'/%3E%3Crect x='2.5' y='11' width='19' height='6' rx='2'/%3E%3Cpath d='M6 17v2M18 17v2'/%3E%3C/svg%3E");
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='5' width='18' height='12' rx='2'/%3E%3Cpath d='M9 21h6M12 17v4'/%3E%3C/svg%3E");
+background-position: center;
+background-repeat: no-repeat;
+background-size: contain;
+background: currentColor;
+background: linear-gradient(135deg, #b06cff, #6a7bff);
+background: linear-gradient(165deg, rgba(20, 16, 22, 0.55), rgba(20, 16, 22, 0.28));
+background: linear-gradient(180deg, #c4eefd 0%, #9ee3fb 45%, #4fb0dd 100%);
+background: linear-gradient(90deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.55));
+background: linear-gradient(90deg, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.78) 45%, rgba(255,255,255,0.16) 45%, rgba(255,255,255,0.16) 100%);
+background: radial-gradient(circle at 35% 30%, #6cb1ff, var(--accent-blue));
+background: radial-gradient(circle at 35% 30%, rgba(140, 255, 170, 0.55), rgba(61, 220, 132, 0.28));
+background: rgba(255, 255, 255, 0.08);
+background: rgba(255, 255, 255, 0.10);
+background: rgba(255, 255, 255, 0.16);
+background: rgba(255, 255, 255, 0.18);
+background: rgba(255, 255, 255, 0.22);
+background: rgba(255, 255, 255, 0.85);
+background: rgba(255, 93, 108, 0.16);
+background: rgba(61, 220, 132, 0.16);
+background: rgba(61, 220, 132, 0.18);
+background: transparent;
+background: var(--glass-bg);
+background: var(--nav-dark);
+background: var(--white);
+body
+border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+border-bottom: none;
+border-color: rgba(255, 255, 255, 0.35);
+border-color: rgba(255, 93, 108, 0.4);
+border-color: rgba(61, 220, 132, 0.4);
+border-color: rgba(61, 220, 132, 0.45);
+border-radius: 2px;
+border-radius: 50%;
+border-radius: var(--radius-full);
+border-radius: var(--radius-lg);
+border-radius: var(--radius-md);
+border-radius: var(--radius-xl);
+border-top-color: transparent;
+border-top: 1px solid var(--glass-border-soft);
+border: 1px solid rgba(255, 255, 255, 0.12);
+border: 1px solid rgba(255, 255, 255, 0.14);
+border: 1px solid rgba(255, 255, 255, 0.16);
+border: 1px solid rgba(255, 255, 255, 0.2);
+border: 1px solid rgba(255, 255, 255, 0.25);
+border: 1px solid rgba(255, 255, 255, 0.28);
+border: 1px solid rgba(255, 255, 255, 0.35);
+border: 1px solid rgba(61, 220, 132, 0.4);
+border: 1px solid transparent;
+border: 1px solid var(--glass-border-soft);
+border: 2px solid currentColor;
+border: none;
+bottom: 18px;
+box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+box-shadow: 0 0 0 6px rgba(15, 14, 20, 0.35),
+box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+box-shadow: 0 6px 16px rgba(80, 20, 20, 0.12);
+box-shadow: 0 8px 20px rgba(106, 100, 255, 0.35);
+box-shadow: var(--glass-shadow);
+box-sizing: border-box;
+button
+color: #ffb0b8;
+color: #fff;
+color: rgba(255, 255, 255, 0.55);
+color: rgba(255, 255, 255, 0.65);
+color: rgba(255, 255, 255, 0.7);
+color: rgba(255, 255, 255, 0.75);
+color: rgba(255, 255, 255, 0.8);
+color: rgba(255, 255, 255, 0.85);
+color: rgba(255, 255, 255, 0.9);
+color: rgba(255, 255, 255, 0.92);
+color: rgba(255, 255, 255, 0.95);
+color: transparent;
+color: var(--accent-green);
+color: var(--accent-red);
+color: var(--text);
+color: var(--white);
+content: "";
+cursor: pointer;
+display: block;
+display: flex;
+display: grid;
+display: inline-block;
+display: inline-flex;
+display: none !important;
+display: none;
+emoji) — we shrink that text to invisible and paint a real icon via
+filter: drop-shadow(0 0 7px rgba(61, 220, 132, 0.85));
+flex-direction: column;
+flex-shrink: 0;
+flex: 0 0 auto;
+flex: 1;
+font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+font-family: inherit;
+font-size: 0;
+font-size: 10.5px;
+font-size: 11.5px;
+font-size: 11px;
+font-size: 12.5px;
+font-size: 12px;
+font-size: 13.5px;
+font-size: 13px;
+font-size: 14px;
+font-size: 15px;
+font-size: 16px;
+font-size: 18px;
+font-size: 19px;
+font-size: 34px;
+font-size: 42px;
+font-weight: 400;
+font-weight: 500;
+font-weight: 600;
+font-weight: 700;
+gap: 10px;
+gap: 12px;
+gap: 14px;
+gap: 2px;
+gap: 4px;
+gap: 6px;
+gap: 8px;
+grid-template-columns: 1fr 1fr;
+grid-template-columns: repeat(4, 1fr);
+h1, h2, h3
+height: 100%;
+height: 12px;
+height: 14px;
+height: 15px;
+height: 16px;
+height: 18px;
+height: 20px;
+height: 22px;
+height: 24px;
+height: 26px;
+height: 34px;
+height: 38px;
+height: 3px;
+height: 40px;
+height: 44px;
+height: 4px;
+height: 52px;
+height: 58px;
+height: 6px;
+height: 8px;
+html, body
+inset: 0;
+justify-content: center;
+justify-content: space-between;
+left: 0;
+left: 50%;
+left: var(--ac-pos, 50%);
+letter-spacing: -0.5px;
+letter-spacing: -1px;
+letter-spacing: 0.2px;
+letter-spacing: 0.3px;
+letter-spacing: 0.4px;
+line-height: 1.15;
+line-height: 1;
+margin-bottom: 0;
+margin-bottom: 12px;
+margin-bottom: 14px;
+margin-bottom: 16px;
+margin-bottom: 18px;
+margin-bottom: 20px;
+margin-bottom: 2px;
+margin-bottom: 6px;
+margin-top: 10px;
+margin-top: 12px;
+margin-top: 14px;
+margin-top: 6px;
+margin-top: 8px;
+margin-top: auto;
+margin: 0 0 4px;
+margin: 0 auto;
+margin: 0;
+margin: 10px 0 18px;
+max-width: 444px;
+max-width: 480px;
+min-height: 100vh;
+opacity: 0.55;
+opacity: 0.5;
+opacity: 0.65;
+opacity: 0.75;
+opacity: 0.95;
+opacity: 0;
+outline: none;
+overflow-x: auto;
+overflow: hidden;
+overflow: visible;
+p, span, small, strong, b, label
+padding-bottom: 4px;
+padding-top: 12px;
+padding-top: 16px;
+padding: 0;
+padding: 10px 18px;
+padding: 10px 8px;
+padding: 12px 14px;
+padding: 12px 18px;
+padding: 16px 8px;
+padding: 16px;
+padding: 18px;
+padding: 22px 18px 130px;
+padding: 22px;
+padding: 4px 12px;
+padding: 7px 0;
+padding: 8px 4px;
+padding: 9px 0;
+position: absolute;
+position: fixed;
+position: relative;
+scrollbar-width: none;
+text-align: center;
+text-transform: uppercase;
+top: -22px;
+top: 0;
+top: 11px;
+top: 50%;
+top: 8px;
+transform: translate(-50%, -50%);
+transform: translate3d(-50%, -50%, 0);
+transform: translateX(-50%) rotate(-45deg);
+transform: translateX(-50%);
+transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+transition: opacity 0.25s ease;
+transition: opacity 0.2s ease;
+width: 100%;
+width: 12px;
+width: 14px;
+width: 15px;
+width: 16px;
+width: 18px;
+width: 20px;
+width: 22px;
+width: 24px;
+width: 26px;
+width: 2px;
+width: 34px;
+width: 38px;
+width: 3px;
+width: 40px;
+width: 44px;
+width: 52px;
+width: 58px;
+width: calc(100% - 36px);
+width: var(--ac-pos, 50%);
+width: var(--lamp-pos, 1%);
+z-index: 50;
+}
+
+==============================
+DISPLAY
+==============================
+84:  display: inline-flex;
+96:  display: block;
+112:  display: flex;
+141:  display: flex;
+158:  display: flex;
+170:  display: flex;
+196:  display: inline-block;
+247:  display: flex;
+258:  display: flex;
+268:  display: grid;
+279:  display: flex;
+307:  display: flex;
+320:  display: flex;
+331:  display: inline-flex;
+346:  display: grid;
+360:  display: flex;
+370:  display: flex;
+380:  display: flex;
+408:  display: flex;
+482:  display: flex;
+498:  display: flex;
+562:  display: flex;
+582:  display: grid;
+590:  display: flex;
+600:  display: flex;
+612:  display: inline-flex;
+643:  display: flex;
+727:  display: grid;
+735:  display: flex;
+745:  display: flex;
+769:  display: grid;
+786:  display: flex;
+826:  display: flex;
+841:  display: inline-flex;
+852:  display: flex;
+868:  display: flex;
+874:  display: flex;
+888:  display: flex;
+893:  display: flex;
+912:  display: flex;
+930:  display: block;
+951:  display: inline-flex;
+970:  display: flex;
+983:  display: inline-block;
+1006:  display: flex;
+1021:  display: flex;
+1034:  display: flex;
+
+==============================
+GRID TEMPLATE
+==============================
+269:  grid-template-columns: repeat(4, 1fr);
+347:  grid-template-columns: 1fr 1fr;
+583:  grid-template-columns: 1fr 1fr;
+728:  grid-template-columns: repeat(4, 1fr);
+770:  grid-template-columns: 1fr 1fr;
+
+==============================
+GRID AUTO
+==============================
+
+==============================
+FLEX
+==============================
+85:  align-items: center;
+86:  justify-content: center;
+90:  flex-shrink: 0;
+113:  align-items: flex-start;
+114:  justify-content: space-between;
+142:  align-items: center;
+143:  justify-content: center;
+144:  flex-shrink: 0;
+171:  align-items: center;
+173:  flex-shrink: 0;
+248:  align-items: center;
+249:  justify-content: space-between;
+259:  align-items: center;
+280:  flex-direction: column;
+281:  align-items: center;
+308:  align-items: center;
+309:  justify-content: center;
+321:  align-items: center;
+322:  justify-content: space-between;
+332:  align-items: center;
+361:  flex-direction: column;
+371:  align-items: center;
+372:  justify-content: space-between;
+381:  align-items: center;
+382:  justify-content: center;
+409:  align-items: center;
+439:  flex-shrink: 0;
+483:  align-items: center;
+499:  align-items: center;
+500:  justify-content: center;
+501:  flex-shrink: 0;
+507:  flex: 1;
+544:  flex: 1;
+563:  align-items: center;
+591:  flex-direction: column;
+601:  align-items: center;
+602:  justify-content: space-between;
+613:  align-items: center;
+614:  justify-content: center;
+644:  align-items: center;
+645:  justify-content: center;
+736:  flex-direction: column;
+737:  align-items: center;
+746:  align-items: center;
+747:  justify-content: center;
+787:  flex-direction: column;
+827:  align-items: center;
+828:  justify-content: space-between;
+842:  align-items: center;
+869:  align-items: center;
+870:  justify-content: space-between;
+875:  align-items: center;
+889:  flex-direction: column;
+894:  align-items: center;
+895:  justify-content: space-between;
+913:  align-items: center;
+914:  justify-content: space-between;
+952:  align-items: center;
+971:  align-items: center;
+1007:  align-items: center;
+1008:  justify-content: space-between;
+1020:  flex: 1;
+1022:  flex-direction: column;
+1023:  align-items: center;
+1035:  align-items: center;
+1036:  justify-content: center;
+1058:  flex: 0 0 auto;
+
+==============================
+WIDTH
+==============================
+72:  max-width: 480px;
+87:  width: 20px;
+94:  width: 100%;
+99:.icon-sm { width: 16px; height: 16px; }
+100:.icon-md { width: 24px; height: 24px; }
+101:.icon-lg { width: 30px; height: 30px; }
+134:  width: 52px;
+148:  width: 24px;
+162:  scrollbar-width: none;
+194:  width: 20px;
+304:  width: 38px;
+312:.emoji-icon .icon { width: 19px; height: 19px; }
+377:  width: 40px;
+385:.card-icon.emoji-card .icon { width: 20px; height: 20px; }
+434:  width: 38px;
+447:  width: 2px;
+459:  width: 16px;
+489:  width: 34px;
+522:  width: 18px;
+537:  width: var(--ac-pos, 50%);
+556:  width: var(--lamp-pos, 1%);
+570:  width: 100%;
+640:  width: 44px;
+649:.mini-emoji .icon { width: 22px; height: 22px; }
+674:  width: 100%;
+685:  width: 14px;
+693:  width: 14px;
+708:  width: 100%;
+743:  width: 26px;
+965:  width: 12px;
+984:  width: 15px;
+1004:  width: calc(100% - 36px);
+1005:  max-width: 444px;
+1032:  width: 22px;
+1040:  width: 100%;
+1061:  width: 58px;
+1084:  width: 20px;
+1089:  width: 3px;
+1097:@media (max-width: 380px) {
+
+==============================
+HEIGHT
+==============================
+44:  min-height: 100vh;
+74:  min-height: 100vh;
+88:  height: 20px;
+95:  height: 100%;
+99:.icon-sm { width: 16px; height: 16px; }
+100:.icon-md { width: 24px; height: 24px; }
+101:.icon-lg { width: 30px; height: 30px; }
+121:  line-height: 1.15;
+135:  height: 52px;
+149:  height: 24px;
+195:  height: 20px;
+305:  height: 38px;
+312:.emoji-icon .icon { width: 19px; height: 19px; }
+378:  height: 40px;
+385:.card-icon.emoji-card .icon { width: 20px; height: 20px; }
+404:  line-height: 1;
+435:  height: 38px;
+448:  height: 8px;
+460:  height: 16px;
+490:  height: 34px;
+497:  line-height: 1;
+508:  height: 6px;
+523:  height: 18px;
+536:  height: 100%;
+545:  height: 6px;
+555:  height: 100%;
+571:  height: 100%;
+641:  height: 44px;
+649:.mini-emoji .icon { width: 22px; height: 22px; }
+677:  height: 4px;
+686:  height: 14px;
+694:  height: 14px;
+709:  height: 4px;
+717:  height: 100%;
+744:  height: 26px;
+966:  height: 12px;
+985:  height: 15px;
+1033:  height: 22px;
+1041:  height: 100%;
+1062:  height: 58px;
+1085:  height: 3px;
+1090:  height: 20px;
+
+==============================
+MAX WIDTH
+==============================
+72:  max-width: 480px;
+1005:  max-width: 444px;
+1097:@media (max-width: 380px) {
+
+==============================
+MIN WIDTH
+==============================
+
+==============================
+MAX HEIGHT
+==============================
+
+==============================
+MIN HEIGHT
+==============================
+44:  min-height: 100vh;
+74:  min-height: 100vh;
+
+==============================
+PADDING
+==============================
+40:  padding: 0;
+76:  padding: 22px 18px 130px;
+161:  padding-bottom: 4px;
+174:  padding: 12px 18px;
+242:  padding: 22px;
+278:  padding: 16px 8px;
+323:  padding-top: 16px;
+356:  padding: 18px;
+589:  padding: 16px;
+615:  padding: 4px 12px;
+702:  padding-top: 12px;
+734:  padding: 16px 8px;
+777:  padding: 18px;
+803:  padding: 4px 12px;
+829:  padding: 9px 0;
+864:  padding: 12px 14px;
+896:  padding: 7px 0;
+908:  padding: 12px 14px;
+954:  padding: 10px 18px;
+1009:  padding: 10px 8px;
+1027:  padding: 8px 4px;
+1069:  padding: 0;
+
+==============================
+MARGIN
+==============================
+39:  margin: 0;
+54:  margin: 0;
+73:  margin: 0 auto;
+108:  margin-bottom: 20px;
+116:  margin-bottom: 18px;
+126:  margin-top: 6px;
+243:  margin-bottom: 18px;
+250:  margin-bottom: 18px;
+271:  margin-bottom: 18px;
+349:  margin-bottom: 18px;
+373:  margin-bottom: 14px;
+396:  margin-bottom: 6px;
+411:  margin: 10px 0 18px;
+485:  margin-top: auto;
+573:  margin: 0;
+603:  margin-bottom: 12px;
+646:  margin-bottom: 12px;
+658:  margin: 0 0 4px;
+670:  margin-top: 12px;
+701:  margin-top: auto;
+748:  margin-bottom: 2px;
+772:  margin-bottom: 18px;
+776:  margin-bottom: 0;
+781:  margin-bottom: 16px;
+863:  margin-top: 14px;
+907:  margin-top: 8px;
+931:  margin-top: 10px;
+942:  margin-bottom: 12px;
+
+==============================
+GAP
+==============================
+115:  gap: 12px;
+159:  gap: 8px;
+172:  gap: 8px;
+260:  gap: 12px;
+270:  gap: 10px;
+282:  gap: 8px;
+333:  gap: 8px;
+348:  gap: 14px;
+410:  gap: 8px;
+484:  gap: 12px;
+584:  gap: 14px;
+729:  gap: 10px;
+738:  gap: 6px;
+771:  gap: 14px;
+788:  gap: 2px;
+843:  gap: 8px;
+853:  gap: 6px;
+876:  gap: 8px;
+953:  gap: 8px;
+972:  gap: 8px;
+1024:  gap: 4px;
+1100:  .summary-grid { gap: 8px; }
+
+==============================
+BORDER RADIUS
+==============================
+136:  border-radius: 50%;
+175:  border-radius: var(--radius-full);
+241:  border-radius: var(--radius-xl);
+277:  border-radius: var(--radius-md);
+306:  border-radius: 50%;
+355:  border-radius: var(--radius-xl);
+379:  border-radius: 50%;
+436:  border-radius: 50%;
+451:  border-radius: 2px;
+463:  border-radius: 50%;
+491:  border-radius: 50%;
+509:  border-radius: var(--radius-full);
+524:  border-radius: 50%;
+539:  border-radius: var(--radius-full);
+546:  border-radius: var(--radius-full);
+558:  border-radius: var(--radius-full);
+588:  border-radius: var(--radius-lg);
+616:  border-radius: var(--radius-full);
+642:  border-radius: 50%;
+678:  border-radius: var(--radius-full);
+687:  border-radius: 50%;
+696:  border-radius: 50%;
+710:  border-radius: var(--radius-full);
+719:  border-radius: var(--radius-full);
+733:  border-radius: var(--radius-md);
+804:  border-radius: var(--radius-full);
+865:  border-radius: var(--radius-md);
+909:  border-radius: var(--radius-md);
+956:  border-radius: var(--radius-full);
+1010:  border-radius: var(--radius-full);
+1063:  border-radius: 50%;
+1079:  border-radius: 2px;
+
+==============================
+POSITION
+==============================
+75:  position: relative;
+108:  margin-bottom: 20px;
+116:  margin-bottom: 18px;
+126:  margin-top: 6px;
+161:  padding-bottom: 4px;
+199:  background-position: center;
+243:  margin-bottom: 18px;
+250:  margin-bottom: 18px;
+271:  margin-bottom: 18px;
+323:  padding-top: 16px;
+324:  border-top: 1px solid var(--glass-border-soft);
+349:  margin-bottom: 18px;
+373:  margin-bottom: 14px;
+396:  margin-bottom: 6px;
+433:  position: relative;
+444:  position: absolute;
+445:  top: 8px;
+446:  left: 50%;
+456:  position: absolute;
+457:  top: 11px;
+458:  left: 50%;
+485:  margin-top: auto;
+506:  position: relative;
+520:  position: absolute;
+521:  top: 50%;
+527:  left: var(--ac-pos, 50%);
+533:  position: absolute;
+534:  top: 0;
+535:  left: 0;
+543:  position: relative;
+552:  position: absolute;
+553:  top: 0;
+554:  left: 0;
+568:  position: absolute;
+569:  inset: 0;
+603:  margin-bottom: 12px;
+646:  margin-bottom: 12px;
+670:  margin-top: 12px;
+701:  margin-top: auto;
+702:  padding-top: 12px;
+707:  position: relative;
+748:  margin-bottom: 2px;
+772:  margin-bottom: 18px;
+776:  margin-bottom: 0;
+781:  margin-bottom: 16px;
+833:  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+837:  border-bottom: none;
+863:  margin-top: 14px;
+907:  margin-top: 8px;
+931:  margin-top: 10px;
+942:  margin-bottom: 12px;
+982:  position: relative;
+990:  background-position: center;
+1000:  position: fixed;
+1001:  left: 50%;
+1002:  bottom: 18px;
+1059:  position: relative;
+1060:  top: -22px;
+1075:  position: absolute;
+1076:  top: 50%;
+1077:  left: 50%;
+
+==============================
+ALL PX VALUES
+==============================
+      1 0.2px
+      1 0.4px
+      1 0.5px
+      1 10.5px
+      1 11.5px
+      1 12.5px
+      1 13.5px
+      1 130px
+      1 28px
+      1 380px
+      1 42px
+      1 444px
+      1 480px
+      1 999px
+      1 9px
+      2 36px
+      2 3px
+      2 44px
+      2 52px
+      2 58px
+      2 7px
+      3 0.3px
+      3 30px
+      3 40px
+      4 19px
+      4 34px
+      4 38px
+      5 11px
+      5 15px
+      5 26px
+      7 10px
+      7 24px
+      9 2px
+      9 4px
+     10 13px
+     10 20px
+     10 22px
+     10 6px
+     14 16px
+     15 14px
+     17 1px
+     18 12px
+     18 8px
+     19 18px
+
+==============================
+ALL REM VALUES
+==============================
+
+==============================
+ALL % VALUES
+==============================
+      2 0%
+      1 1%
+     14 100%
+      4 140%
+      2 160%
+      2 30%
+      2 35%
+      3 45%
+     26 50%
+
+==============================
+HTML STRUCTURE (DIV)
+==============================
+25:      <div class="header-top">
+26:        <div class="header-text">
+28:          <div id="lastUpdated">--</div>
+72:        <div class="section-head">
+73:          <div>
+78:        <div class="summary-grid">
+79:          <div class="summary-item">
+92:          <div class="summary-item">
+105:          <div class="summary-item">
+118:          <div class="summary-item">
+132:        <div class="summary-energy">
+147:          <div class="target-card-top">
+161:          <div class="target-main-value">
+165:          <div class="target-sub-info target-meta-clean ac-meta-clean">
+172:          <div class="target-slider-row">
+175:            <div class="ac-slider target-fake-slider" style="--ac-pos: 50%;">
+176:              <div id="acSliderFill" class="ac-slider-fill"></div>
+184:          <div class="target-card-top">
+198:          <div class="target-main-value">
+202:          <div class="target-sub-info target-meta-clean lamp-meta-clean">
+209:          <div class="target-slider-row">
+212:            <div class="target-range-wrap">
+213:              <div class="lamp-bar" style="--lamp-pos: 1%;">
+214:                <div id="lampBar"></div>
+234:        <div class="section-head">
+235:          <div>
+240:        <div class="entertainment-grid">
+241:          <div class="mini-device tv-card">
+242:            <div class="mini-device-head">
+265:            <div class="tv-info">
+270:            <div class="tv-volume-control">
+283:          <div class="mini-device nest-card">
+284:  <div class="mini-device-head">
+303:  <div class="nest-info">
+308:  <div class="nest-volume-control">
+309:    <div class="nest-volume-track">
+310:      <div id="nestVolumeBarFill" style="width: 45%;"></div>
+318:        <div class="section-head">
+319:          <div>
+324:        <div class="metric-grid">
+325:          <div class="metric-item">
+337:          <div class="metric-item">
+349:          <div class="metric-item">
+361:          <div class="metric-item">
+379:  <div class="section-head compact-head">
+380:    <div class="title-group">
+389:      <div>
+400:  <div class="security-layout">
+401:    <div class="security-info">
+402:      <div class="security-line">
+415:      <div class="security-line">
+427:      <div class="security-line last-motion-line">
+444:  <div class="cctv-mode-pill">
+445:    <div>
+454:          <div class="section-head compact-head">
+455:            <div class="title-group">
+457:              <div>
+463:          <div class="energy-compact">
+464:            <div class="energy-row">
+469:            <div class="energy-row">
+474:            <div class="energy-row">
+479:            <div class="energy-total-box">
+496:        <div class="section-head">
+497:          <div class="title-group">
+499:            <div>
+509:        <div class="scene-row">
+
+==============================
+HTML STRUCTURE (SECTION)
+==============================
+69:    <section class="dashboard">
+71:      <section class="wide-card summary-card">
+145:      <section class="hero-grid target-device-grid">
+233:      <section class="wide-card entertainment-card">
+317:<section class="wide-card climate-power-card">
+377:      <section class="split-grid">
+378:        <section class="wide-card cctv-card">
+453:        <section class="wide-card energy-card">
+495:      <section class="wide-card scene-card">
+
+==============================
+HTML STRUCTURE (MAIN)
+==============================
+22:  <main class="app phone-container">
+541:  </main>

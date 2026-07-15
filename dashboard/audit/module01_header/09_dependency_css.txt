@@ -1,0 +1,14 @@
+./index.html:26:        <div class="header-text">
+./style.css:119:.header-text h1 {
+./style.css:125:.header-text #lastUpdated {
+./style.css:1098:  .header-text h1 { font-size: 28px; }
+./audit/module01_header/01_html_header.txt:4:26:        <div class="header-text">
+./audit/module01_header/02_css_header.txt:4:119:.header-text h1 {
+./audit/module01_header/02_css_header.txt:5:125:.header-text #lastUpdated {
+./audit/module01_header/02_css_header.txt:11:1098:  .header-text h1 { font-size: 28px; }
+./audit/module01_header/04_header_context.txt:7:        <div class="header-text">
+./audit/module01_header/05_header_css_context.txt:20:.header-text h1 {
+./audit/module01_header/05_header_css_context.txt:26:.header-text #lastUpdated {
+./audit/module01_header/07_dependency_lastUpdated.txt:2:./style.css:125:.header-text #lastUpdated {
+./audit/module01_header/07_dependency_lastUpdated.txt:5:./audit/module01_header/02_css_header.txt:5:125:.header-text #lastUpdated {
+./audit/module01_header/07_dependency_lastUpdated.txt:8:./audit/module01_header/05_header_css_context.txt:26:.header-text #lastUpdated {

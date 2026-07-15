@@ -1,0 +1,15 @@
+======================================================================
+SMART ROOM OS V4
+APP ENTRY MAP
+======================================================================
+
+function start(  --> Line 1064
+function startRealtimeListener(  --> Line 26
+function renderDashboard(  --> Line 162
+function mapFirebaseState(  --> Line 37
+function bindControls(  --> Line 431
+function fetchLocalDashboardStatus(  --> Line 1020
+function startFirebaseDashboardStatusListener(  --> Line 1043
+DOMContentLoaded  --> Line 14
+
+======================================================================

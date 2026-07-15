@@ -1,0 +1,29 @@
+53:      updatedAt: climate.updated_at ?? "--"
+62:      updatedAt: smartplug.updated_at ?? "--"
+70:      updatedAt: ac.updated_at ?? "--"
+78:      updatedAt: lamp.updated_at ?? "--"
+89:      updatedAt: tv.updated_at ?? "--",
+98:      updatedAt: nest.updated_at ?? speaker.updated_at ?? "--"
+110:      updatedAt: cctv.updated_at ?? "--"
+114:      today: smartplug.today_kwh ?? energy.today_kwh ?? 0,
+116:      month: smartplug.month_kwh ?? energy.month_kwh ?? 0,
+118:      todayCost: smartplug.today_cost ?? energy.today_cost ?? 0,
+119:      weekCost: smartplug.week_cost ?? energy.week_cost ?? 0,
+120:      monthCost: smartplug.month_cost ?? energy.month_cost ?? 0,
+122:      todayRuntime:
+127:      weekRuntime:
+132:      monthRuntime:
+143:        smartplug.updated_at ??
+144:        energy.updated_at ??
+152:        lastAutomation.updated_at ??
+166:  setText("plugPower", formatValue(data.smartplug.power, "W"));
+167:  setText("plugVolt", formatValue(data.smartplug.voltage, "V"));
+217:    formatKwh(data.energy.today) + " · " + formatRupiah(data.energy.todayCost)
+220:  setText("energyToday", formatKwh(data.energy.today));
+221:  setText("energyWeek", formatKwh(data.energy.week));
+222:  setText("energyMonth", formatKwh(data.energy.month));
+224:  setText("energyTodayCost", formatRupiah(data.energy.todayCost));
+225:  setText("energyWeekCost", formatRupiah(data.energy.weekCost));
+226:  setText("energyMonthCost", formatRupiah(data.energy.monthCost));
+228:  setText("energyRuntimeMonth", data.energy.monthRuntime);
+229:  setText("energyTariff", data.energy.tariffText);

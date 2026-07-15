@@ -1,0 +1,29 @@
+14:document.addEventListener("DOMContentLoaded", () => {
+174:  renderACSlider(data.ac.temp);
+235:  setBadge("acToggleBtn", isOn(data.ac.power));
+353:function renderACSlider(tempValue) {
+360:    "#acSliderFill",
+367:  const lampInput = document.getElementById("lampBrightnessSlider");
+378:  if (lampInput && document.activeElement !== lampInput) {
+379:    lampInput.value = safeValue;
+380:    updateRangeBackground(lampInput, safeValue);
+406:function updateRangeBackground(input, value) {
+407:  if (!input) return;
+409:  const min = Number(input.min || 0);
+410:  const max = Number(input.max || 100);
+414:  input.style.background =
+427:  const button = document.getElementById("acToggleBtn");
+432:  const acToggleButton = document.getElementById("acToggleBtn");
+444:  if (acToggleButton) {
+445:    acToggleButton.addEventListener("click", () => {
+446:      const active = acToggleButton.classList.contains("on");
+452:    acPlusButton.addEventListener("click", () => {
+462:    acMinusButton.addEventListener("click", () => {
+472:    lampToggleButton.addEventListener("click", () => {
+479:    lampSlider.addEventListener("input", () => {
+491:    lampSlider.addEventListener("change", () => {
+497:  tvPowerToggle.addEventListener("change", () => {
+506:    tvVolumeSlider.addEventListener("input", () => {
+518:    tvVolumeSlider.addEventListener("change", () => {
+526:    rerunSceneButton.addEventListener("click", () => {
+737:  const isHeroToggle = id === "acToggleBtn" || id === "lampToggleBtn";

@@ -1,0 +1,4 @@
+431:function bindControls() {
+543:function getCurrentACTemp() {
+563:async function sendControl(action, value = "") {
+756:function sceneToAction(sceneName) {

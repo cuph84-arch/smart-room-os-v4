@@ -1,0 +1,21 @@
+# Backup
+backup/
+backups/
+checkpoints/
+
+# Runtime
+runtime/*.log
+
+# Archive
+archive/css_backups/
+
+# Python
+__pycache__/
+*.pyc
+
+# Termux
+.termux/
+
+# Android
+.DS_Store
+Thumbs.db

@@ -1,0 +1,7 @@
+APP.JS LOCKED
+
+Rules:
+- app.js hanya disalin sebagai dependency dashboard.
+- app.js tidak boleh diedit.
+- app.js hanya untuk render/binding/audit.
+- Refactor berikutnya hanya CSS.

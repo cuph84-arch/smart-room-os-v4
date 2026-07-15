@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <title>Smart Room OS V4</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+
+  <meta name="theme-color" content="#ff8a6e" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+</head>
+
+<body>
+  <main class="app phone-container">
+
+    <header class="header">
+      <div class="header-top">
+        <div class="header-text">
+          <h1>Welcome Home</h1>
+          <div id="lastUpdated">--</div>
+        </div>
+
+        <button class="notification-btn" aria-label="Notification" type="button">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            </svg>
+          </span>
+        </button>
+      </div>
+
+      <nav class="top-tabs">
+        <button class="active" type="button">
+          <span class="tab-icon tab-home" aria-hidden="true"></span>
+          <span>Home</span>
+        </button>
+
+        <button type="button">
+          <span class="tab-icon tab-room" aria-hidden="true"></span>
+          <span>Kamar</span>
+        </button>
+
+        <button type="button">
+          <span class="tab-icon tab-living" aria-hidden="true"></span>
+          <span>Ruang Tamu</span>
+        </button>
+
+        <button type="button">
+          <span class="tab-icon tab-terrace" aria-hidden="true"></span>
+          <span>Teras</span>
+        </button>
+
+        <button type="button">
+          <span class="tab-icon tab-garage" aria-hidden="true"></span>
+          <span>Garasi</span>
+        </button>
+      </nav>
+    </header>
+
+    <section class="dashboard">
+
+      <section class="wide-card summary-card">
+        <div class="section-head">
+          <div>
+            <h2>Smart Room Summary</h2>
+          </div>
+        </div>
+
+        <div class="summary-grid">
+          <div class="summary-item">
+            <span class="emoji-icon green" aria-hidden="true">
+              <span class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v20M4.5 6.5l15 11M19.5 6.5l-15 11" />
+                  <path d="M12 5.5 9.8 3.8M12 5.5l2.2-1.7M12 18.5l-2.2 1.7M12 18.5l2.2 1.7M4.5 9l-.6-2.7M4.5 9l2.7-.6M19.5 9l.6-2.7M19.5 9l-2.7-.6M4.5 15l-.6 2.7M4.5 15l2.7.6M19.5 15l.6 2.7M19.5 15l-2.7.6" />
+                </svg>
+              </span>
+            </span>
+            <span>AC</span>
+            <strong id="summaryAC">--</strong>
+          </div>
+
+          <div class="summary-item">
+            <span class="emoji-icon yellow" aria-hidden="true">
+              <span class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 18h6" /><path d="M10 21h4" />
+                  <path d="M12 3a6 6 0 0 0-4 10.5c.6.6 1 1.3 1 2.5h6c0-1.2.4-1.9 1-2.5A6 6 0 0 0 12 3Z" />
+                </svg>
+              </span>
+            </span>
+            <span>Lampu</span>
+            <strong id="summaryLamp">--</strong>
+          </div>
+
+          <div class="summary-item">
+            <span class="emoji-icon blue" aria-hidden="true">
+              <span class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="5" width="18" height="12" rx="2" />
+                  <path d="M9 21h6M12 17v4" />
+                </svg>
+              </span>
+            </span>
+            <span>TV</span>
+            <strong id="summaryTV">--</strong>
+          </div>
+
+          <div class="summary-item">
+            <span class="emoji-icon cyan" aria-hidden="true">
+              <span class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8.5 21 6v12l-5-2.5" />
+                  <rect x="3" y="6.5" width="13" height="11" rx="2.2" />
+                </svg>
+              </span>
+            </span>
+            <span>CCTV</span>
+            <strong id="summaryCCTV">--</strong>
+          </div>
+        </div>
+
+        <div class="summary-energy">
+          <span>
+            <span class="icon icon-sm" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M13 2 3 14h7l-1 8 11-14h-7l0-6Z" />
+              </svg>
+            </span>
+            Konsumsi hari ini
+          </span>
+          <strong id="summaryEnergy">-- kWh · Rp 0</strong>
+        </div>
+      </section>
+
+      <section class="hero-grid target-device-grid">
+        <article class="card hero-card ac-card target-device-card">
+          <div class="target-card-top">
+            <span class="card-icon emoji-card green" aria-hidden="true">
+              <span class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v20M4.5 6.5l15 11M19.5 6.5l-15 11" />
+                  <path d="M12 5.5 9.8 3.8M12 5.5l2.2-1.7M12 18.5l-2.2 1.7M12 18.5l2.2 1.7M4.5 9l-.6-2.7M4.5 9l2.7-.6M19.5 9l.6-2.7M19.5 9l-2.7-.6M4.5 15l-.6 2.7M4.5 15l2.7.6M19.5 15l.6 2.7M19.5 15l-2.7.6" />
+                </svg>
+              </span>
+            </span>
+            <button id="acToggleBtn" class="badge target-toggle off" type="button" aria-label="Toggle AC"></button>
+          </div>
+
+          <h2 class="target-card-title">AC kamar</h2>
+
+          <div class="target-main-value">
+            <strong id="acTemp">--</strong>
+          </div>
+
+          <div class="target-sub-info target-meta-clean ac-meta-clean">
+            <span><b id="acMode">--</b></span>
+            <span class="meta-separator">•</span>
+            <span><b id="acFan">--</b></span>
+            <small id="acStatus" class="logic-hidden">--</small>
+          </div>
+
+          <div class="target-slider-row">
+            <button id="acMinusBtn" class="control-btn" type="button">−</button>
+
+            <div class="ac-slider target-fake-slider" style="--ac-pos: 50%;">
+              <div id="acSliderFill" class="ac-slider-fill"></div>
+            </div>
+
+            <button id="acPlusBtn" class="control-btn" type="button">+</button>
+          </div>
+        </article>
+
+        <article class="card hero-card lamp-card target-device-card">
+          <div class="target-card-top">
+            <span class="card-icon emoji-card yellow" aria-hidden="true">
+              <span class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 18h6" /><path d="M10 21h4" />
+                  <path d="M12 3a6 6 0 0 0-4 10.5c.6.6 1 1.3 1 2.5h6c0-1.2.4-1.9 1-2.5A6 6 0 0 0 12 3Z" />
+                </svg>
+              </span>
+            </span>
+            <button id="lampToggleBtn" class="badge target-toggle off" type="button" aria-label="Toggle Lampu"></button>
+          </div>
+
+          <h2 class="target-card-title">Lampu kamar</h2>
+
+          <div class="target-main-value">
+            <strong id="lampBrightness">--</strong>
+          </div>
+
+          <div class="target-sub-info target-meta-clean lamp-meta-clean">
+            <span>Standby</span>
+            <span class="meta-separator">•</span>
+            <span><b id="lampMode">--</b> Mode</span>
+            <b id="lampStatus" class="logic-hidden">--</b>
+          </div>
+
+          <div class="target-slider-row">
+            <button class="control-btn lamp-minus-btn" type="button">−</button>
+
+            <div class="target-range-wrap">
+              <div class="lamp-bar" style="--lamp-pos: 1%;">
+                <div id="lampBar"></div>
+              </div>
+
+              <input
+                id="lampBrightnessSlider"
+                class="brightness-slider"
+                type="range"
+                min="0"
+                max="100"
+                value="1"
+                aria-label="Lamp brightness"
+              />
+            </div>
+
+            <button class="control-btn lamp-plus-btn" type="button">+</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="wide-card entertainment-card">
+        <div class="section-head">
+          <div>
+            <h2>Entertainment</h2>
+          </div>
+        </div>
+
+        <div class="entertainment-grid">
+          <div class="mini-device tv-card">
+            <div class="mini-device-head">
+              <h3>TV Kamar</h3>
+
+              <label class="tv-power-control" aria-label="Toggle TV">
+                <input
+                  id="tvPowerToggle"
+                  class="logic-hidden"
+                  type="checkbox"
+                  checked
+                />
+                <span id="tvPowerBadge" class="badge on">ON</span>
+              </label>
+            </div>
+
+            <span class="mini-emoji dynamic-icon-tv blue" aria-hidden="true">
+              <span class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="5" width="18" height="12" rx="2" />
+                  <path d="M9 21h6M12 17v4" />
+                </svg>
+              </span>
+            </span>
+
+            <div class="tv-info">
+              <p>Playing: <span id="tvStatus">--</span></p>
+              <small>Vol: <span id="tvVolume">45</span>%</small>
+            </div>
+
+            <div class="tv-volume-control">
+              <input
+                id="tvVolumeSlider"
+                class="vision-slider-range"
+                type="range"
+                min="0"
+                max="100"
+                value="45"
+                aria-label="TV volume"
+              />
+            </div>
+          </div>
+
+          <div class="mini-device nest-card">
+  <div class="mini-device-head">
+    <h3>Nest Mini</h3>
+
+    <label class="nest-power-control" aria-label="Toggle Nest">
+      <span id="nestPowerBadge" class="badge on">ON</span>
+    </label>
+  </div>
+
+  <span class="mini-emoji dynamic-icon-nest purple" aria-hidden="true">
+    <span class="icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none" />
+        <path d="M8 12a4 4 0 0 1 8 0" />
+        <path d="M5.5 12a6.5 6.5 0 0 1 13 0" />
+        <path d="M3 12a9 9 0 0 1 18 0" />
+      </svg>
+    </span>
+  </span>
+
+  <div class="nest-info">
+    <p>Status: <span id="nestStatus">--</span></p>
+    <small>Vol: <span id="nestVolume">--</span>%</small>
+  </div>
+
+  <div class="nest-volume-control">
+    <div class="nest-volume-track">
+      <div id="nestVolumeBarFill" style="width: 45%;"></div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="wide-card climate-power-card">
+        <div class="section-head">
+          <div>
+            <h2>Climate & Power</h2>
+          </div>
+        </div>
+
+        <div class="metric-grid">
+          <div class="metric-item">
+            <span class="metric-emoji pink" aria-hidden="true">
+              <span class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 14.76V4a2 2 0 1 0-4 0v10.76a4 4 0 1 0 4 0Z" />
+                </svg>
+              </span>
+            </span>
+            <strong id="roomTemp">--</strong>
+            <span>Suhu Kamar</span>
+          </div>
+
+          <div class="metric-item">
+            <span class="metric-emoji cyan" aria-hidden="true">
+              <span class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z" />
+                </svg>
+              </span>
+            </span>
+            <strong id="roomHumidity">--</strong>
+            <span>Humidity</span>
+          </div>
+
+          <div class="metric-item">
+            <span class="metric-emoji orange" aria-hidden="true">
+              <span class="icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M13 2 3 14h7l-1 8 11-14h-7l0-6Z" />
+                </svg>
+              </span>
+            </span>
+            <strong id="plugPower">--</strong>
+            <span>Power</span>
+          </div>
+
+          <div class="metric-item">
+            <span class="metric-emoji blue" aria-hidden="true">
+              <span class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 7V3M15 7V3" />
+                  <path d="M7 7h10v4a5 5 0 0 1-10 0V7Z" />
+                  <path d="M12 16v3" /><path d="M9 21h6" />
+                </svg>
+              </span>
+            </span>
+            <strong id="plugVolt">--</strong>
+            <span>Voltage</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="split-grid">
+        <section class="wide-card cctv-card">
+  <div class="section-head compact-head">
+    <div class="title-group">
+      <span class="card-icon emoji-card cyan" aria-hidden="true">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8.5 21 6v12l-5-2.5" />
+            <rect x="3" y="6.5" width="13" height="11" rx="2.2" />
+          </svg>
+        </span>
+      </span>
+      <div>
+        <h2>
+          <strong>CCTV</strong>
+          <span>Kamar</span>
+        </h2>
+      </div>
+    </div>
+
+    <span id="cctvOnline" class="status-pill">--</span>
+  </div>
+
+  <div class="security-layout">
+    <div class="security-info">
+      <div class="security-line">
+        <span>
+          <span class="icon icon-sm" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="13" cy="4" r="1.6" fill="currentColor" stroke="none" />
+              <path d="M10 8.5 13 7l3 2.5 3 1.5M13 7l-1.5 5L14 14l1 6M11.5 12 8 13.5 6 19" />
+            </svg>
+          </span>
+          Motion
+        </span>
+        <strong id="cctvMotion">--</strong>
+      </div>
+
+      <div class="security-line">
+        <span>
+          <span class="icon icon-sm" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <circle cx="12" cy="12" r="7" />
+            </svg>
+          </span>
+          Recording
+        </span>
+        <strong id="cctvRecording">--</strong>
+      </div>
+
+      <div class="security-line last-motion-line">
+  <span>
+    <span class="icon icon-sm" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9" /><path d="M12 7v5l3.5 2" />
+      </svg>
+    </span>
+    Last Motion
+  </span>
+  <strong class="last-motion-split">
+    <span id="cctvLastTime">--</span>
+    <span id="cctvLastDate">--</span>
+  </strong>
+</div>
+    </div>
+  </div>
+
+  <div class="cctv-mode-pill">
+    <div>
+      <strong><span class="icon icon-sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2 0 2-6 4-6s2 6 4 6 2-6 4-6 2 6 4 6 2-6 4-6"/></svg></span> Event Mode</strong>
+      <span>Mode Rekaman</span>
+    </div>
+    <b id="cctvRecordMode">--</b>
+  </div>
+</section>
+
+        <section class="wide-card energy-card">
+          <div class="section-head compact-head">
+            <div class="title-group">
+              <span class="card-icon emoji-card orange" aria-hidden="true"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span></span>
+              <div>
+                <h2>Energy Usage</h2>
+              </div>
+            </div>
+          </div>
+
+          <div class="energy-compact">
+            <div class="energy-row">
+              <span>Hari ini</span>
+              <strong id="energyToday">-- kWh</strong>
+            </div>
+
+            <div class="energy-row">
+              <span>Minggu ini</span>
+              <strong id="energyWeek">-- kWh</strong>
+            </div>
+
+            <div class="energy-row">
+              <span>Bulan ini</span>
+              <strong id="energyMonth">-- kWh</strong>
+            </div>
+
+            <div class="energy-total-box">
+              <span>Total Bulan Ini</span>
+              <strong id="energyMonthCost">Rp 0</strong>
+            </div>
+
+            <small id="energyTodayCost" class="hidden-energy-cost">Rp 0</small>
+            <small id="energyWeekCost" class="hidden-energy-cost">Rp 0</small>
+            <strong id="energyRuntimeMonth" class="hidden-energy-cost">--</strong>
+
+            <small id="energyTariff" class="energy-tariff-compact">
+              Est. Rp605/kWh · B1 900VA
+            </small>
+          </div>
+        </section>
+      </section>
+
+      <section class="wide-card scene-card">
+        <div class="section-head">
+          <div class="title-group">
+            <span class="card-icon emoji-card purple" aria-hidden="true"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5 5 4h3l-2 4.5M9 8.5 11 4h3l-2 4.5M15 8.5 17 4h3l-2 4.5"/><rect x="3" y="8.5" width="18" height="11.5" rx="2"/></svg></span></span>
+            <div>
+              <h2 id="sceneName">Belum ada scene</h2>
+            </div>
+          </div>
+
+          <button id="rerunSceneBtn" class="scene-action" type="button">
+            <span class="icon icon-sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg></span> Jalankan Lagi
+          </button>
+        </div>
+
+        <div class="scene-row">
+          <span id="sceneTime" class="scene-time-icon">🕘</span>
+          <small id="sceneDate">--</small>
+        </div>
+      </section>
+
+    </section>
+
+    <nav class="bottom-nav nav-bar">
+      <button class="active" type="button">
+        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/><path d="M9.5 20v-6h5v6"/></svg></span>
+        <span class="nav-label">Home</span>
+      </button>
+
+      <button type="button">
+        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11M19 7h1M4 17h1M9 17h11M7 7a2 2 0 1 0 0-.01M16 17a2 2 0 1 0 0-.01"/></svg></span>
+        <span class="nav-label">Automation</span>
+      </button>
+
+      <button class="center-action" type="button" aria-label="Tambah"></button>
+
+      <button type="button">
+        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg></span>
+        <span class="nav-label">Devices</span>
+      </button>
+
+      <button type="button">
+        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V19a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H4a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H10a1.7 1.7 0 0 0 1-1.5V4a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V10a1.7 1.7 0 0 0 1.5 1H20a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg></span>
+        <span class="nav-label">Settings</span>
+      </button>
+    </nav>
+
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

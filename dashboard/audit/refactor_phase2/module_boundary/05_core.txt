@@ -1,0 +1,4 @@
+26:function startRealtimeListener() {
+37:function mapFirebaseState(state) {
+162:function renderDashboard(data) {
+811:function updateHeaderDateTime() {

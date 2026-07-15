@@ -1,0 +1,41 @@
+.icon-md { width: 24px; height: 24px; }
+.icon-lg { width: 30px; height: 30px; }
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  margin-bottom: 20px;
+}
+
+.header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.header-text h1 {
+  font-size: 34px;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+.header-text #lastUpdated {
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.2px;
+}
+
+.notification-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: radial-gradient(circle at 35% 30%, rgba(140, 255, 170, 0.55), rgba(61, 220, 132, 0.28));
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+              0 0 18px 2px rgba(61, 220, 132, 0.55);

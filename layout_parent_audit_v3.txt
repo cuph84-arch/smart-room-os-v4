@@ -1,0 +1,565 @@
+========================================
+PARENT CONTAINER AUDIT
+========================================
+
+DATE : Mon Jul 13 15:38:59 WIB 2026
+
+===== HERO GRID =====
+360:.hero-grid.target-device-grid {
+361-  display: grid;
+362-  grid-template-columns: 1fr 1fr;
+363-  gap: 14px;
+364-  margin-bottom: var(--dashboard-space);
+365-}
+366-
+367-.hero-card.target-device-card {
+368-  background: linear-gradient(165deg, rgba(20, 16, 22, 0.55), rgba(20, 16, 22, 0.28));
+369-  border: 1px solid rgba(255, 255, 255, 0.12);
+370-  border-radius: var(--radius-xl);
+371-  padding: 18px;
+372-  backdrop-filter: blur(26px) saturate(140%);
+373-  -webkit-backdrop-filter: blur(26px) saturate(140%);
+374-  box-shadow: var(--glass-shadow);
+375-  
+376-  aspect-ratio: 1 / 1;
+377-display: flex;
+378-  flex-direction: column;
+379-  transition: opacity 0.25s ease;
+380-}
+381-
+382-.hero-card.disabled {
+383-  opacity: 0.55;
+384-}
+385-
+
+===== TARGET DEVICE GRID =====
+360:.hero-grid.target-device-grid {
+361-  display: grid;
+362-  grid-template-columns: 1fr 1fr;
+363-  gap: 14px;
+364-  margin-bottom: var(--dashboard-space);
+365-}
+366-
+367-.hero-card.target-device-card {
+368-  background: linear-gradient(165deg, rgba(20, 16, 22, 0.55), rgba(20, 16, 22, 0.28));
+369-  border: 1px solid rgba(255, 255, 255, 0.12);
+370-  border-radius: var(--radius-xl);
+371-  padding: 18px;
+372-  backdrop-filter: blur(26px) saturate(140%);
+373-  -webkit-backdrop-filter: blur(26px) saturate(140%);
+374-  box-shadow: var(--glass-shadow);
+375-  
+376-  aspect-ratio: 1 / 1;
+377-display: flex;
+378-  flex-direction: column;
+379-  transition: opacity 0.25s ease;
+380-}
+381-
+382-.hero-card.disabled {
+383-  opacity: 0.55;
+384-}
+385-
+
+===== ENTERTAINMENT GRID =====
+601:.entertainment-grid {
+602-  display: grid;
+603-  grid-template-columns: 1fr 1fr;
+604-  gap: 14px;
+605-}
+606-
+607-.mini-device {
+608-  border-radius: var(--radius-lg);
+609-  padding: 16px;
+610-  
+611-  aspect-ratio: 1 / 1;
+612-display: flex;
+613-  flex-direction: column;
+614-  transition: opacity 0.2s ease;
+615-}
+616-
+617-.mini-device.disabled {
+618-  opacity: 0.5;
+619-}
+620-
+621-.mini-device-head {
+622-  display: flex;
+623-  align-items: center;
+624-  justify-content: space-between;
+625-  margin-bottom: var(--space-local-md);
+626-}
+
+===== METRIC GRID =====
+748:.metric-grid {
+749-  display: grid;
+750-  grid-template-columns: repeat(4, 1fr);
+751-  gap: 10px;
+752-}
+753-
+754-.metric-item {
+755-  border-radius: var(--radius-md);
+756-  padding: 16px 8px;
+757-  display: flex;
+758-  flex-direction: column;
+759-  align-items: center;
+760-  gap: 6px;
+761-  text-align: center;
+762-}
+763-
+764-.metric-emoji {
+765-  width: 26px;
+766-  height: 26px;
+767-  display: flex;
+768-  align-items: center;
+769-  justify-content: center;
+770-  margin-bottom: 2px;
+771-}
+772-
+773-.metric-item strong {
+
+===== SPLIT GRID =====
+790:.split-grid {
+791-  display: grid;
+792-  grid-template-columns: 1fr 1fr;
+793-  gap: 14px;
+794-  margin-bottom: var(--dashboard-space);
+795-}
+796-
+797:.split-grid .wide-card {
+798-  margin-bottom: 0;
+799-  
+800-  aspect-ratio: 1 / 1;
+801-  padding: 18px;
+802-
+803-}
+804-
+805-.compact-head {
+806-  margin-bottom: var(--space-compact);
+807-}
+808-
+809-.compact-head h2 {
+810-  font-size: 16px;
+811-  display: flex;
+812-  flex-direction: column;
+813-  gap: 2px;
+814-}
+815-
+816-.compact-head h2 strong {
+817-  font-weight: 700;
+818-  font-size: 16px;
+819-}
+820-
+821-.compact-head h2 span {
+822-  font-size: 12px;
+823-  font-weight: 500;
+824-  color: rgba(255, 255, 255, 0.7);
+825-}
+826-
+827-.status-pill {
+
+===== WIDE CARD =====
+243:.wide-card,
+244-.card,
+245-.mini-device,
+246-.metric-item,
+247-.summary-item {
+248-  background: var(--glass-bg);
+249-  backdrop-filter: blur(22px) saturate(140%);
+250-  -webkit-backdrop-filter: blur(22px) saturate(140%);
+251-  border: 1px solid var(--glass-border-soft);
+252-  box-shadow: var(--glass-shadow);
+253-}
+254-
+255:.wide-card {
+256-  border-radius: var(--radius-xl);
+257-  padding: 22px;
+258-  margin-bottom: var(--dashboard-space);
+259-}
+260-
+261-.section-head {
+262-  display: flex;
+263-  align-items: center;
+264-  justify-content: space-between;
+265-  margin-bottom: var(--space-section);
+266-}
+267-
+268-.section-head h2 {
+269-  font-size: 19px;
+270-}
+271-
+272-.title-group {
+273-  display: flex;
+274-  align-items: center;
+275-  gap: 12px;
+276-}
+277-
+278-/* =========================
+279-   SUMMARY CARD
+280-========================= */
+281-
+282-.summary-grid {
+283-  display: grid;
+284-  grid-template-columns: repeat(4, 1fr);
+285-  gap: 10px;
+--
+797:.split-grid .wide-card {
+798-  margin-bottom: 0;
+799-  
+800-  aspect-ratio: 1 / 1;
+801-  padding: 18px;
+802-
+803-}
+804-
+805-.compact-head {
+806-  margin-bottom: var(--space-compact);
+807-}
+808-
+809-.compact-head h2 {
+810-  font-size: 16px;
+811-  display: flex;
+812-  flex-direction: column;
+813-  gap: 2px;
+814-}
+815-
+816-.compact-head h2 strong {
+817-  font-weight: 700;
+818-  font-size: 16px;
+819-}
+820-
+821-.compact-head h2 span {
+822-  font-size: 12px;
+823-  font-weight: 500;
+824-  color: rgba(255, 255, 255, 0.7);
+825-}
+826-
+827-.status-pill {
+
+===== HERO CARD =====
+367:.hero-card.target-device-card {
+368-  background: linear-gradient(165deg, rgba(20, 16, 22, 0.55), rgba(20, 16, 22, 0.28));
+369-  border: 1px solid rgba(255, 255, 255, 0.12);
+370-  border-radius: var(--radius-xl);
+371-  padding: 18px;
+372-  backdrop-filter: blur(26px) saturate(140%);
+373-  -webkit-backdrop-filter: blur(26px) saturate(140%);
+374-  box-shadow: var(--glass-shadow);
+375-  
+376-  aspect-ratio: 1 / 1;
+377-display: flex;
+378-  flex-direction: column;
+379-  transition: opacity 0.25s ease;
+380-}
+381-
+382:.hero-card.disabled {
+383-  opacity: 0.55;
+384-}
+385-
+386-.target-card-top {
+387-  display: flex;
+388-  align-items: center;
+389-  justify-content: space-between;
+390-  margin-bottom: var(--space-local-lg);
+391-}
+392-
+393-.card-icon.emoji-card {
+394-  width: 40px;
+395-  height: 40px;
+396-  border-radius: 50%;
+397-  display: flex;
+398-  align-items: center;
+399-  justify-content: center;
+400-}
+401-
+402-.card-icon.emoji-card .icon { width: 20px; height: 20px; }
+403-
+404-.card-icon.emoji-card.green  { background: rgba(255, 178, 120, 0.28); }
+405-.card-icon.emoji-card.yellow { background: rgba(255, 214, 110, 0.28); }
+406-.card-icon.emoji-card.cyan   { background: rgba(120, 220, 210, 0.28); }
+407-.card-icon.emoji-card.orange { background: rgba(255, 178, 120, 0.28); }
+408-.card-icon.emoji-card.purple { background: rgba(200, 160, 255, 0.28); }
+409-
+410-.target-card-title {
+411-  font-size: 16px;
+412-  font-weight: 400;
+--
+1123:.hero-card.target-device-card,
+1124-.cctv-card,
+1125-.energy-card{
+1126-  aspect-ratio:1/1;
+1127-}
+1128-
+1129:.hero-card.target-device-card,
+1130-.cctv-card,
+1131-.energy-card{
+1132-  display:flex;
+1133-  flex-direction:column;
+1134-  overflow:hidden;
+1135-}
+1136-
+1137-
+1138-/* =========================
+1139-   RESPONSIVE
+1140-========================= */
+1141-
+1142-@media (max-width: 380px) {
+1143-  .header-text h1 { font-size: 28px; }
+1144-  .target-main-value strong { font-size: 36px; }
+1145-  .summary-grid { gap: 8px; }
+1146-}
+
+===== MINI DEVICE =====
+245:.mini-device,
+246-.metric-item,
+247-.summary-item {
+248-  background: var(--glass-bg);
+249-  backdrop-filter: blur(22px) saturate(140%);
+250-  -webkit-backdrop-filter: blur(22px) saturate(140%);
+251-  border: 1px solid var(--glass-border-soft);
+252-  box-shadow: var(--glass-shadow);
+253-}
+254-
+255-.wide-card {
+256-  border-radius: var(--radius-xl);
+257-  padding: 22px;
+258-  margin-bottom: var(--dashboard-space);
+259-}
+260-
+261-.section-head {
+262-  display: flex;
+263-  align-items: center;
+264-  justify-content: space-between;
+265-  margin-bottom: var(--space-section);
+266-}
+267-
+268-.section-head h2 {
+269-  font-size: 19px;
+270-}
+271-
+272-.title-group {
+273-  display: flex;
+274-  align-items: center;
+275-  gap: 12px;
+--
+607:.mini-device {
+608-  border-radius: var(--radius-lg);
+609-  padding: 16px;
+610-  
+611-  aspect-ratio: 1 / 1;
+612-display: flex;
+613-  flex-direction: column;
+614-  transition: opacity 0.2s ease;
+615-}
+616-
+617:.mini-device.disabled {
+618-  opacity: 0.5;
+619-}
+620-
+621:.mini-device-head {
+622-  display: flex;
+623-  align-items: center;
+624-  justify-content: space-between;
+625-  margin-bottom: var(--space-local-md);
+626-}
+627-
+628:.mini-device-head h3 {
+629-  font-size: 15px;
+630-  font-weight: 400;
+631-}
+632-
+633-.badge {
+634-  display: inline-flex;
+635-  align-items: center;
+636-  justify-content: center;
+637-  padding: 4px 12px;
+638-  border-radius: var(--radius-full);
+639-  font-size: 11px;
+640-  font-weight: 700;
+641-  letter-spacing: 0.4px;
+642-}
+643-
+644-.badge.on {
+645-  color: var(--accent-green);
+646-  background: rgba(61, 220, 132, 0.18);
+647-  border: 1px solid rgba(61, 220, 132, 0.4);
+648-}
+649-
+650-.badge.off {
+651-  color: rgba(255, 255, 255, 0.65);
+652-  background: rgba(255, 255, 255, 0.10);
+653-  border: 1px solid rgba(255, 255, 255, 0.2);
+654-}
+655-
+656-.tv-power-control,
+657-.nest-power-control {
+658-  cursor: pointer;
+
+===== METRIC ITEM =====
+246:.metric-item,
+247-.summary-item {
+248-  background: var(--glass-bg);
+249-  backdrop-filter: blur(22px) saturate(140%);
+250-  -webkit-backdrop-filter: blur(22px) saturate(140%);
+251-  border: 1px solid var(--glass-border-soft);
+252-  box-shadow: var(--glass-shadow);
+253-}
+254-
+255-.wide-card {
+256-  border-radius: var(--radius-xl);
+257-  padding: 22px;
+258-  margin-bottom: var(--dashboard-space);
+259-}
+260-
+261-.section-head {
+262-  display: flex;
+263-  align-items: center;
+264-  justify-content: space-between;
+265-  margin-bottom: var(--space-section);
+266-}
+267-
+268-.section-head h2 {
+269-  font-size: 19px;
+270-}
+271-
+272-.title-group {
+273-  display: flex;
+274-  align-items: center;
+275-  gap: 12px;
+276-}
+--
+754:.metric-item {
+755-  border-radius: var(--radius-md);
+756-  padding: 16px 8px;
+757-  display: flex;
+758-  flex-direction: column;
+759-  align-items: center;
+760-  gap: 6px;
+761-  text-align: center;
+762-}
+763-
+764-.metric-emoji {
+765-  width: 26px;
+766-  height: 26px;
+767-  display: flex;
+768-  align-items: center;
+769-  justify-content: center;
+770-  margin-bottom: 2px;
+771-}
+772-
+773:.metric-item strong {
+774-  font-size: 19px;
+775-  font-weight: 700;
+776-}
+777-
+778:.metric-item > span {
+779-  font-size: 11px;
+780-  font-weight: 600;
+781-  color: rgba(255, 255, 255, 0.7);
+782-  text-transform: uppercase;
+783-  letter-spacing: 0.3px;
+784-}
+785-
+786-/* =========================
+787-   SPLIT GRID (CCTV / ENERGY)
+788-========================= */
+789-
+790-.split-grid {
+791-  display: grid;
+792-  grid-template-columns: 1fr 1fr;
+793-  gap: 14px;
+794-  margin-bottom: var(--dashboard-space);
+795-}
+796-
+797-.split-grid .wide-card {
+798-  margin-bottom: 0;
+799-  
+800-  aspect-ratio: 1 / 1;
+801-  padding: 18px;
+802-
+803-}
+804-
+805-.compact-head {
+806-  margin-bottom: var(--space-compact);
+807-}
+808-
+
+===== SUMMARY GRID =====
+282:.summary-grid {
+283-  display: grid;
+284-  grid-template-columns: repeat(4, 1fr);
+285-  gap: 10px;
+286-  margin-bottom: var(--dashboard-space);
+287-}
+288-
+289-.summary-item {
+290-  background: rgba(255, 255, 255, 0.08);
+291-  border: 1px solid var(--glass-border-soft);
+292-  border-radius: var(--radius-md);
+293-  padding: 16px 8px;
+294-  display: flex;
+295-  flex-direction: column;
+296-  align-items: center;
+297-  gap: 8px;
+298-  text-align: center;
+299-}
+300-
+301-.summary-item > span:not(.emoji-icon) {
+302-  font-size: 12.5px;
+303-  font-weight: 600;
+304-  color: rgba(255, 255, 255, 0.85);
+305-}
+306-
+307-.summary-item strong {
+--
+1145:  .summary-grid { gap: 8px; }
+1146-}
+
+===== SECTION HEAD =====
+261:.section-head {
+262-  display: flex;
+263-  align-items: center;
+264-  justify-content: space-between;
+265-  margin-bottom: var(--space-section);
+266-}
+267-
+268:.section-head h2 {
+269-  font-size: 19px;
+270-}
+271-
+272-.title-group {
+273-  display: flex;
+274-  align-items: center;
+275-  gap: 12px;
+276-}
+277-
+278-/* =========================
+279-   SUMMARY CARD
+280-========================= */
+281-
+282-.summary-grid {
+283-  display: grid;
+284-  grid-template-columns: repeat(4, 1fr);
+285-  gap: 10px;
+286-  margin-bottom: var(--dashboard-space);
+287-}
+288-
+--
+966:.scene-card .section-head {
+967-  margin-bottom: var(--space-local-md);
+968-}
+969-
+970-.scene-card h2 {
+971-  font-size: 16px;
+972-  font-weight: 500;
+973-}
+974-
+975-.scene-action {
+976-  display: inline-flex;
+977-  align-items: center;
+978-  gap: 8px;
+979-  padding: 10px 18px;
+980-  border: none;
+981-  border-radius: var(--radius-full);
+982-  background: linear-gradient(135deg, #b06cff, #6a7bff);
+983-  color: var(--white);
+984-  font-size: 13px;
+985-  font-weight: 700;
+986-  box-shadow: 0 8px 20px rgba(106, 100, 255, 0.35);

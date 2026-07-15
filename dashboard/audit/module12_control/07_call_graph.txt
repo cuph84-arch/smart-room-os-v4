@@ -1,0 +1,14 @@
+3:  sendControlRequest,
+17:  startRealtimeListener();
+26:function startRealtimeListener() {
+29:    renderDashboard(data);
+162:function renderDashboard(data) {
+175:  applyDeviceControlState(".ac-card", data.ac.power);
+182:  applyDeviceControlState(".lamp-card", data.lamp.power);
+474:      sendControl(active ? "lamp_off" : "lamp_on");
+492:      sendControl("lamp_brightness", lampSlider.value);
+531:        sendControl(action);
+553:await sendControlRequest(command);
+563:async function sendControl(action, value = "") {
+567:    await sendControlRequest(action, value);
+705:function applyDeviceControlState(cardSelector, statusValue) {
