@@ -1,6 +1,0 @@
-269:  grid-template-columns: repeat(4, 1fr);
-347:  grid-template-columns: 1fr 1fr;
-583:  grid-template-columns: 1fr 1fr;
-723:   CLIMATE & POWER
-728:  grid-template-columns: repeat(4, 1fr);
-770:  grid-template-columns: 1fr 1fr;

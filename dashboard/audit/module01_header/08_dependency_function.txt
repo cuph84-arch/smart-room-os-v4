@@ -1,7 +1,0 @@
-./app.js:16:  updateHeaderDateTime();
-./app.js:19:  setInterval(updateHeaderDateTime, 60000);
-./app.js:811:function updateHeaderDateTime() {
-./audit/module01_header/03_js_header.txt:2:16:  updateHeaderDateTime();
-./audit/module01_header/03_js_header.txt:4:19:  setInterval(updateHeaderDateTime, 60000);
-./audit/module01_header/03_js_header.txt:91:811:function updateHeaderDateTime() {
-./audit/module01_header/06_header_js_context.txt:4:function updateHeaderDateTime() {

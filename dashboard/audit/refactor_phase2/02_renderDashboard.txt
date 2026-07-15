@@ -1,2 +1,0 @@
-29:    renderDashboard(data);
-162:function renderDashboard(data) {

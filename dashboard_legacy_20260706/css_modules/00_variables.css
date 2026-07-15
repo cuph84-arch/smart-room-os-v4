@@ -1,9 +1,0 @@
-:root {
-  --rail-x: clamp(1rem, 5.2vw, 1.35rem);
-  --stack-gap: clamp(0.32rem, 0.9vh, 0.52rem);
-  --grid-gap-final: clamp(0.38rem, 1.65vw, 0.62rem);
-  --card-pad-final: clamp(0.68rem, 2.85vw, 0.95rem);
-
-  --nav-height: clamp(4.1rem, 10.8vh, 5rem);
-  --nav-safe-bottom: max(0.7rem, env(safe-area-inset-bottom));
-}

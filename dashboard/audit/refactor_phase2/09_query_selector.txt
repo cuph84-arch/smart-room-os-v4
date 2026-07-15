@@ -1,8 +1,0 @@
-269:  const tvCard = document.querySelector(".tv-card");
-333:  const lampCard = document.querySelector(".lamp-card");
-338:  const metaSpans = lampCard.querySelectorAll(".target-sub-info span");
-385:  const bar = document.querySelector(".nest-volume-bar div");
-394:  const track = document.querySelector(trackSelector);
-395:  const thumb = document.querySelector(thumbSelector);
-512:      const tvCard = document.querySelector(".tv-card");
-706:  const card = document.querySelector(cardSelector);

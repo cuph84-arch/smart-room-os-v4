@@ -1,2 +1,0 @@
-553:await sendControlRequest(command);
-567:    await sendControlRequest(action, value);

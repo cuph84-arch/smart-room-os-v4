@@ -1,6 +1,0 @@
-162:            <strong id="acTemp">--</strong>
-317:<section class="wide-card climate-power-card">
-320:            <h2>Climate & Power</h2>
-333:            <strong id="roomTemp">--</strong>
-345:            <strong id="roomHumidity">--</strong>
-346:            <span>Humidity</span>

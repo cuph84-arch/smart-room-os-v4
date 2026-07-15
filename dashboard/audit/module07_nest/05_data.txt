@@ -1,7 +1,0 @@
-42:  const nest = state.nest || {};
-95:      status: nest.status ?? speaker.status ?? "IDLE",
-96:      volume: clampNumber(nest.volume ?? speaker.volume ?? 45, 0, 100),
-186:  setText("nestStatus", data.nest.status);
-187:  setText("nestVolume", data.nest.volume);
-189:  renderNestVolumeBar(data.nest.volume);
-385:  const bar = document.querySelector(".nest-volume-bar div");

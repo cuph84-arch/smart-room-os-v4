@@ -1,4 +1,0 @@
-474:      sendControl(active ? "lamp_off" : "lamp_on");
-492:      sendControl("lamp_brightness", lampSlider.value);
-531:        sendControl(action);
-563:async function sendControl(action, value = "") {

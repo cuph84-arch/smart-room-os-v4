@@ -1,9 +1,0 @@
-./index.html:28:          <div id="lastUpdated">--</div>
-./style.css:125:.header-text #lastUpdated {
-./app.js:812:  const element = document.getElementById("lastUpdated");
-./audit/module01_header/01_html_header.txt:6:28:          <div id="lastUpdated">--</div>
-./audit/module01_header/02_css_header.txt:5:125:.header-text #lastUpdated {
-./audit/module01_header/03_js_header.txt:92:812:  const element = document.getElementById("lastUpdated");
-./audit/module01_header/04_header_context.txt:9:          <div id="lastUpdated">--</div>
-./audit/module01_header/05_header_css_context.txt:26:.header-text #lastUpdated {
-./audit/module01_header/06_header_js_context.txt:5:  const element = document.getElementById("lastUpdated");

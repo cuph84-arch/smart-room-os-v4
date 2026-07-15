@@ -1,8 +1,0 @@
-549:async function sendAcControl(command) {
-550:  try {
-553:await sendControlRequest(command);
-557:  } catch (error) {
-563:async function sendControl(action, value = "") {
-564:  try {
-567:    await sendControlRequest(action, value);
-571:  } catch (error) {
