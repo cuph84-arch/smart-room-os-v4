@@ -2,9 +2,10 @@ import {
   listenToSmartRoomState,
   sendControlRequest,
   sendTvControl,
+  sendAcControl // Pastikan ini diimpor jika ada di connector.js
 } from "./connector.js";
 
-console.log("Hybrid Smart Room OS V2 - Driver Status Fix Loaded");
+console.log("Hybrid Smart Room OS V2 - Driver Status Fix Loaded (Phase 2 & 3)");
 
 /* =========================
    INIT
@@ -24,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function startRealtimeListener() {
   listenToSmartRoomState((state) => {
-    // Mempertahankan pemetaan state Firebase dengan aman
     const data = mapFirebaseState(state || {});
     renderDashboard(data);
   });
@@ -44,46 +44,31 @@ function mapFirebaseState(state) {
   const cctv = state.cctv || {};
   const energy = state.energy || {};
   const climate = state.climate || {};
-  const lastAutomation = state.last_automation || {};
 
   return {
     climate: {
       temp: climate.temperature ?? "--",
       humidity: climate.humidity ?? "--",
-      updatedAt: climate.updated_at ?? "--"
     },
     smartplug: {
       power: smartplug.watt ?? smartplug.power ?? "--",
       voltage: smartplug.voltage ?? smartplug.volt ?? "--",
-      current: smartplug.current ?? "--",
-      totalKwh: smartplug.total_kwh ?? "--",
-      acStatus: smartplug.ac_status ?? "--",
-      updatedAt: smartplug.updated_at ?? "--"
     },
     ac: {
-      power: ac.power ?? smartplug.ac_status ?? "--",
-      temp: ac.temp ?? ac.temperature ?? "--",
-      mode: ac.mode ?? "--",
-      fan: ac.fan ?? "--",
-      updatedAt: ac.updated_at ?? "--"
+      power: ac.power ?? "--",
+      temp: ac.temp ?? ac.temperature ?? 24,
     },
     lamp: {
       power: lamp.power ?? "--",
       brightness: lamp.brightness ?? 0,
-      mode: lamp.mode ?? "--",
-      colorTemp: lamp.color_temp ?? "--",
-      updatedAt: lamp.updated_at ?? "--"
     },
     tv: {
-      device: tv.device ?? "TCL Google TV",
       power: tv.power ?? "--",
-      volume: tv.volume ?? 45,
-      updatedAt: tv.updated_at ?? "--",
     },
     cctv: {
       online: cctv.online ?? "--",
-      motion: cctv.motion ?? "--",
-      recording: cctv.recording ?? "--",
+      motion: cctv.motion ?? "No Motion",
+      recording: cctv.recording ?? "Standby",
       lastMotion: cctv.last_motion ?? "--",
     },
     energy: {
@@ -99,26 +84,36 @@ function mapFirebaseState(state) {
 
 function renderDashboard(data) {
   // --- Smart Room Overview Utama ---
-  setText("lblWeather", data.climate.temp !== "--" ? data.climate.temp + "°C" : "--°C");
+  // lblWeather sengaja tidak di-update agar tidak bentrok dengan suhu kamar
   setText("txtMainTemp", data.climate.temp);
   setText("txtMainHumid", data.climate.humidity + "%");
   setText("txtMiniPower", data.smartplug.power);
   setText("txtMiniCost", data.energy.monthCost);
 
-  // --- Summary Quick Access Device Status ---
+  // --- Kalkulasi Status Perangkat ---
   const acOn = isOn(data.ac.power);
+  const lampOn = isOn(data.lamp.power);
+  const tvOn = isOn(data.tv.power);
+  const cctvOn = isOn(data.cctv.online);
+
+  // --- Update Jumlah Device Online ---
+  let onlineCount = 0;
+  if (acOn) onlineCount++;
+  if (lampOn) onlineCount++;
+  if (tvOn) onlineCount++;
+  if (cctvOn) onlineCount++;
+  setText("lblDeviceOnlineCount", `${onlineCount} Device Online`);
+
+  // --- Summary Quick Access Device Status ---
   setText("statSummaryAC", acOn ? "ON" : "OFF");
   applyActiveOvState("#btnSummaryAC", acOn);
   
-  const lampOn = isOn(data.lamp.power);
   setText("statSummaryLamp", lampOn ? "ON" : "OFF");
   applyActiveOvState("#btnSummaryLamp", lampOn);
   
-  const tvOn = isOn(data.tv.power);
   setText("statSummaryTV", tvOn ? "ON" : "OFF");
   applyActiveOvState("#btnSummaryTV", tvOn);
   
-  const cctvOn = isOn(data.cctv.online);
   setText("statSummaryCCTV", cctvOn ? "ONLINE" : "OFFLINE");
   applyActiveOvState("#btnSummaryCCTV", cctvOn);
 
@@ -126,6 +121,7 @@ function renderDashboard(data) {
   applyDeviceActiveState("#cardACControl", data.ac.power);
   setText("txtACTemp", data.ac.temp);
   setText("btnToggleAC", acOn ? "ON" : "OFF");
+  syncAcSlider(data.ac.power, data.ac.temp);
 
   // --- Lamp Control Card ---
   applyDeviceActiveState("#cardLampControl", data.lamp.power);
@@ -151,7 +147,7 @@ function renderDashboard(data) {
 }
 
 /* =========================
-   VISUAL STATE HELPERS (DIOPTIMALKAN)
+   VISUAL STATE HELPERS 
 ========================= */
 
 function isOn(value) {
@@ -170,16 +166,14 @@ function setText(id, value) {
 function applyActiveOvState(cardSelector, isDeviceActive) {
   const card = document.querySelector(cardSelector);
   if (!card) return;
-  
   card.classList.toggle("active", isDeviceActive);
   
-  // Intervensi inline style jika CSS Class gagal mengubah visual
   if (isDeviceActive) {
     card.style.opacity = "1";
-    card.style.background = ""; // kembalikan ke CSS default
+    card.style.background = ""; 
   } else {
     card.style.opacity = "0.6";
-    card.style.background = "#f1f5f9"; // berikan warna abu-abu redup
+    card.style.background = "#f1f5f9"; 
   }
 }
 
@@ -190,30 +184,23 @@ function applyDeviceActiveState(cardSelector, statusValue) {
   const active = isOn(statusValue);
   card.classList.toggle("active", active);
   
-  // Memanipulasi visual container secara langsung agar presisi
   if (active) {
     card.style.opacity = "1";
     card.style.filter = "none";
   } else {
     card.style.opacity = "0.75";
-    card.style.filter = "grayscale(20%)"; // sedikit memudarkan warna kartu kontrol
+    card.style.filter = "grayscale(20%)";
   }
   
-  // Sinkronisasi warna komponen badge status di pojok kanan kartu
   const badge = card.querySelector(".badge-status-on");
   if (badge) {
-    if (active) {
-      badge.style.background = "#22c55e";
-      badge.style.color = "#ffffff";
-    } else {
-      badge.style.background = "#64748b";
-      badge.style.color = "#ffffff";
-    }
+    badge.style.background = active ? "#22c55e" : "#64748b";
+    badge.style.color = "#ffffff";
   }
 }
 
 /* =========================
-   LAMP SLIDER SYNC
+   SLIDER SYNC
 ========================= */
 
 function syncLampSlider(power, brightness) {
@@ -222,11 +209,31 @@ function syncLampSlider(power, brightness) {
   if (!lampInput || !fillBar) return;
 
   const value = isOn(power) ? brightness : 0;
-
   if (document.activeElement !== lampInput) {
     lampInput.value = value;
   }
   fillBar.style.width = value + "%";
+}
+
+function syncAcSlider(power, temp) {
+  const trackFilled = document.getElementById("acTrackFilled");
+  const thumb = document.getElementById("acThumbSlider");
+  if (!trackFilled || !thumb) return;
+
+  if (isOn(power)) {
+    const minTemp = 16;
+    const maxTemp = 30;
+    const currentTemp = parseInt(temp) || 24;
+    const safeTemp = Math.max(minTemp, Math.min(maxTemp, currentTemp));
+    
+    const percentage = ((safeTemp - minTemp) / (maxTemp - minTemp)) * 100;
+    
+    trackFilled.style.width = percentage + "%";
+    thumb.style.left = percentage + "%";
+  } else {
+    trackFilled.style.width = "0%";
+    thumb.style.left = "0%";
+  }
 }
 
 /* =========================
@@ -234,20 +241,18 @@ function syncLampSlider(power, brightness) {
 ========================= */
 
 function bindControls() {
-  // Toggle Card AC
   const acBadge = document.getElementById("btnToggleAC");
   if (acBadge) {
     acBadge.addEventListener("click", () => {
       const card = document.getElementById("cardACControl");
       const active = card && card.classList.contains("active");
-      sendAcControl(active ? "ac_off" : "ac_on");
+      sendCustomAcControl(active ? "ac_off" : "ac_on");
     });
   }
 
-  // Kontrol Suhu AC
   const sendTempControl = (nextTemp) => {
     const safeTemp = Math.max(16, Math.min(30, nextTemp));
-    sendAcControl("cool_" + safeTemp + "_auto");
+    sendCustomAcControl("cool_" + safeTemp + "_auto");
   };
 
   document.getElementById("btnTempUp")?.addEventListener("click", () => {
@@ -260,30 +265,27 @@ function bindControls() {
     sendTempControl(currentTemp - 1);
   });
 
-  // Toggle Card Lampu
   const lampBadge = document.getElementById("btnToggleLamp");
   if (lampBadge) {
     lampBadge.addEventListener("click", () => {
       const card = document.getElementById("cardLampControl");
       const active = card && card.classList.contains("active");
-      sendControl(active ? "lamp_off" : "lamp_on");
+      sendGeneralControl(active ? "lamp_off" : "lamp_on");
     });
   }
 
-  // Slider Kecerahan Lampu
   const lampSlider = document.getElementById("brightnessInput");
   if (lampSlider) {
     lampSlider.addEventListener("input", () => {
       const value = lampSlider.value;
       const fillBar = document.getElementById("lampBarFilled");
       if (fillBar) fillBar.style.width = value + "%";
-      
       const textDisplay = document.getElementById("txtLampBrightness");
       if (textDisplay) textDisplay.textContent = value + "%";
     });
 
     lampSlider.addEventListener("change", () => {
-      sendControl("lamp_brightness", lampSlider.value);
+      sendGeneralControl("lamp_brightness", lampSlider.value);
     });
   }
 }
@@ -292,10 +294,10 @@ function bindControls() {
    CONTROL SENDERS
 ========================= */
 
-async function sendAcControl(command) {
+async function sendCustomAcControl(command) {
   try {
     showToast("Mengirim perintah AC...");
-    await sendControlRequest(command);
+    await sendAcControl(command);
     showToast("Perintah AC terkirim");
   } catch (error) {
     console.error("AC control error:", error);
@@ -303,7 +305,7 @@ async function sendAcControl(command) {
   }
 }
 
-async function sendControl(action, value = "") {
+async function sendGeneralControl(action, value = "") {
   try {
     showToast("Mengirim perintah...");
     await sendControlRequest(action, value);
