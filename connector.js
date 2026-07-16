@@ -40,10 +40,7 @@ export async function sendAcControl(command) {
     created_at: new Date().toISOString(),
   });
 }
-export async function sendControlRequest(action, value = "") {
-  const command = value ? `${action}:${value}` : action;
-  return sendAcControl(command);
-}
+
 export async function sendTvControl(command) {
   const requestId = `dashboard-tv-${Date.now()}`;
 
@@ -56,4 +53,26 @@ export async function sendTvControl(command) {
     source: "dashboard",
     created_at: new Date().toISOString(),
   });
-} 
+}
+
+// PERBAIKAN: Fungsi ini sekarang mandiri dan mengarahkan perintah ke jalurnya sendiri
+export async function sendControlRequest(action, value = "") {
+  const command = value ? `${action}:${value}` : action;
+  const requestId = `dashboard-gen-${Date.now()}`;
+  
+  // Logika routing sederhana: jika ada kata "lamp", kirim ke database lampu
+  let targetDevice = "general";
+  if (action.includes("lamp")) {
+    targetDevice = "lamp";
+  }
+
+  await update(ref(database, `dynamic_v2/control/${targetDevice}`), {
+    request_id: requestId,
+    device: targetDevice,
+    action: action,
+    command: command,
+    status: "pending",
+    source: "dashboard",
+    created_at: new Date().toISOString(),
+  });
+}
