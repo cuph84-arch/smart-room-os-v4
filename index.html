@@ -69,21 +69,27 @@
       <!-- Garis Pemisah Tipis di Tengah -->
       <div class="overview-divider"></div>
 
-      <!-- Bagian Kanan: 6 Device Online -->
+      <!-- Bagian Kanan: Device Online -->
       <div class="overview-right-panel">
         <div class="device-status-header">
           <span class="dot-indicator"></span>
-          <span id="lblDeviceOnlineCount">6 Device Online</span>
+          <span id="lblDeviceOnlineCount">0 Device Online</span>
         </div>
         
-        <!-- Ikon Berjejer Rapi -->
+        <!-- Ikon Berjejer Rapi (Diberikan ID Unik untuk Sinkronisasi Status Online) -->
         <div class="online-icons-row">
-          <span class="device-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"></line><line x1="22" y1="12" x2="2" y2="12"></line><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"></line><line x1="19.07" y1="19.07" x2="4.93" y2="4.93"></line><path d="M12 6l-2 2M12 6l2 2M12 18l-2-2M12 18l2-2M6 12l2-2M6 12l2 2M18 12l-2-2M18 12l-2 2"></path></svg></span>
-          <span class="device-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .6 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><line x1="9" y1="18" x2="15" y2="18"></line><line x1="10" y1="22" x2="14" y2="22"></line></svg></span>
-          <span class="device-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></span>
-          <span class="device-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg></span>
-          <span class="device-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><circle cx="12" cy="14" r="4"></circle><line x1="12" y1="6" x2="12.01" y2="6"></line></svg></span>
-          <span class="device-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path></svg></span>
+          <!-- Ikon AC (Biru) -->
+          <span class="device-icon-circle" id="minIconAC"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"></line><line x1="22" y1="12" x2="2" y2="12"></line><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"></line><line x1="19.07" y1="19.07" x2="4.93" y2="4.93"></line><path d="M12 6l-2 2M12 6l2 2M12 18l-2-2M12 18l2-2M6 12l2-2M6 12l2 2M18 12l-2-2M18 12l-2 2"></path></svg></span>
+          <!-- Ikon Lampu (Kuning) -->
+          <span class="device-icon-circle" id="minIconLamp"><svg viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .6 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><line x1="9" y1="18" x2="15" y2="18"></line><line x1="10" y1="22" x2="14" y2="22"></line></svg></span>
+          <!-- Ikon TV (Ungu/Biru) -->
+          <span class="device-icon-circle" id="minIconTV"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></span>
+          <!-- Ikon CCTV (Pink) -->
+          <span class="device-icon-circle" id="minIconCCTV"><svg viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg></span>
+          <!-- Ikon Speaker (Abu-abu bawaan) -->
+          <span class="device-icon-circle" id="minIconSpeaker"><svg viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><circle cx="12" cy="14" r="4"></circle><line x1="12" y1="6" x2="12.01" y2="6"></line></svg></span>
+          <!-- Ikon Termostat/Lainnya (Merah) -->
+          <span class="device-icon-circle" id="minIconTherm"><svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path></svg></span>
         </div>
         
         <div class="energy-mini-grid">
@@ -131,6 +137,7 @@
         <span class="status-ov" id="statSummaryCCTV">ON</span>
       </div>
     </div>
+
     <!-- CONTROLS GRID (AC & LAMP) -->
     <div class="controls-grid">
       <!-- AC Card Control -->
@@ -172,7 +179,6 @@
           <span class="badge-status-on" id="btnToggleLamp" style="cursor: pointer;">ON</span>
         </div>
         
-        <!-- Sektor Utama: Kontrol Kecerahan Horizontal -->
         <div class="lamp-brightness-container">
           <button class="lamp-round-btn btn-minus">—</button>
           <div class="lamp-brightness-display">
@@ -182,18 +188,15 @@
           <button class="lamp-round-btn btn-plus">+</button>
         </div>
 
-        <!-- Sektor Slider Tipis & Thumb Bulat -->
         <div class="lamp-slider-row">
           <div class="target-range-wrap-v2">
             <div class="lamp-bar-v2">
               <div id="lampBarFilled" style="width: 80%;"></div>
             </div>
-            <!-- Input range asli yang disembunyikan secara visual namun aktif berfungsi -->
             <input type="range" class="brightness-slider-v2" min="0" max="100" value="80" id="brightnessInput">
           </div>
         </div>
 
-        <!-- Sektor Keterangan Warna -->
         <div class="lamp-meta-grid">
           <div class="color-row">
             <div class="color-pill-yellow"></div>
@@ -246,7 +249,6 @@
 
     <!-- CCTV & ENERGY USAGE SEJAJAR -->
     <div class="cctv-chart-grid">
-      <!-- CCTV Card -->
       <div class="cctv-card-v2">
         <div class="cctv-card-top">
           <span class="cctv-title">CCTV Kamar</span>
@@ -274,7 +276,6 @@
         </div>
       </div>
       
-      <!-- KARTU ENERGY USAGE UTUH -->
       <div class="energy-chart-card shadow-card">
         <div class="energy-card-top">
           <span class="energy-title">Energy Usage</span>
@@ -285,7 +286,6 @@
         </div>
         
         <div class="chart-main-container">
-          <!-- Skala Angka Sumbu Y -->
           <div class="chart-y-axis">
             <span>1.5 <span class="unit-min">kWh</span></span>
             <span>1.0</span>
@@ -293,39 +293,27 @@
             <span>0 <span class="unit-min">kWh</span></span>
           </div>
           
-          <!-- Area Grafik SVG dengan Grid & Gradient -->
           <div class="chart-wrapper-v2">
             <svg viewBox="0 0 100 45" class="energy-chart-svg" preserveAspectRatio="none">
               <defs>
-                <!-- Efek Gradasi Memudar untuk Area di Bawah Gelombang -->
                 <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.25"/>
                   <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.0"/>
                 </linearGradient>
               </defs>
-
-              <!-- Garis Grid Horizontal -->
               <line x1="0" y1="2" x2="100" y2="2" class="chart-gridline" />
               <line x1="0" y1="15" x2="100" y2="15" class="chart-gridline" />
               <line x1="0" y1="28" x2="100" y2="28" class="chart-gridline" />
               <line x1="0" y1="40" x2="100" y2="40" class="chart-gridline" />
-
-              <!-- Garis Grid Vertikal -->
               <line x1="25" y1="0" x2="25" y2="40" class="chart-gridline" />
               <line x1="50" y1="0" x2="50" y2="40" class="chart-gridline" />
               <line x1="75" y1="0" x2="75" y2="40" class="chart-gridline" />
-
-              <!-- Area Gradasi di Bawah Gelombang -->
               <path d="M 0 45 L 0 32 C 10 32, 12 18, 22 18 S 32 38, 40 38 S 55 8, 65 8 S 72 28, 78 28 S 85 12, 90 12 S 95 35, 100 35 L 100 45 Z" fill="url(#chartGradient)"></path>
-
-              <!-- Garis Gelombang Utama -->
               <path d="M 0 32 C 10 32, 12 18, 22 18 S 32 38, 40 38 S 55 8, 65 8 S 72 28, 78 28 S 85 12, 90 12 S 95 35, 100 35" class="chart-line-v2"></path>
-
             </svg>
           </div>
         </div>
 
-        <!-- Sumbu X (Waktu) -->
         <div class="chart-x-axis-v2">
           <span>00</span>
           <span>06</span>
@@ -334,7 +322,6 @@
           <span>24</span>
         </div>
 
-        <!-- Ringkasan Info Konsumsi & Biaya Bawah -->
         <div class="chart-summary-container">
           <div class="chart-info-box">
             <span>Total Konsumsi</span>
@@ -342,7 +329,6 @@
           </div>
           <div class="chart-info-box text-right">
             <span>Total Biaya</span>
-            <!-- Penambahan ID txtEnergyTotalCost pada span di bawah ini -->
             <strong class="cost-text">Rp <span id="txtEnergyTotalCost">12.540</span></strong>
           </div>
         </div>
@@ -356,8 +342,6 @@
         <a href="#" class="see-all">Lihat Semua ></a>
       </div>
       <div class="automation-grid">
-        
-        <!-- Card 1: Morning -->
         <div class="auto-card default">
           <div class="auto-icon">☀️</div>
           <div class="auto-text">
@@ -368,8 +352,6 @@
             <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
           </button>
         </div>
-        
-        <!-- Card 2: Sleep -->
         <div class="auto-card sleep">
           <div class="auto-icon">🌙</div>
           <div class="auto-text">
@@ -380,8 +362,6 @@
             <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
           </button>
         </div>
-        
-        <!-- Card 3: Away -->
         <div class="auto-card away">
           <div class="auto-icon">🏠</div>
           <div class="auto-text">
@@ -392,7 +372,6 @@
             <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
           </button>
         </div>
-
       </div>
     </div>
 
@@ -406,25 +385,21 @@
         <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
         <span class="nav-label">Automation</span>
       </button>
-      
       <button class="center-action-v2" id="btnFloatingAction">
         <span>+</span>
       </button>
-      
       <button id="navDevices">
         <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
         <span class="nav-label">Devices</span>
       </button>
       <button id="navSettings">
-        <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82"></path></svg>
         <span class="nav-label">Settings</span>
       </button>
     </nav>
 
   </div>
 
-  <!-- Penerapan parameter ?v=1.0.1 untuk memaksa pembersihan cache di browser mobile -->
-  <script type="module" src="app.js?v=1.0.1"></script>
-
+  <script type="module" src="app.js"></script>
 </body>
 </html>
