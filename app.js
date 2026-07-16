@@ -4,7 +4,7 @@ import {
   sendTvControl,
 } from "./connector.js";
 
-console.log("Hybrid Smart Room OS V2 - Safe Refactoring Loaded");
+console.log("Hybrid Smart Room OS V2 - Driver Status Fix Loaded");
 
 /* =========================
    INIT
@@ -94,7 +94,7 @@ function mapFirebaseState(state) {
 }
 
 /* =========================
-   RENDER DASHBOARD (SINKRONISASI V2)
+   RENDER DASHBOARD (SINKRONISASI UTUH)
 ========================= */
 
 function renderDashboard(data) {
@@ -105,28 +105,32 @@ function renderDashboard(data) {
   setText("txtMiniPower", data.smartplug.power);
   setText("txtMiniCost", data.energy.monthCost);
 
-  // --- Summary Device Status ---
-  setText("statSummaryAC", isOn(data.ac.power) ? "ON" : "OFF");
-  applyActiveOvState("#btnSummaryAC", data.ac.power);
+  // --- Summary Quick Access Device Status ---
+  const acOn = isOn(data.ac.power);
+  setText("statSummaryAC", acOn ? "ON" : "OFF");
+  applyActiveOvState("#btnSummaryAC", acOn);
   
-  setText("statSummaryLamp", isOn(data.lamp.power) ? "ON" : "OFF");
-  applyActiveOvState("#btnSummaryLamp", data.lamp.power);
+  const lampOn = isOn(data.lamp.power);
+  setText("statSummaryLamp", lampOn ? "ON" : "OFF");
+  applyActiveOvState("#btnSummaryLamp", lampOn);
   
-  setText("statSummaryTV", isOn(data.tv.power) ? "ON" : "OFF");
-  applyActiveOvState("#btnSummaryTV", data.tv.power);
+  const tvOn = isOn(data.tv.power);
+  setText("statSummaryTV", tvOn ? "ON" : "OFF");
+  applyActiveOvState("#btnSummaryTV", tvOn);
   
-  setText("statSummaryCCTV", isOn(data.cctv.online) ? "ONLINE" : "OFFLINE");
-  applyActiveOvState("#btnSummaryCCTV", data.cctv.online);
+  const cctvOn = isOn(data.cctv.online);
+  setText("statSummaryCCTV", cctvOn ? "ONLINE" : "OFFLINE");
+  applyActiveOvState("#btnSummaryCCTV", cctvOn);
 
-  // --- AC Control ---
+  // --- AC Control Card ---
   applyDeviceActiveState("#cardACControl", data.ac.power);
   setText("txtACTemp", data.ac.temp);
-  setText("btnToggleAC", isOn(data.ac.power) ? "ON" : "OFF");
+  setText("btnToggleAC", acOn ? "ON" : "OFF");
 
-  // --- Lamp Control ---
+  // --- Lamp Control Card ---
   applyDeviceActiveState("#cardLampControl", data.lamp.power);
   setText("txtLampBrightness", data.lamp.brightness + "%");
-  setText("btnToggleLamp", isOn(data.lamp.power) ? "ON" : "OFF");
+  setText("btnToggleLamp", lampOn ? "ON" : "OFF");
   syncLampSlider(data.lamp.power, data.lamp.brightness);
 
   // --- Climate & Sensor Stat (Grid Bawah) ---
@@ -136,7 +140,7 @@ function renderDashboard(data) {
   setText("sensorVoltage", data.smartplug.voltage);
 
   // --- CCTV Data ---
-  setText("lblCCTVStatus", isOn(data.cctv.online) ? "ONLINE" : "OFFLINE");
+  setText("lblCCTVStatus", cctvOn ? "ONLINE" : "OFFLINE");
   setText("txtCCTVMotion", data.cctv.motion);
   setText("txtCCTVRecord", data.cctv.recording);
   setText("txtCCTVLastTime", data.cctv.lastMotion);
@@ -147,13 +151,11 @@ function renderDashboard(data) {
 }
 
 /* =========================
-   VISUAL STATE HELPERS
+   VISUAL STATE HELPERS (DIOPTIMALKAN)
 ========================= */
 
 function isOn(value) {
-  // Evaluasi lebih kuat untuk menangkap nilai 1 atau '1' atau boolean
   if (value === 1 || value === '1' || value === true) return true;
-  
   const text = String(value || "").toUpperCase();
   return text.includes("ON") || text === "TRUE" || text === "ONLINE";
 }
@@ -165,33 +167,53 @@ function setText(id, value) {
   }
 }
 
-function applyActiveOvState(cardSelector, statusValue) {
+function applyActiveOvState(cardSelector, isDeviceActive) {
   const card = document.querySelector(cardSelector);
   if (!card) return;
-  card.classList.toggle("active", isOn(statusValue));
+  
+  card.classList.toggle("active", isDeviceActive);
+  
+  // Intervensi inline style jika CSS Class gagal mengubah visual
+  if (isDeviceActive) {
+    card.style.opacity = "1";
+    card.style.background = ""; // kembalikan ke CSS default
+  } else {
+    card.style.opacity = "0.6";
+    card.style.background = "#f1f5f9"; // berikan warna abu-abu redup
+  }
 }
 
 function applyDeviceActiveState(cardSelector, statusValue) {
   const card = document.querySelector(cardSelector);
   if (!card) return;
+  
   const active = isOn(statusValue);
   card.classList.toggle("active", active);
   
-  // Mengubah gaya badge menjadi redup jika perangkat mati (Opsional visual)
+  // Memanipulasi visual container secara langsung agar presisi
+  if (active) {
+    card.style.opacity = "1";
+    card.style.filter = "none";
+  } else {
+    card.style.opacity = "0.75";
+    card.style.filter = "grayscale(20%)"; // sedikit memudarkan warna kartu kontrol
+  }
+  
+  // Sinkronisasi warna komponen badge status di pojok kanan kartu
   const badge = card.querySelector(".badge-status-on");
   if (badge) {
     if (active) {
-      badge.style.background = "rgba(34, 197, 94, 0.15)";
-      badge.style.color = "var(--accent-green)";
+      badge.style.background = "#22c55e";
+      badge.style.color = "#ffffff";
     } else {
-      badge.style.background = "rgba(0, 0, 0, 0.05)";
-      badge.style.color = "var(--text-grey)";
+      badge.style.background = "#64748b";
+      badge.style.color = "#ffffff";
     }
   }
 }
 
 /* =========================
-   LAMP SLIDER SYNC (SINKRONISASI V2)
+   LAMP SLIDER SYNC
 ========================= */
 
 function syncLampSlider(power, brightness) {
@@ -208,7 +230,7 @@ function syncLampSlider(power, brightness) {
 }
 
 /* =========================
-   CONTROL BINDINGS (SINKRONISASI V2)
+   CONTROL BINDINGS
 ========================= */
 
 function bindControls() {
@@ -222,7 +244,7 @@ function bindControls() {
     });
   }
 
-  // Fungsi Aman Suhu AC
+  // Kontrol Suhu AC
   const sendTempControl = (nextTemp) => {
     const safeTemp = Math.max(16, Math.min(30, nextTemp));
     sendAcControl("cool_" + safeTemp + "_auto");
@@ -248,7 +270,7 @@ function bindControls() {
     });
   }
 
-  // Slider Lampu V2
+  // Slider Kecerahan Lampu
   const lampSlider = document.getElementById("brightnessInput");
   if (lampSlider) {
     lampSlider.addEventListener("input", () => {
@@ -274,7 +296,6 @@ async function sendAcControl(command) {
   try {
     showToast("Mengirim perintah AC...");
     await sendControlRequest(command);
-    console.log("AC control request:", command);
     showToast("Perintah AC terkirim");
   } catch (error) {
     console.error("AC control error:", error);
@@ -286,7 +307,6 @@ async function sendControl(action, value = "") {
   try {
     showToast("Mengirim perintah...");
     await sendControlRequest(action, value);
-    console.log("Control request:", action, value);
     showToast("Perintah terkirim");
   } catch (error) {
     console.error("Control error:", error);
@@ -307,7 +327,7 @@ function updateHeaderDateTime() {
 }
 
 /* =========================
-   TOAST
+   TOAST NOTIFICATION
 ========================= */
 
 function showToast(message) {
@@ -316,11 +336,10 @@ function showToast(message) {
     toast = document.createElement("div");
     toast.id = "smartToast";
     toast.style.position = "fixed";
-    toast.style.left = "50%";
-    toast.style.bottom = "80px";
+    toast.style.left = "50%", toast.style.bottom = "80px";
     toast.style.transform = "translateX(-50%)";
     toast.style.padding = "10px 16px";
-    toast.style.borderRadius = "var(--radius-full)";
+    toast.style.borderRadius = "30px";
     toast.style.background = "rgba(0,0,0,.75)";
     toast.style.color = "#fff";
     toast.style.fontSize = "12px";
