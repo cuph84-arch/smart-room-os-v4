@@ -99,20 +99,20 @@ function mapFirebaseState(state) {
 
 function renderDashboard(data) {
   // --- Smart Room Overview Utama ---
-  setText("lblWeather", data.climate.temp + "°C");
+  setText("lblWeather", data.climate.temp !== "--" ? data.climate.temp + "°C" : "--°C");
   setText("txtMainTemp", data.climate.temp);
   setText("txtMainHumid", data.climate.humidity + "%");
   setText("txtMiniPower", data.smartplug.power);
   setText("txtMiniCost", data.energy.monthCost);
 
   // --- Summary Device Status ---
-  setText("statSummaryAC", data.ac.power);
+  setText("statSummaryAC", isOn(data.ac.power) ? "ON" : "OFF");
   applyActiveOvState("#btnSummaryAC", data.ac.power);
   
-  setText("statSummaryLamp", data.lamp.power);
+  setText("statSummaryLamp", isOn(data.lamp.power) ? "ON" : "OFF");
   applyActiveOvState("#btnSummaryLamp", data.lamp.power);
   
-  setText("statSummaryTV", data.tv.power);
+  setText("statSummaryTV", isOn(data.tv.power) ? "ON" : "OFF");
   applyActiveOvState("#btnSummaryTV", data.tv.power);
   
   setText("statSummaryCCTV", isOn(data.cctv.online) ? "ONLINE" : "OFFLINE");
@@ -143,6 +143,7 @@ function renderDashboard(data) {
 
   // --- Energy Chart Stat ---
   setText("txtEnergyTotal", "• " + data.energy.today + " ");
+  setText("txtEnergyTotalCost", data.energy.monthCost);
 }
 
 /* =========================
@@ -150,6 +151,9 @@ function renderDashboard(data) {
 ========================= */
 
 function isOn(value) {
+  // Evaluasi lebih kuat untuk menangkap nilai 1 atau '1' atau boolean
+  if (value === 1 || value === '1' || value === true) return true;
+  
   const text = String(value || "").toUpperCase();
   return text.includes("ON") || text === "TRUE" || text === "ONLINE";
 }
