@@ -2,7 +2,7 @@ import {
   listenToSmartRoomState,
   sendControlRequest,
   sendTvControl,
-  sendAcControl // Pastikan ini diimpor jika ada di connector.js
+  sendAcControl
 } from "./connector.js";
 
 console.log("Hybrid Smart Room OS V2 - Driver Status Fix Loaded (Phase 2 & 3)");
@@ -39,11 +39,13 @@ function mapFirebaseState(state) {
   const ac = state.ac || {};
   const lamp = state.lamp || {};
   const tv = state.tv || {};
-  const nest = state.nest || {};
-  const speaker = state.speaker || {};
   const cctv = state.cctv || {};
   const energy = state.energy || {};
   const climate = state.climate || {};
+
+  // Memastikan nilai default tambahan untuk Speaker dan Thermostat jika diperlukan di masa depan
+  const speaker = state.speaker || {};
+  const therm = state.therm || {};
 
   return {
     climate: {
@@ -71,6 +73,12 @@ function mapFirebaseState(state) {
       recording: cctv.recording ?? "Standby",
       lastMotion: cctv.last_motion ?? "--",
     },
+    speaker: {
+      power: speaker.power ?? "OFF"
+    },
+    therm: {
+      power: therm.power ?? "OFF"
+    },
     energy: {
       today: smartplug.today_kwh ?? energy.today_kwh ?? 0,
       monthCost: smartplug.month_cost ?? energy.month_cost ?? 0,
@@ -84,7 +92,6 @@ function mapFirebaseState(state) {
 
 function renderDashboard(data) {
   // --- Smart Room Overview Utama ---
-  // lblWeather sengaja tidak di-update agar tidak bentrok dengan suhu kamar
   setText("txtMainTemp", data.climate.temp);
   setText("txtMainHumid", data.climate.humidity + "%");
   setText("txtMiniPower", data.smartplug.power);
@@ -95,6 +102,8 @@ function renderDashboard(data) {
   const lampOn = isOn(data.lamp.power);
   const tvOn = isOn(data.tv.power);
   const cctvOn = isOn(data.cctv.online);
+  const speakerOn = isOn(data.speaker.power);
+  const thermOn = isOn(data.therm.power);
 
   // --- Update Jumlah Device Online ---
   let onlineCount = 0;
@@ -102,7 +111,18 @@ function renderDashboard(data) {
   if (lampOn) onlineCount++;
   if (tvOn) onlineCount++;
   if (cctvOn) onlineCount++;
+  if (speakerOn) onlineCount++;
+  if (thermOn) onlineCount++;
   setText("lblDeviceOnlineCount", `${onlineCount} Device Online`);
+
+  // --- LOGIKA FILTER & WARNA IKON MINI (ONLINE ONLY) ---
+  // Menyembunyikan jika offline, menampilkan dalam bentuk 'inline-flex' agar CSS flex-row tetap rapi tanpa merusak warna bawaan SVG.
+  toggleMiniIcon("minIconAC", acOn);
+  toggleMiniIcon("minIconLamp", lampOn);
+  toggleMiniIcon("minIconTV", tvOn);
+  toggleMiniIcon("minIconCCTV", cctvOn);
+  toggleMiniIcon("minIconSpeaker", speakerOn);
+  toggleMiniIcon("minIconTherm", thermOn);
 
   // --- Summary Quick Access Device Status ---
   setText("statSummaryAC", acOn ? "ON" : "OFF");
@@ -160,6 +180,14 @@ function setText(id, value) {
   const element = document.getElementById(id);
   if (element) {
     element.textContent = value;
+  }
+}
+
+// Helper Baru untuk Menyembunyikan / Menampilkan Ikon Kecil
+function toggleMiniIcon(id, isOnline) {
+  const element = document.getElementById(id);
+  if (element) {
+    element.style.display = isOnline ? "inline-flex" : "none";
   }
 }
 
