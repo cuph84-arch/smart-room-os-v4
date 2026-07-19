@@ -31,21 +31,23 @@ function startRealtimeListener() {
 }
 
 /* =========================
-   MAP FIREBASE STATE 
+   MAP FIREBASE STATE (DISELARASKAN DENGAN JSON FIREBASE V3)
 ========================= */
 
 function mapFirebaseState(state) {
-  const smartplug = state.smartplug || {};
+  // Mengekstrak node utama sesuai hierarki objek Firebase Anda
   const ac = state.ac || {};
   const lamp = state.lamp || {};
   const tv = state.tv || {};
   const cctv = state.cctv || {};
-  const energy = state.energy || {};
   const climate = state.climate || {};
-
-  // Memastikan nilai default tambahan untuk Speaker dan Thermostat jika diperlukan di masa depan
+  const energy = state.energy || {};
   const speaker = state.speaker || {};
-  const therm = state.therm || {};
+  const nest = state.nest || {};
+  
+  // Mengakses nested state dari smartplug: state.smartplug.state
+  const smartplugRoot = state.smartplug || {};
+  const smartplugState = smartplugRoot.state || {};
 
   return {
     climate: {
@@ -53,35 +55,39 @@ function mapFirebaseState(state) {
       humidity: climate.humidity ?? "--",
     },
     smartplug: {
-      power: smartplug.watt ?? smartplug.power ?? "--",
-      voltage: smartplug.voltage ?? smartplug.volt ?? "--",
+      // Mengambil dari state.smartplug.state.watt dan voltage
+      power: smartplugState.watt ?? "--",
+      voltage: smartplugState.voltage ?? "--",
     },
     ac: {
-      power: ac.power ?? "--",
-      temp: ac.temp ?? ac.temperature ?? 24,
+      power: ac.power ?? false,
+      temp: ac.temp ?? 24,
     },
     lamp: {
-      power: lamp.power ?? "--",
+      power: lamp.power ?? false,
       brightness: lamp.brightness ?? 0,
     },
     tv: {
-      power: tv.power ?? "--",
+      // Fallback jika TV belum didefinisikan secara eksplisit di JSON state Anda
+      power: tv.power ?? false,
     },
     cctv: {
-      online: cctv.online ?? "--",
-      motion: cctv.motion ?? "No Motion",
-      recording: cctv.recording ?? "Standby",
+      online: cctv.online ?? false,
+      motion: cctv.motion === true ? "Motion Detected" : "No Motion",
+      recording: cctv.recording === true ? "Recording" : "Standby",
       lastMotion: cctv.last_motion ?? "--",
     },
     speaker: {
-      power: speaker.power ?? "OFF"
+      // Menyatukan data Nest dan Speaker untuk indikator ikon online
+      power: (speaker.online || nest.online) ?? false
     },
     therm: {
-      power: therm.power ?? "OFF"
+      // Ikon ke-6 bisa difallback atau dialokasikan untuk status sinkronisasi sistem
+      power: (state.system?.status === "CONNECTED") ?? false
     },
     energy: {
-      today: smartplug.today_kwh ?? energy.today_kwh ?? 0,
-      monthCost: smartplug.month_cost ?? energy.month_cost ?? 0,
+      today: energy.today_kwh ?? 0,
+      monthCost: state.stats?.month_cost ?? 0, // Mengambil data biaya dari node stats
     }
   };
 }
@@ -94,8 +100,10 @@ function renderDashboard(data) {
   // --- Smart Room Overview Utama ---
   setText("txtMainTemp", data.climate.temp);
   setText("txtMainHumid", data.climate.humidity + "%");
-  setText("txtMiniPower", data.smartplug.power);
-  setText("txtMiniCost", data.energy.monthCost);
+  
+  // Menampilkan Watt di Mini Power Overview
+  setText("txtMiniPower", data.smartplug.power + " W");
+  setText("txtMiniCost", data.energy.monthCost.toLocaleString("id-ID"));
 
   // --- Kalkulasi Status Perangkat ---
   const acOn = isOn(data.ac.power);
@@ -115,8 +123,7 @@ function renderDashboard(data) {
   if (thermOn) onlineCount++;
   setText("lblDeviceOnlineCount", `${onlineCount} Device Online`);
 
-  // --- LOGIKA FILTER & WARNA IKON MINI (ONLINE ONLY) ---
-  // Menyembunyikan jika offline, menampilkan dalam bentuk 'inline-flex' agar CSS flex-row tetap rapi tanpa merusak warna bawaan SVG.
+  // --- LOGIKA FILTER IKON MINI (ONLINE ONLY & TETAP BERWARNA) ---
   toggleMiniIcon("minIconAC", acOn);
   toggleMiniIcon("minIconLamp", lampOn);
   toggleMiniIcon("minIconTV", tvOn);
@@ -163,7 +170,7 @@ function renderDashboard(data) {
 
   // --- Energy Chart Stat ---
   setText("txtEnergyTotal", "• " + data.energy.today + " ");
-  setText("txtEnergyTotalCost", data.energy.monthCost);
+  setText("txtEnergyTotalCost", data.energy.monthCost.toLocaleString("id-ID"));
 }
 
 /* =========================
@@ -183,7 +190,6 @@ function setText(id, value) {
   }
 }
 
-// Helper Baru untuk Menyembunyikan / Menampilkan Ikon Kecil
 function toggleMiniIcon(id, isOnline) {
   const element = document.getElementById(id);
   if (element) {
