@@ -93,7 +93,7 @@ function mapFirebaseState(state) {
 }
 
 /* =========================
-   RENDER DASHBOARD (SINKRONISASI UTUH)
+   RENDER DASHBOARD (LOGIKA PERANGKAT TERBARU)
 ========================= */
 
 function renderDashboard(data) {
@@ -105,31 +105,35 @@ function renderDashboard(data) {
   setText("txtMiniPower", data.smartplug.power + " W");
   setText("txtMiniCost", data.energy.monthCost.toLocaleString("id-ID"));
 
-  // --- Kalkulasi Status Perangkat ---
+  // --- 1. Ambil Status Dasar Perangkat Dinamis ---
   const acOn = isOn(data.ac.power);
   const lampOn = isOn(data.lamp.power);
   const tvOn = isOn(data.tv.power);
   const cctvOn = isOn(data.cctv.online);
-  const speakerOn = isOn(data.speaker.power);
-  const thermOn = isOn(data.therm.power);
 
-  // --- Update Jumlah Device Online ---
+  // --- 2. Terapkan Ketentuan Khusus Perangkat Tetap ---
+  const smartplugProtected = true; // Selalu ON & Protected
+  const climateOn = true;          // Selalu ON (Termometer)
+
+  // --- 3. Kalkulasi Jumlah Total Device Online ---
   let onlineCount = 0;
   if (acOn) onlineCount++;
   if (lampOn) onlineCount++;
   if (tvOn) onlineCount++;
   if (cctvOn) onlineCount++;
-  if (speakerOn) onlineCount++;
-  if (thermOn) onlineCount++;
+  if (smartplugProtected) onlineCount++; // Otomatis menambah hitungan
+  if (climateOn) onlineCount++;          // Otomatis menambah hitungan
+  
   setText("lblDeviceOnlineCount", `${onlineCount} Device Online`);
 
-  // --- LOGIKA FILTER IKON MINI (ONLINE ONLY & TETAP BERWARNA) ---
+  // --- 4. LOGIKA FILTER IKON MINI (Hanya Memetakan Device Tambahan/Dinamis) ---
+  // Smartplug dan Climate diset true karena statusnya selalu aktif di background
   toggleMiniIcon("minIconAC", acOn);
   toggleMiniIcon("minIconLamp", lampOn);
   toggleMiniIcon("minIconTV", tvOn);
   toggleMiniIcon("minIconCCTV", cctvOn);
-  toggleMiniIcon("minIconSpeaker", speakerOn);
-  toggleMiniIcon("minIconTherm", thermOn);
+  toggleMiniIcon("minIconSpeaker", smartplugProtected); // Contoh alokasi untuk smartplug protected
+  toggleMiniIcon("minIconTherm", climateOn);           // Contoh alokasi untuk termometer climate
 
   // --- Summary Quick Access Device Status ---
   setText("statSummaryAC", acOn ? "ON" : "OFF");
@@ -172,6 +176,7 @@ function renderDashboard(data) {
   setText("txtEnergyTotal", "• " + data.energy.today + " ");
   setText("txtEnergyTotalCost", data.energy.monthCost.toLocaleString("id-ID"));
 }
+
 
 /* =========================
    VISUAL STATE HELPERS 
