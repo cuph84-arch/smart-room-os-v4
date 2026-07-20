@@ -35,7 +35,6 @@ function startRealtimeListener() {
 ========================= */
 
 function mapFirebaseState(state) {
-  // Mengekstrak node utama sesuai hierarki objek Firebase Anda
   const ac = state.ac || {};
   const lamp = state.lamp || {};
   const tv = state.tv || {};
@@ -45,7 +44,6 @@ function mapFirebaseState(state) {
   const speaker = state.speaker || {};
   const nest = state.nest || {};
   
-  // Mengakses nested state dari smartplug: state.smartplug.state
   const smartplugRoot = state.smartplug || {};
   const smartplugState = smartplugRoot.state || {};
 
@@ -81,15 +79,9 @@ function mapFirebaseState(state) {
     therm: {
       power: (state.system?.status === "CONNECTED") ?? false
     },
-    
-    // PERUBAHAN DI SINI: Memetakan variabel energi baru secara lengkap
     energy: {
-      dailyKwh: energy.today_kwh ?? 0,
-      dailyCost: energy.today_cost ?? 0,
-      weeklyKwh: energy.weekly_kwh ?? 0,
-      weeklyCost: energy.weekly_cost ?? 0,
-      monthlyKwh: energy.monthly_kwh ?? 0,
-      monthlyCost: energy.monthly_cost ?? state.stats?.month_cost ?? 0, 
+      today: energy.today_kwh ?? 0,
+      monthCost: state.stats?.month_cost ?? 0,
     }
   };
 }
@@ -99,25 +91,20 @@ function mapFirebaseState(state) {
 ========================= */
 
 function renderDashboard(data) {
-  // --- Smart Room Overview Utama ---
   setText("txtMainTemp", data.climate.temp);
   setText("txtMainHumid", data.climate.humidity + "%");
   
-  // Menampilkan Watt di Mini Power Overview
   setText("txtMiniPower", data.smartplug.power + " W");
-  setText("txtMiniCost", data.energy.monthlyCost.toLocaleString("id-ID"));
+  setText("txtMiniCost", data.energy.monthCost.toLocaleString("id-ID"));
 
-  // --- 1. Ambil Status Dasar Perangkat Dinamis ---
   const acOn = isOn(data.ac.power);
   const lampOn = isOn(data.lamp.power);
   const tvOn = isOn(data.tv.power);
   const cctvOn = isOn(data.cctv.online);
 
-  // --- 2. Terapkan Ketentuan Khusus Perangkat Tetap ---
   const smartplugProtected = true; 
   const climateOn = true;          
 
-  // --- 3. Kalkulasi Jumlah Total Device Online ---
   let onlineCount = 0;
   if (acOn) onlineCount++;
   if (lampOn) onlineCount++;
@@ -128,7 +115,6 @@ function renderDashboard(data) {
   
   setText("lblDeviceOnlineCount", `${onlineCount} Device Online`);
 
-  // --- 4. LOGIKA FILTER IKON MINI ---
   toggleMiniIcon("minIconAC", acOn);
   toggleMiniIcon("minIconLamp", lampOn);
   toggleMiniIcon("minIconTV", tvOn);
@@ -136,7 +122,6 @@ function renderDashboard(data) {
   toggleMiniIcon("minIconSpeaker", smartplugProtected); 
   toggleMiniIcon("minIconTherm", climateOn);           
 
-  // --- Summary Quick Access Device Status ---
   setText("statSummaryAC", acOn ? "ON" : "OFF");
   applyActiveOvState("#btnSummaryAC", acOn);
   
@@ -149,44 +134,29 @@ function renderDashboard(data) {
   setText("statSummaryCCTV", cctvOn ? "ONLINE" : "OFFLINE");
   applyActiveOvState("#btnSummaryCCTV", cctvOn);
 
-  // --- AC Control Card ---
   applyDeviceActiveState("#cardACControl", data.ac.power);
   setText("txtACTemp", data.ac.temp);
   setText("btnToggleAC", acOn ? "ON" : "OFF");
   syncAcSlider(data.ac.power, data.ac.temp);
 
-  // --- Lamp Control Card ---
   applyDeviceActiveState("#cardLampControl", data.lamp.power);
   setText("txtLampBrightness", data.lamp.brightness + "%");
   setText("btnToggleLamp", lampOn ? "ON" : "OFF");
   syncLampSlider(data.lamp.power, data.lamp.brightness);
 
-  // --- Climate & Sensor Stat (Grid Bawah) ---
   setText("sensorTemp", data.climate.temp);
   setText("sensorHumid", data.climate.humidity);
   setText("sensorPower", data.smartplug.power);
   setText("sensorVoltage", data.smartplug.voltage);
 
-  // --- CCTV Data ---
   setText("lblCCTVStatus", cctvOn ? "ONLINE" : "OFFLINE");
   setText("txtCCTVMotion", data.cctv.motion);
   setText("txtCCTVRecord", data.cctv.recording);
   setText("txtCCTVLastTime", data.cctv.lastMotion);
 
-  // --- PERUBAHAN DI SINI: Render Teks Detail Variabel Energi Baru ---
-  // Harian
-  setText("txtEnergyDailyKwh", data.energy.dailyKwh + " kWh");
-  setText("txtEnergyDailyCost", "Rp " + data.energy.dailyCost.toLocaleString("id-ID"));
-  
-  // Mingguan
-  setText("txtEnergyWeeklyKwh", data.energy.weeklyKwh + " kWh");
-  setText("txtEnergyWeeklyCost", "Rp " + data.energy.weeklyCost.toLocaleString("id-ID"));
-  
-  // Bulanan
-  setText("txtEnergyMonthlyKwh", data.energy.monthlyKwh + " kWh");
-  setText("txtEnergyMonthlyCost", "Rp " + data.energy.monthlyCost.toLocaleString("id-ID"));
+  setText("txtEnergyTotal", "• " + data.energy.today + " ");
+  setText("txtEnergyTotalCost", data.energy.monthCost.toLocaleString("id-ID"));
 }
-
 
 /* =========================
    VISUAL STATE HELPERS 
@@ -286,7 +256,7 @@ function syncAcSlider(power, temp) {
 }
 
 /* =========================
-   CONTROL BINDINGS
+   CONTROL BINDINGS & DROPDOWN HANDLER
 ========================= */
 
 function bindControls() {
@@ -335,6 +305,21 @@ function bindControls() {
 
     lampSlider.addEventListener("change", () => {
       sendGeneralControl("lamp_brightness", lampSlider.value);
+    });
+  }
+
+  /* --- LOGIKA PENDETEKSI PERUBAHAN DROPDOWN --- */
+  const tariffDropdown = document.getElementById("tariffDropdown");
+  if (tariffDropdown) {
+    tariffDropdown.addEventListener("change", (event) => {
+      const selectedTariff = event.target.value;
+      console.log("Tarif listrik diubah ke:", selectedTariff);
+      
+      // Menampilkan notifikasi visual ke layar
+      showToast("Tarif diubah: " + selectedTariff);
+      
+      // Opsional: Kamu bisa memanggil fungsi kirim data ke Firebase di sini jika diperlukan, contoh:
+      // sendGeneralControl("update_tariff", selectedTariff);
     });
   }
 }
