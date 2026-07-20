@@ -76,19 +76,12 @@
           <span id="lblDeviceOnlineCount">0 Device Online</span>
         </div>
         
-        <!-- Ikon Berjejer Rapi (Diberikan ID Unik untuk Sinkronisasi Status Online) -->
         <div class="online-icons-row">
-          <!-- Ikon AC (Biru) -->
           <span class="device-icon-circle" id="minIconAC"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"></line><line x1="22" y1="12" x2="2" y2="12"></line><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"></line><line x1="19.07" y1="19.07" x2="4.93" y2="4.93"></line><path d="M12 6l-2 2M12 6l2 2M12 18l-2-2M12 18l2-2M6 12l2-2M6 12l2 2M18 12l-2-2M18 12l-2 2"></path></svg></span>
-          <!-- Ikon Lampu (Kuning) -->
           <span class="device-icon-circle" id="minIconLamp"><svg viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .6 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><line x1="9" y1="18" x2="15" y2="18"></line><line x1="10" y1="22" x2="14" y2="22"></line></svg></span>
-          <!-- Ikon TV (Ungu/Biru) -->
           <span class="device-icon-circle" id="minIconTV"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></span>
-          <!-- Ikon CCTV (Pink) -->
           <span class="device-icon-circle" id="minIconCCTV"><svg viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg></span>
-          <!-- Ikon Speaker (Abu-abu bawaan) -->
           <span class="device-icon-circle" id="minIconSpeaker"><svg viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><circle cx="12" cy="14" r="4"></circle><line x1="12" y1="6" x2="12.01" y2="6"></line></svg></span>
-          <!-- Ikon Termostat/Lainnya (Merah) -->
           <span class="device-icon-circle" id="minIconTherm"><svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path></svg></span>
         </div>
         
@@ -276,50 +269,83 @@
         </div>
       </div>
       
-              <!-- Bagian Card Energy Usage yang Diperbarui -->
-        <div class="energy-chart-card shadow-card">
-            
-            <!-- Header Card (Dipertahankan) -->
-            <div class="energy-card-top">
-                <h2>Energy Usage</h2>
-            </div>
+      <!-- CARD ENERGY USAGE TERBARU SESUAI TARGET GAMBAR -->
+      <div class="energy-chart-card shadow-card">
+          <!-- Header Card dengan Tombol Dropdown -->
+          <div class="energy-card-top">
+              <h2 class="energy-title">Energy usage</h2>
+              <button class="energy-dropdown-btn">
+                  B1900VA Rp.605
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="dropdown-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+          </div>
 
-            <!-- Struktur Baru: Daftar Data Energi -->
-            <div class="energy-data-list">
-                
-                <!-- Baris Harian -->
-                <div class="energy-row">
-                    <span class="energy-label">Biaya Hari Ini</span>
-                    <span class="energy-value" id="valTodayCost">Rp 0</span>
-                </div>
-                <div class="energy-row">
-                    <span class="energy-label">Konsumsi Hari Ini</span>
-                    <span class="energy-value" id="valTodayKwh">0 kWh</span>
-                </div>
+          <!-- List Data Energi dengan Gaya Baru -->
+          <div class="energy-v2-list">
+              
+              <!-- Hari Ini -->
+              <div class="energy-v2-group">
+                  <div class="energy-v2-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  </div>
+                  <div class="energy-v2-details">
+                      <div class="energy-v2-row">
+                          <span class="energy-v2-label">Biaya hari ini</span>
+                          <strong class="energy-v2-val">Rp 702</strong>
+                      </div>
+                      <div class="energy-v2-row">
+                          <span class="energy-v2-sub">kWh hari ini</span>
+                          <span class="energy-v2-sub-val">1.16 kWh</span>
+                      </div>
+                  </div>
+              </div>
 
-                <!-- Baris Mingguan -->
-                <div class="energy-row">
-                    <span class="energy-label">Biaya Minggu Ini</span>
-                    <span class="energy-value" id="valWeekCost">Rp 0</span>
-                </div>
-                <div class="energy-row">
-                    <span class="energy-label">Konsumsi Minggu Ini</span>
-                    <span class="energy-value" id="valWeekKwh">0 kWh</span>
-                </div>
+              <!-- Minggu Ini -->
+              <div class="energy-v2-group">
+                  <div class="energy-v2-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  </div>
+                  <div class="energy-v2-details">
+                      <div class="energy-v2-row">
+                          <span class="energy-v2-label">Biaya minggu ini</span>
+                          <strong class="energy-v2-val">Rp 1.888</strong>
+                      </div>
+                      <div class="energy-v2-row">
+                          <span class="energy-v2-sub">kWh minggu ini</span>
+                          <span class="energy-v2-sub-val">3.12 kWh</span>
+                      </div>
+                  </div>
+              </div>
 
-                <!-- Baris Bulanan / Estimasi -->
-                <div class="energy-row">
-                    <span class="energy-label">Estimasi Biaya Bulan Ini</span>
-                    <span class="energy-value" id="valMonthCost">Rp 0</span>
-                </div>
-                <div class="energy-row">
-                    <span class="energy-label">Konsumsi Bulan Ini</span>
-                    <span class="energy-value" id="valMonthKwh">0 kWh</span>
-                </div>
+              <!-- Bulan Ini -->
+              <div class="energy-v2-group">
+                  <div class="energy-v2-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  </div>
+                  <div class="energy-v2-details">
+                      <div class="energy-v2-row">
+                          <span class="energy-v2-label">Biaya bulan ini</span>
+                          <strong class="energy-v2-val">Rp 21.932</strong>
+                      </div>
+                      <div class="energy-v2-row">
+                          <span class="energy-v2-sub">kWh bulan ini</span>
+                          <span class="energy-v2-sub-val">36.25 kWh</span>
+                      </div>
+                  </div>
+              </div>
 
-            </div>
-        </div>
-        <!-- Akhir Card Energy Usage -->
+          </div>
+
+          <!-- Footer Box Total Hijau -->
+          <div class="energy-v2-footer">
+              <div class="energy-footer-text">
+                  <strong>Total Bulan Ini</strong>
+                  <span>Estimasi Biaya</span>
+              </div>
+              <strong class="energy-footer-total">Rp 21.932</strong>
+          </div>
+      </div>
+      <!-- Akhir Card Energy Usage -->
 
     </div>
 
