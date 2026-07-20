@@ -12,7 +12,7 @@
 <body>
 
   <div class="app-container">
-    
+
     <!-- HEADER -->
     <header class="main-header">
       <button class="menu-btn" id="btnMenu">
@@ -46,11 +46,11 @@
 
     <!-- MAIN OVERVIEW CARD -->
     <div class="combined-overview-card">
-      
+
       <!-- Bagian Kiri: Smart Room -->
       <div class="overview-left-panel">
         <h3 class="panel-title-text">SMART ROOM</h3>
-        
+
         <div class="sr-data-big">
           <div class="icon-circle-toska">
             <svg viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path></svg>
@@ -59,7 +59,7 @@
             <strong id="txtMainTemp">26.8</strong><span class="unit">°C</span>
           </div>
         </div>
-        
+
         <div class="sr-data-sub">
           <svg viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" style="width:16px; height:16px;"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
           <strong id="txtMainHumid">68%</strong><span>Humidity</span>
@@ -75,7 +75,7 @@
           <span class="dot-indicator"></span>
           <span id="lblDeviceOnlineCount">0 Device Online</span>
         </div>
-        
+
         <div class="online-icons-row">
           <span class="device-icon-circle" id="minIconAC"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"></line><line x1="22" y1="12" x2="2" y2="12"></line><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"></line><line x1="19.07" y1="19.07" x2="4.93" y2="4.93"></line><path d="M12 6l-2 2M12 6l2 2M12 18l-2-2M12 18l2-2M6 12l2-2M6 12l2 2M18 12l-2-2M18 12l-2 2"></path></svg></span>
           <span class="device-icon-circle" id="minIconLamp"><svg viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .6 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><line x1="9" y1="18" x2="15" y2="18"></line><line x1="10" y1="22" x2="14" y2="22"></line></svg></span>
@@ -84,7 +84,7 @@
           <span class="device-icon-circle" id="minIconSpeaker"><svg viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><circle cx="12" cy="14" r="4"></circle><line x1="12" y1="6" x2="12.01" y2="6"></line></svg></span>
           <span class="device-icon-circle" id="minIconTherm"><svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path></svg></span>
         </div>
-        
+
         <div class="energy-mini-grid">
           <div class="energy-mini">
             <span>Power Usage</span>
@@ -104,7 +104,7 @@
           </div>
         </div>
       </div>
-      
+
     </div>
 
     <!-- QUICK ACCESS DEVICE SUMMARY -->
@@ -171,7 +171,7 @@
           <span class="ctrl-label">Lampu Kamar</span>
           <span class="badge-status-on" id="btnToggleLamp" style="cursor: pointer;">ON</span>
         </div>
-        
+
         <div class="lamp-brightness-container">
           <button class="lamp-round-btn btn-minus">—</button>
           <div class="lamp-brightness-display">
@@ -268,25 +268,68 @@
           </div>
         </div>
       </div>
-      
-      <!-- CARD ENERGY USAGE DENGAN DROPDOWN SELECT TERBIMBING -->
+
+            <!-- CARD ENERGY USAGE DENGAN DROPDOWN KECIL SIMETRIS -->
       <div class="energy-chart-card shadow-card">
-          <!-- Header Card dengan Elemen Select Dropdown -->
+          <!-- Style Tag Khusus untuk Menyetel Fleksibilitas Dropdown Tanpa Merusak File CSS Utama -->
+          <style>
+              .energy-card-top {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  gap: 8px;
+                  width: 100%;
+              }
+              .energy-title {
+                  font-size: 16px; /* Menjaga teks judul tetap tegas */
+                  white-space: nowrap;
+              }
+              .energy-dropdown-wrapper {
+                  position: relative;
+                  display: inline-flex;
+                  align-items: center;
+                  max-width: 60%; /* Membatasi lebar agar judul tidak terdorong jatuh */
+              }
+              .energy-dropdown-select {
+                  appearance: none;
+                  background: #f8fafc;
+                  border: 1px solid #cbd5e1;
+                  padding: 4px 22px 4px 8px; /* Padding lebih tipis */
+                  border-radius: 6px;
+                  font-size: 10px; /* Ukuran font setara dengan teks sub 'kWh hari ini' */
+                  font-weight: 600;
+                  color: #475569;
+                  cursor: pointer;
+                  width: 100%;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+              }
+              .dropdown-icon {
+                  width: 12px;
+                  height: 12px;
+                  position: absolute;
+                  right: 6px;
+                  pointer-events: none;
+                  color: #64748b;
+              }
+          </style>
+
+          <!-- Header Card -->
           <div class="energy-card-top">
               <h2 class="energy-title">Energy usage</h2>
               
-              <!-- Dropdown diganti dengan tag <select> dan diberi id "tariffDropdown" agar mudah dibaca JS -->
-              <div class="energy-dropdown-wrapper" style="position: relative; display: inline-flex; align-items: center;">
-                  <select id="tariffDropdown" class="energy-dropdown-select" style="appearance: none; background: #f8fafc; border: 1px solid #cbd5e1; padding: 6px 30px 6px 12px; border-radius: 8px; font-size: 12px; font-weight: 600; color: #334155; cursor: pointer;">
+              <!-- Dropdown Terkalibrasi Mengecil -->
+              <div class="energy-dropdown-wrapper">
+                  <select id="tariffDropdown" class="energy-dropdown-select">
                       <option value="B1900VA">B1900VA - Rp.605</option>
                       <option value="B900VA">B900VA - Rp.1352</option>
                       <option value="B1300VA">B1300VA - Rp.1444</option>
                   </select>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="dropdown-icon" style="width: 14px; height: 14px; position: absolute; right: 10px; pointer-events: none; color: #64748b;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="dropdown-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </div>
           </div>
 
-          <!-- List Data Energi dengan Gaya Baru -->
+          <!-- List Data Energi -->
           <div class="energy-v2-list">
               
               <!-- Hari Ini -->
@@ -351,6 +394,7 @@
               <strong class="energy-footer-total">Rp 21.932</strong>
           </div>
       </div>
+
       <!-- Akhir Card Energy Usage -->
 
     </div>
