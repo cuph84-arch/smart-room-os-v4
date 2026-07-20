@@ -276,63 +276,51 @@
         </div>
       </div>
       
-      <div class="energy-chart-card shadow-card">
-        <div class="energy-card-top">
-          <span class="energy-title">Energy Usage</span>
-          <div class="time-range-select-mock">
-            <span>Hari Ini</span>
-            <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="#64748b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-        </div>
-        
-        <div class="chart-main-container">
-          <div class="chart-y-axis">
-            <span>1.5 <span class="unit-min">kWh</span></span>
-            <span>1.0</span>
-            <span>0.5</span>
-            <span>0 <span class="unit-min">kWh</span></span>
-          </div>
-          
-          <div class="chart-wrapper-v2">
-            <svg viewBox="0 0 100 45" class="energy-chart-svg" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.25"/>
-                  <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.0"/>
-                </linearGradient>
-              </defs>
-              <line x1="0" y1="2" x2="100" y2="2" class="chart-gridline" />
-              <line x1="0" y1="15" x2="100" y2="15" class="chart-gridline" />
-              <line x1="0" y1="28" x2="100" y2="28" class="chart-gridline" />
-              <line x1="0" y1="40" x2="100" y2="40" class="chart-gridline" />
-              <line x1="25" y1="0" x2="25" y2="40" class="chart-gridline" />
-              <line x1="50" y1="0" x2="50" y2="40" class="chart-gridline" />
-              <line x1="75" y1="0" x2="75" y2="40" class="chart-gridline" />
-              <path d="M 0 45 L 0 32 C 10 32, 12 18, 22 18 S 32 38, 40 38 S 55 8, 65 8 S 72 28, 78 28 S 85 12, 90 12 S 95 35, 100 35 L 100 45 Z" fill="url(#chartGradient)"></path>
-              <path d="M 0 32 C 10 32, 12 18, 22 18 S 32 38, 40 38 S 55 8, 65 8 S 72 28, 78 28 S 85 12, 90 12 S 95 35, 100 35" class="chart-line-v2"></path>
-            </svg>
-          </div>
-        </div>
+              <!-- Bagian Card Energy Usage yang Diperbarui -->
+        <div class="energy-chart-card shadow-card">
+            
+            <!-- Header Card (Dipertahankan) -->
+            <div class="energy-card-top">
+                <h2>Energy Usage</h2>
+            </div>
 
-        <div class="chart-x-axis-v2">
-          <span>00</span>
-          <span>06</span>
-          <span>12</span>
-          <span>18</span>
-          <span>24</span>
-        </div>
+            <!-- Struktur Baru: Daftar Data Energi -->
+            <div class="energy-data-list">
+                
+                <!-- Baris Harian -->
+                <div class="energy-row">
+                    <span class="energy-label">Biaya Hari Ini</span>
+                    <span class="energy-value" id="valTodayCost">Rp 0</span>
+                </div>
+                <div class="energy-row">
+                    <span class="energy-label">Konsumsi Hari Ini</span>
+                    <span class="energy-value" id="valTodayKwh">0 kWh</span>
+                </div>
 
-        <div class="chart-summary-container">
-          <div class="chart-info-box">
-            <span>Total Konsumsi</span>
-            <strong><span id="txtEnergyTotal">• 12.6 </span><span class="unit-kwh">kWh</span></strong>
-          </div>
-          <div class="chart-info-box text-right">
-            <span>Total Biaya</span>
-            <strong class="cost-text">Rp <span id="txtEnergyTotalCost">12.540</span></strong>
-          </div>
+                <!-- Baris Mingguan -->
+                <div class="energy-row">
+                    <span class="energy-label">Biaya Minggu Ini</span>
+                    <span class="energy-value" id="valWeekCost">Rp 0</span>
+                </div>
+                <div class="energy-row">
+                    <span class="energy-label">Konsumsi Minggu Ini</span>
+                    <span class="energy-value" id="valWeekKwh">0 kWh</span>
+                </div>
+
+                <!-- Baris Bulanan / Estimasi -->
+                <div class="energy-row">
+                    <span class="energy-label">Estimasi Biaya Bulan Ini</span>
+                    <span class="energy-value" id="valMonthCost">Rp 0</span>
+                </div>
+                <div class="energy-row">
+                    <span class="energy-label">Konsumsi Bulan Ini</span>
+                    <span class="energy-value" id="valMonthKwh">0 kWh</span>
+                </div>
+
+            </div>
         </div>
-      </div>
+        <!-- Akhir Card Energy Usage -->
+
     </div>
 
     <!-- AUTOMATION SCENES -->
