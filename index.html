@@ -16,7 +16,11 @@
     <!-- HEADER -->
     <header class="main-header">
       <button class="menu-btn" id="btnMenu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
       </button>
       <div class="user-info">
         <span>Good Evening,</span>
@@ -24,7 +28,10 @@
       </div>
       <div class="header-right">
         <button class="notification-btn" id="btnNotif">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
         </button>
       </div>
     </header>
@@ -32,11 +39,18 @@
     <!-- QUICK STATS ROW -->
     <div class="quick-stats-row">
       <div class="stat-pill">
-        <svg class="stat-svg" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+        <svg class="stat-svg" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="2">
+          <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+        </svg>
         <span class="stat-value" id="lblWeather">27°C</span>
       </div>
       <div class="stat-pill">
-        <svg class="stat-svg" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20" stroke-linecap="round" stroke-width="3"></line></svg>
+        <svg class="stat-svg" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+          <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+          <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+          <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+          <line x1="12" y1="20" x2="12.01" y2="20" stroke-linecap="round" stroke-width="3"></line>
+        </svg>
         <span class="stat-value" id="lblWifiStatus">WiFi Connected</span>
       </div>
       <div class="date-time-pill">
@@ -46,50 +60,79 @@
 
     <!-- MAIN OVERVIEW CARD -->
     <div class="combined-overview-card">
-
       <!-- Bagian Kiri: Smart Room -->
       <div class="overview-left-panel">
         <h3 class="panel-title-text">SMART ROOM</h3>
-
         <div class="sr-data-big">
           <div class="icon-circle-toska">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path>
+            </svg>
           </div>
           <div class="sr-temp-wrapper">
             <strong id="txtMainTemp">26.8</strong><span class="unit">°C</span>
           </div>
         </div>
-
         <div class="sr-data-sub">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" style="width:16px; height:16px;"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" style="width:14px; height:14px;">
+            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+          </svg>
           <strong id="txtMainHumid">68%</strong><span>Humidity</span>
         </div>
       </div>
 
-      <!-- Garis Pemisah Tipis di Tengah -->
+      <!-- Garis Pemisah -->
       <div class="overview-divider"></div>
 
       <!-- Bagian Kanan: Device Online -->
       <div class="overview-right-panel">
         <div class="device-status-header">
           <span class="dot-indicator"></span>
-          <span id="lblDeviceOnlineCount">0 Device Online</span>
+          <span id="lblDeviceOnlineCount">6 Device Online</span>
         </div>
-
         <div class="online-icons-row">
-          <span class="device-icon-circle" id="minIconAC"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"></line><line x1="22" y1="12" x2="2" y2="12"></line><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"></line><line x1="19.07" y1="19.07" x2="4.93" y2="4.93"></line><path d="M12 6l-2 2M12 6l2 2M12 18l-2-2M12 18l2-2M6 12l2-2M6 12l2 2M18 12l-2-2M18 12l-2 2"></path></svg></span>
-          <span class="device-icon-circle" id="minIconLamp"><svg viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .6 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><line x1="9" y1="18" x2="15" y2="18"></line><line x1="10" y1="22" x2="14" y2="22"></line></svg></span>
-          <span class="device-icon-circle" id="minIconTV"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></span>
-          <span class="device-icon-circle" id="minIconCCTV"><svg viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg></span>
-          <span class="device-icon-circle" id="minIconSpeaker"><svg viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><circle cx="12" cy="14" r="4"></circle><line x1="12" y1="6" x2="12.01" y2="6"></line></svg></span>
-          <span class="device-icon-circle" id="minIconTherm"><svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path></svg></span>
+          <span class="device-icon-circle blue-bg" id="minIconAC">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+              <line x1="12" y1="2" x2="12" y2="22"></line><line x1="22" y1="12" x2="2" y2="12"></line>
+              <line x1="19.07" y1="4.93" x2="4.93" y2="19.07"></line><line x1="19.07" y1="19.07" x2="4.93" y2="4.93"></line>
+            </svg>
+          </span>
+          <span class="device-icon-circle yellow-bg" id="minIconLamp">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2">
+              <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .6 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path>
+              <line x1="9" y1="18" x2="15" y2="18"></line><line x1="10" y1="22" x2="14" y2="22"></line>
+            </svg>
+          </span>
+          <span class="device-icon-circle indigo-bg" id="minIconTV">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </span>
+          <span class="device-icon-circle red-bg" id="minIconCCTV">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2">
+              <path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+            </svg>
+          </span>
+          <span class="device-icon-circle slate-bg" id="minIconSpeaker">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2">
+              <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+              <circle cx="12" cy="14" r="4"></circle><line x1="12" y1="6" x2="12.01" y2="6"></line>
+            </svg>
+          </span>
+          <span class="device-icon-circle rose-bg" id="minIconTherm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2">
+              <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path>
+            </svg>
+          </span>
         </div>
-
         <div class="energy-mini-grid">
           <div class="energy-mini">
             <span>Power Usage</span>
             <div class="energy-mini-val">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2.5" style="width:14px; height:14px; margin-right:2px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2.5" style="width:12px; height:12px; margin-right:2px;">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
               <strong id="txtMiniPower">1.42</strong><span class="unit">kW</span>
             </div>
           </div>
@@ -97,14 +140,15 @@
             <span>Energy Cost Today</span>
             <div class="energy-mini-val cost">
               <div class="cost-icon-container">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" style="width:12px; height:12px;"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect><line x1="12" y1="12" x2="12" y2="12"></line></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" style="width:10px; height:10px;">
+                  <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
+                </svg>
               </div>
-              <span class="cost-currency" style="margin-left: 2px;">Rp</span> <strong id="txtMiniCost">2.150</strong>
+              <span class="cost-currency">Rp</span>&nbsp;<strong id="txtMiniCost">2.150</strong>
             </div>
           </div>
         </div>
       </div>
-
     </div>
 
     <!-- QUICK ACCESS DEVICE SUMMARY -->
@@ -171,7 +215,6 @@
           <span class="ctrl-label">Lampu Kamar</span>
           <span class="badge-status-on" id="btnToggleLamp" style="cursor: pointer;">ON</span>
         </div>
-
         <div class="lamp-brightness-container">
           <button class="lamp-round-btn btn-minus">—</button>
           <div class="lamp-brightness-display">
@@ -180,7 +223,6 @@
           </div>
           <button class="lamp-round-btn btn-plus">+</button>
         </div>
-
         <div class="lamp-slider-row">
           <div class="target-range-wrap-v2">
             <div class="lamp-bar-v2">
@@ -189,7 +231,6 @@
             <input type="range" class="brightness-slider-v2" min="0" max="100" value="80" id="brightnessInput">
           </div>
         </div>
-
         <div class="lamp-meta-grid">
           <div class="color-row">
             <div class="color-pill-yellow"></div>
@@ -197,43 +238,52 @@
           </div>
         </div>
       </div>
-
     </div>
 
     <!-- SENSORS LIST GRID -->
     <div class="climate-grid">
       <div class="climate-item">
         <div class="cl-icon pink">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2">
+            <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path>
+          </svg>
         </div>
-        <div>
+        <div class="climate-info-text">
           <span class="cl-label">Temperature</span>
           <div class="cl-info-row"><strong id="sensorTemp">26.8</strong><span class="unit">°C</span></div>
         </div>
       </div>
       <div class="climate-item">
         <div class="cl-icon cyan">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2">
+            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+          </svg>
         </div>
-        <div>
+        <div class="climate-info-text">
           <span class="cl-label">Humidity</span>
           <div class="cl-info-row"><strong id="sensorHumid">68</strong><span class="unit">%</span></div>
         </div>
       </div>
       <div class="climate-item">
         <div class="cl-icon orange">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
         </div>
-        <div>
+        <div class="climate-info-text">
           <span class="cl-label">Power</span>
           <div class="cl-info-row"><strong id="sensorPower">325</strong><span class="unit">w</span></div>
         </div>
       </div>
       <div class="climate-item">
         <div class="cl-icon red">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><path d="M6 10v4a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-4"></path><line x1="12" y1="16" x2="12" y2="22"></line></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2">
+            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+            <path d="M6 10v4a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-4"></path>
+            <line x1="12" y1="16" x2="12" y2="22"></line>
+          </svg>
         </div>
-        <div>
+        <div class="climate-info-text">
           <span class="cl-label">Voltage</span>
           <div class="cl-info-row"><strong id="sensorVoltage">223</strong><span class="unit">v</span></div>
         </div>
@@ -250,7 +300,9 @@
         <div class="cctv-stream-container" id="boxCCTVStream">
           <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=400&q=80" alt="CCTV Kamar" class="cctv-video-mock">
           <button class="cctv-play-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor" style="width: 14px; height: 14px; margin-left: 2px;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width: 14px; height: 14px; margin-left: 2px;">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
           </button>
         </div>
         <div class="cctv-meta-rows">
@@ -269,134 +321,68 @@
         </div>
       </div>
 
-            <!-- CARD ENERGY USAGE DENGAN DROPDOWN KECIL SIMETRIS -->
+      <!-- CARD ENERGY USAGE -->
       <div class="energy-chart-card shadow-card">
-          <!-- Style Tag Khusus untuk Menyetel Fleksibilitas Dropdown Tanpa Merusak File CSS Utama -->
-          <style>
-              .energy-card-top {
-                  display: flex;
-                  justify-content: space-between;
-                  align-items: center;
-                  gap: 8px;
-                  width: 100%;
-              }
-              .energy-title {
-                  font-size: 16px; /* Menjaga teks judul tetap tegas */
-                  white-space: nowrap;
-              }
-              .energy-dropdown-wrapper {
-                  position: relative;
-                  display: inline-flex;
-                  align-items: center;
-                  max-width: 60%; /* Membatasi lebar agar judul tidak terdorong jatuh */
-              }
-              .energy-dropdown-select {
-                  appearance: none;
-                  background: #f8fafc;
-                  border: 1px solid #cbd5e1;
-                  padding: 4px 22px 4px 8px; /* Padding lebih tipis */
-                  border-radius: 6px;
-                  font-size: 10px; /* Ukuran font setara dengan teks sub 'kWh hari ini' */
-                  font-weight: 600;
-                  color: #475569;
-                  cursor: pointer;
-                  width: 100%;
-                  text-overflow: ellipsis;
-                  white-space: nowrap;
-              }
-              .dropdown-icon {
-                  width: 12px;
-                  height: 12px;
-                  position: absolute;
-                  right: 6px;
-                  pointer-events: none;
-                  color: #64748b;
-              }
-          </style>
-
-          <!-- Header Card -->
-          <div class="energy-card-top">
-              <h2 class="energy-title">Energy usage</h2>
-              
-              <!-- Dropdown Terkalibrasi Mengecil -->
-              <div class="energy-dropdown-wrapper">
-                  <select id="tariffDropdown" class="energy-dropdown-select">
-                      <option value="B1900VA">B1900VA - Rp.605</option>
-                      <option value="B900VA">B900VA - Rp.1352</option>
-                      <option value="B1300VA">B1300VA - Rp.1444</option>
-                  </select>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="dropdown-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </div>
+        <div class="energy-card-top">
+          <h2 class="energy-title">Energy usage</h2>
+          <div class="energy-dropdown-wrapper">
+            <select id="tariffDropdown" class="energy-dropdown-select">
+              <option value="B1900VA">Hari Ini</option>
+              <option value="B900VA">B900VA - Rp.1352</option>
+              <option value="B1300VA">B1300VA - Rp.1444</option>
+            </select>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="dropdown-icon">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
           </div>
+        </div>
 
-          <!-- List Data Energi -->
-          <div class="energy-v2-list">
-              
-              <!-- Hari Ini -->
-              <div class="energy-v2-group">
-                  <div class="energy-v2-icon">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                  </div>
-                  <div class="energy-v2-details">
-                      <div class="energy-v2-row">
-                          <span class="energy-v2-label">Biaya hari ini</span>
-                          <strong class="energy-v2-val">Rp 702</strong>
-                      </div>
-                      <div class="energy-v2-row">
-                          <span class="energy-v2-sub">kWh hari ini</span>
-                          <span class="energy-v2-sub-val">1.16 kWh</span>
-                      </div>
-                  </div>
+        <div class="energy-v2-list">
+          <div class="energy-v2-group">
+            <div class="energy-v2-details">
+              <div class="energy-v2-row">
+                <span class="energy-v2-label">1.5 kWh</span>
               </div>
-
-              <!-- Minggu Ini -->
-              <div class="energy-v2-group">
-                  <div class="energy-v2-icon">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                  </div>
-                  <div class="energy-v2-details">
-                      <div class="energy-v2-row">
-                          <span class="energy-v2-label">Biaya minggu ini</span>
-                          <strong class="energy-v2-val">Rp 1.888</strong>
-                      </div>
-                      <div class="energy-v2-row">
-                          <span class="energy-v2-sub">kWh minggu ini</span>
-                          <span class="energy-v2-sub-val">3.12 kWh</span>
-                      </div>
-                  </div>
+              <div class="energy-v2-row">
+                <span class="energy-v2-sub">1.0 kWh</span>
               </div>
-
-              <!-- Bulan Ini -->
-              <div class="energy-v2-group">
-                  <div class="energy-v2-icon">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                  </div>
-                  <div class="energy-v2-details">
-                      <div class="energy-v2-row">
-                          <span class="energy-v2-label">Biaya bulan ini</span>
-                          <strong class="energy-v2-val">Rp 21.932</strong>
-                      </div>
-                      <div class="energy-v2-row">
-                          <span class="energy-v2-sub">kWh bulan ini</span>
-                          <span class="energy-v2-sub-val">36.25 kWh</span>
-                      </div>
-                  </div>
+              <div class="energy-v2-row">
+                <span class="energy-v2-sub">0.5 kWh</span>
               </div>
-
+              <div class="energy-v2-row">
+                <span class="energy-v2-sub">0 kWh</span>
+              </div>
+            </div>
+            <!-- Area Simulasi Grafik di Target View -->
+            <div class="chart-mock-container">
+              <svg class="chart-sparkline" viewBox="0 0 100 40" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.2"/>
+                    <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.0"/>
+                  </linearGradient>
+                </defs>
+                <path d="M 0 35 Q 15 25, 25 30 T 50 15 T 75 22 T 100 10 L 100 40 L 0 40 Z" fill="url(#chartGrad)"/>
+                <path d="M 0 35 Q 15 25, 25 30 T 50 15 T 75 22 T 100 10" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <div class="chart-labels-x">
+                <span>00</span><span>06</span><span>12</span><span>18</span><span>24</span>
+              </div>
+            </div>
           </div>
+        </div>
 
-          <!-- Footer Box Total Hijau -->
-          <div class="energy-v2-footer">
-              <div class="energy-footer-text">
-                  <strong>Total Bulan Ini</strong>
-                  <span>Estimasi Biaya</span>
-              </div>
-              <strong class="energy-footer-total">Rp 21.932</strong>
+        <div class="energy-v2-footer-row">
+          <div class="energy-footer-item">
+            <span class="footer-lbl">Total Konsumsi</span>
+            <span class="footer-val">⚡ 12.6 <small>kWh</small></span>
           </div>
+          <div class="energy-footer-item right-align">
+            <span class="footer-lbl">Total Biaya</span>
+            <span class="footer-val price-text">Rp 12.540</span>
+          </div>
+        </div>
       </div>
-
-      <!-- Akhir Card Energy Usage -->
-
     </div>
 
     <!-- AUTOMATION SCENES -->
@@ -442,22 +428,33 @@
     <!-- BOTTOM NAVIGATION -->
     <nav class="bottom-nav nav-bar-v2">
       <button class="active" id="navHome">
-        <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
         <span class="nav-label">Home</span>
       </button>
       <button id="navAutomation">
-        <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+        </svg>
         <span class="nav-label">Automation</span>
       </button>
       <button class="center-action-v2" id="btnFloatingAction">
         <span>+</span>
       </button>
       <button id="navDevices">
-        <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
         <span class="nav-label">Devices</span>
       </button>
       <button id="navSettings">
-        <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82"></path></svg>
+        <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82"></path>
+        </svg>
         <span class="nav-label">Settings</span>
       </button>
     </nav>
