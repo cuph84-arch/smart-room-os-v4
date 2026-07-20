@@ -55,7 +55,6 @@ function mapFirebaseState(state) {
       humidity: climate.humidity ?? "--",
     },
     smartplug: {
-      // Mengambil dari state.smartplug.state.watt dan voltage
       power: smartplugState.watt ?? "--",
       voltage: smartplugState.voltage ?? "--",
     },
@@ -68,7 +67,6 @@ function mapFirebaseState(state) {
       brightness: lamp.brightness ?? 0,
     },
     tv: {
-      // Fallback jika TV belum didefinisikan secara eksplisit di JSON state Anda
       power: tv.power ?? false,
     },
     cctv: {
@@ -78,16 +76,20 @@ function mapFirebaseState(state) {
       lastMotion: cctv.last_motion ?? "--",
     },
     speaker: {
-      // Menyatukan data Nest dan Speaker untuk indikator ikon online
       power: (speaker.online || nest.online) ?? false
     },
     therm: {
-      // Ikon ke-6 bisa difallback atau dialokasikan untuk status sinkronisasi sistem
       power: (state.system?.status === "CONNECTED") ?? false
     },
+    
+    // PERUBAHAN DI SINI: Memetakan variabel energi baru secara lengkap
     energy: {
-      today: energy.today_kwh ?? 0,
-      monthCost: state.stats?.month_cost ?? 0, // Mengambil data biaya dari node stats
+      dailyKwh: energy.today_kwh ?? 0,
+      dailyCost: energy.today_cost ?? 0,
+      weeklyKwh: energy.weekly_kwh ?? 0,
+      weeklyCost: energy.weekly_cost ?? 0,
+      monthlyKwh: energy.monthly_kwh ?? 0,
+      monthlyCost: energy.monthly_cost ?? state.stats?.month_cost ?? 0, 
     }
   };
 }
@@ -103,7 +105,7 @@ function renderDashboard(data) {
   
   // Menampilkan Watt di Mini Power Overview
   setText("txtMiniPower", data.smartplug.power + " W");
-  setText("txtMiniCost", data.energy.monthCost.toLocaleString("id-ID"));
+  setText("txtMiniCost", data.energy.monthlyCost.toLocaleString("id-ID"));
 
   // --- 1. Ambil Status Dasar Perangkat Dinamis ---
   const acOn = isOn(data.ac.power);
@@ -112,8 +114,8 @@ function renderDashboard(data) {
   const cctvOn = isOn(data.cctv.online);
 
   // --- 2. Terapkan Ketentuan Khusus Perangkat Tetap ---
-  const smartplugProtected = true; // Selalu ON & Protected
-  const climateOn = true;          // Selalu ON (Termometer)
+  const smartplugProtected = true; 
+  const climateOn = true;          
 
   // --- 3. Kalkulasi Jumlah Total Device Online ---
   let onlineCount = 0;
@@ -121,19 +123,18 @@ function renderDashboard(data) {
   if (lampOn) onlineCount++;
   if (tvOn) onlineCount++;
   if (cctvOn) onlineCount++;
-  if (smartplugProtected) onlineCount++; // Otomatis menambah hitungan
-  if (climateOn) onlineCount++;          // Otomatis menambah hitungan
+  if (smartplugProtected) onlineCount++; 
+  if (climateOn) onlineCount++;          
   
   setText("lblDeviceOnlineCount", `${onlineCount} Device Online`);
 
-  // --- 4. LOGIKA FILTER IKON MINI (Hanya Memetakan Device Tambahan/Dinamis) ---
-  // Smartplug dan Climate diset true karena statusnya selalu aktif di background
+  // --- 4. LOGIKA FILTER IKON MINI ---
   toggleMiniIcon("minIconAC", acOn);
   toggleMiniIcon("minIconLamp", lampOn);
   toggleMiniIcon("minIconTV", tvOn);
   toggleMiniIcon("minIconCCTV", cctvOn);
-  toggleMiniIcon("minIconSpeaker", smartplugProtected); // Contoh alokasi untuk smartplug protected
-  toggleMiniIcon("minIconTherm", climateOn);           // Contoh alokasi untuk termometer climate
+  toggleMiniIcon("minIconSpeaker", smartplugProtected); 
+  toggleMiniIcon("minIconTherm", climateOn);           
 
   // --- Summary Quick Access Device Status ---
   setText("statSummaryAC", acOn ? "ON" : "OFF");
@@ -172,9 +173,18 @@ function renderDashboard(data) {
   setText("txtCCTVRecord", data.cctv.recording);
   setText("txtCCTVLastTime", data.cctv.lastMotion);
 
-  // --- Energy Chart Stat ---
-  setText("txtEnergyTotal", "• " + data.energy.today + " ");
-  setText("txtEnergyTotalCost", data.energy.monthCost.toLocaleString("id-ID"));
+  // --- PERUBAHAN DI SINI: Render Teks Detail Variabel Energi Baru ---
+  // Harian
+  setText("txtEnergyDailyKwh", data.energy.dailyKwh + " kWh");
+  setText("txtEnergyDailyCost", "Rp " + data.energy.dailyCost.toLocaleString("id-ID"));
+  
+  // Mingguan
+  setText("txtEnergyWeeklyKwh", data.energy.weeklyKwh + " kWh");
+  setText("txtEnergyWeeklyCost", "Rp " + data.energy.weeklyCost.toLocaleString("id-ID"));
+  
+  // Bulanan
+  setText("txtEnergyMonthlyKwh", data.energy.monthlyKwh + " kWh");
+  setText("txtEnergyMonthlyCost", "Rp " + data.energy.monthlyCost.toLocaleString("id-ID"));
 }
 
 
