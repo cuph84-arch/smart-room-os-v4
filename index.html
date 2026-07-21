@@ -15,7 +15,7 @@
 
     <!-- HEADER -->
     <header class="main-header">
-      <button class="menu-btn" id="btnMenu">
+      <button class="menu-btn" id="btnMenu" aria-label="Menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
       <div class="user-info">
@@ -23,7 +23,7 @@
         <h1 id="txtUserName">Ghozali Yusuf</h1>
       </div>
       <div class="header-right">
-        <button class="notification-btn" id="btnNotif">
+        <button class="notification-btn" id="btnNotif" aria-label="Notifications">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
         </button>
       </div>
@@ -32,11 +32,11 @@
     <!-- QUICK STATS ROW -->
     <div class="quick-stats-row">
       <div class="stat-pill">
-        <svg class="stat-svg" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+        <svg class="stat-svg" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
         <span class="stat-value" id="lblWeather">27°C</span>
       </div>
       <div class="stat-pill">
-        <svg class="stat-svg" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20" stroke-linecap="round" stroke-width="3"></line></svg>
+        <svg class="stat-svg" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20" stroke-width="3"></line></svg>
         <span class="stat-value" id="lblWifiStatus">WiFi Connected</span>
       </div>
       <div class="date-time-pill">
@@ -58,7 +58,7 @@
           </div>
         </div>
         <div class="sr-data-sub">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" style="width:14px; height:14px;"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
           <strong id="txtMainHumid">68%</strong><span>Humidity</span>
         </div>
       </div>
@@ -74,19 +74,19 @@
         </div>
 
         <div class="online-icons-row">
-          <span class="device-icon-circle" id="minIconAC"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><line x1="12" y1="2" x2="12" y2="22"></line><line x1="22" y1="12" x2="2" y2="12"></line><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"></line><line x1="19.07" y1="19.07" x2="4.93" y2="4.93"></line></svg></span>
-          <span class="device-icon-circle" id="minIconLamp"><svg viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .6 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path></svg></span>
-          <span class="device-icon-circle" id="minIconTV"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect></svg></span>
-          <span class="device-icon-circle" id="minIconCCTV"><svg viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg></span>
-          <span class="device-icon-circle" id="minIconSpeaker"><svg viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect></svg></span>
-          <span class="device-icon-circle" id="minIconTherm"><svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path></svg></span>
+          <span class="device-icon-circle" id="minIconAC"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="2" x2="12" y2="22"></line><line x1="22" y1="12" x2="2" y2="12"></line><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"></line><line x1="19.07" y1="19.07" x2="4.93" y2="4.93"></line></svg></span>
+          <span class="device-icon-circle" id="minIconLamp"><svg viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .6 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><line x1="9" y1="18" x2="15" y2="18"></line><line x1="10" y1="21" x2="14" y2="21"></line></svg></span>
+          <span class="device-icon-circle" id="minIconTV"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></span>
+          <span class="device-icon-circle" id="minIconCCTV"><svg viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg></span>
+          <span class="device-icon-circle" id="minIconSpeaker"><svg viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><circle cx="12" cy="14" r="4"></circle><line x1="12" y1="6" x2="12.01" y2="6"></line></svg></span>
+          <span class="device-icon-circle" id="minIconTherm"><svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path></svg></span>
         </div>
 
         <div class="energy-mini-grid">
           <div class="energy-mini">
             <span>Power Usage</span>
             <div class="energy-mini-val">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2.5" style="width:12px; height:12px; margin-right:2px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              <svg class="mini-bolt" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
               <strong id="txtMiniPower">1.42</strong><span class="unit">kW</span>
             </div>
           </div>
@@ -94,9 +94,9 @@
             <span>Energy Cost Today</span>
             <div class="energy-mini-val cost">
               <div class="cost-icon-container">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" style="width:10px; height:10px;"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect></svg>
               </div>
-              <span class="cost-currency" style="margin-left: 2px;">Rp</span> <strong id="txtMiniCost">2.150</strong>
+              <span class="cost-currency">Rp</span><strong id="txtMiniCost">2.150</strong>
             </div>
           </div>
         </div>
@@ -106,22 +106,22 @@
     <!-- QUICK ACCESS DEVICE SUMMARY -->
     <div class="device-summary-grid">
       <div class="dev-summary active" id="btnSummaryAC">
-        <span class="dev-sum-icon">❄️</span>
+        <span class="dev-sum-icon icon-ac"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"></line><line x1="22" y1="12" x2="2" y2="12"></line><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"></line><line x1="19.07" y1="19.07" x2="4.93" y2="4.93"></line></svg></span>
         <span class="dev-sum-label">AC</span>
         <span class="status-ov" id="statSummaryAC">ON</span>
       </div>
       <div class="dev-summary active" id="btnSummaryLamp">
-        <span class="dev-sum-icon">💡</span>
+        <span class="dev-sum-icon icon-lamp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .6 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><line x1="9" y1="18" x2="15" y2="18"></line><line x1="10" y1="21" x2="14" y2="21"></line></svg></span>
         <span class="dev-sum-label">Lampu</span>
         <span class="status-ov" id="statSummaryLamp">ON</span>
       </div>
       <div class="dev-summary active" id="btnSummaryTV">
-        <span class="dev-sum-icon">📺</span>
+        <span class="dev-sum-icon icon-tv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></span>
         <span class="dev-sum-label">TV</span>
         <span class="status-ov" id="statSummaryTV">ON</span>
       </div>
       <div class="dev-summary active" id="btnSummaryCCTV">
-        <span class="dev-sum-icon">📹</span>
+        <span class="dev-sum-icon icon-cctv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg></span>
         <span class="dev-sum-label">CCTV</span>
         <span class="status-ov" id="statSummaryCCTV">ON</span>
       </div>
@@ -132,20 +132,20 @@
       <!-- AC Card Control -->
       <div class="ctrl-card active" id="cardACControl">
         <div class="ctrl-card-head">
-          <span class="ctrl-icon">❄️</span>
+          <span class="ctrl-icon icon-ac"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"></line><line x1="22" y1="12" x2="2" y2="12"></line><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"></line><line x1="19.07" y1="19.07" x2="4.93" y2="4.93"></line></svg></span>
           <span class="ctrl-label">AC Kamar</span>
-          <span class="badge-status-on" id="btnToggleAC" style="cursor: pointer;">ON</span>
+          <span class="badge-status-on" id="btnToggleAC" role="button">ON</span>
         </div>
         <div class="ac-main">
-          <button class="temp-ctrl-round" id="btnTempDown">-</button>
+          <button class="temp-ctrl-round" id="btnTempDown" aria-label="Turunkan suhu">−</button>
           <div class="temp-display">
             <strong id="txtACTemp">23</strong><span class="unit">°C</span>
           </div>
-          <button class="temp-ctrl-round" id="btnTempUp">+</button>
+          <button class="temp-ctrl-round" id="btnTempUp" aria-label="Naikkan suhu">+</button>
         </div>
         <div class="ac-meta-grid">
-          <div class="ac-meta">❄️ Cool Mode</div>
-          <div class="ac-meta">🌀 Fan Auto</div>
+          <div class="ac-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"></line><line x1="22" y1="12" x2="2" y2="12"></line><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"></line><line x1="19.07" y1="19.07" x2="4.93" y2="4.93"></line></svg>Cool Mode</div>
+          <div class="ac-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8a4 4 0 1 1-4 4"></path><path d="M2 12h4"></path><circle cx="12" cy="12" r="1"></circle></svg>Fan Auto</div>
         </div>
         <div class="ac-slider-v2">
           <div class="ac-track">
@@ -163,17 +163,17 @@
       <!-- KARTU KONTROL LAMPU KAMAR -->
       <div class="ctrl-card" id="cardLampControl">
         <div class="ctrl-card-head">
-          <span class="ctrl-icon">💡</span>
+          <span class="ctrl-icon icon-lamp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .6 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><line x1="9" y1="18" x2="15" y2="18"></line><line x1="10" y1="21" x2="14" y2="21"></line></svg></span>
           <span class="ctrl-label">Lampu Kamar</span>
-          <span class="badge-status-on" id="btnToggleLamp" style="cursor: pointer;">ON</span>
+          <span class="badge-status-on" id="btnToggleLamp" role="button">ON</span>
         </div>
         <div class="lamp-brightness-container">
-          <button class="lamp-round-btn btn-minus">—</button>
+          <button class="lamp-round-btn btn-minus" aria-label="Turunkan brightness">−</button>
           <div class="lamp-brightness-display">
             <span>Brightness</span>
             <strong id="txtLampBrightness">80%</strong>
           </div>
-          <button class="lamp-round-btn btn-plus">+</button>
+          <button class="lamp-round-btn btn-plus" aria-label="Naikkan brightness">+</button>
         </div>
         <div class="lamp-slider-row">
           <div class="target-range-wrap-v2">
@@ -196,7 +196,7 @@
     <div class="climate-grid">
       <div class="climate-item">
         <div class="cl-icon pink">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path></svg>
         </div>
         <div>
           <span class="cl-label">Temperature</span>
@@ -205,7 +205,7 @@
       </div>
       <div class="climate-item">
         <div class="cl-icon cyan">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
         </div>
         <div>
           <span class="cl-label">Humidity</span>
@@ -214,7 +214,7 @@
       </div>
       <div class="climate-item">
         <div class="cl-icon orange">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
         </div>
         <div>
           <span class="cl-label">Power</span>
@@ -223,7 +223,7 @@
       </div>
       <div class="climate-item">
         <div class="cl-icon red">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><path d="M6 10v4a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-4"></path></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><path d="M6 10v4a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-4"></path></svg>
         </div>
         <div>
           <span class="cl-label">Voltage</span>
@@ -242,21 +242,21 @@
         </div>
         <div class="cctv-stream-container" id="boxCCTVStream">
           <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=400&q=80" alt="CCTV Kamar" class="cctv-video-mock">
-          <button class="cctv-play-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor" style="width: 14px; height: 14px; margin-left: 2px;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          <button class="cctv-play-btn" aria-label="Putar stream">
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
           </button>
         </div>
         <div class="cctv-meta-rows">
           <div class="cctv-row">
-            <span>🏃 Motion</span>
+            <span class="cctv-row-label"><svg class="cctv-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="4" r="2"></circle><path d="M10.5 21l2-6 2 2 1 4"></path><path d="M9 14l2-3 3 1 3-4"></path></svg>Motion</span>
             <strong id="txtCCTVMotion">No Motion</strong>
           </div>
           <div class="cctv-row">
-            <span>🟢 Recording</span>
+            <span class="cctv-row-label"><svg class="cctv-row-icon dot-rec" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"></circle></svg>Recording</span>
             <strong id="txtCCTVRecord">Standby</strong>
           </div>
           <div class="cctv-row-time">
-            <span>🕒 Last Event</span>
+            <span class="cctv-row-label"><svg class="cctv-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 16 14"></polyline></svg>Last Event</span>
             <span id="txtCCTVLastTime">12:31 PM</span>
           </div>
         </div>
@@ -344,7 +344,7 @@
       </div>
       <div class="automation-grid">
         <div class="auto-card default">
-          <div class="auto-icon">☀️</div>
+          <div class="auto-icon sun"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><line x1="12" y1="2" x2="12" y2="4"></line><line x1="12" y1="20" x2="12" y2="22"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="2" y1="12" x2="4" y2="12"></line><line x1="20" y1="12" x2="22" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></div>
           <div class="auto-text">
             <strong>Morning</strong>
             <span>06:00</span>
@@ -354,7 +354,7 @@
           </button>
         </div>
         <div class="auto-card sleep">
-          <div class="auto-icon">🌙</div>
+          <div class="auto-icon moon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></div>
           <div class="auto-text">
             <strong>Sleep</strong>
             <span>22:30</span>
@@ -364,7 +364,7 @@
           </button>
         </div>
         <div class="auto-card away">
-          <div class="auto-icon">🏠</div>
+          <div class="auto-icon home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div>
           <div class="auto-text">
             <strong>Away</strong>
             <span>Keluar Rumah</span>
@@ -386,7 +386,7 @@
         <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
         <span class="nav-label">Automation</span>
       </button>
-      <button class="center-action-v2" id="btnFloatingAction">
+      <button class="center-action-v2" id="btnFloatingAction" aria-label="Tambah">
         <span>+</span>
       </button>
       <button id="navDevices">
