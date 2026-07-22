@@ -34,7 +34,10 @@ function startRealtimeListener() {
    MAP FIREBASE STATE (DISELARASKAN DENGAN JSON FIREBASE V3)
 ========================= */
 
-function mapFirebaseState(state) {
+function mapFirebaseState(root) {
+  const state = root.state || {};
+  const stats = root.stats || {};
+
   const ac = state.ac || {};
   const lamp = state.lamp || {};
   const tv = state.tv || {};
@@ -80,8 +83,13 @@ function mapFirebaseState(state) {
       power: (state.system?.status === "CONNECTED") ?? false
     },
     energy: {
-      today: energy.today_kwh ?? 0,
-      monthCost: state.stats?.month_cost ?? 0,
+      todayKwh: energy.today_kwh ?? stats.today_kwh ?? 0,
+      weekKwh: energy.week_kwh ?? stats.week_kwh ?? 0,
+      monthKwh: energy.month_kwh ?? stats.month_kwh ?? 0,
+      todayCost: energy.today_cost ?? stats.today_cost ?? 0,
+      weekCost: energy.week_cost ?? stats.week_cost ?? 0,
+      monthCost: energy.month_cost ?? stats.month_cost ?? 0,
+      tariffPerKwh: energy.tariff_per_kwh ?? 0,
     }
   };
 }
@@ -94,8 +102,8 @@ function renderDashboard(data) {
   setText("txtMainTemp", data.climate.temp);
   setText("txtMainHumid", data.climate.humidity + "%");
   
-  setText("txtMiniPower", data.smartplug.power + " W");
-  setText("txtMiniCost", data.energy.monthCost.toLocaleString("id-ID"));
+  setText("txtMiniPower", Number(data.energy.todayKwh).toFixed(2) + " kWh");
+  setText("txtMiniCost", data.energy.todayCost.toLocaleString("id-ID"));
 
   const acOn = isOn(data.ac.power);
   const lampOn = isOn(data.lamp.power);
@@ -154,8 +162,13 @@ function renderDashboard(data) {
   setText("txtCCTVRecord", data.cctv.recording);
   setText("txtCCTVLastTime", data.cctv.lastMotion);
 
-  setText("txtEnergyTotal", "• " + data.energy.today + " ");
-  setText("txtEnergyTotalCost", data.energy.monthCost.toLocaleString("id-ID"));
+  setText("txtEnergyTodayCost", "Rp " + data.energy.todayCost.toLocaleString("id-ID"));
+  setText("txtEnergyTodayKwh", Number(data.energy.todayKwh).toFixed(2) + " kWh");
+  setText("txtEnergyWeekCost", "Rp " + data.energy.weekCost.toLocaleString("id-ID"));
+  setText("txtEnergyWeekKwh", Number(data.energy.weekKwh).toFixed(2) + " kWh");
+  setText("txtEnergyMonthCost", "Rp " + data.energy.monthCost.toLocaleString("id-ID"));
+  setText("txtEnergyMonthKwh", Number(data.energy.monthKwh).toFixed(2) + " kWh");
+  setText("txtEnergyFooterTotal", "Rp " + data.energy.monthCost.toLocaleString("id-ID"));
 }
 
 /* =========================
