@@ -404,4 +404,4 @@ function showToast(message) {
     toast.style.opacity = "0";
     toast.style.transform = "translateX(-50%) translateY(8px)";
   }, 1800);
-}
+} 
