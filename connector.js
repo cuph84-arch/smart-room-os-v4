@@ -14,11 +14,11 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const database = getDatabase(firebaseApp);
 
-const STATE_REF = ref(database, "state");
+const ROOT_REF = ref(database, "/");
 
 export function listenToSmartRoomState(callback) {
   return onValue(
-    STATE_REF,
+    ROOT_REF,
     (snapshot) => {
       callback(snapshot.val());
     },
