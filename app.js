@@ -37,8 +37,10 @@ function startRealtimeListener() {
 function mapFirebaseState(root) {
   const state = root.state || {};
   const stats = root.stats || {};
+  const runtime = root.runtime || {};
 
   const ac = state.ac || {};
+  const acVirtual = (runtime.ac && runtime.ac.virtual) || {};
   const lamp = state.lamp || {};
   const tv = state.tv || {};
   const cctv = state.cctv || {};
@@ -60,8 +62,8 @@ function mapFirebaseState(root) {
       voltage: smartplugState.voltage ?? "--",
     },
     ac: {
-      power: ac.power ?? false,
-      temp: ac.temp ?? 24,
+      power: acVirtual.power ?? ac.power ?? false,
+      temp: acVirtual.temp ?? ac.temp ?? 24,
     },
     lamp: {
       power: lamp.power ?? false,
