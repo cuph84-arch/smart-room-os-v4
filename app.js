@@ -15,8 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
   bindControls();
   updateHeaderDateTime();
   startRealtimeListener();
+  initWeatherWidget();
 
   setInterval(updateHeaderDateTime, 60000);
+  setInterval(initWeatherWidget, 900000); // refresh cuaca lokal tiap 15 menit
 });
 
 /* =========================
@@ -375,6 +377,63 @@ function updateHeaderDateTime() {
   const now = new Date();
   const months = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agt", "Sep", "Okt", "Nov", "Des"];
   element.textContent = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()} • ${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
+}
+
+/* =========================
+   WEATHER WIDGET (OPEN-METEO)
+   - Sumber: Open-Meteo API (gratis, tanpa API key)
+   - Lokasi: geolocation browser, fallback ke Tulungagung
+     jika izin lokasi ditolak/tidak tersedia/timeout
+   - HANYA menulis ke elemen #lblWeather, tidak menyentuh
+     data Firebase/IoT lainnya sama sekali
+========================= */
+
+const WEATHER_FALLBACK_COORDS = { lat: -8.0645, lon: 111.9016 }; // Tulungagung, Jawa Timur
+const WEATHER_GEOLOCATION_TIMEOUT_MS = 8000;
+
+function initWeatherWidget() {
+  if (!("geolocation" in navigator)) {
+    fetchLocalWeather(WEATHER_FALLBACK_COORDS.lat, WEATHER_FALLBACK_COORDS.lon);
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      fetchLocalWeather(position.coords.latitude, position.coords.longitude);
+    },
+    () => {
+      // Izin ditolak / gagal / timeout -> pakai koordinat fallback
+      fetchLocalWeather(WEATHER_FALLBACK_COORDS.lat, WEATHER_FALLBACK_COORDS.lon);
+    },
+    {
+      timeout: WEATHER_GEOLOCATION_TIMEOUT_MS,
+      maximumAge: 600000, // cache posisi browser 10 menit
+    }
+  );
+}
+
+async function fetchLocalWeather(latitude, longitude) {
+  try {
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m&timezone=auto`;
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`Weather API HTTP ${response.status}`);
+    }
+
+    const payload = await response.json();
+    const temperature = payload?.current?.temperature_2m;
+
+    if (typeof temperature !== "number" || Number.isNaN(temperature)) {
+      throw new Error("Format data cuaca tidak valid");
+    }
+
+    setText("lblWeather", Math.round(temperature) + "°C");
+  } catch (error) {
+    console.error("Gagal memuat cuaca lokal:", error);
+    // Fallback aman: biarkan nilai #lblWeather yang sudah tampil (default HTML
+    // atau hasil fetch sukses sebelumnya) agar dashboard tetap tampil normal.
+  }
 }
 
 /* =========================
