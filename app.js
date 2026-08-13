@@ -5,7 +5,7 @@ import {
   sendAcControl
 } from "./connector.js";
 
-console.log("Hybrid Smart Room OS V2 - Driver Status Fix Loaded (Phase 2 & 3)");
+console.log("Hybrid Smart Room OS V2 - Driver Status Fix Loaded (Phase 2 & 3 + Sync Fix)");
 
 /* =========================
    INIT
@@ -33,26 +33,117 @@ function startRealtimeListener() {
 }
 
 /* =========================
+   TIME UTILITIES (SORT BY TIME)
+   - toMillis: menormalkan berbagai format timestamp yang ada
+     di Firebase (ISO string / unix seconds / unix ms) ke ms.
+   - pickFreshest: dari beberapa kandidat node (state vs dashboard vs
+     runtime) untuk device yang sama, pilih node dengan updated_at
+     TERBARU sebagai sumber aktif, agar tidak ada node basi yang
+     menimpa status device di HTML.
+   - isTodayTimestamp: memastikan angka "hari ini" (energy today)
+     benar-benar berasal dari data yang di-update pada tanggal
+     berjalan, bukan cache lama.
+========================= */
+
+function toMillis(ts) {
+  if (ts === null || ts === undefined || ts === "") return 0;
+  if (typeof ts === "number") {
+    // unix seconds (10 digit) vs unix ms (13 digit)
+    return ts < 10000000000 ? ts * 1000 : ts;
+  }
+  const parsed = Date.parse(ts);
+  return Number.isNaN(parsed) ? 0 : parsed;
+}
+
+function pickFreshest(candidates) {
+  let best = null;
+  let bestTs = -1;
+  candidates.forEach((c) => {
+    if (!c || !c.data) return;
+    const ts = toMillis(c.updatedAt);
+    if (ts >= bestTs) {
+      bestTs = ts;
+      best = c.data;
+    }
+  });
+  return best || {};
+}
+
+function isTodayTimestamp(ts) {
+  const ms = toMillis(ts);
+  if (!ms) return false;
+  const d = new Date(ms);
+  const now = new Date();
+  return (
+    d.getFullYear() === now.getFullYear() &&
+    d.getMonth() === now.getMonth() &&
+    d.getDate() === now.getDate()
+  );
+}
+
+function formatSnapshotTime(isoString) {
+  const ms = toMillis(isoString);
+  if (!ms) return "--";
+  const d = new Date(ms);
+  return `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
+}
+
+/* =========================
    MAP FIREBASE STATE (DISELARASKAN DENGAN JSON FIREBASE V3)
 ========================= */
 
 function mapFirebaseState(root) {
   const state = root.state || {};
+  const dashboard = root.dashboard || {};
   const stats = root.stats || {};
   const runtime = root.runtime || {};
 
-  const ac = state.ac || {};
+  // --- SORT BY TIME: pilih node teraktif (paling baru) per device ---
+  const ac = pickFreshest([
+    { data: state.ac, updatedAt: state.ac && state.ac.updated_at },
+    { data: dashboard.ac && dashboard.ac.state, updatedAt: dashboard.ac && dashboard.ac.updated_at },
+  ]);
   const acVirtual = (runtime.ac && runtime.ac.virtual) || {};
+
   const lamp = state.lamp || {};
-  const tv = state.tv || {};
-  const cctv = state.cctv || {};
-  const climate = state.climate || {};
+
+  // FIX: state.tv tidak ada di schema Firebase, TV hanya tersedia di dashboard.tv.state
+  const tv = pickFreshest([
+    { data: state.tv, updatedAt: state.tv && state.tv.updated_at },
+    { data: dashboard.tv && dashboard.tv.state, updatedAt: dashboard.tv && dashboard.tv.updated_at },
+  ]);
+
+  // FIX: status online CCTV tidak ada langsung di state.cctv, harus dibaca
+  // dari cameras.<nama>.connectivity.online. Kamera aktif untuk kartu ini: "teras".
+  const cctv = pickFreshest([
+    { data: state.cctv, updatedAt: state.cctv && state.cctv.updated_at },
+    { data: dashboard.cctv && dashboard.cctv.state, updatedAt: dashboard.cctv && dashboard.cctv.updated_at },
+  ]);
+  const cctvCameras = cctv.cameras || {};
+  const cctvTeras = cctvCameras.teras || {};
+  const cctvTerasOnline =
+    (cctvTeras.connectivity && cctvTeras.connectivity.online) ??
+    cctvTeras.ok ??
+    (cctvTeras.health && cctvTeras.health.ok) ??
+    false;
+
+  const climate = pickFreshest([
+    { data: state.climate, updatedAt: state.climate && state.climate.updated_at },
+    { data: dashboard.sensor && dashboard.sensor.state, updatedAt: dashboard.sensor && dashboard.sensor.updated_at },
+  ]);
+
   const energy = state.energy || {};
   const speaker = state.speaker || {};
   const nest = state.nest || {};
-  
+
   const smartplugRoot = state.smartplug || {};
-  const smartplugState = smartplugRoot.state || {};
+  const smartplugState = pickFreshest([
+    { data: smartplugRoot.state, updatedAt: smartplugRoot.updated_at },
+    { data: dashboard.smartplug && dashboard.smartplug.state, updatedAt: dashboard.smartplug && dashboard.smartplug.updated_at },
+  ]);
+
+  // Data "hari ini" hanya dipakai jika updated_at memang tanggal berjalan.
+  const energyTodayIsFresh = isTodayTimestamp(energy.updated_at);
 
   return {
     climate: {
@@ -75,10 +166,13 @@ function mapFirebaseState(root) {
       power: tv.power ?? false,
     },
     cctv: {
-      online: cctv.online ?? false,
-      motion: cctv.motion === true ? "Motion Detected" : "No Motion",
-      recording: cctv.recording === true ? "Recording" : "Standby",
-      lastMotion: cctv.last_motion ?? "--",
+      online: cctvTerasOnline,
+      // CATATAN FAKTA: field "motion" & "recording" tidak tersedia di
+      // schema Firebase manapun (state/dashboard/runtime). Nilai berikut
+      // TIDAK di-fetch dari Firebase agar tidak mengarang data.
+      motion: "No Motion",
+      recording: "Standby",
+      lastMotion: formatSnapshotTime(cctvTeras.snapshot && cctvTeras.snapshot.timestamp),
     },
     speaker: {
       power: (speaker.online || nest.online) ?? false
@@ -87,10 +181,10 @@ function mapFirebaseState(root) {
       power: (state.system?.status === "CONNECTED") ?? false
     },
     energy: {
-      todayKwh: energy.today_kwh ?? stats.today_kwh ?? 0,
+      todayKwh: energyTodayIsFresh ? (energy.today_kwh ?? stats.today_kwh ?? 0) : 0,
       weekKwh: energy.week_kwh ?? stats.week_kwh ?? 0,
       monthKwh: energy.month_kwh ?? stats.month_kwh ?? 0,
-      todayCost: energy.today_cost ?? stats.today_cost ?? 0,
+      todayCost: energyTodayIsFresh ? (energy.today_cost ?? stats.today_cost ?? 0) : 0,
       weekCost: energy.week_cost ?? stats.week_cost ?? 0,
       monthCost: energy.month_cost ?? stats.month_cost ?? 0,
       tariffPerKwh: energy.tariff_per_kwh ?? 0,
@@ -465,4 +559,4 @@ function showToast(message) {
     toast.style.opacity = "0";
     toast.style.transform = "translateX(-50%) translateY(8px)";
   }, 1800);
-} 
+}
