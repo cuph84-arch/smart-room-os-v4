@@ -5,7 +5,7 @@ import {
   sendAcControl
 } from "./connector.js";
 
-console.log("Hybrid Smart Room OS V2 - Driver Status Fix Loaded (Phase 2 & 3 + Sync Fix)");
+console.log("Smart Room OS V3 - Canonical State Refactor Loaded");
 
 /* =========================
    INIT
@@ -33,117 +33,50 @@ function startRealtimeListener() {
 }
 
 /* =========================
-   TIME UTILITIES (SORT BY TIME)
-   - toMillis: menormalkan berbagai format timestamp yang ada
-     di Firebase (ISO string / unix seconds / unix ms) ke ms.
-   - pickFreshest: dari beberapa kandidat node (state vs dashboard vs
-     runtime) untuk device yang sama, pilih node dengan updated_at
-     TERBARU sebagai sumber aktif, agar tidak ada node basi yang
-     menimpa status device di HTML.
-   - isTodayTimestamp: memastikan angka "hari ini" (energy today)
-     benar-benar berasal dari data yang di-update pada tanggal
-     berjalan, bukan cache lama.
-========================= */
-
-function toMillis(ts) {
-  if (ts === null || ts === undefined || ts === "") return 0;
-  if (typeof ts === "number") {
-    // unix seconds (10 digit) vs unix ms (13 digit)
-    return ts < 10000000000 ? ts * 1000 : ts;
-  }
-  const parsed = Date.parse(ts);
-  return Number.isNaN(parsed) ? 0 : parsed;
-}
-
-function pickFreshest(candidates) {
-  let best = null;
-  let bestTs = -1;
-  candidates.forEach((c) => {
-    if (!c || !c.data) return;
-    const ts = toMillis(c.updatedAt);
-    if (ts >= bestTs) {
-      bestTs = ts;
-      best = c.data;
-    }
-  });
-  return best || {};
-}
-
-function isTodayTimestamp(ts) {
-  const ms = toMillis(ts);
-  if (!ms) return false;
-  const d = new Date(ms);
-  const now = new Date();
-  return (
-    d.getFullYear() === now.getFullYear() &&
-    d.getMonth() === now.getMonth() &&
-    d.getDate() === now.getDate()
-  );
-}
-
-function formatSnapshotTime(isoString) {
-  const ms = toMillis(isoString);
-  if (!ms) return "--";
-  const d = new Date(ms);
-  return `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
-}
-
-/* =========================
-   MAP FIREBASE STATE (DISELARASKAN DENGAN JSON FIREBASE V3)
+   MAP FIREBASE STATE (DISELARASKAN DENGAN CANONICAL STATE)
 ========================= */
 
 function mapFirebaseState(root) {
   const state = root.state || {};
-  const dashboard = root.dashboard || {};
-  const stats = root.stats || {};
   const runtime = root.runtime || {};
+  // [FIX] node `stats` sudah TERBUKTI MISSING di skema aktual -> tidak lagi
+  // dibaca sama sekali (dulu dipakai sebagai fallback energy).
 
-  // --- SORT BY TIME: pilih node teraktif (paling baru) per device ---
-  const ac = pickFreshest([
-    { data: state.ac, updatedAt: state.ac && state.ac.updated_at },
-    { data: dashboard.ac && dashboard.ac.state, updatedAt: dashboard.ac && dashboard.ac.updated_at },
-  ]);
+  const ac = state.ac || {};
   const acVirtual = (runtime.ac && runtime.ac.virtual) || {};
-
   const lamp = state.lamp || {};
-
-  // FIX: state.tv tidak ada di schema Firebase, TV hanya tersedia di dashboard.tv.state
-  const tv = pickFreshest([
-    { data: state.tv, updatedAt: state.tv && state.tv.updated_at },
-    { data: dashboard.tv && dashboard.tv.state, updatedAt: dashboard.tv && dashboard.tv.updated_at },
-  ]);
-
-  // FIX: status online CCTV tidak ada langsung di state.cctv, harus dibaca
-  // dari cameras.<nama>.connectivity.online. Kamera aktif untuk kartu ini: "teras".
-  const cctv = pickFreshest([
-    { data: state.cctv, updatedAt: state.cctv && state.cctv.updated_at },
-    { data: dashboard.cctv && dashboard.cctv.state, updatedAt: dashboard.cctv && dashboard.cctv.updated_at },
-  ]);
-  const cctvCameras = cctv.cameras || {};
-  const cctvTeras = cctvCameras.teras || {};
-  const cctvTerasOnline =
-    (cctvTeras.connectivity && cctvTeras.connectivity.online) ??
-    cctvTeras.ok ??
-    (cctvTeras.health && cctvTeras.health.ok) ??
-    false;
-
-  const climate = pickFreshest([
-    { data: state.climate, updatedAt: state.climate && state.climate.updated_at },
-    { data: dashboard.sensor && dashboard.sensor.state, updatedAt: dashboard.sensor && dashboard.sensor.updated_at },
-  ]);
-
+  const tv = state.tv || {};
+  const cctv = state.cctv || {};
+  const climate = state.climate || {};
   const energy = state.energy || {};
   const speaker = state.speaker || {};
   const nest = state.nest || {};
 
   const smartplugRoot = state.smartplug || {};
-  const smartplugState = pickFreshest([
-    { data: smartplugRoot.state, updatedAt: smartplugRoot.updated_at },
-    { data: dashboard.smartplug && dashboard.smartplug.state, updatedAt: dashboard.smartplug && dashboard.smartplug.updated_at },
-  ]);
+  const smartplugState = smartplugRoot.state || {};
 
-  // Data "hari ini" hanya dipakai jika updated_at memang tanggal berjalan.
-  const energyTodayIsFresh = isTodayTimestamp(energy.updated_at);
+  // [FIX] CCTV CRITICAL — hapus total field legacy single-camera
+  // (state.cctv.online / motion / recording / last_motion). Diganti dengan
+  // iterasi struktur multi-camera aktual: state.cctv.cameras.{garasi,kamar,teras,...}
+  const camerasRaw = cctv.cameras || {};
+  const camerasList = Object.keys(camerasRaw).map((camId) => {
+    const cam = camerasRaw[camId] || {};
+    return {
+      id: camId,
+      online: cam.online ?? false,
+      rtsp: cam.RTSP ?? cam.rtsp ?? "--",
+      port: cam.port ?? "--",
+      // [NOTE] snapshot.path saat ini adalah path filesystem lokal (bukan
+      // URL browser-accessible). Belum bisa dirender sebagai <img src>
+      // sampai integrasi Firebase Storage selesai di sisi backend.
+      path: cam.path ?? "--",
+      snapshot: cam.snapshot ?? null,
+      error: cam.error ?? null,
+    };
+  });
+  const cameraCount = cctv.camera_count ?? camerasList.length;
+  const onlineCameraCount = camerasList.filter((cam) => isOn(cam.online)).length;
+  const errorCameraCount = camerasList.filter((cam) => !!cam.error).length;
 
   return {
     climate: {
@@ -163,30 +96,38 @@ function mapFirebaseState(root) {
       brightness: lamp.brightness ?? 0,
     },
     tv: {
-      power: tv.power ?? false,
+      // [FIX] optional chaining aman: coba nesting baru state.tv.state.power
+      // dulu, fallback ke state.tv.power lama, agar tidak error jika salah
+      // satu level nesting tidak ada.
+      power: tv?.state?.power ?? tv?.power ?? false,
     },
     cctv: {
-      online: cctvTerasOnline,
-      // CATATAN FAKTA: field "motion" & "recording" tidak tersedia di
-      // schema Firebase manapun (state/dashboard/runtime). Nilai berikut
-      // TIDAK di-fetch dari Firebase agar tidak mengarang data.
-      motion: "No Motion",
-      recording: "Standby",
-      lastMotion: formatSnapshotTime(cctvTeras.snapshot && cctvTeras.snapshot.timestamp),
+      // [FIX] struktur baru multi-camera, tidak lagi single online/motion/recording
+      cameras: camerasList,
+      cameraCount,
+      onlineCameraCount,
+      errorCameraCount,
     },
     speaker: {
-      power: (speaker.online || nest.online) ?? false
+      // [FIX] optional chaining aman untuk speaker & nest; nest.online bisa
+      // berupa string seperti "standby" (bukan boolean) -> dikonversi lewat
+      // isOn() saat render, bukan di sini, supaya nilai mentah tetap terjaga.
+      power: state.speaker?.online ?? state.nest?.online ?? false,
     },
     therm: {
-      power: (state.system?.status === "CONNECTED") ?? false
+      // [FIX] node state.system terindikasi MISSING pada sebagian snapshot;
+      // optional chaining mencegah error, hasil default aman ke false.
+      power: state.system?.status === "CONNECTED",
     },
     energy: {
-      todayKwh: energyTodayIsFresh ? (energy.today_kwh ?? stats.today_kwh ?? 0) : 0,
-      weekKwh: energy.week_kwh ?? stats.week_kwh ?? 0,
-      monthKwh: energy.month_kwh ?? stats.month_kwh ?? 0,
-      todayCost: energyTodayIsFresh ? (energy.today_cost ?? stats.today_cost ?? 0) : 0,
-      weekCost: energy.week_cost ?? stats.week_cost ?? 0,
-      monthCost: energy.month_cost ?? stats.month_cost ?? 0,
+      // [FIX] fallback ke `stats` DIHAPUS total (node stats terbukti missing).
+      // Sekarang murni membaca dari state.energy.
+      todayKwh: energy.today_kwh ?? 0,
+      weekKwh: energy.week_kwh ?? 0,
+      monthKwh: energy.month_kwh ?? 0,
+      todayCost: energy.today_cost ?? 0,
+      weekCost: energy.week_cost ?? 0,
+      monthCost: energy.month_cost ?? 0,
       tariffPerKwh: energy.tariff_per_kwh ?? 0,
     }
   };
@@ -199,44 +140,50 @@ function mapFirebaseState(root) {
 function renderDashboard(data) {
   setText("txtMainTemp", data.climate.temp);
   setText("txtMainHumid", data.climate.humidity + "%");
-  
+
   setText("txtMiniPower", Number(data.energy.todayKwh).toFixed(2) + " kWh");
   setText("txtMiniCost", data.energy.todayCost.toLocaleString("id-ID"));
 
   const acOn = isOn(data.ac.power);
   const lampOn = isOn(data.lamp.power);
   const tvOn = isOn(data.tv.power);
-  const cctvOn = isOn(data.cctv.online);
+  // [FIX] cctvOn sekarang dihitung dari agregat kamera online, bukan dari
+  // field legacy state.cctv.online yang sudah tidak dipakai lagi.
+  const cctvOn = data.cctv.onlineCameraCount > 0;
+  const speakerOn = isOn(data.speaker.power);
+  const thermOn = isOn(data.therm.power);
 
-  const smartplugProtected = true; 
-  const climateOn = true;          
+  const smartplugProtected = true;
+  const climateOn = true;
 
   let onlineCount = 0;
   if (acOn) onlineCount++;
   if (lampOn) onlineCount++;
   if (tvOn) onlineCount++;
   if (cctvOn) onlineCount++;
-  if (smartplugProtected) onlineCount++; 
-  if (climateOn) onlineCount++;          
-  
+  if (smartplugProtected) onlineCount++;
+  if (climateOn) onlineCount++;
+
   setText("lblDeviceOnlineCount", `${onlineCount} Device Online`);
 
   toggleMiniIcon("minIconAC", acOn);
   toggleMiniIcon("minIconLamp", lampOn);
   toggleMiniIcon("minIconTV", tvOn);
   toggleMiniIcon("minIconCCTV", cctvOn);
-  toggleMiniIcon("minIconSpeaker", smartplugProtected); 
-  toggleMiniIcon("minIconTherm", climateOn);           
+  // [FIX] mini icon speaker/therm sekarang mengikuti state Firebase aktual
+  // (speakerOn / thermOn), sebelumnya hard-coded ke smartplugProtected/climateOn.
+  toggleMiniIcon("minIconSpeaker", speakerOn);
+  toggleMiniIcon("minIconTherm", thermOn);
 
   setText("statSummaryAC", acOn ? "ON" : "OFF");
   applyActiveOvState("#btnSummaryAC", acOn);
-  
+
   setText("statSummaryLamp", lampOn ? "ON" : "OFF");
   applyActiveOvState("#btnSummaryLamp", lampOn);
-  
+
   setText("statSummaryTV", tvOn ? "ON" : "OFF");
   applyActiveOvState("#btnSummaryTV", tvOn);
-  
+
   setText("statSummaryCCTV", cctvOn ? "ONLINE" : "OFFLINE");
   applyActiveOvState("#btnSummaryCCTV", cctvOn);
 
@@ -255,10 +202,19 @@ function renderDashboard(data) {
   setText("sensorPower", data.smartplug.power);
   setText("sensorVoltage", data.smartplug.voltage);
 
-  setText("lblCCTVStatus", cctvOn ? "ONLINE" : "OFFLINE");
-  setText("txtCCTVMotion", data.cctv.motion);
-  setText("txtCCTVRecord", data.cctv.recording);
-  setText("txtCCTVLastTime", data.cctv.lastMotion);
+  // [FIX] Panel detail CCTV dirombak total: tidak lagi menampilkan
+  // motion/recording/last_motion (field tidak ada di skema), diganti dengan
+  // ringkasan agregat multi-camera yang datanya benar-benar ada di Firebase.
+  setText("lblCCTVStatus", `${data.cctv.onlineCameraCount}/${data.cctv.cameraCount} ONLINE`);
+  setText("txtCCTVMotion", `${data.cctv.onlineCameraCount}/${data.cctv.cameraCount} Kamera Online`);
+  setText("txtCCTVRecord", data.cctv.errorCameraCount > 0 ? `${data.cctv.errorCameraCount} Error` : "OK");
+  // [NOTE] Tidak ada field timestamp pengganti last_motion di skema baru,
+  // jadi tampilkan "--" (bukan fabrikasi) sesuai aturan: jangan membuat data fiktif.
+  setText("txtCCTVLastTime", "--");
+
+  // [FIX] Render kartu per-kamera secara dinamis (garasi, kamar, teras, dst).
+  // Fungsi ini no-op aman jika container #cctvCameraList belum ada di HTML.
+  renderCCTVCameras(data.cctv.cameras);
 
   setText("txtEnergyTodayCost", "Rp " + data.energy.todayCost.toLocaleString("id-ID"));
   setText("txtEnergyTodayKwh", Number(data.energy.todayKwh).toFixed(2) + " kWh");
@@ -270,7 +226,46 @@ function renderDashboard(data) {
 }
 
 /* =========================
-   VISUAL STATE HELPERS 
+   CCTV MULTI-CAMERA RENDERER
+========================= */
+
+// [FIX] Baru — merender setiap kamera dari state.cctv.cameras.{id}.
+// Menggunakan hanya field yang benar-benar ada: online, RTSP, port, path,
+// snapshot, error. Tidak ada field yang difabrikasi.
+function renderCCTVCameras(cameras) {
+  const container = document.getElementById("cctvCameraList");
+  if (!container) return; // container opsional, aman jika belum ada di HTML
+
+  container.innerHTML = "";
+
+  if (!cameras.length) {
+    container.innerHTML = `<div class="cctv-camera-empty">Tidak ada kamera terdaftar</div>`;
+    return;
+  }
+
+  cameras.forEach((cam) => {
+    const online = isOn(cam.online);
+    const card = document.createElement("div");
+    card.className = "cctv-camera-card" + (online ? " online" : " offline");
+
+    card.innerHTML = `
+      <div class="cctv-camera-name">${escapeHtml(cam.id)}</div>
+      <div class="cctv-camera-status">${online ? "ONLINE" : "OFFLINE"}</div>
+      <div class="cctv-camera-meta">${escapeHtml(String(cam.rtsp))}:${escapeHtml(String(cam.port))}</div>
+      ${cam.error ? `<div class="cctv-camera-error">${escapeHtml(String(cam.error))}</div>` : ""}
+    `;
+    container.appendChild(card);
+  });
+}
+
+function escapeHtml(str) {
+  const div = document.createElement("div");
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+/* =========================
+   VISUAL STATE HELPERS
 ========================= */
 
 function isOn(value) {
@@ -297,23 +292,23 @@ function applyActiveOvState(cardSelector, isDeviceActive) {
   const card = document.querySelector(cardSelector);
   if (!card) return;
   card.classList.toggle("active", isDeviceActive);
-  
+
   if (isDeviceActive) {
     card.style.opacity = "1";
-    card.style.background = ""; 
+    card.style.background = "";
   } else {
     card.style.opacity = "0.6";
-    card.style.background = "#f1f5f9"; 
+    card.style.background = "#f1f5f9";
   }
 }
 
 function applyDeviceActiveState(cardSelector, statusValue) {
   const card = document.querySelector(cardSelector);
   if (!card) return;
-  
+
   const active = isOn(statusValue);
   card.classList.toggle("active", active);
-  
+
   if (active) {
     card.style.opacity = "1";
     card.style.filter = "none";
@@ -321,7 +316,7 @@ function applyDeviceActiveState(cardSelector, statusValue) {
     card.style.opacity = "0.75";
     card.style.filter = "grayscale(20%)";
   }
-  
+
   const badge = card.querySelector(".badge-status-on");
   if (badge) {
     badge.style.background = active ? "#22c55e" : "#64748b";
@@ -355,9 +350,9 @@ function syncAcSlider(power, temp) {
     const maxTemp = 30;
     const currentTemp = parseInt(temp) || 24;
     const safeTemp = Math.max(minTemp, Math.min(maxTemp, currentTemp));
-    
+
     const percentage = ((safeTemp - minTemp) / (maxTemp - minTemp)) * 100;
-    
+
     trackFilled.style.width = percentage + "%";
     thumb.style.left = percentage + "%";
   } else {
@@ -425,11 +420,10 @@ function bindControls() {
     tariffDropdown.addEventListener("change", (event) => {
       const selectedTariff = event.target.value;
       console.log("Tarif listrik diubah ke:", selectedTariff);
-      
-      // Menampilkan notifikasi visual ke layar
+
       showToast("Tarif diubah: " + selectedTariff);
-      
-      // Opsional: Kamu bisa memanggil fungsi kirim data ke Firebase di sini jika diperlukan, contoh:
+
+      // Opsional: bisa memanggil fungsi kirim data ke Firebase di sini jika diperlukan, contoh:
       // sendGeneralControl("update_tariff", selectedTariff);
     });
   }
@@ -496,7 +490,6 @@ function initWeatherWidget() {
       fetchLocalWeather(position.coords.latitude, position.coords.longitude);
     },
     () => {
-      // Izin ditolak / gagal / timeout -> pakai koordinat fallback
       fetchLocalWeather(WEATHER_FALLBACK_COORDS.lat, WEATHER_FALLBACK_COORDS.lon);
     },
     {
@@ -525,8 +518,6 @@ async function fetchLocalWeather(latitude, longitude) {
     setText("lblWeather", Math.round(temperature) + "°C");
   } catch (error) {
     console.error("Gagal memuat cuaca lokal:", error);
-    // Fallback aman: biarkan nilai #lblWeather yang sudah tampil (default HTML
-    // atau hasil fetch sukses sebelumnya) agar dashboard tetap tampil normal.
   }
 }
 
